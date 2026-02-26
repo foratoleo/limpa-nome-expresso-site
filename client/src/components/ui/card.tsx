@@ -1,13 +1,50 @@
 import * as React from "react";
-
 import { cn } from "@/lib/utils";
 
-function Card({ className, ...props }: React.ComponentProps<"div">) {
+// ─── Card Variants ─────────────────────────────────────────────────────────────
+type CardVariant = "default" | "elevated" | "outlined" | "filled";
+type CardPadding = "none" | "compact" | "default" | "spacious";
+
+interface CardBaseProps {
+  variant?: CardVariant;
+  padding?: CardPadding;
+  className?: string;
+  children?: React.ReactNode;
+}
+
+// ─── Card Component ────────────────────────────────────────────────────────────
+// Note: Using native div elements with Tailwind for backward compatibility.
+// @atlaskit/primitives Box doesn't support className prop which is required
+// for the existing Tailwind-based styling system.
+// Future migration: Replace with @atlaskit/box when moving fully to Atlassian tokens.
+function Card({
+  className,
+  variant = "default",
+  padding = "default",
+  ...props
+}: React.ComponentProps<"div"> & CardBaseProps) {
+  const paddingMap: Record<CardPadding, string> = {
+    none: "p-0",
+    compact: "p-4",
+    default: "py-6",
+    spacious: "p-8",
+  };
+
+  const variantStyles: Record<CardVariant, string> = {
+    default: "bg-card text-card-foreground border shadow-sm",
+    elevated: "bg-card text-card-foreground shadow-lg",
+    outlined: "bg-card text-card-foreground border-2",
+    filled: "bg-muted text-muted-foreground",
+  };
+
   return (
     <div
       data-slot="card"
+      data-variant={variant}
       className={cn(
-        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
+        "flex flex-col gap-6 rounded-xl",
+        variantStyles[variant],
+        paddingMap[padding],
         className
       )}
       {...props}
@@ -15,6 +52,7 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+// ─── Card Header ───────────────────────────────────────────────────────────────
 function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -28,6 +66,7 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+// ─── Card Title ────────────────────────────────────────────────────────────────
 function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -38,6 +77,7 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+// ─── Card Description ──────────────────────────────────────────────────────────
 function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -48,6 +88,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+// ─── Card Action ───────────────────────────────────────────────────────────────
 function CardAction({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -61,6 +102,7 @@ function CardAction({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+// ─── Card Content ──────────────────────────────────────────────────────────────
 function CardContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -71,6 +113,7 @@ function CardContent({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+// ─── Card Footer ───────────────────────────────────────────────────────────────
 function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -81,6 +124,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+// ─── Exports ───────────────────────────────────────────────────────────────────
 export {
   Card,
   CardHeader,
@@ -90,3 +134,6 @@ export {
   CardDescription,
   CardContent,
 };
+
+// Export types for external use
+export type { CardBaseProps, CardVariant, CardPadding };
