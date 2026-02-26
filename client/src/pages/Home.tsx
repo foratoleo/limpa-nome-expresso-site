@@ -1,36 +1,31 @@
 import { useState, useEffect } from "react";
 import {
-  CheckCircle2, Circle, Download, ChevronDown, AlertTriangle,
-  Scale, FileText, Video, Shield, ArrowRight, ExternalLink, BookOpen, ClipboardList
-} from "lucide-react";
+  CheckCircleIcon,
+  DownloadIcon,
+  ChevronDownIcon,
+  WarningIcon,
+  ScalesIcon,
+  FileIcon,
+  VideoIcon,
+  ShieldIcon,
+  ArrowRightIcon,
+  LinkExternalIcon,
+  SearchIcon,
+} from "@/utils/icons";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
-interface CheckItem {
-  id: string;
-  label: string;
-  detail?: string;
-}
+import { StepCard, Step, CheckItem } from "@/components/StepCard";
+import { DownloadsSection } from "@/components/DownloadsSection";
+import { GlobalProgressBar, StickyProgressBar } from "@/components/ProgressBar";
+import { WarningBanner } from "@/components/WarningBanner";
+import { Container } from "@/components/ui/container";
 
-interface Step {
-  number: number;
-  title: string;
-  subtitle: string;
-  icon: React.ReactNode;
-  color: string;
-  items: CheckItem[];
-  tip?: string;
-  links?: { label: string; url: string; external?: boolean }[];
-  downloads?: { label: string; file: string; description: string }[];
-}
-
-// ─── Data ─────────────────────────────────────────────────────────────────────
 const STEPS: Step[] = [
   {
     number: 1,
     title: "Reunião de Documentos",
     subtitle: "O Arsenal da Prova",
-    icon: <FileText size={22} />,
-    color: "#D4A017",
+    icon: <FileIcon size="medium" label="" />,
+    color: "#d39e17",
     tip: "A qualidade da sua prova é o que garante a rapidez da liminar. Organize tudo em uma pasta digital antes de protocolar.",
     downloads: [
       { label: "Checklist Completo de Documentos", file: "/docs/checklist_documentos.md", description: "Lista detalhada de tudo que você precisa reunir" }
@@ -49,11 +44,11 @@ const STEPS: Step[] = [
     number: 2,
     title: "Preparação da Petição",
     subtitle: "O Documento Chave",
-    icon: <Scale size={22} />,
-    color: "#4A90D9",
+    icon: <ScalesIcon size="medium" label="" />,
+    color: "#60a5fa",
     tip: "Mantenha o pedido de exclusão 'até o trânsito em julgado da presente ação' — isso garante mais de 12 meses de nome limpo.",
     downloads: [
-      { label: "Petição Inicial Pré-Preenchida (SP)", file: "/docs/peticao_inicial_jec_sp.md", description: "Modelo completo para o JEC de São Paulo — preencha os campos [...]" }
+      { label: "Petição Inicial Pre-Preenchida (SP)", file: "/docs/peticao_inicial_jec_sp.md", description: "Modelo completo para o JEC de São Paulo — preencha os campos [...]" }
     ],
     items: [
       { id: "baixar_modelo", label: "Baixar e abrir o modelo de petição (link abaixo)", detail: "Arquivo .md — abra com qualquer editor de texto ou Word" },
@@ -62,15 +57,15 @@ const STEPS: Step[] = [
       { id: "verificar_tutela", label: "Confirmar pedido de exclusão 'até o trânsito em julgado'", detail: "Esta formulação é o que garante a blindagem por 12 meses+" },
       { id: "verificar_multa", label: "Confirmar a multa diária de R$ 500,00 (astreintes)", detail: "Força o Serasa/SPC a cumprir em 5 dias úteis" },
       { id: "listar_anexos", label: "Listar todos os documentos na seção 'DOCUMENTOS ANEXOS'", detail: "Todos os itens do Passo 1 devem estar listados e numerados" },
-      { id: "salvar_pdf", label: "Salvar a petição preenchida em formato PDF", detail: "Máx. 30 MB por arquivo, 300 KB por página — exigência do e-SAJ" },
+      { id: "salvar_pdf", label: "Salvar a petição preenchida em formato PDF", detail: "Max. 30 MB por arquivo, 300 KB por página — exigência do e-SAJ" },
     ],
   },
   {
     number: 3,
     title: "Protocolo no e-SAJ",
     subtitle: "Sistema Oficial do TJSP para o JEC",
-    icon: <ArrowRight size={22} />,
-    color: "#5BAD6F",
+    icon: <ArrowRightIcon size="medium" label="" />,
+    color: "#22c55e",
     tip: "Anote o número do processo gerado — você vai precisar dele imediatamente no Passo 4 para o Balcão Virtual.",
     links: [
       { label: "Acessar o Peticionamento JEC — e-SAJ TJSP", url: "https://www.tjsp.jus.br/peticionamentojec", external: true },
@@ -84,26 +79,26 @@ const STEPS: Step[] = [
       { id: "cadastrar_partes", label: "Cadastrar as partes: você (Autor) + empresa credora + Serasa/SPC (Réus)", detail: "Serasa S.A. — CNPJ: 00.204.698/0001-46" },
       { id: "marcar_urgencia", label: "Marcar a opção 'Pedido Liminar / Tutela Antecipada'", detail: "Campo obrigatório para prioridade na análise — só marque se houver dano irreparável" },
       { id: "anexar_documentos", label: "Anexar a Petição em PDF e todos os documentos separados", detail: "Cada documento em arquivo PDF separado e identificado" },
-      { id: "anotar_numero", label: "Finalizar e anotar o número do processo gerado", detail: "⚠️ Essencial para o Balcão Virtual no próximo passo" },
+      { id: "anotar_numero", label: "Finalizar e anotar o número do processo gerado", detail: "Essencial para o Balcão Virtual no próximo passo" },
     ],
   },
   {
     number: 4,
     title: "Tática do Balcão Virtual",
     subtitle: "Aceleração Máxima — TJSP",
-    icon: <Video size={22} />,
-    color: "#D4A017",
+    icon: <VideoIcon size="medium" label="" />,
+    color: "#d39e17",
     tip: "Seja educado, firme e objetivo. O objetivo é fazer seu processo 'furar a fila' e chegar à mesa do juiz em até 48 horas.",
     links: [
       { label: "Acessar o Balcão Virtual TJSP", url: "https://www.tjsp.jus.br/balcaovirtual", external: true },
     ],
     downloads: [
-      { label: "Roteiro de Fala Pré-Preenchido", file: "/docs/roteiro_balcao_virtual.md", description: "Script completo para o atendimento por videoconferência" }
+      { label: "Roteiro de Fala Pre-Preenchido", file: "/docs/roteiro_balcao_virtual.md", description: "Script completo para o atendimento por videoconferência" }
     ],
     items: [
       { id: "baixar_roteiro", label: "Baixar e preencher o roteiro de fala (link abaixo)", detail: "Preencha com seus dados antes de iniciar a chamada" },
-      { id: "acessar_balcao", label: "Acessar tjsp.jus.br/balcaovirtual (Seg–Sex, 9h–17h)", detail: "Selecionar: 1ª Instância — Juizados Especiais" },
-      { id: "selecionar_vara", label: "Selecionar o foro onde o processo foi distribuído", detail: "Use o número do processo para identificar a vara correta" },
+      { id: "acessar_balcao", label: "Acessar tjsp.jus.br/balcaovirtual (Seg–Sex, 9h–17h)", detail: "Selecionar: 1a Instância — Juizados Especiais" },
+      { id: "selecionar_vara", label: "Selecionar o fórum onde o processo foi distribuído", detail: "Use o número do processo para identificar a vara correta" },
       { id: "aguardar_fila", label: "Aguardar na fila virtual com câmera e microfone prontos", detail: "Tenha o número do processo e seus documentos à mão" },
       { id: "usar_roteiro", label: "Usar o roteiro de fala ao ser atendido", detail: "Informe o número do processo, o dano irreparável e peça encaminhamento urgente ao juiz" },
       { id: "anotar_atendimento", label: "Anotar o nome do servidor e o protocolo do atendimento", detail: "Importante para referência em caso de necessidade de novo contato" },
@@ -113,8 +108,8 @@ const STEPS: Step[] = [
     number: 5,
     title: "Acompanhamento",
     subtitle: "Monitoramento e Próximos Passos",
-    icon: <Shield size={22} />,
-    color: "#5BAD6F",
+    icon: <ShieldIcon size="medium" label="" />,
+    color: "#22c55e",
     tip: "Liminar concedida: o Serasa/SPC tem 5 dias úteis para cumprir após a intimação. Verifique seu nome após esse prazo.",
     links: [
       { label: "Consultar Processo no e-SAJ", url: "https://esaj.tjsp.jus.br/cpopg/open.do", external: true },
@@ -130,7 +125,6 @@ const STEPS: Step[] = [
   },
 ];
 
-// ─── Checklist Hook ────────────────────────────────────────────────────────────
 function useChecklist() {
   const [checked, setChecked] = useState<Record<string, boolean>>(() => {
     try {
@@ -154,243 +148,80 @@ function useChecklist() {
   return { checked, toggle, progress, totalChecked, totalItems, resetAll };
 }
 
-// ─── Progress Bar ─────────────────────────────────────────────────────────────
-function ProgressBar({ progress }: { progress: number }) {
-  return (
-    <div className="fixed top-0 left-0 right-0 z-50 h-1 bg-[#162847]">
-      <div className="h-full bg-[#D4A017] transition-all duration-500" style={{ width: `${progress}%` }} />
-    </div>
-  );
-}
-
-// ─── Download Button ──────────────────────────────────────────────────────────
-function DownloadBtn({ label, file, description }: { label: string; file: string; description: string }) {
-  return (
-    <a
-      href={file}
-      download
-      className="flex items-start gap-3 w-full px-4 py-3 rounded-xl border border-[#D4A017]/40 hover:bg-[#D4A017]/10 transition-colors duration-200 group"
-    >
-      <Download size={16} className="text-[#D4A017] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-      <div>
-        <div className="text-[#D4A017] text-sm font-semibold" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{label}</div>
-        <div className="text-[#7A9AB8] text-xs mt-0.5" style={{ fontFamily: "'Inter', sans-serif" }}>{description}</div>
-      </div>
-    </a>
-  );
-}
-
-// ─── Link Button ──────────────────────────────────────────────────────────────
-function LinkBtn({ label, url }: { label: string; url: string }) {
-  return (
-    <a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#4A90D9]/40 text-[#4A90D9] hover:bg-[#4A90D9]/10 transition-colors duration-200 text-sm font-medium"
-      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-    >
-      <ExternalLink size={14} />
-      {label}
-    </a>
-  );
-}
-
-// ─── Step Card ────────────────────────────────────────────────────────────────
-function StepCard({ step, checked, onToggle }: { step: Step; checked: Record<string, boolean>; onToggle: (id: string) => void }) {
-  const [open, setOpen] = useState(true);
-  const stepChecked = step.items.filter((i) => checked[i.id]).length;
-  const stepDone = stepChecked === step.items.length;
-
-  return (
-    <div className={`relative rounded-2xl border transition-all duration-300 ${stepDone ? "border-[#2E7D52]/60 bg-[#162847]/80" : "border-[#243B5E] bg-[#162847]/60"}`}>
-      <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl" style={{ backgroundColor: step.color }} />
-
-      <button onClick={() => setOpen(!open)} className="w-full flex items-center gap-4 px-6 pt-5 pb-4 text-left">
-        <div
-          className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-[#0F1E3C] font-extrabold text-xl"
-          style={{ backgroundColor: step.color, fontFamily: "'Space Grotesk', sans-serif" }}
-        >
-          {step.number}
-        </div>
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2">
-            <span className="text-sm font-medium" style={{ color: step.color, fontFamily: "'Space Grotesk', sans-serif" }}>
-              {step.subtitle}
-            </span>
-            {stepDone && (
-              <span className="text-xs bg-[#2E7D52]/30 text-[#5BAD6F] px-2 py-0.5 rounded-full font-medium">Concluído</span>
-            )}
-          </div>
-          <h3 className="text-white font-bold text-lg leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
-            {step.title}
-          </h3>
-        </div>
-        <div className="flex items-center gap-3 flex-shrink-0">
-          <span className="text-sm text-[#8BA8C8] font-medium" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-            {stepChecked}/{step.items.length}
-          </span>
-          <div className="text-[#8BA8C8]">{step.icon}</div>
-          <ChevronDown size={18} className={`text-[#8BA8C8] transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
-        </div>
-      </button>
-
-      <div className="mx-6 h-0.5 bg-[#243B5E] rounded-full mb-1">
-        <div
-          className="h-full rounded-full transition-all duration-500"
-          style={{ width: `${(stepChecked / step.items.length) * 100}%`, backgroundColor: step.color }}
-        />
-      </div>
-
-      {open && (
-        <div className="px-6 pt-3 pb-5 space-y-3">
-          {step.tip && (
-            <div className="flex gap-3 bg-[#0F1E3C]/60 border border-[#D4A017]/20 rounded-xl px-4 py-3">
-              <AlertTriangle size={16} className="text-[#D4A017] flex-shrink-0 mt-0.5" />
-              <p className="text-[#D4A017]/90 text-sm leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>{step.tip}</p>
-            </div>
-          )}
-
-          {/* Downloads */}
-          {step.downloads && step.downloads.length > 0 && (
-            <div className="space-y-2">
-              {step.downloads.map((d) => (
-                <DownloadBtn key={d.file} label={d.label} file={d.file} description={d.description} />
-              ))}
-            </div>
-          )}
-
-          {/* Links */}
-          {step.links && step.links.length > 0 && (
-            <div className="flex flex-wrap gap-2">
-              {step.links.map((l) => (
-                <LinkBtn key={l.url} label={l.label} url={l.url} />
-              ))}
-            </div>
-          )}
-
-          {/* Checklist */}
-          <ul className="space-y-2">
-            {step.items.map((item) => {
-              const isChecked = !!checked[item.id];
-              return (
-                <li key={item.id}>
-                  <button
-                    onClick={() => onToggle(item.id)}
-                    className={`w-full flex items-start gap-3 px-3 py-2.5 rounded-xl text-left transition-all duration-200 ${
-                      isChecked
-                        ? "bg-[#2E7D52]/15 border border-[#2E7D52]/30"
-                        : "bg-[#0F1E3C]/40 border border-transparent hover:border-[#243B5E] hover:bg-[#0F1E3C]/60"
-                    }`}
-                  >
-                    <span className="flex-shrink-0 mt-0.5">
-                      {isChecked ? <CheckCircle2 size={18} className="text-[#5BAD6F]" /> : <Circle size={18} className="text-[#4A6080]" />}
-                    </span>
-                    <span className="flex-1 min-w-0">
-                      <span
-                        className={`block text-sm font-medium leading-snug ${isChecked ? "text-[#8BA8C8] line-through" : "text-[#E8E4D8]"}`}
-                        style={{ fontFamily: "'Inter', sans-serif" }}
-                      >
-                        {item.label}
-                      </span>
-                      {item.detail && (
-                        <span className="block text-xs text-[#5A7A9A] mt-0.5 leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
-                          {item.detail}
-                        </span>
-                      )}
-                    </span>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      )}
-    </div>
-  );
-}
-
-// ─── Downloads Section ────────────────────────────────────────────────────────
-function DownloadsSection() {
-  const docs = [
-    {
-      icon: <ClipboardList size={20} className="text-[#D4A017]" />,
-      title: "Checklist Completo de Documentos",
-      description: "Lista detalhada de todos os documentos necessários para o Passo 1",
-      file: "/docs/checklist_documentos.md",
-      badge: "Passo 1",
-      badgeColor: "#D4A017",
-    },
-    {
-      icon: <Scale size={20} className="text-[#4A90D9]" />,
-      title: "Petição Inicial Pré-Preenchida",
-      description: "Modelo completo para o JEC de São Paulo — sistema e-SAJ TJSP",
-      file: "/docs/peticao_inicial_jec_sp.md",
-      badge: "Passo 2",
-      badgeColor: "#4A90D9",
-    },
-    {
-      icon: <Video size={20} className="text-[#D4A017]" />,
-      title: "Roteiro do Balcão Virtual",
-      description: "Script de fala pré-preenchido para o atendimento por videoconferência",
-      file: "/docs/roteiro_balcao_virtual.md",
-      badge: "Passo 4",
-      badgeColor: "#D4A017",
-    },
-  ];
-
-  return (
-    <div className="rounded-2xl border border-[#243B5E] bg-[#162847]/40 p-6">
-      <div className="flex items-center gap-3 mb-4">
-        <BookOpen size={20} className="text-[#D4A017]" />
-        <h4 className="font-bold text-white" style={{ fontFamily: "'Playfair Display', serif" }}>
-          Todos os Documentos para Download
-        </h4>
-      </div>
-      <div className="grid md:grid-cols-3 gap-3">
-        {docs.map((doc) => (
-          <a
-            key={doc.file}
-            href={doc.file}
-            download
-            className="flex flex-col gap-2 p-4 rounded-xl bg-[#0F1E3C]/60 border border-[#243B5E] hover:border-[#D4A017]/40 hover:bg-[#0F1E3C]/80 transition-all duration-200 group"
-          >
-            <div className="flex items-center justify-between">
-              {doc.icon}
-              <span
-                className="text-xs font-bold px-2 py-0.5 rounded-full"
-                style={{ backgroundColor: `${doc.badgeColor}20`, color: doc.badgeColor, fontFamily: "'Space Grotesk', sans-serif" }}
-              >
-                {doc.badge}
-              </span>
-            </div>
-            <div className="font-semibold text-[#E8E4D8] text-sm leading-snug group-hover:text-white transition-colors" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-              {doc.title}
-            </div>
-            <div className="text-xs text-[#5A7A9A] leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
-              {doc.description}
-            </div>
-            <div className="flex items-center gap-1 text-xs text-[#D4A017] mt-auto pt-1 font-medium" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-              <Download size={12} />
-              Baixar documento
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// ─── Main Component ────────────────────────────────────────────────────────────
 export default function Home() {
   const { checked, toggle, progress, totalChecked, totalItems, resetAll } = useChecklist();
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#0F1E3C", fontFamily: "'Inter', sans-serif" }}>
-      <ProgressBar progress={progress} />
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#12110d", fontFamily: "'Public Sans', sans-serif" }}>
+      <GlobalProgressBar progress={progress} />
+
+      {/* Header - Figma Design */}
+      <header
+        className="sticky top-0 z-50 backdrop-blur-[6px] border-b"
+        style={{
+          backgroundColor: "rgba(18, 17, 13, 0.5)",
+          borderColor: "rgba(211, 158, 23, 0.2)"
+        }}
+      >
+        <Container as="div" maxWidth="xl" className="flex items-center justify-between py-4">
+          {/* Logo & Nav */}
+          <div className="flex items-center gap-8">
+            <a href="/" className="flex items-center gap-3">
+              <div className="w-8 h-8 flex items-center justify-center">
+                <svg width="27" height="29" viewBox="0 0 27 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13.5 0L26.5 8V21L13.5 29L0.5 21V8L13.5 0Z" fill="#d39e17"/>
+                  <path d="M13.5 6L20 10V19L13.5 23L7 19V10L13.5 6Z" fill="#12110d"/>
+                </svg>
+              </div>
+              <h2 className="text-xl font-bold" style={{ color: "#f1f5f9", letterSpacing: "-0.3px" }}>
+                Limpa Nome <span style={{ color: "#d39e17" }}>Expresso</span>
+              </h2>
+            </a>
+            <nav className="hidden md:flex items-center gap-6">
+              <a href="#processos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Meus Processos</a>
+              <a href="#documentos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Documentos</a>
+              <a href="#modelos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Modelos</a>
+              <a href="#suporte" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Suporte</a>
+            </nav>
+          </div>
+
+          {/* Search & Actions */}
+          <div className="flex items-center gap-4">
+            <div className="hidden lg:flex items-center rounded-full overflow-hidden" style={{ backgroundColor: "rgba(255, 255, 255, 0.1)", maxWidth: 256 }}>
+              <div className="pl-4 flex items-center justify-center">
+                <SearchIcon size="small" label="" />
+              </div>
+              <input
+                type="text"
+                placeholder="Buscar no guia..."
+                className="bg-transparent border-none outline-none py-2.5 px-3 text-sm w-full"
+                style={{ color: "#f1f5f9" }}
+              />
+            </div>
+            <button
+              className="px-5 py-2 rounded-full text-sm font-bold transition-all hover:shadow-lg"
+              style={{
+                backgroundColor: "#d39e17",
+                color: "#12110d",
+                boxShadow: "0 0 20px rgba(211, 158, 23, 0.3)"
+              }}
+            >
+              Área do Cliente
+            </button>
+            <div
+              className="w-10 h-10 rounded-full border-2 overflow-hidden hidden sm:block"
+              style={{ borderColor: "rgba(211, 158, 23, 0.3)" }}
+            >
+              <div className="w-full h-full flex items-center justify-center" style={{ backgroundColor: "rgba(211, 158, 23, 0.2)" }}>
+                <span className="text-sm font-bold" style={{ color: "#d39e17" }}>U</span>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </header>
 
       {/* Hero */}
-      <header
+      <section
         className="relative overflow-hidden"
         style={{
           backgroundImage: `url(https://private-us-east-1.manuscdn.com/sessionFile/tfQrixalo6L6d6Ru8eZN3k/sandbox/7RHK51NOj77WuuyMjjLXy1-img-1_1771862793000_na1fn_aGVyb19saW1wYV9ub21l.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvdGZRcml4YWxvNkw2ZDZSdThlWk4zay9zYW5kYm94LzdSSEs1MU5Pajc3V3V1eU1qakxYeTEtaW1nLTFfMTc3MTg2Mjc5MzAwMF9uYTFmbl9hR1Z5YjE5c2FXMXdZVjl1YjIxbC5qcGc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=A8AW0Vtqr6xAMFi5D~izqAWWD9bJY0c7iW2--fIswQ1P6wgVZOy0N5crgQsMGD0SjOvOVBKTUxO9QqnCGCK8J9Qyd1oLd2GUvgDL1uK-SuiYJZzws6lds8jE-9xULdRV~~0UxF-SZpxosav4N4BwK8keSOVy1cYJU9niFI9jufp35BfQwchqAEGCJ3O2q5omPuRclKoMKKzWkxjjgozyjy7Bez0feuc1TYTlUWqIShEKvH7cZ3H5Y7pBzjz1oG6wRL8ilW~cxyrqmg0~RI-BQSh9DYbT5AW3FaSd~79F5ziN4PKpuxzhuT3RrNQYPrCJzmZVc2tQYUZegyOvB4TTcQ__)`,
@@ -398,27 +229,45 @@ export default function Home() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(15,30,60,0.75) 0%, rgba(15,30,60,0.92) 100%)" }} />
-        <div className="relative container py-20 md:py-28">
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(18,17,13,0.85) 0%, rgba(18,17,13,0.95) 100%)" }} />
+        <Container as="div" maxWidth="xl" className="relative py-16 md:py-24">
           <div className="max-w-3xl">
-            <div className="flex flex-wrap items-center gap-2 mb-5">
-              <span className="text-xs font-bold tracking-widest uppercase px-3 py-1.5 rounded-full border border-[#D4A017]/50 text-[#D4A017]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+            <div className="flex flex-wrap items-center gap-2 mb-6">
+              <span
+                className="text-xs font-bold tracking-[1.2px] uppercase px-4 py-2 rounded-full"
+                style={{
+                  border: "1px solid rgba(211, 158, 23, 0.5)",
+                  color: "#d39e17"
+                }}
+              >
                 Guia Jurídico 2026
               </span>
-              <span className="text-xs font-bold tracking-widest uppercase px-3 py-1.5 rounded-full border border-[#5BAD6F]/50 text-[#5BAD6F]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              <span
+                className="text-xs font-bold tracking-[1.2px] uppercase px-4 py-2 rounded-full"
+                style={{
+                  border: "1px solid rgba(34, 197, 94, 0.5)",
+                  color: "#22c55e"
+                }}
+              >
                 Sem Advogado Necessário
               </span>
-              <span className="text-xs font-bold tracking-widest uppercase px-3 py-1.5 rounded-full border border-[#4A90D9]/50 text-[#4A90D9]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              <span
+                className="text-xs font-bold tracking-[1.2px] uppercase px-4 py-2 rounded-full"
+                style={{
+                  border: "1px solid rgba(96, 165, 250, 0.5)",
+                  color: "#60a5fa"
+                }}
+              >
                 TJSP — e-SAJ
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-black text-white leading-tight mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Limpa Nome{" "}<span style={{ color: "#D4A017" }}>Expresso</span>
+            <h1 className="text-4xl md:text-6xl font-black leading-tight mb-6" style={{ color: "#f1f5f9" }}>
+              Limpa Nome <span style={{ color: "#d39e17" }}>Expresso</span>
             </h1>
-            <p className="text-[#A8C0D8] text-lg md:text-xl leading-relaxed mb-8 max-w-2xl" style={{ fontFamily: "'Inter', sans-serif" }}>
-              Guia prático e atualizado para limpar seu nome dos cadastros de inadimplentes via Juizado Especial Cível de São Paulo (e-SAJ TJSP) e Balcão Virtual, com base no Art. 43, § 2º do CDC e Súmula 359 do STJ.
+            <p className="text-lg md:text-xl leading-relaxed mb-8 max-w-2xl" style={{ color: "#94a3b8" }}>
+              Guia prático e atualizado para limpar seu nome dos cadastros de inadimplentes via Juizado Especial Cível de São Paulo (e-SAJ TJSP) e Balcão Virtual, com base no Art. 43, §2º do CDC e Súmula 359 do STJ.
             </p>
-            <div className="flex flex-wrap gap-6">
+            <div className="flex flex-wrap gap-8">
               {[
                 { value: "5 Passos", label: "Processo completo" },
                 { value: "5–15 dias", label: "Prazo médio da liminar" },
@@ -426,35 +275,45 @@ export default function Home() {
                 { value: "e-SAJ", label: "Sistema TJSP (SP)" },
               ].map((stat) => (
                 <div key={stat.label}>
-                  <div className="text-2xl font-extrabold text-[#D4A017]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{stat.value}</div>
-                  <div className="text-xs text-[#7A9AB8] uppercase tracking-wider mt-0.5" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{stat.label}</div>
+                  <div className="text-2xl font-extrabold" style={{ color: "#d39e17" }}>{stat.value}</div>
+                  <div className="text-xs uppercase tracking-wider mt-1" style={{ color: "#64748b" }}>{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
-        </div>
-      </header>
+        </Container>
+      </section>
 
       {/* Progress summary */}
-      <div className="sticky top-1 z-40 container">
-        <div className="bg-[#162847]/95 backdrop-blur-sm border border-[#243B5E] rounded-2xl px-5 py-3 flex items-center gap-4 shadow-xl">
+      <Container as="div" maxWidth="xl" className="sticky top-[73px] z-40 -mt-4">
+        <div
+          className="backdrop-blur-sm border rounded-2xl px-5 py-3 flex items-center gap-4 shadow-xl"
+          style={{
+            backgroundColor: "rgba(22, 40, 71, 0.95)",
+            borderColor: "rgba(211, 158, 23, 0.2)"
+          }}
+        >
           <div className="flex-1">
             <div className="flex items-center justify-between mb-1.5">
-              <span className="text-sm font-semibold text-[#E8E4D8]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Seu Progresso</span>
-              <span className="text-sm font-bold text-[#D4A017]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{totalChecked}/{totalItems} itens — {progress}%</span>
+              <span className="text-sm font-semibold" style={{ color: "#e8e4d8" }}>Seu Progresso</span>
+              <span className="text-sm font-bold" style={{ color: "#d39e17" }}>{totalChecked}/{totalItems} itens — {progress}%</span>
             </div>
-            <div className="h-2 bg-[#0F1E3C] rounded-full overflow-hidden">
-              <div className="h-full bg-gradient-to-r from-[#D4A017] to-[#F0C040] rounded-full transition-all duration-500" style={{ width: `${progress}%` }} />
-            </div>
+            <StickyProgressBar progress={progress} />
           </div>
-          <button onClick={resetAll} className="flex-shrink-0 text-xs text-[#5A7A9A] hover:text-[#8BA8C8] transition-colors px-2 py-1 rounded-lg hover:bg-[#0F1E3C]/50" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+          <button
+            onClick={resetAll}
+            className="flex-shrink-0 text-xs px-3 py-1.5 rounded-lg transition-colors"
+            style={{ color: "#64748b" }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "rgba(211, 158, 23, 0.1)"}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+          >
             Reiniciar
           </button>
         </div>
-      </div>
+      </Container>
 
-      {/* Steps */}
-      <main className="container py-8 space-y-4 max-w-3xl mx-auto">
+      {/* Main Content */}
+      <Container as="main" maxWidth="lg" className="py-8 space-y-4 flex-1">
 
         {/* Downloads section at top */}
         <DownloadsSection />
@@ -465,58 +324,113 @@ export default function Home() {
         ))}
 
         {/* JEC vs Balcão Virtual explanation */}
-        <div className="rounded-2xl border border-[#4A90D9]/30 bg-[#162847]/60 p-6">
-          <div className="flex gap-3 mb-3">
-            <Video size={20} className="text-[#4A90D9] flex-shrink-0 mt-0.5" />
-            <h4 className="font-bold text-white" style={{ fontFamily: "'Playfair Display', serif" }}>JEC (e-SAJ) vs. Balcão Virtual: Qual a diferença?</h4>
+        <div
+          className="rounded-3xl border p-6 backdrop-blur-[4px]"
+          style={{
+            backgroundColor: "rgba(22, 40, 71, 0.95)",
+            borderColor: "rgba(96, 165, 250, 0.3)"
+          }}
+        >
+          <div className="flex gap-3 mb-4">
+            <span style={{ color: "#60a5fa" }} className="flex-shrink-0 mt-0.5"><VideoIcon size="medium" label="" /></span>
+            <h4 className="font-bold text-lg" style={{ color: "#f1f5f9" }}>JEC (e-SAJ) vs. Balcão Virtual: Qual a diferença?</h4>
           </div>
-          <div className="grid md:grid-cols-2 gap-4 text-sm mb-4" style={{ fontFamily: "'Inter', sans-serif" }}>
-            <div className="bg-[#0F1E3C]/60 rounded-xl p-4 border border-[#243B5E]">
-              <div className="font-semibold text-[#5BAD6F] mb-1">Juizado Especial Cível — e-SAJ</div>
-              <p className="text-[#8BA8C8] leading-relaxed">Onde você <strong className="text-[#E8E4D8]">protocola a ação</strong>. É o tribunal. Sem ele, não há processo. Acesse em <strong className="text-[#4A90D9]">tjsp.jus.br/peticionamentojec</strong></p>
+          <div className="grid md:grid-cols-2 gap-4 text-sm mb-4">
+            <div
+              className="rounded-2xl p-4 border"
+              style={{
+                backgroundColor: "rgba(18, 17, 13, 0.6)",
+                borderColor: "rgba(34, 197, 94, 0.2)"
+              }}
+            >
+              <div className="font-semibold mb-1" style={{ color: "#22c55e" }}>Juizado Especial Cível — e-SAJ</div>
+              <p style={{ color: "#94a3b8" }} className="leading-relaxed">
+                Onde você <strong style={{ color: "#e8e4d8" }}>protocola a ação</strong>. É o tribunal. Sem ele, não há processo. Acesse em <strong style={{ color: "#60a5fa" }}>tjsp.jus.br/peticionamentojec</strong>
+              </p>
             </div>
-            <div className="bg-[#0F1E3C]/60 rounded-xl p-4 border border-[#243B5E]">
-              <div className="font-semibold text-[#4A90D9] mb-1">Balcão Virtual TJSP</div>
-              <p className="text-[#8BA8C8] leading-relaxed">Onde você <strong className="text-[#E8E4D8]">acelera o processo</strong>. Canal de videoconferência do mesmo TJ. Use <em>depois</em> de protocolar para pedir urgência ao escrevente.</p>
+            <div
+              className="rounded-2xl p-4 border"
+              style={{
+                backgroundColor: "rgba(18, 17, 13, 0.6)",
+                borderColor: "rgba(96, 165, 250, 0.2)"
+              }}
+            >
+              <div className="font-semibold mb-1" style={{ color: "#60a5fa" }}>Balcão Virtual TJSP</div>
+              <p style={{ color: "#94a3b8" }} className="leading-relaxed">
+                Onde você <strong style={{ color: "#e8e4d8" }}>acelera o processo</strong>. Canal de videoconferência do mesmo TJ. Use <em>depois</em> de protocolar para pedir urgência ao escrevente.
+              </p>
             </div>
           </div>
-          <div className="bg-[#0F1E3C]/40 rounded-xl p-4 border border-[#243B5E]">
-            <p className="text-xs text-[#7A9AB8] leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
-              <strong className="text-[#A8C0D8]">Nota sobre o e-Proc:</strong> O TJSP iniciou a migração do e-SAJ para o e-Proc em outubro de 2025. O peticionamento do JEC para o cidadão sem advogado ainda utiliza o sistema <strong className="text-[#E8E4D8]">e-SAJ</strong> (tjsp.jus.br/peticionamentojec). O e-Proc é voltado principalmente para advogados e servidores. Verifique sempre o link oficial antes de protocolar.
+          <div
+            className="rounded-2xl p-4 border"
+            style={{
+              backgroundColor: "rgba(18, 17, 13, 0.4)",
+              borderColor: "rgba(211, 158, 23, 0.1)"
+            }}
+          >
+            <p className="text-xs leading-relaxed" style={{ color: "#64748b" }}>
+              <strong style={{ color: "#94a3b8" }}>Nota sobre o e-Proc:</strong> O TJSP iniciou a migração do e-SAJ para o e-Proc em outubro de 2025. O peticionamento do JEC para o cidadão sem advogado ainda utiliza o sistema <strong style={{ color: "#e8e4d8" }}>e-SAJ</strong> (tjsp.jus.br/peticionamentojec). O e-Proc é voltado principalmente para advogados e servidores. Verifique sempre o link oficial antes de protocolar.
             </p>
           </div>
         </div>
 
         {/* Warning */}
-        <div className="rounded-2xl border border-[#C0392B]/30 bg-[#C0392B]/8 p-5 flex gap-3">
-          <AlertTriangle size={20} className="text-[#E05252] flex-shrink-0 mt-0.5" />
-          <div>
-            <p className="font-semibold text-[#E05252] mb-1" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Atenção: Golpes Frequentes</p>
-            <p className="text-[#A87070] text-sm leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
-              Desconfie de empresas que cobram valores altos para "limpar o nome sem pagar a dívida". A via judicial pelo JEC é gratuita para o cidadão e não exige advogado para causas de até 20 salários mínimos. Você tem o poder de fazer isso sozinho com este guia.
+        <WarningBanner title="Atenção: Golpes Frequentes">
+          Desconfie de empresas que cobram valores altos para "limpar o nome sem pagar a dívida". A via judicial pelo JEC é gratuita para o cidadão e não exige advogado para causas de até 20 salários mínimos. Você tem o poder de fazer isso sozinho com este guia.
+        </WarningBanner>
+
+        {/* Legal basis */}
+        <div
+          className="rounded-3xl border p-6 backdrop-blur-[4px]"
+          style={{
+            backgroundColor: "rgba(22, 40, 71, 0.95)",
+            borderColor: "rgba(211, 158, 23, 0.2)"
+          }}
+        >
+          <h4 className="font-bold text-sm uppercase tracking-wider mb-4" style={{ color: "#d39e17" }}>Base Legal</h4>
+          <div className="space-y-3 text-sm">
+            <p className="leading-relaxed" style={{ color: "#94a3b8" }}>
+              <strong style={{ color: "#e8e4d8" }}>Art. 43, §2º do CDC:</strong> A abertura de cadastro de inadimplentes deverá ser comunicada por escrito ao consumidor, quando não solicitada por ele.
+            </p>
+            <p className="leading-relaxed" style={{ color: "#94a3b8" }}>
+              <strong style={{ color: "#e8e4d8" }}>Súmula 359 do STJ:</strong> Cabe ao órgão mantenedor do Cadastro de Proteção ao Crédito a notificação do devedor antes de proceder à inscrição.
+            </p>
+            <p className="leading-relaxed" style={{ color: "#94a3b8" }}>
+              <strong style={{ color: "#e8e4d8" }}>Art. 9 da Lei 9.099/95:</strong> Nas causas de até 20 salários mínimos, as partes comparecerão pessoalmente, podendo ser assistidas por advogado.
+            </p>
+            <p className="leading-relaxed" style={{ color: "#94a3b8" }}>
+              <strong style={{ color: "#e8e4d8" }}>Resolução CNJ nº 372/21:</strong> Institui o Balcão Virtual para atendimento imediato por videoconferência nas unidades judiciais.
             </p>
           </div>
         </div>
+      </Container>
 
-        {/* Legal basis */}
-        <div className="rounded-2xl border border-[#D4A017]/20 bg-[#162847]/40 p-6">
-          <h4 className="font-bold text-[#D4A017] mb-3 text-sm uppercase tracking-wider" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Base Legal</h4>
-          <div className="space-y-2 text-sm" style={{ fontFamily: "'Inter', sans-serif" }}>
-            <p className="text-[#A8C0D8] leading-relaxed"><strong className="text-[#E8E4D8]">Art. 43, § 2º do CDC:</strong> A abertura de cadastro de inadimplentes deverá ser comunicada por escrito ao consumidor, quando não solicitada por ele.</p>
-            <p className="text-[#A8C0D8] leading-relaxed"><strong className="text-[#E8E4D8]">Súmula 359 do STJ:</strong> Cabe ao órgão mantenedor do Cadastro de Proteção ao Crédito a notificação do devedor antes de proceder à inscrição.</p>
-            <p className="text-[#A8C0D8] leading-relaxed"><strong className="text-[#E8E4D8]">Art. 9º da Lei 9.099/95:</strong> Nas causas de até 20 salários mínimos, as partes comparecerão pessoalmente, podendo ser assistidas por advogado.</p>
-            <p className="text-[#A8C0D8] leading-relaxed"><strong className="text-[#E8E4D8]">Resolução CNJ nº 372/21:</strong> Institui o Balcão Virtual para atendimento imediato por videoconferência nas unidades judiciais.</p>
+      {/* Footer - Figma Design */}
+      <footer
+        className="border-t mt-8"
+        style={{
+          backgroundColor: "rgba(18, 17, 13, 0.8)",
+          borderColor: "rgba(211, 158, 23, 0.1)"
+        }}
+      >
+        <Container as="div" maxWidth="xl" className="py-10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 0L17.5 5V14L9 19L0.5 14V5L9 0Z" fill="#d39e17"/>
+                <path d="M9 4L13 6.5V11.5L9 14L5 11.5V6.5L9 4Z" fill="#12110d"/>
+              </svg>
+              <span className="text-sm" style={{ color: "#64748b" }}>
+                © 2024 Limpa Nome Expresso. Sistema de Apoio Jurídico Automático.
+              </span>
+            </div>
+            <div className="flex items-center gap-8">
+              <a href="#termos" className="text-sm hover:text-[#d39e17] transition-colors" style={{ color: "#64748b" }}>Termos de Uso</a>
+              <a href="#privacidade" className="text-sm hover:text-[#d39e17] transition-colors" style={{ color: "#64748b" }}>Privacidade</a>
+              <a href="#oab" className="text-sm hover:text-[#d39e17] transition-colors" style={{ color: "#64748b" }}>OAB Compliance</a>
+            </div>
           </div>
-        </div>
-      </main>
-
-      {/* Footer */}
-      <footer className="border-t border-[#162847] mt-8 py-8">
-        <div className="container text-center">
-          <p className="text-[#4A6080] text-xs" style={{ fontFamily: "'Inter', sans-serif" }}>
-            Este guia é informativo e não constitui assessoria jurídica. As informações são baseadas na legislação e jurisprudência vigente em 2026. Para casos complexos, consulte um advogado. Sistema de protocolo: e-SAJ TJSP (tjsp.jus.br/peticionamentojec).
-          </p>
-        </div>
+        </Container>
       </footer>
     </div>
   );
