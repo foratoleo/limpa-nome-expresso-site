@@ -1,0 +1,341 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1772472393358,
+  "projectRoot": "/Users/forato/PROJECTS/limpa-nome-expresso-site",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "tsconfig.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "express",
+        "version": "4.21.2",
+        "category": "backend"
+      },
+      {
+        "name": "react",
+        "version": "19.2.1",
+        "category": "frontend"
+      },
+      {
+        "name": "react-dom",
+        "version": "19.2.1",
+        "category": "frontend"
+      },
+      {
+        "name": "@playwright/test",
+        "version": "1.58.2",
+        "category": "testing"
+      },
+      {
+        "name": "esbuild",
+        "version": "0.25.0",
+        "category": "build"
+      },
+      {
+        "name": "vite",
+        "version": "7.1.7",
+        "category": "build"
+      },
+      {
+        "name": "vitest",
+        "version": "2.1.4",
+        "category": "testing"
+      }
+    ],
+    "packageManager": "pnpm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "pnpm build",
+    "testCommand": "pnpm test",
+    "lintCommand": null,
+    "devCommand": "pnpm dev",
+    "scripts": {
+      "dev": "vite --host",
+      "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
+      "start": "NODE_ENV=production node dist/index.js",
+      "preview": "vite preview --host",
+      "check": "tsc --noEmit",
+      "format": "prettier --write .",
+      "test": "vitest run",
+      "test:watch": "vitest",
+      "test:coverage": "vitest run --coverage",
+      "test:e2e": "playwright test",
+      "test:e2e:ui": "playwright test --ui",
+      "test:e2e:debug": "playwright test --debug",
+      "test:all": "pnpm test && pnpm test:e2e",
+      "video": "remotion studio client/src/video/Root.tsx",
+      "video:render": "remotion render PhaseTrail out/video.mp4"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "client": {
+      "path": "client",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1772472393305,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "dist": {
+      "path": "dist",
+      "purpose": "Distribution/build output",
+      "fileCount": 1,
+      "lastAccessed": 1772472393338,
+      "keyFiles": [
+        "index.js"
+      ]
+    },
+    "e2e": {
+      "path": "e2e",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1772472393338,
+      "keyFiles": [
+        "accessibility.spec.ts",
+        "visual-regression.spec.ts"
+      ]
+    },
+    "out": {
+      "path": "out",
+      "purpose": "Build output",
+      "fileCount": 1,
+      "lastAccessed": 1772472393340,
+      "keyFiles": [
+        "ln01.mp4"
+      ]
+    },
+    "patches": {
+      "path": "patches",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1772472393341,
+      "keyFiles": [
+        "wouter@3.7.1.patch"
+      ]
+    },
+    "server": {
+      "path": "server",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1772472393342,
+      "keyFiles": [
+        "index.ts"
+      ]
+    },
+    "shared": {
+      "path": "shared",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1772472393350,
+      "keyFiles": [
+        "const.ts"
+      ]
+    },
+    "supabase": {
+      "path": "supabase",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1772472393351,
+      "keyFiles": []
+    },
+    "client/public": {
+      "path": "client/public",
+      "purpose": "Public files",
+      "fileCount": 5,
+      "lastAccessed": 1772472393353,
+      "keyFiles": [
+        "background-music.mp3",
+        "favicon.svg",
+        "ln01.mp4"
+      ]
+    },
+    "client/src": {
+      "path": "client/src",
+      "purpose": "Source code",
+      "fileCount": 4,
+      "lastAccessed": 1772472393353,
+      "keyFiles": [
+        "App.tsx",
+        "const.ts",
+        "index.css"
+      ]
+    },
+    "dist/public": {
+      "path": "dist/public",
+      "purpose": "Public files",
+      "fileCount": 6,
+      "lastAccessed": 1772472393354,
+      "keyFiles": [
+        "background-music.mp3",
+        "favicon.svg",
+        "index.html"
+      ]
+    },
+    "server/lib": {
+      "path": "server/lib",
+      "purpose": "Library code",
+      "fileCount": 1,
+      "lastAccessed": 1772472393355,
+      "keyFiles": [
+        "supabase-server.ts"
+      ]
+    },
+    "server/middleware": {
+      "path": "server/middleware",
+      "purpose": "Middleware",
+      "fileCount": 1,
+      "lastAccessed": 1772472393355,
+      "keyFiles": [
+        "stripe-webhook.ts"
+      ]
+    },
+    "server/routes": {
+      "path": "server/routes",
+      "purpose": "Route handlers",
+      "fileCount": 2,
+      "lastAccessed": 1772472393356,
+      "keyFiles": [
+        "contact.ts",
+        "stripe.ts"
+      ]
+    },
+    "supabase/migrations": {
+      "path": "supabase/migrations",
+      "purpose": "Database migrations",
+      "fileCount": 4,
+      "lastAccessed": 1772472393358,
+      "keyFiles": [
+        "001_initial_schema.sql",
+        "002_checklist_documents.sql",
+        "002_stripe_schema.sql"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "server/services/email.service.ts",
+      "accessCount": 7,
+      "lastAccessed": 1772473683956,
+      "type": "file"
+    },
+    {
+      "path": "server/routes/contact.ts",
+      "accessCount": 6,
+      "lastAccessed": 1772473579976,
+      "type": "file"
+    },
+    {
+      "path": "client/src/components/roadmap/PhaseModal.tsx",
+      "accessCount": 5,
+      "lastAccessed": 1772473902928,
+      "type": "file"
+    },
+    {
+      "path": "",
+      "accessCount": 4,
+      "lastAccessed": 1772473222298,
+      "type": "directory"
+    },
+    {
+      "path": "client/src/hooks/useDocuments.ts",
+      "accessCount": 4,
+      "lastAccessed": 1772474022110,
+      "type": "file"
+    },
+    {
+      "path": "client/src/hooks/useChecklistDocuments.ts",
+      "accessCount": 3,
+      "lastAccessed": 1772474067552,
+      "type": "file"
+    },
+    {
+      "path": ".env.local",
+      "accessCount": 2,
+      "lastAccessed": 1772473513563,
+      "type": "file"
+    },
+    {
+      "path": "server/lib/emailit.ts",
+      "accessCount": 2,
+      "lastAccessed": 1772473683940,
+      "type": "file"
+    },
+    {
+      "path": "client/src/utils/icons.ts",
+      "accessCount": 2,
+      "lastAccessed": 1772473947850,
+      "type": "file"
+    },
+    {
+      "path": "client/src/components/roadmap/DocumentListModal.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1772473969774,
+      "type": "file"
+    },
+    {
+      "path": ".mcp.json",
+      "accessCount": 1,
+      "lastAccessed": 1772472448500,
+      "type": "file"
+    },
+    {
+      "path": "package.json",
+      "accessCount": 1,
+      "lastAccessed": 1772473135278,
+      "type": "file"
+    },
+    {
+      "path": "server/lib/supabase-server.ts",
+      "accessCount": 1,
+      "lastAccessed": 1772473257084,
+      "type": "file"
+    },
+    {
+      "path": "docs/emailit-integration.md",
+      "accessCount": 1,
+      "lastAccessed": 1772473485268,
+      "type": "file"
+    },
+    {
+      "path": ".dr_ai/tasks/EMAILIT-INTEGRATION/context_session.md",
+      "accessCount": 1,
+      "lastAccessed": 1772473647622,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

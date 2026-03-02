@@ -1,0 +1,8 @@
+{"t":0,"agent":"ada68a2","agent_type":"unknown","event":"agent_stop","success":true}
+{"t":0,"agent":"a125f01","agent_type":"unknown","event":"agent_stop","success":true}
+{"t":0,"agent":"system","event":"keyword_detected","keyword":"autopilot"}
+{"t":0,"agent":"system","event":"mode_change","mode_from":"none","mode_to":"autopilot"}
+{"t":0,"agent":"a8b7772","agent_type":"unknown","event":"agent_stop","success":true}
+{"t":0,"agent":"a2ca045","agent_type":"unknown","event":"agent_stop","success":true}
+{"t":0,"agent":"a90604f","agent_type":"unknown","event":"agent_stop","success":true}
+{"t":0,"agent":"system","event":"skill_invoked","skill_name":"remotion-best-practices"}

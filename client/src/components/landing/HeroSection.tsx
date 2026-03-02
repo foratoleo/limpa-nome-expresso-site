@@ -14,63 +14,60 @@ export function HeroSection() {
   return (
     <>
       {/* Hero Content - altura compacta perto do header */}
-      <section
-        style={{
-          backgroundColor: COLORS.background,
-          padding: "32px 40px 0",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-          }}
-        >
+      <section className="px-4 py-8 md:px-10 md:py-8 lg:pt-10 bg-[#12110d]">
+        <div className="max-w-[1200px] mx-auto">
           {/* Badges */}
-          <div style={{ display: "flex", gap: "8px", marginBottom: "12px", flexWrap: "wrap" }}>
-            <span style={{
-              padding: "4px 10px",
-              fontSize: "10px",
-              fontWeight: 500,
-              color: COLORS.gold,
-              border: `1px solid ${COLORS.gold}`,
-              borderRadius: "20px",
-            }}>
-              Guia Juridico 2026
+          <div
+            style={{
+              display: "flex",
+              gap: "8px",
+              marginBottom: "12px",
+              flexWrap: "wrap",
+            }}
+          >
+            <span
+              style={{
+                padding: "4px 10px",
+                fontSize: "10px",
+                fontWeight: 500,
+                color: COLORS.gold,
+                border: `1px solid ${COLORS.gold}`,
+                borderRadius: "20px",
+              }}
+            >
+              Guia Jurídico 2026
             </span>
-            <span style={{
-              padding: "4px 10px",
-              fontSize: "10px",
-              fontWeight: 500,
-              color: COLORS.green,
-              border: `1px solid ${COLORS.green}`,
-              borderRadius: "20px",
-            }}>
+            <span
+              style={{
+                padding: "4px 10px",
+                fontSize: "10px",
+                fontWeight: 500,
+                color: COLORS.green,
+                border: `1px solid ${COLORS.green}`,
+                borderRadius: "20px",
+              }}
+            >
               Sem Advogado
             </span>
-            <span style={{
-              padding: "4px 10px",
-              fontSize: "10px",
-              fontWeight: 500,
-              color: COLORS.blue,
-              border: `1px solid ${COLORS.blue}`,
-              borderRadius: "20px",
-            }}>
+            <span
+              style={{
+                padding: "4px 10px",
+                fontSize: "10px",
+                fontWeight: 500,
+                color: COLORS.blue,
+                border: `1px solid ${COLORS.blue}`,
+                borderRadius: "20px",
+              }}
+            >
               TJSP - e-SAJ
             </span>
           </div>
 
           {/* Headline */}
-          <h1 style={{
-            fontSize: "36px",
-            fontWeight: 700,
-            color: COLORS.textPrimary,
-            lineHeight: 1.2,
-            margin: "0 0 20px 0",
-          }}>
-            Limpe seu nome em ate{" "}
-            <span style={{ color: COLORS.gold }}>15 dias</span>{" "}
-            sem pagar advogado
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#f1f5f9] leading-tight mb-5 mt-2">
+            Limpe seu nome em até{" "}
+            <span style={{ color: COLORS.gold }}>15 dias</span> sem pagar
+            advogado
           </h1>
 
           {/* Content Row - Texto legal + Video */}
@@ -82,21 +79,26 @@ export function HeroSection() {
           >
             {/* Right - Texto legal + Video */}
             <div style={{ flex: "1" }}>
-              <p style={{
-                fontSize: "14px",
-                color: COLORS.textSecondary,
-                lineHeight: 1.6,
-                margin: "0 0 16px 0",
-              }}>
-                Baseado no Art. 43, paragrafo 2 do Codigo de Defesa do Consumidor.
-                O prazo para exclusao dos registros e de ate 5 dias uteis apos a quitação.
+              <p
+                style={{
+                  fontSize: "14px",
+                  color: COLORS.textSecondary,
+                  lineHeight: 1.6,
+                  margin: "0 0 16px 0",
+                }}
+              >
+                Baseado no Art. 43, parágrafo 2 do Código de Defesa do
+                Consumidor. O prazo para exclusão dos registros é de até 5 dias
+                úteis após a quitação.
               </p>
-              <div style={{
-                position: "relative",
-                borderRadius: "8px",
-                overflow: "hidden",
-                backgroundColor: COLORS.navy,
-              }}>
+              <div
+                style={{
+                  position: "relative",
+                  borderRadius: "8px",
+                  overflow: "hidden",
+                  backgroundColor: COLORS.navy,
+                }}
+              >
                 <video
                   src="/ln01.mp4"
                   autoPlay
@@ -109,22 +111,39 @@ export function HeroSection() {
                     display: "block",
                   }}
                 />
-                <div style={{
-                  position: "absolute",
-                  bottom: "10px",
-                  left: "10px",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "6px",
-                  padding: "5px 10px",
-                  backgroundColor: "rgba(18, 17, 13, 0.9)",
-                  borderRadius: "4px",
-                }}>
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: "10px",
+                    left: "10px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "6px",
+                    padding: "5px 10px",
+                    backgroundColor: "rgba(18, 17, 13, 0.9)",
+                    borderRadius: "4px",
+                  }}
+                >
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill={COLORS.green} />
-                    <path d="M9 12l2 2 4-4" stroke={COLORS.background} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path
+                      d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                      fill={COLORS.green}
+                    />
+                    <path
+                      d="M9 12l2 2 4-4"
+                      stroke={COLORS.background}
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
-                  <span style={{ fontSize: "11px", fontWeight: 600, color: COLORS.textPrimary }}>
+                  <span
+                    style={{
+                      fontSize: "11px",
+                      fontWeight: 600,
+                      color: COLORS.textPrimary,
+                    }}
+                  >
                     5 Passos para Blindagem
                   </span>
                 </div>
@@ -136,10 +155,9 @@ export function HeroSection() {
 
       {/* Banner - estatisticas */}
       <section
+        className="p-6 md:p-10 text-center"
         style={{
           background: `linear-gradient(180deg, ${COLORS.background} 0%, ${COLORS.navy}30 50%, ${COLORS.background} 100%)`,
-          padding: "40px",
-          textAlign: "center",
         }}
       >
         <div
@@ -148,39 +166,87 @@ export function HeroSection() {
             margin: "0 auto",
           }}
         >
-          <h2 style={{
-            fontSize: "22px",
-            fontWeight: 600,
-            color: COLORS.textPrimary,
-            marginBottom: "8px",
-          }}>
+          <h2
+            style={{
+              fontSize: "22px",
+              fontWeight: 600,
+              color: COLORS.textPrimary,
+              marginBottom: "8px",
+            }}
+          >
             Proteja seu nome com a lei ao seu lado
           </h2>
-          <p style={{
-            fontSize: "14px",
-            color: COLORS.textSecondary,
-            lineHeight: 1.6,
-            marginBottom: "24px",
-          }}>
-            Milhares de brasileiros ja limparam seus nomes usando seus direitos.
-            Faca voce tambem, sem burocracia.
+          <p
+            style={{
+              fontSize: "14px",
+              color: COLORS.textSecondary,
+              lineHeight: 1.6,
+              marginBottom: "24px",
+            }}
+          >
+            Milhares de brasileiros já limparam seus nomes usando seus direitos.
+            Faça você também, sem burocracia.
           </p>
-          <div style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "48px",
-          }}>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-12 mt-8">
             <div>
-              <div style={{ fontSize: "32px", fontWeight: 700, color: COLORS.gold }}>100%</div>
-              <div style={{ fontSize: "12px", color: COLORS.textSecondary, marginTop: "2px" }}>Online</div>
+              <div
+                style={{
+                  fontSize: "32px",
+                  fontWeight: 700,
+                  color: COLORS.gold,
+                }}
+              >
+                100%
+              </div>
+              <div
+                style={{
+                  fontSize: "12px",
+                  color: COLORS.textSecondary,
+                  marginTop: "2px",
+                }}
+              >
+                Online
+              </div>
             </div>
             <div>
-              <div style={{ fontSize: "32px", fontWeight: 700, color: COLORS.green }}>0</div>
-              <div style={{ fontSize: "12px", color: COLORS.textSecondary, marginTop: "2px" }}>Advogados</div>
+              <div
+                style={{
+                  fontSize: "32px",
+                  fontWeight: 700,
+                  color: COLORS.green,
+                }}
+              >
+                0
+              </div>
+              <div
+                style={{
+                  fontSize: "12px",
+                  color: COLORS.textSecondary,
+                  marginTop: "2px",
+                }}
+              >
+                Advogados
+              </div>
             </div>
             <div>
-              <div style={{ fontSize: "32px", fontWeight: 700, color: COLORS.blue }}>12+</div>
-              <div style={{ fontSize: "12px", color: COLORS.textSecondary, marginTop: "2px" }}>Meses Blindado</div>
+              <div
+                style={{
+                  fontSize: "32px",
+                  fontWeight: 700,
+                  color: COLORS.blue,
+                }}
+              >
+                12+
+              </div>
+              <div
+                style={{
+                  fontSize: "12px",
+                  color: COLORS.textSecondary,
+                  marginTop: "2px",
+                }}
+              >
+                Meses Blindado
+              </div>
             </div>
           </div>
         </div>

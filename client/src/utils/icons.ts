@@ -52,6 +52,15 @@ export { default as FileIcon } from "@atlaskit/icon/core/file";
 export { default as VideoIcon } from "@atlaskit/icon/core/video";
 export { default as ShieldIcon } from "@atlaskit/icon/core/shield";
 export { default as SearchIcon } from "@atlaskit/icon/core/search";
+export { default as CrossIcon } from "@atlaskit/icon/core/cross";
+export { default as ChevronRightIcon } from "@atlaskit/icon/core/chevron-right";
+export { default as TrashIcon } from "@atlaskit/icon/core/trash";
+export { default as AddCircleIcon } from "@atlaskit/icon/core/add-circle";
+
+// Aliases for convenience (proper re-export pattern for default exports)
+import BookWithBookmarkIconAlias from "@atlaskit/icon/core/book-with-bookmark";
+import CrossIconAlias from "@atlaskit/icon/core/cross";
+export { BookWithBookmarkIconAlias as BookOpenIcon, CrossIconAlias as XIcon };
 
 // ============================================================================
 // lucide-react Imports (Fallback for unavailable @atlaskit equivalents)

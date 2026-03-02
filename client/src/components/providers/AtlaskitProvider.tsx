@@ -104,6 +104,20 @@ class ThemeErrorBoundary extends React.Component<
             <p style={{ marginBottom: '8px', color: '#E8E4D8' }}>
               Ocorreu um erro ao inicializar o sistema de design.
             </p>
+            {this.state.error && (
+              <pre style={{
+                marginBottom: '16px',
+                padding: '12px',
+                backgroundColor: 'rgba(255,255,255,0.1)',
+                borderRadius: '8px',
+                maxWidth: '600px',
+                overflow: 'auto',
+                fontSize: '12px',
+                color: '#FF5630'
+              }}>
+                {this.state.error.message}
+              </pre>
+            )}
             <button
               onClick={() => window.location.reload()}
               style={{
