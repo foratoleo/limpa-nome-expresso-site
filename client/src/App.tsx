@@ -5,6 +5,7 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { AuthProvider } from "./contexts/AuthContext";
+import { PaymentProvider } from "./contexts/PaymentContext";
 import { AtlaskitProvider } from "./components/providers/AtlaskitProvider";
 import { ProtectedRoute } from "./components/auth/ProtectedRoute";
 import Home from "./pages/Home";
@@ -17,6 +18,8 @@ import Process from "./pages/Process";
 import Downloads from "./pages/Downloads";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import Billing from "./pages/Billing";
+import { CheckoutPage } from "./components/checkout";
+import PaymentFailed from "./pages/PaymentFailed";
 import { Agentation } from "agentation";
 
 function Router() {
@@ -24,49 +27,60 @@ function Router() {
     <Switch>
       <Route path={"/"} component={Landing} />
       <Route path={"/guia"}>
-        <ProtectedRoute>
+        <ProtectedRoute requirePayment={true}>
           <Home />
         </ProtectedRoute>
       </Route>
       <Route path={"/documentos"}>
-        <ProtectedRoute>
+        <ProtectedRoute requirePayment={true}>
           <Documents />
         </ProtectedRoute>
       </Route>
       <Route path={"/modelos"}>
-        <ProtectedRoute>
+        <ProtectedRoute requirePayment={true}>
           <Templates />
         </ProtectedRoute>
       </Route>
       <Route path={"/suporte"}>
-        <ProtectedRoute>
+        <ProtectedRoute requirePayment={true}>
           <Support />
         </ProtectedRoute>
       </Route>
       <Route path={"/downloads"}>
-        <ProtectedRoute>
+        <ProtectedRoute requirePayment={true}>
           <Downloads />
         </ProtectedRoute>
       </Route>
       <Route path={"/processo"}>
-        <ProtectedRoute>
+        <ProtectedRoute requirePayment={true}>
           <Process />
         </ProtectedRoute>
       </Route>
       <Route path={"/dashboard"}>
-        <ProtectedRoute>
+        <ProtectedRoute requirePayment={true}>
           <Dashboard />
         </ProtectedRoute>
       </Route>
       <Route path={"/pagamento/sucesso"}>
-        <ProtectedRoute>
+        <ProtectedRoute requirePayment={true}>
           <PaymentSuccess />
         </ProtectedRoute>
       </Route>
       <Route path={"/faturamento"}>
-        <ProtectedRoute>
+        <ProtectedRoute requirePayment={true}>
           <Billing />
         </ProtectedRoute>
+      </Route>
+      <Route path={"/checkout"}>
+        <ProtectedRoute requirePayment={false}>
+          <CheckoutPage />
+        </ProtectedRoute>
+      </Route>
+      <Route path={"/checkout/sucesso"}>
+        <PaymentSuccess />
+      </Route>
+      <Route path={"/checkout/falha"}>
+        <PaymentFailed />
       </Route>
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
@@ -88,23 +102,26 @@ function App() {
     <ErrorBoundary>
       {/* AuthProvider: Supabase authentication context */}
       <AuthProvider>
-        {/* AtlaskitProvider: Atlassian Design System with Legal Financial theme */}
-        <AtlaskitProvider
-          defaultMode="dark"
-          // switchable // Uncomment to enable theme switching
-        >
-          {/* ThemeProvider: Legacy theme support for shadcn/ui components during migration */}
-          <ThemeProvider
-            defaultTheme="light"
-            // switchable
+        {/* PaymentProvider: Payment status and access control */}
+        <PaymentProvider>
+          {/* AtlaskitProvider: Atlassian Design System with Legal Financial theme */}
+          <AtlaskitProvider
+            defaultMode="dark"
+            // switchable // Uncomment to enable theme switching
           >
-            <TooltipProvider>
-              <Toaster />
-              <Router />
-              {import.meta.env.DEV && <Agentation />}
-            </TooltipProvider>
-          </ThemeProvider>
-        </AtlaskitProvider>
+            {/* ThemeProvider: Legacy theme support for shadcn/ui components during migration */}
+            <ThemeProvider
+              defaultTheme="light"
+              // switchable
+            >
+              <TooltipProvider>
+                <Toaster />
+                <Router />
+                {import.meta.env.DEV && <Agentation />}
+              </TooltipProvider>
+            </ThemeProvider>
+          </AtlaskitProvider>
+        </PaymentProvider>
       </AuthProvider>
     </ErrorBoundary>
   );

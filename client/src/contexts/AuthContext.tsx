@@ -6,8 +6,8 @@ interface AuthContextType {
   user: User | null;
   session: Session | null;
   loading: boolean;
-  signUp: (email: string, password: string) => Promise<{ error: AuthError | null }>;
-  signIn: (email: string, password: string) => Promise<{ error: AuthError | null }>;
+  signUp: (email: string, password: string) => Promise<{ error: AuthError | null; data?: { user?: User; session?: Session } }>;
+  signIn: (email: string, password: string) => Promise<{ error: AuthError | null; data?: { user?: User | null; session?: Session | null } }>;
   signOut: () => Promise<void>;
   resetPassword: (email: string) => Promise<{ error: AuthError | null }>;
 }
@@ -45,19 +45,48 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signUp = async (email: string, password: string) => {
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-    });
-    return { error };
+    try {
+      // Use relative URL or current origin to avoid CORS issues
+      const response = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        return {
+          error: {
+            message: data.error || "Erro ao criar conta",
+            name: "AuthError",
+            status: response.status,
+          } as AuthError,
+        };
+      }
+
+      // After successful registration, redirect to home or let callback handle it
+      // The caller should handle navigation based on their needs
+      return { error: null, data: data.data };
+    } catch (err) {
+      return {
+        error: {
+          message: "Erro ao conectar com o servidor",
+          name: "NetworkError",
+        } as AuthError,
+      };
+    }
   };
 
   const signIn = async (email: string, password: string) => {
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
-    return { error };
+    // Return both error and data to allow caller to handle post-signin actions
+    return { error, data };
   };
 
   const signOut = async () => {

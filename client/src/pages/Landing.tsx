@@ -4,6 +4,7 @@ import { SearchIcon } from "@/utils/icons";
 import { Container } from "@/components/ui/container";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { useAuth } from "@/contexts/AuthContext";
+import { usePaymentStatus } from "@/contexts/PaymentContext";
 import {
   HeroSection,
   PainPointsSection,
@@ -14,19 +15,25 @@ import {
   FAQSection,
   CTASection,
 } from "@/components/landing";
-import { PricingSection } from "@/components/pricing";
+// REMOVIDO: PricingSection antiga do Stripe - Agora usando checkout MercadoPago
+// import { PricingSection } from "@/components/pricing";
 
 export default function Landing() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const { user } = useAuth();
+  const { hasActiveAccess, loading: paymentLoading } = usePaymentStatus();
   const [, setLocation] = useLocation();
 
   // Redirect to /guia when user logs in
   useEffect(() => {
-    if (user && !isAuthModalOpen) {
-      setLocation("/guia");
+    if (user && !isAuthModalOpen && !paymentLoading) {
+      if (hasActiveAccess) {
+        setLocation("/guia");
+      } else {
+        setLocation("/checkout");
+      }
     }
-  }, [user, isAuthModalOpen, setLocation]);
+  }, [user, isAuthModalOpen, paymentLoading, hasActiveAccess, setLocation]);
 
   return (
     <div
@@ -126,7 +133,7 @@ export default function Landing() {
         <HowItWorksSection />
         <SocialProofSection />
         <LegalBasisSection />
-        <PricingSection />
+        {/* REMOVIDO: PricingSection antiga do Stripe - Agora usando checkout MercadoPago */}
         <FAQSection />
         <CTASection onOpenAuth={() => setIsAuthModalOpen(true)} />
       </main>

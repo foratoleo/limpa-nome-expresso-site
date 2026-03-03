@@ -265,6 +265,10 @@ export interface Database {
           paid_at: string | null;
           created_at: string;
           updated_at: string;
+          payment_provider?: 'stripe' | 'mercadopago';
+          mercadopago_payment_id?: string;
+          mercadopago_preference_id?: string;
+          access_expires_at?: string;
         };
         Insert: {
           id?: string;
@@ -278,6 +282,10 @@ export interface Database {
           paid_at?: string | null;
           created_at?: string;
           updated_at?: string;
+          payment_provider?: 'stripe' | 'mercadopago';
+          mercadopago_payment_id?: string;
+          mercadopago_preference_id?: string;
+          access_expires_at?: string;
         };
         Update: {
           id?: string;
@@ -289,6 +297,43 @@ export interface Database {
           status?: string;
           description?: string | null;
           paid_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+          payment_provider?: 'stripe' | 'mercadopago';
+          mercadopago_payment_id?: string;
+          mercadopago_preference_id?: string;
+          access_expires_at?: string;
+        };
+        Relationships: [];
+      };
+      user_access: {
+        Row: {
+          id: string;
+          user_id: string;
+          access_type: 'subscription' | 'one_time';
+          payment_id: string | null;
+          expires_at: string;
+          is_active: boolean;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          access_type: 'subscription' | 'one_time';
+          payment_id?: string | null;
+          expires_at: string;
+          is_active?: boolean;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          user_id?: string;
+          access_type?: 'subscription' | 'one_time';
+          payment_id?: string | null;
+          expires_at?: string;
+          is_active?: boolean;
           created_at?: string;
           updated_at?: string;
         };
@@ -356,5 +401,7 @@ export type Subscription = Database["public"]["Tables"]["subscriptions"]["Row"];
 export type SubscriptionInsert = Database["public"]["Tables"]["subscriptions"]["Insert"];
 export type Payment = Database["public"]["Tables"]["payments"]["Row"];
 export type PaymentInsert = Database["public"]["Tables"]["payments"]["Insert"];
+export type UserAccess = Database["public"]["Tables"]["user_access"]["Row"];
+export type UserAccessInsert = Database["public"]["Tables"]["user_access"]["Insert"];
 export type ChecklistDocument = Database["public"]["Tables"]["checklist_documents"]["Row"];
 export type ChecklistDocumentInsert = Database["public"]["Tables"]["checklist_documents"]["Insert"];

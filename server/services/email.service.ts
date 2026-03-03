@@ -64,6 +64,12 @@ export class EmailService {
   private defaultFrom: string;
 
   constructor(config: EmailServiceConfig) {
+    if (!config.apiKey) {
+      throw new Error('EmailService requires apiKey in configuration');
+    }
+    if (!config.defaultFrom) {
+      throw new Error('EmailService requires defaultFrom in configuration');
+    }
     this.client = createEmailItClient({
       apiKey: config.apiKey,
       baseUrl: config.baseUrl,

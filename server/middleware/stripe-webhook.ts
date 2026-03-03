@@ -33,7 +33,7 @@ async function handleSubscriptionCreated(subscription: Stripe.Subscription) {
       .from('stripe_customers')
       .select('user_id')
       .eq('stripe_customer_id', customerId)
-      .single();
+      .maybeSingle();
     finalUserId = customerData?.user_id;
   }
 
@@ -112,7 +112,7 @@ async function handleInvoicePaid(invoice: Stripe.Invoice) {
     .from('stripe_customers')
     .select('user_id')
     .eq('stripe_customer_id', customerId)
-    .single();
+    .maybeSingle();
 
   if (!customerData?.user_id) return;
 
@@ -139,7 +139,7 @@ async function handlePaymentFailed(invoice: Stripe.Invoice) {
     .from('stripe_customers')
     .select('user_id')
     .eq('stripe_customer_id', customerId)
-    .single();
+    .maybeSingle();
 
   if (!customerData?.user_id) return;
 

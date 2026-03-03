@@ -4,10 +4,13 @@ import { createClient } from '@supabase/supabase-js';
 
 const router = Router();
 
-// Initialize Stripe with secret key
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-11-20.acacia',
-});
+// Initialize Stripe with secret key (optional - only if configured)
+let stripe: Stripe | null = null;
+if (process.env.STRIPE_SECRET_KEY && process.env.STRIPE_SECRET_KEY !== 'sk_test_your_secret_key_here') {
+  stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+    apiVersion: '2024-11-20.acacia',
+  });
+}
 
 // Initialize Supabase client for server-side operations
 const supabase = createClient(
@@ -17,12 +20,21 @@ const supabase = createClient(
 
 // Get or create Stripe customer for user
 async function getOrCreateCustomer(userId: string, email: string): Promise<string> {
+  if (!stripe) {
+    throw new Error('Stripe is not configured');
+  }
+
   // Check if customer already exists
-  const { data: existingCustomer } = await supabase
+  const { data: existingCustomer, error: customerError } = await supabase
     .from('stripe_customers')
     .select('stripe_customer_id')
     .eq('user_id', userId)
-    .single();
+    .maybeSingle();
+
+  if (customerError) {
+    console.error('Error checking existing customer:', customerError);
+    throw new Error('Failed to check existing customer');
+  }
 
   if (existingCustomer?.stripe_customer_id) {
     return existingCustomer.stripe_customer_id;
@@ -48,6 +60,10 @@ async function getOrCreateCustomer(userId: string, email: string): Promise<strin
 
 // POST /api/stripe/create-checkout-session
 router.post('/create-checkout-session', async (req: Request, res: Response) => {
+  if (!stripe) {
+    return res.status(503).json({ error: 'Stripe is not configured' });
+  }
+
   try {
     const { priceId } = req.body;
 
@@ -101,6 +117,10 @@ router.post('/create-checkout-session', async (req: Request, res: Response) => {
 
 // POST /api/stripe/create-portal-session
 router.post('/create-portal-session', async (req: Request, res: Response) => {
+  if (!stripe) {
+    return res.status(503).json({ error: 'Stripe is not configured' });
+  }
+
   try {
     // Get user from auth header
     const authHeader = req.headers.authorization;
@@ -119,11 +139,16 @@ router.post('/create-portal-session', async (req: Request, res: Response) => {
     }
 
     // Get customer ID
-    const { data: customerData } = await supabase
+    const { data: customerData, error: customerError } = await supabase
       .from('stripe_customers')
       .select('stripe_customer_id')
       .eq('user_id', user.id)
-      .single();
+      .maybeSingle();
+
+    if (customerError) {
+      console.error('Error fetching customer:', customerError);
+      return res.status(500).json({ error: 'Failed to fetch customer data' });
+    }
 
     if (!customerData?.stripe_customer_id) {
       return res.status(400).json({ error: 'No Stripe customer found' });
@@ -162,12 +187,17 @@ router.get('/subscription', async (req: Request, res: Response) => {
     }
 
     // Get subscription from database
-    const { data: subscription } = await supabase
+    const { data: subscription, error: subscriptionError } = await supabase
       .from('subscriptions')
       .select('*')
       .eq('user_id', user.id)
       .eq('status', 'active')
-      .single();
+      .maybeSingle();
+
+    if (subscriptionError) {
+      console.error('Error fetching subscription:', subscriptionError);
+      return res.status(500).json({ error: 'Failed to fetch subscription' });
+    }
 
     res.json({ subscription });
   } catch (error) {
