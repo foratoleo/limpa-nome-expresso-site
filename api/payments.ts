@@ -34,8 +34,8 @@ export default async function handler(req: any, res: any) {
       }
     );
 
-    // Get user from JWT using admin API
-    const { data: { user }, error: authError } = await supabase.auth.admin.getUserById(
+    // Get user from JWT using correct method
+    const { data: { user }, error: authError } = await supabase.auth.getUser(
       token
     );
 
