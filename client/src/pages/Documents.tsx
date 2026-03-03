@@ -4,9 +4,12 @@ import { Container } from "@/components/ui/container";
 import { UserProfile } from "@/components/UserProfile";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { DocumentsList } from "@/components/documents/DocumentsList";
+import { LegalGuidesSection } from "@/components/legal-guides/LegalGuidesSection";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Documents() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("documentos");
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#12110d", fontFamily: "'Public Sans', sans-serif" }}>
@@ -69,15 +72,40 @@ export default function Documents() {
         {/* Page Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-2" style={{ color: "#f1f5f9" }}>
-            Meus Documentos
+            Documentos
           </h1>
           <p className="text-sm" style={{ color: "#94a3b8" }}>
-            Gerencie seus documentos para o processo de limpeza de nome
+            Gerencie seus documentos e acesse guias jurídicos
           </p>
         </div>
 
-        {/* Documents List */}
-        <DocumentsList />
+        {/* Tabs Navigation */}
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <TabsList className="grid w-full grid-cols-2 mb-6" style={{ backgroundColor: "rgba(255, 255, 255, 0.05)" }}>
+            <TabsTrigger
+              value="documentos"
+              className="data-[state=active]:text-[#d39e17] data-[state=active]:bg-[#d39e17]/10"
+              style={{ color: "#cbd5e1" }}
+            >
+              Meus Documentos
+            </TabsTrigger>
+            <TabsTrigger
+              value="guias"
+              className="data-[state=active]:text-[#d39e17] data-[state=active]:bg-[#d39e17]/10"
+              style={{ color: "#cbd5e1" }}
+            >
+              Guias Jurídicos
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="documentos" className="space-y-6 mt-0">
+            <DocumentsList />
+          </TabsContent>
+
+          <TabsContent value="guias" className="space-y-6 mt-0">
+            <LegalGuidesSection />
+          </TabsContent>
+        </Tabs>
       </Container>
 
       {/* Footer */}

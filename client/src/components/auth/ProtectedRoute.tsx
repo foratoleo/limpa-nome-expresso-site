@@ -1,20 +1,42 @@
 import { ReactNode, useEffect } from "react";
 import { useLocation } from "wouter";
 import { useAuth } from "@/contexts/AuthContext";
-import { usePaymentStatus } from "@/contexts/PaymentContext";
+import { useSubscription } from "@/hooks/useSubscription";
 
 interface ProtectedRouteProps {
   children: ReactNode;
   requirePayment?: boolean;
+  requireAdmin?: boolean;
 }
 
-export function ProtectedRoute({ children, requirePayment = true }: ProtectedRouteProps) {
+export function ProtectedRoute({ children, requirePayment = true, requireAdmin = false }: ProtectedRouteProps) {
   const { user, loading } = useAuth();
-  const { hasActiveAccess, loading: paymentLoading } = usePaymentStatus();
+  const { hasAccess, loading: paymentLoading, hasManualAccess, initialized } = useSubscription();
   const [, setLocation] = useLocation();
 
   useEffect(() => {
-    if (loading || (requirePayment && paymentLoading)) {
+    if (import.meta.env.DEV) {
+      console.log('[ProtectedRoute] Check:', {
+        user: user?.email,
+        loading,
+        paymentLoading,
+        requirePayment,
+        requireAdmin,
+        hasAccess,
+        hasManualAccess,
+        userRole: user?.user_metadata?.role
+      });
+    }
+
+    if (loading || (requirePayment && !initialized)) {
+      if (import.meta.env.DEV) {
+        console.log('[ProtectedRoute] Still loading - waiting...', {
+          loading,
+          paymentLoading,
+          initialized,
+          userExists: !!user
+        });
+      }
       return;
     }
 
@@ -23,13 +45,25 @@ export function ProtectedRoute({ children, requirePayment = true }: ProtectedRou
       return;
     }
 
-    if (requirePayment && !hasActiveAccess) {
+    // Only check payment access if NOT loading
+    if (requirePayment && !paymentLoading && !hasAccess) {
+      if (import.meta.env.DEV) {
+        console.log('[ProtectedRoute] Redirecting to /checkout - no access', {
+          hasAccess,
+          hasManualAccess
+        });
+      }
       setLocation("/checkout");
       return;
     }
-  }, [user, loading, requirePayment, hasActiveAccess, paymentLoading, setLocation]);
 
-  if (loading || (requirePayment && paymentLoading)) {
+    if (requireAdmin && user.user_metadata?.role !== 'admin') {
+      setLocation("/");
+      return;
+    }
+  }, [user, loading, requirePayment, requireAdmin, hasAccess, hasManualAccess, paymentLoading, initialized, setLocation]);
+
+  if (loading || (requirePayment && !initialized)) {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: "#12110d" }}>
         <div className="text-center">
@@ -43,7 +77,7 @@ export function ProtectedRoute({ children, requirePayment = true }: ProtectedRou
     );
   }
 
-  if (!user || (requirePayment && !hasActiveAccess)) {
+  if (!user || (requirePayment && !hasAccess) || (requireAdmin && user.user_metadata?.role !== 'admin')) {
     return null;
   }
 

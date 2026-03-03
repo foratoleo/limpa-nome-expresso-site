@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
+import { usePaymentStatus } from '@/contexts/PaymentContext';
 import { supabase } from '@/lib/supabase';
 import { API_ENDPOINTS } from '@/lib/stripe-config';
 
@@ -24,6 +25,7 @@ interface SubscriptionState {
 
 export function useSubscription() {
   const { user } = useAuth();
+  const { hasActiveAccess, hasManualAccess, loading: paymentLoading, initialized } = usePaymentStatus();
   const [state, setState] = useState<SubscriptionState>({
     subscription: null,
     loading: true,
@@ -119,11 +121,27 @@ export function useSubscription() {
   // Check if user has active subscription
   const hasActiveSubscription = state.subscription?.status === 'active';
 
+  // Check if user has access (from PaymentContext - single source of truth)
+  const hasAccess = hasActiveAccess;
+
+  if (import.meta.env.DEV) {
+    console.log('[useSubscription] State:', {
+      hasActiveSubscription,
+      hasManualAccess,
+      hasActiveAccess,
+      hasAccess,
+      paymentLoading
+    });
+  }
+
   return {
     subscription: state.subscription,
-    loading: state.loading,
+    loading: paymentLoading,
     error: state.error,
     hasActiveSubscription,
+    hasManualAccess,
+    hasAccess,
+    initialized,
     createCheckoutSession,
     createPortalSession,
     refetch: fetchSubscription,

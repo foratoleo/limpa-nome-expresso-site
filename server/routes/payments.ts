@@ -36,10 +36,31 @@ router.get('/status', async (req: Request, res: Response) => {
       return res.status(500).json({ error: 'Failed to check access' });
     }
 
+    // Check for manual access
+    const { data: manualAccess, error: manualError } = await supabase
+      .from('user_manual_access')
+      .select('*')
+      .eq('user_id', user.id)
+      .eq('is_active', true)
+      .or('expires_at.is.null,expires_at.gte.' + new Date().toISOString())
+      .maybeSingle();
+
+    if (process.env.NODE_ENV === 'development') {
+      console.log('[Payments API] Manual access check:', {
+        userId: user.id,
+        hasManualAccess: !!manualAccess,
+        manualAccessExpiresAt: manualAccess?.expires_at,
+        hasPaymentAccess: !!access,
+        finalAccess: !!access || !!manualAccess,
+      });
+    }
+
     return res.status(200).json({
-      hasActiveAccess: !!access,
-      accessType: access?.access_type || null,
-      expiresAt: access?.expires_at || null,
+      hasActiveAccess: !!access || !!manualAccess,
+      accessType: access?.access_type || 'manual',
+      expiresAt: access?.expires_at || manualAccess?.expires_at || null,
+      hasManualAccess: !!manualAccess,
+      manualAccessExpiresAt: manualAccess?.expires_at || null,
     });
   } catch (error) {
     console.error('Error in /status:', error);

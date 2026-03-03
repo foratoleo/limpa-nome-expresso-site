@@ -339,6 +339,36 @@ export interface Database {
         };
         Relationships: [];
       };
+      user_manual_access: {
+        Row: {
+          id: string;
+          user_id: string;
+          granted_by: string;
+          granted_at: string;
+          expires_at: string | null;
+          reason: string | null;
+          is_active: boolean;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          granted_by: string;
+          granted_at?: string;
+          expires_at?: string | null;
+          reason?: string | null;
+          is_active?: boolean;
+        };
+        Update: {
+          id?: string;
+          user_id?: string;
+          granted_by?: string;
+          granted_at?: string;
+          expires_at?: string | null;
+          reason?: string | null;
+          is_active?: boolean;
+        };
+        Relationships: [];
+      };
       checklist_documents: {
         Row: {
           id: string;
@@ -405,3 +435,6 @@ export type UserAccess = Database["public"]["Tables"]["user_access"]["Row"];
 export type UserAccessInsert = Database["public"]["Tables"]["user_access"]["Insert"];
 export type ChecklistDocument = Database["public"]["Tables"]["checklist_documents"]["Row"];
 export type ChecklistDocumentInsert = Database["public"]["Tables"]["checklist_documents"]["Insert"];
+export type UserManualAccess = Database["public"]["Tables"]["user_manual_access"]["Row"];
+export type UserManualAccessInsert = Database["public"]["Tables"]["user_manual_access"]["Insert"];
+export type UserManualAccessUpdate = Database["public"]["Tables"]["user_manual_access"]["Update"];

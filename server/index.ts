@@ -9,6 +9,7 @@ import { contactRouter } from "./routes/contact.js";
 import { authRouter } from "./routes/auth.js";
 import { mercadopagoRouter } from "./routes/mercadopago.js";
 import { paymentsRouter } from "./routes/payments.js";
+import { adminAccessRouter } from "./routes/admin-access.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -85,6 +86,9 @@ async function startServer() {
 
   // Mount Payments API routes
   app.use("/api/payments", paymentsRouter);
+
+  // Mount Admin Access API routes
+  app.use("/api/admin/access", adminAccessRouter);
 
   // Health check endpoint
   app.get("/api/health", (_req, res) => {

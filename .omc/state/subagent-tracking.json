@@ -1,7 +1,15 @@
 {
-  "agents": [],
-  "total_spawned": 0,
+  "agents": [
+    {
+      "agent_id": "a6b10e1c44b07cefb",
+      "agent_type": "dr:git-specialist",
+      "started_at": "2026-03-03T23:43:05.268Z",
+      "parent_mode": "none",
+      "status": "running"
+    }
+  ],
+  "total_spawned": 1,
   "total_completed": 0,
   "total_failed": 0,
-  "last_updated": "2026-03-03T17:01:43.439Z"
+  "last_updated": "2026-03-03T23:43:05.370Z"
 }

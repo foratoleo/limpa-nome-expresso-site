@@ -1,8 +1,0 @@
-✅ AUTOPILOT BUG REPORT - COMPLETE
-
-Issue: erro 500 no cadastro
-Status: RESOLVIDO (falso positivo)
-Investigação: Endpoint 100% funcional
-Ação: Nenhuma correção necessária
-
-Sistema: OPERACIONAL

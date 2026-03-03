@@ -22,6 +22,7 @@ import { CheckoutPage } from "./components/checkout";
 import PaymentFailed from "./pages/PaymentFailed";
 import AuthCallback from "./pages/AuthCallback";
 import { Agentation } from "agentation";
+import AdminAccess from "./pages/AdminAccess";
 
 function Router() {
   return (
@@ -84,6 +85,11 @@ function Router() {
         <PaymentFailed />
       </Route>
       <Route path={"/auth/callback"} component={AuthCallback} />
+      <Route path={"/admin/access"}>
+        <ProtectedRoute requirePayment={false} requireAdmin={true}>
+          <AdminAccess />
+        </ProtectedRoute>
+      </Route>
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
