@@ -1,0 +1,8 @@
+{
+  "active": true,
+  "started_at": "2026-03-03T00:19:13.468Z",
+  "original_prompt": "/oh-my-claudecode:autopilot após clicar em criar a conta e colcoar login e senha, ou se o usuario se\n  logar e ainda não tiver feito o pagamento do plano, deve ser direcionado\n  para a pagina de compra, crie essa página que deve ser de acordo com nosso design, eplicar os benefícios e fazer o checkout no valor de 149,90 pelo uso de 12 meses",
+  "session_id": "7de2a0a5-c16f-4367-8703-9eb170f75997",
+  "reinforcement_count": 2,
+  "last_checked_at": "2026-03-03T00:53:45.150Z"
+}

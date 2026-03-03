@@ -1,7 +1,0 @@
-{
-  "tool_name": "Read",
-  "tool_input_preview": "{\"file_path\":\"/Users/forato/PROJECTS/limpa-nome-expresso-site/.dr_ai/tasks/TASK-NAME/context_session.md\"}",
-  "error": "File does not exist. Note: your current working directory is /Users/forato/PROJECTS/limpa-nome-expresso-site.",
-  "timestamp": "2026-03-02T17:38:55.287Z",
-  "retry_count": 1
-}

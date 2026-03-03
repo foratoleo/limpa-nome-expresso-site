@@ -1,8 +1,0 @@
-{
-  "active": true,
-  "started_at": "2026-03-02T17:28:42.948Z",
-  "original_prompt": "/autopilot configure a api do emailit usando um teammate e com base em https://emailit.com/docs",
-  "session_id": "49b50a46-6024-497a-8f66-c1cb1e5ebc51",
-  "reinforcement_count": 1,
-  "last_checked_at": "2026-03-02T17:48:32.477Z"
-}
