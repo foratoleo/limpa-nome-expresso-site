@@ -1,10 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient(
-  process.env.VITE_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
-
 export default async function handler(req: any, res: any) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -26,14 +21,35 @@ export default async function handler(req: any, res: any) {
     }
 
     const token = authHeader.replace('Bearer ', '');
-    const { data: { user }, error: authError } = await supabase.auth.getUser(token);
+
+    // Create Supabase client with the user's token
+    const supabase = createClient(
+      process.env.VITE_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!,
+      {
+        global: {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      }
+    );
+
+    // Get user with the authenticated client
+    const { data: { user }, error: authError } = await supabase.auth.getUser();
 
     if (authError || !user) {
       return res.status(401).json({ error: 'Invalid token' });
     }
 
+    // Create admin client for database operations
+    const adminSupabase = createClient(
+      process.env.VITE_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!
+    );
+
     // Check for active access
-    const { data: access, error } = await supabase
+    const { data: access, error } = await adminSupabase
       .from('user_access')
       .select('*')
       .eq('user_id', user.id)
