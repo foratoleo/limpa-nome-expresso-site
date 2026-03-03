@@ -281,8 +281,8 @@
   "hotPaths": [
     {
       "path": "client/src",
-      "accessCount": 26,
-      "lastAccessed": 1772556898660,
+      "accessCount": 27,
+      "lastAccessed": 1772558156261,
       "type": "directory"
     },
     {
@@ -418,6 +418,12 @@
       "type": "file"
     },
     {
+      "path": "client/src/lib/api/mercadopago.ts",
+      "accessCount": 3,
+      "lastAccessed": 1772558161802,
+      "type": "file"
+    },
+    {
       "path": "docs/emailit-integration.md",
       "accessCount": 2,
       "lastAccessed": 1772551804841,
@@ -463,12 +469,6 @@
       "path": "server/routes/payments.ts",
       "accessCount": 2,
       "lastAccessed": 1772555287045,
-      "type": "file"
-    },
-    {
-      "path": "client/src/lib/api/mercadopago.ts",
-      "accessCount": 2,
-      "lastAccessed": 1772556903987,
       "type": "file"
     },
     {

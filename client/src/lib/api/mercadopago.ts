@@ -24,7 +24,7 @@ export interface CreatePreferenceResponse {
 export async function createMercadoPagoPreference(
   items: PreferenceItem[]
 ): Promise<CreatePreferenceResponse> {
-  const response = await fetch('/api/mercadopago/create-preference', {
+  const response = await fetch('/api/create-preference', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
