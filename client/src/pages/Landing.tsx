@@ -30,7 +30,8 @@ export default function Landing() {
       if (hasActiveAccess) {
         setLocation("/guia");
       } else {
-        setLocation("/checkout");
+        // Don't auto-redirect to checkout - let user choose
+        // setLocation("/checkout");
       }
     }
   }, [user, isAuthModalOpen, paymentLoading, hasActiveAccess, setLocation]);
