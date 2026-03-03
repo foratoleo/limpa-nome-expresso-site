@@ -1,6 +1,7 @@
-import { useState, useEffect, useCallback } from "react";
+import { useCallback } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/lib/supabase";
+import { useSupabaseQuery } from "./useSupabaseQuery";
 import type { UserDocument, UserDocumentInsert } from "@/types/supabase";
 
 interface UseDocumentsReturn {
@@ -16,39 +17,18 @@ interface UseDocumentsReturn {
 
 export function useDocuments(): UseDocumentsReturn {
   const { user } = useAuth();
-  const [documents, setDocuments] = useState<UserDocument[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  const fetchDocuments = useCallback(async () => {
-    if (!user) {
-      setDocuments([]);
-      setLoading(false);
-      return;
+  const { data: documents, loading, error, update, remove, refresh } = useSupabaseQuery(
+    "user_documents",
+    {
+      orderBy: [{ column: "created_at", ascending: false }],
+      errorMessage: {
+        fetch: "Erro ao carregar documentos",
+        create: "Erro ao enviar documento",
+        update: "Erro ao atualizar documento",
+        delete: "Erro ao excluir documento",
+      },
     }
-
-    try {
-      setLoading(true);
-      const { data, error: fetchError } = await supabase
-        .from("user_documents")
-        .select("*")
-        .eq("user_id", user.id)
-        .order("created_at", { ascending: false });
-
-      if (fetchError) throw fetchError;
-      setDocuments(data || []);
-      setError(null);
-    } catch (err) {
-      console.error("Error fetching documents:", err);
-      setError("Erro ao carregar documentos");
-    } finally {
-      setLoading(false);
-    }
-  }, [user]);
-
-  useEffect(() => {
-    fetchDocuments();
-  }, [fetchDocuments]);
+  );
 
   const uploadDocument = useCallback(
     async (file: File, name: string, category = "geral", notes?: string): Promise<boolean> => {
@@ -84,15 +64,14 @@ export function useDocuments(): UseDocumentsReturn {
 
         if (insertError) throw insertError;
 
-        await fetchDocuments();
+        await refresh();
         return true;
       } catch (err) {
         console.error("Error uploading document:", err);
-        setError("Erro ao enviar documento");
         return false;
       }
     },
-    [user, fetchDocuments]
+    [user, refresh]
   );
 
   const deleteDocument = useCallback(
@@ -108,47 +87,18 @@ export function useDocuments(): UseDocumentsReturn {
           }
         }
 
-        const { error: deleteError } = await supabase
-          .from("user_documents")
-          .delete()
-          .eq("id", id)
-          .eq("user_id", user.id);
-
-        if (deleteError) throw deleteError;
-
-        setDocuments((prev) => prev.filter((d) => d.id !== id));
-        return true;
+        return await remove(id);
       } catch (err) {
         console.error("Error deleting document:", err);
-        setError("Erro ao excluir documento");
         return false;
       }
     },
-    [user, documents]
+    [user, documents, remove]
   );
 
   const updateDocument = useCallback(
-    async (id: string, updates: Partial<UserDocumentInsert>): Promise<boolean> => {
-      if (!user) return false;
-
-      try {
-        const { error: updateError } = await supabase
-          .from("user_documents")
-          .update({ ...updates, updated_at: new Date().toISOString() })
-          .eq("id", id)
-          .eq("user_id", user.id);
-
-        if (updateError) throw updateError;
-
-        await fetchDocuments();
-        return true;
-      } catch (err) {
-        console.error("Error updating document:", err);
-        setError("Erro ao atualizar documento");
-        return false;
-      }
-    },
-    [user, fetchDocuments]
+    (id: string, updates: Partial<UserDocumentInsert>) => update(id, updates),
+    [update]
   );
 
   const downloadDocument = useCallback((fileUrl: string, fileName: string): void => {
@@ -169,6 +119,6 @@ export function useDocuments(): UseDocumentsReturn {
     deleteDocument,
     updateDocument,
     downloadDocument,
-    refresh: fetchDocuments,
+    refresh,
   };
 }

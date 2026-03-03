@@ -54,8 +54,10 @@ export { default as ShieldIcon } from "@atlaskit/icon/core/shield";
 export { default as SearchIcon } from "@atlaskit/icon/core/search";
 export { default as CrossIcon } from "@atlaskit/icon/core/cross";
 export { default as ChevronRightIcon } from "@atlaskit/icon/core/chevron-right";
-export { default as TrashIcon } from "@atlaskit/icon/core/trash";
-export { default as AddCircleIcon } from "@atlaskit/icon/core/add-circle";
+import AddIconAlias from "@atlaskit/icon/core/add";
+export { AddIconAlias as AddIcon, AddIconAlias as AddCircleIcon };
+// Trash icon not available in @atlaskit/icon, using lucide-react fallback
+export { Trash2 as TrashIcon } from "lucide-react";
 
 // Aliases for convenience (proper re-export pattern for default exports)
 import BookWithBookmarkIconAlias from "@atlaskit/icon/core/book-with-bookmark";

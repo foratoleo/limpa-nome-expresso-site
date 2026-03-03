@@ -1,10 +1,8 @@
-import { useState, useEffect, useCallback } from "react";
-import { useAuth } from "@/contexts/AuthContext";
-import { supabase } from "@/lib/supabase";
+import { useState, useCallback, useMemo } from "react";
+import { useSupabaseQuery } from "./useSupabaseQuery";
 import type { UserTodo, UserTodoInsert } from "@/types/supabase";
 
 type TodoFilter = "all" | "pending" | "completed" | "overdue";
-type TodoPriority = "baixa" | "media" | "alta" | "urgente";
 
 interface UseTodosReturn {
   todos: UserTodo[];
@@ -22,137 +20,61 @@ interface UseTodosReturn {
 }
 
 export function useTodos(): UseTodosReturn {
-  const { user } = useAuth();
-  const [todos, setTodos] = useState<UserTodo[]>([]);
   const [filter, setFilter] = useState<TodoFilter>("all");
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
-  const fetchTodos = useCallback(async () => {
-    if (!user) {
-      setTodos([]);
-      setLoading(false);
-      return;
+  const { data: todos, loading, error, create, update, remove, refresh } = useSupabaseQuery(
+    "user_todos",
+    {
+      orderBy: [
+        { column: "due_date", ascending: true, nullsFirst: false },
+        { column: "priority", ascending: false },
+        { column: "created_at", ascending: false },
+      ],
+      errorMessage: {
+        fetch: "Erro ao carregar tarefas",
+        create: "Erro ao criar tarefa",
+        update: "Erro ao atualizar tarefa",
+        delete: "Erro ao excluir tarefa",
+      },
     }
+  );
 
-    try {
-      setLoading(true);
-      const { data, error: fetchError } = await supabase
-        .from("user_todos")
-        .select("*")
-        .eq("user_id", user.id)
-        .order("due_date", { ascending: true, nullsFirst: false })
-        .order("priority", { ascending: false })
-        .order("created_at", { ascending: false });
-
-      if (fetchError) throw fetchError;
-      setTodos(data || []);
-      setError(null);
-    } catch (err) {
-      console.error("Error fetching todos:", err);
-      setError("Erro ao carregar tarefas");
-    } finally {
-      setLoading(false);
-    }
-  }, [user]);
-
-  useEffect(() => {
-    fetchTodos();
-  }, [fetchTodos]);
-
-  const filteredTodos = todos.filter((todo) => {
-    if (filter === "all") return true;
-    if (filter === "completed") return todo.completed;
-    if (filter === "pending") return !todo.completed;
+  const filteredTodos = useMemo(() => {
+    if (filter === "all") return todos;
+    if (filter === "completed") return todos.filter((t) => t.completed);
+    if (filter === "pending") return todos.filter((t) => !t.completed);
     if (filter === "overdue") {
-      return (
-        !todo.completed &&
-        todo.due_date &&
-        new Date(todo.due_date) < new Date()
+      const now = new Date();
+      return todos.filter(
+        (t) => !t.completed && t.due_date && new Date(t.due_date) < now
       );
     }
-    return true;
-  });
+    return todos;
+  }, [todos, filter]);
 
   const createTodo = useCallback(
-    async (todo: Omit<UserTodoInsert, "user_id">): Promise<boolean> => {
-      if (!user) return false;
-
-      try {
-        const { error: insertError } = await supabase
-          .from("user_todos")
-          .insert({ ...todo, user_id: user.id });
-
-        if (insertError) throw insertError;
-
-        await fetchTodos();
-        return true;
-      } catch (err) {
-        console.error("Error creating todo:", err);
-        setError("Erro ao criar tarefa");
-        return false;
-      }
-    },
-    [user, fetchTodos]
+    (todo: Omit<UserTodoInsert, "user_id">) => create(todo),
+    [create]
   );
 
   const updateTodo = useCallback(
-    async (id: string, updates: Partial<UserTodoInsert>): Promise<boolean> => {
-      if (!user) return false;
-
-      try {
-        const { error: updateError } = await supabase
-          .from("user_todos")
-          .update({ ...updates, updated_at: new Date().toISOString() })
-          .eq("id", id)
-          .eq("user_id", user.id);
-
-        if (updateError) throw updateError;
-
-        await fetchTodos();
-        return true;
-      } catch (err) {
-        console.error("Error updating todo:", err);
-        setError("Erro ao atualizar tarefa");
-        return false;
-      }
-    },
-    [user, fetchTodos]
+    (id: string, updates: Partial<UserTodoInsert>) => update(id, updates),
+    [update]
   );
 
   const deleteTodo = useCallback(
-    async (id: string): Promise<boolean> => {
-      if (!user) return false;
-
-      try {
-        const { error: deleteError } = await supabase
-          .from("user_todos")
-          .delete()
-          .eq("id", id)
-          .eq("user_id", user.id);
-
-        if (deleteError) throw deleteError;
-
-        setTodos((prev) => prev.filter((t) => t.id !== id));
-        return true;
-      } catch (err) {
-        console.error("Error deleting todo:", err);
-        setError("Erro ao excluir tarefa");
-        return false;
-      }
-    },
-    [user]
+    (id: string) => remove(id),
+    [remove]
   );
 
   const toggleComplete = useCallback(
-    async (id: string, completed: boolean): Promise<boolean> => {
-      return updateTodo(id, {
+    (id: string, completed: boolean) =>
+      update(id, {
         completed,
         completed_at: completed ? new Date().toISOString() : null,
         status: completed ? "concluida" : "pendente",
-      });
-    },
-    [updateTodo]
+      }),
+    [update]
   );
 
   const getStats = useCallback(() => {
@@ -179,6 +101,6 @@ export function useTodos(): UseTodosReturn {
     deleteTodo,
     toggleComplete,
     getStats,
-    refresh: fetchTodos,
+    refresh,
   };
 }

@@ -1,6 +1,5 @@
-import { useState, useEffect, useCallback } from "react";
-import { useAuth } from "@/contexts/AuthContext";
-import { supabase } from "@/lib/supabase";
+import { useCallback } from "react";
+import { useSupabaseQuery } from "./useSupabaseQuery";
 import type { UserNote, UserNoteInsert } from "@/types/supabase";
 
 interface UseNotesReturn {
@@ -16,117 +15,40 @@ interface UseNotesReturn {
 }
 
 export function useNotes(): UseNotesReturn {
-  const { user } = useAuth();
-  const [notes, setNotes] = useState<UserNote[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  const fetchNotes = useCallback(async () => {
-    if (!user) {
-      setNotes([]);
-      setLoading(false);
-      return;
+  const { data: notes, loading, error, create, update, remove, refresh } = useSupabaseQuery(
+    "user_notes",
+    {
+      orderBy: [
+        { column: "pinned", ascending: false },
+        { column: "created_at", ascending: false },
+      ],
+      errorMessage: {
+        fetch: "Erro ao carregar anotacoes",
+        create: "Erro ao criar anotacao",
+        update: "Erro ao atualizar anotacao",
+        delete: "Erro ao excluir anotacao",
+      },
     }
-
-    try {
-      setLoading(true);
-      const { data, error: fetchError } = await supabase
-        .from("user_notes")
-        .select("*")
-        .eq("user_id", user.id)
-        .order("pinned", { ascending: false })
-        .order("created_at", { ascending: false });
-
-      if (fetchError) throw fetchError;
-      setNotes(data || []);
-      setError(null);
-    } catch (err) {
-      console.error("Error fetching notes:", err);
-      setError("Erro ao carregar anotacoes");
-    } finally {
-      setLoading(false);
-    }
-  }, [user]);
-
-  useEffect(() => {
-    fetchNotes();
-  }, [fetchNotes]);
+  );
 
   const createNote = useCallback(
-    async (note: Omit<UserNoteInsert, "user_id">): Promise<boolean> => {
-      if (!user) return false;
-
-      try {
-        const { error: insertError } = await supabase
-          .from("user_notes")
-          .insert({ ...note, user_id: user.id });
-
-        if (insertError) throw insertError;
-
-        await fetchNotes();
-        return true;
-      } catch (err) {
-        console.error("Error creating note:", err);
-        setError("Erro ao criar anotacao");
-        return false;
-      }
-    },
-    [user, fetchNotes]
+    (note: Omit<UserNoteInsert, "user_id">) => create(note),
+    [create]
   );
 
   const updateNote = useCallback(
-    async (id: string, updates: Partial<UserNoteInsert>): Promise<boolean> => {
-      if (!user) return false;
-
-      try {
-        const { error: updateError } = await supabase
-          .from("user_notes")
-          .update({ ...updates, updated_at: new Date().toISOString() })
-          .eq("id", id)
-          .eq("user_id", user.id);
-
-        if (updateError) throw updateError;
-
-        await fetchNotes();
-        return true;
-      } catch (err) {
-        console.error("Error updating note:", err);
-        setError("Erro ao atualizar anotacao");
-        return false;
-      }
-    },
-    [user, fetchNotes]
+    (id: string, updates: Partial<UserNoteInsert>) => update(id, updates),
+    [update]
   );
 
   const deleteNote = useCallback(
-    async (id: string): Promise<boolean> => {
-      if (!user) return false;
-
-      try {
-        const { error: deleteError } = await supabase
-          .from("user_notes")
-          .delete()
-          .eq("id", id)
-          .eq("user_id", user.id);
-
-        if (deleteError) throw deleteError;
-
-        setNotes((prev) => prev.filter((n) => n.id !== id));
-        return true;
-      } catch (err) {
-        console.error("Error deleting note:", err);
-        setError("Erro ao excluir anotacao");
-        return false;
-      }
-    },
-    [user]
+    (id: string) => remove(id),
+    [remove]
   );
 
   const togglePin = useCallback(
-    async (id: string, pinned: boolean): Promise<boolean> => {
-      return updateNote(id, { pinned });
-    },
-    [updateNote]
+    (id: string, pinned: boolean) => update(id, { pinned }),
+    [update]
   );
 
   const searchNotes = useCallback(
@@ -151,6 +73,6 @@ export function useNotes(): UseNotesReturn {
     deleteNote,
     togglePin,
     searchNotes,
-    refresh: fetchNotes,
+    refresh,
   };
 }

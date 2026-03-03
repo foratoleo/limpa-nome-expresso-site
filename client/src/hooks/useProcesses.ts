@@ -1,6 +1,5 @@
-import { useState, useEffect, useCallback } from "react";
-import { useAuth } from "@/contexts/AuthContext";
-import { supabase } from "@/lib/supabase";
+import { useCallback } from "react";
+import { useSupabaseQuery } from "./useSupabaseQuery";
 import type { UserProcess, UserProcessInsert } from "@/types/supabase";
 
 interface UseProcessesReturn {
@@ -14,109 +13,32 @@ interface UseProcessesReturn {
 }
 
 export function useProcesses(): UseProcessesReturn {
-  const { user } = useAuth();
-  const [processes, setProcesses] = useState<UserProcess[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  const fetchProcesses = useCallback(async () => {
-    if (!user) {
-      setProcesses([]);
-      setLoading(false);
-      return;
+  const { data: processes, loading, error, create, update, remove, refresh } = useSupabaseQuery(
+    "user_processes",
+    {
+      orderBy: [{ column: "created_at", ascending: false }],
+      errorMessage: {
+        fetch: "Erro ao carregar processos",
+        create: "Erro ao criar processo",
+        update: "Erro ao atualizar processo",
+        delete: "Erro ao excluir processo",
+      },
     }
-
-    try {
-      setLoading(true);
-      const { data, error: fetchError } = await supabase
-        .from("user_processes")
-        .select("*")
-        .eq("user_id", user.id)
-        .order("created_at", { ascending: false });
-
-      if (fetchError) throw fetchError;
-      setProcesses(data || []);
-      setError(null);
-    } catch (err) {
-      console.error("Error fetching processes:", err);
-      setError("Erro ao carregar processos");
-    } finally {
-      setLoading(false);
-    }
-  }, [user]);
-
-  useEffect(() => {
-    fetchProcesses();
-  }, [fetchProcesses]);
+  );
 
   const createProcess = useCallback(
-    async (process: Omit<UserProcessInsert, "user_id">): Promise<boolean> => {
-      if (!user) return false;
-
-      try {
-        const { error: insertError } = await supabase
-          .from("user_processes")
-          .insert({ ...process, user_id: user.id });
-
-        if (insertError) throw insertError;
-
-        await fetchProcesses();
-        return true;
-      } catch (err) {
-        console.error("Error creating process:", err);
-        setError("Erro ao criar processo");
-        return false;
-      }
-    },
-    [user, fetchProcesses]
+    (process: Omit<UserProcessInsert, "user_id">) => create(process),
+    [create]
   );
 
   const updateProcess = useCallback(
-    async (id: string, updates: Partial<UserProcessInsert>): Promise<boolean> => {
-      if (!user) return false;
-
-      try {
-        const { error: updateError } = await supabase
-          .from("user_processes")
-          .update({ ...updates, updated_at: new Date().toISOString() })
-          .eq("id", id)
-          .eq("user_id", user.id);
-
-        if (updateError) throw updateError;
-
-        await fetchProcesses();
-        return true;
-      } catch (err) {
-        console.error("Error updating process:", err);
-        setError("Erro ao atualizar processo");
-        return false;
-      }
-    },
-    [user, fetchProcesses]
+    (id: string, updates: Partial<UserProcessInsert>) => update(id, updates),
+    [update]
   );
 
   const deleteProcess = useCallback(
-    async (id: string): Promise<boolean> => {
-      if (!user) return false;
-
-      try {
-        const { error: deleteError } = await supabase
-          .from("user_processes")
-          .delete()
-          .eq("id", id)
-          .eq("user_id", user.id);
-
-        if (deleteError) throw deleteError;
-
-        setProcesses((prev) => prev.filter((p) => p.id !== id));
-        return true;
-      } catch (err) {
-        console.error("Error deleting process:", err);
-        setError("Erro ao excluir processo");
-        return false;
-      }
-    },
-    [user]
+    (id: string) => remove(id),
+    [remove]
   );
 
   return {
@@ -126,6 +48,6 @@ export function useProcesses(): UseProcessesReturn {
     createProcess,
     updateProcess,
     deleteProcess,
-    refresh: fetchProcesses,
+    refresh,
   };
 }
