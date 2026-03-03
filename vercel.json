@@ -2,11 +2,6 @@
   "version": 2,
   "buildCommand": "pnpm exec vite build",
   "outputDirectory": "dist/public",
-  "functions": {
-    "api/**/*.js": {
-      "runtime": "nodejs20.x"
-    }
-  },
   "routes": [
     {
       "handle": "filesystem"
