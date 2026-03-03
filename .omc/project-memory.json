@@ -305,8 +305,8 @@
     },
     {
       "path": "api/payments.ts",
-      "accessCount": 15,
-      "lastAccessed": 1772558022668,
+      "accessCount": 16,
+      "lastAccessed": 1772558293308,
       "type": "file"
     },
     {
@@ -376,10 +376,28 @@
       "type": "directory"
     },
     {
+      "path": "client/src/lib/api/mercadopago.ts",
+      "accessCount": 5,
+      "lastAccessed": 1772558360626,
+      "type": "file"
+    },
+    {
       "path": "server",
       "accessCount": 4,
       "lastAccessed": 1772555287507,
       "type": "directory"
+    },
+    {
+      "path": "api/create-preference.js",
+      "accessCount": 4,
+      "lastAccessed": 1772558348038,
+      "type": "file"
+    },
+    {
+      "path": "client/src/components/checkout/CheckoutPage.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1772558364597,
+      "type": "file"
     },
     {
       "path": "server/services/email.service.ts",
@@ -418,9 +436,9 @@
       "type": "file"
     },
     {
-      "path": "client/src/lib/api/mercadopago.ts",
+      "path": "server/lib/mercadopago.ts",
       "accessCount": 3,
-      "lastAccessed": 1772558161802,
+      "lastAccessed": 1772558304820,
       "type": "file"
     },
     {
@@ -469,12 +487,6 @@
       "path": "server/routes/payments.ts",
       "accessCount": 2,
       "lastAccessed": 1772555287045,
-      "type": "file"
-    },
-    {
-      "path": "server/lib/mercadopago.ts",
-      "accessCount": 2,
-      "lastAccessed": 1772558007801,
       "type": "file"
     },
     {
@@ -544,9 +556,21 @@
       "type": "directory"
     },
     {
-      "path": "api/create-preference.js",
+      "path": "api/mercadopago.js",
       "accessCount": 1,
-      "lastAccessed": 1772558068986,
+      "lastAccessed": 1772558293295,
+      "type": "file"
+    },
+    {
+      "path": "api/mercadopago-webhook.js",
+      "accessCount": 1,
+      "lastAccessed": 1772558339845,
+      "type": "file"
+    },
+    {
+      "path": "client/src/lib/mercadopago-config.ts",
+      "accessCount": 1,
+      "lastAccessed": 1772558351804,
       "type": "file"
     }
   ],

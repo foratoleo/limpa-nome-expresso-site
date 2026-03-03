@@ -16,7 +16,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { items, metadata } = req.body;
+    const { items, metadata, userId } = req.body;
 
     // Validate required fields
     if (!items || !Array.isArray(items) || items.length === 0) {
@@ -58,7 +58,11 @@ export default async function handler(req, res) {
           unit_price: item.unit_price,
           currency_id: 'BRL',
         })),
-        metadata: metadata || {},
+        metadata: {
+          ...metadata,
+          userId: userId || metadata?.userId,
+        },
+        external_reference: userId || metadata?.userId,
         back_urls: {
           success: `${process.env.VERCEL_URL || 'https://limpa-nome-expresso-site.vercel.app'}/checkout/sucesso`,
           failure: `${process.env.VERCEL_URL || 'https://limpa-nome-expresso-site.vercel.app'}/checkout/falha`,

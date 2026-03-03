@@ -4,6 +4,7 @@ import { MERCADOPAGO_PRODUCT } from '@/lib/mercadopago-config';
 import { createSingleItemPreference } from '@/lib/api/mercadopago';
 import { BenefitsList } from './BenefitsList';
 import { PricingCard } from './PricingCard';
+import { useAuth } from '@/contexts/AuthContext';
 
 const COLORS = {
   background: '#12110d',
@@ -18,6 +19,7 @@ const COLORS = {
 export function CheckoutPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { user } = useAuth();
 
   const handlePayment = async () => {
     setError(null);
@@ -29,7 +31,7 @@ export function CheckoutPage() {
         title: MERCADOPAGO_PRODUCT.title,
         quantity: MERCADOPAGO_PRODUCT.quantity,
         unit_price: MERCADOPAGO_PRODUCT.unit_price,
-      });
+      }, user?.id);
 
       // Redirect to MercadoPago checkout
       if (checkoutUrl) {

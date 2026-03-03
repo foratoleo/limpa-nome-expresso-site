@@ -22,14 +22,18 @@ export interface CreatePreferenceResponse {
  * Calls the backend endpoint which creates the preference with MercadoPago API
  */
 export async function createMercadoPagoPreference(
-  items: PreferenceItem[]
+  items: PreferenceItem[],
+  userId?: string
 ): Promise<CreatePreferenceResponse> {
   const response = await fetch('/api/create-preference', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ items }),
+    body: JSON.stringify({
+      items,
+      userId,
+    }),
   });
 
   if (!response.ok) {
@@ -43,6 +47,9 @@ export async function createMercadoPagoPreference(
 /**
  * Create preference for a single item (convenience function)
  */
-export async function createSingleItemPreference(item: PreferenceItem): Promise<CreatePreferenceResponse> {
-  return createMercadoPagoPreference([item]);
+export async function createSingleItemPreference(
+  item: PreferenceItem,
+  userId?: string
+): Promise<CreatePreferenceResponse> {
+  return createMercadoPagoPreference([item], userId);
 }
