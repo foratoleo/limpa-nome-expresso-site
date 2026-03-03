@@ -20,6 +20,7 @@ import PaymentSuccess from "./pages/PaymentSuccess";
 import Billing from "./pages/Billing";
 import { CheckoutPage } from "./components/checkout";
 import PaymentFailed from "./pages/PaymentFailed";
+import AuthCallback from "./pages/AuthCallback";
 import { Agentation } from "agentation";
 
 function Router() {
@@ -82,6 +83,7 @@ function Router() {
       <Route path={"/checkout/falha"}>
         <PaymentFailed />
       </Route>
+      <Route path={"/auth/callback"} component={AuthCallback} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

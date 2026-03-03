@@ -26,8 +26,11 @@ async function startServer() {
   // Configure CORS with validation
   const allowedOrigins = [
     'http://localhost:3000',
+    'http://localhost:3002', // Vite dev server (alt port)
     'http://100.77.0.80:3000',
+    'http://100.77.0.80:3002', // Vite dev server network
     'http://127.0.0.1:3000',
+    'http://127.0.0.1:3002', // Vite dev server local
   ];
 
   // Validate and add VITE_APP_URL if present

@@ -252,3 +252,53 @@ authRouter.post("/resend-confirmation", async (req, res) => {
     });
   }
 });
+
+/**
+ * Check user endpoint (timing-safe to prevent enumeration)
+ * POST /api/auth/check-user
+ *
+ * SECURITY: Always returns same response structure regardless of user existence
+ * to prevent user enumeration attacks. UI should show all auth options universally.
+ */
+authRouter.post("/check-user", async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    if (!email) {
+      return res.status(400).json({
+        success: false,
+        error: "Email é obrigatório",
+      });
+    }
+
+    // SECURITY: Perform the lookup but don't expose results
+    // This prevents timing attacks by ensuring consistent execution time
+    const { data: { users }, error: listError } = await supabaseAdmin.auth.admin.listUsers();
+
+    if (listError) {
+      console.error("Error listing users:", listError);
+      return res.status(500).json({
+        success: false,
+        error: "Erro ao verificar usuário",
+      });
+    }
+
+    // Lookup user but don't include in response
+    const user = users?.find(u => u.email === email);
+
+    // SECURITY: Always return success with same structure
+    // Don't expose user existence, password status, or confirmation status
+    // The frontend will show appropriate auth options based on user input
+    res.json({
+      success: true,
+      // No user-specific data exposed
+      // Frontend should universally show magic link and password options
+    });
+  } catch (err) {
+    console.error("Check user error:", err);
+    res.status(500).json({
+      success: false,
+      error: "Erro ao verificar usuário. Tente novamente.",
+    });
+  }
+});

@@ -3,18 +3,19 @@ import { useAuth } from "@/contexts/AuthContext";
 import { LoginForm } from "./LoginForm";
 import { RegisterForm } from "./RegisterForm";
 import { ForgotPasswordForm } from "./ForgotPasswordForm";
+import { MagicLinkForm } from "./MagicLinkForm";
 
 interface AuthModalProps {
   isOpen: boolean;
   onClose: () => void;
-  defaultTab?: "login" | "register";
+  defaultTab?: Tab;
 }
 
-type Tab = "login" | "register" | "forgot";
+type Tab = "login" | "register" | "forgot" | "magic";
 
 export function AuthModal({ isOpen, onClose, defaultTab = "login" }: AuthModalProps) {
   const { user } = useAuth();
-  const [tab, setTab] = useState<Tab>(defaultTab);
+  const [tab, setTab] = useState<Tab>(defaultTab as Tab);
 
   // Close modal when user logs in
   useEffect(() => {
@@ -57,6 +58,7 @@ export function AuthModal({ isOpen, onClose, defaultTab = "login" }: AuthModalPr
             {tab === "login" && "Entrar"}
             {tab === "register" && "Criar Conta"}
             {tab === "forgot" && "Recuperar Senha"}
+            {tab === "magic" && "Acesso por Link"}
           </h2>
           <button
             onClick={onClose}
@@ -78,20 +80,30 @@ export function AuthModal({ isOpen, onClose, defaultTab = "login" }: AuthModalPr
 
         {/* Tabs */}
         {tab !== "forgot" && (
-          <div className="flex mb-6 rounded-xl overflow-hidden" style={{ backgroundColor: "rgba(255, 255, 255, 0.05)" }}>
+          <div className="flex gap-2 mb-6 rounded-xl overflow-hidden" style={{ backgroundColor: "rgba(255, 255, 255, 0.05)" }}>
             <button
               onClick={() => setTab("login")}
-              className="flex-1 py-2.5 text-sm font-medium transition-colors"
+              className="flex-1 py-2.5 text-sm font-medium transition-colors rounded-lg"
               style={{
                 backgroundColor: tab === "login" ? "#d39e17" : "transparent",
                 color: tab === "login" ? "#12110d" : "#94a3b8",
               }}
             >
-              Entrar
+              Com Senha
+            </button>
+            <button
+              onClick={() => setTab("magic")}
+              className="flex-1 py-2.5 text-sm font-medium transition-colors rounded-lg"
+              style={{
+                backgroundColor: tab === "magic" ? "#d39e17" : "transparent",
+                color: tab === "magic" ? "#12110d" : "#94a3b8",
+              }}
+            >
+              Magic Link
             </button>
             <button
               onClick={() => setTab("register")}
-              className="flex-1 py-2.5 text-sm font-medium transition-colors"
+              className="flex-1 py-2.5 text-sm font-medium transition-colors rounded-lg"
               style={{
                 backgroundColor: tab === "register" ? "#d39e17" : "transparent",
                 color: tab === "register" ? "#12110d" : "#94a3b8",
@@ -108,6 +120,12 @@ export function AuthModal({ isOpen, onClose, defaultTab = "login" }: AuthModalPr
             onSuccess={onClose}
             onForgotPassword={() => setTab("forgot")}
             onRegister={() => setTab("register")}
+          />
+        )}
+        {tab === "magic" && (
+          <MagicLinkForm
+            onSuccess={onClose}
+            onBackToLogin={() => setTab("login")}
           />
         )}
         {tab === "register" && (
