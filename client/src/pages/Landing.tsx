@@ -20,7 +20,7 @@ import {
 
 export default function Landing() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
   const { hasActiveAccess, loading: paymentLoading } = usePaymentStatus();
   const [, setLocation] = useLocation();
 
@@ -85,16 +85,25 @@ export default function Landing() {
           {/* Actions */}
           <div className="flex items-center gap-4">
             {user ? (
-              <a
-                href="/guia"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-all"
-                style={{
-                  backgroundColor: "#d39e17",
-                  color: "#12110d",
-                }}
-              >
-                Acessar Guia
-              </a>
+              <>
+                <a
+                  href="/guia"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-all"
+                  style={{
+                    backgroundColor: "#d39e17",
+                    color: "#12110d",
+                  }}
+                >
+                  Acessar Guia
+                </a>
+                <button
+                  onClick={signOut}
+                  className="text-sm font-medium hover:text-[#d39e17] transition-colors"
+                  style={{ color: "#cbd5e1" }}
+                >
+                  Sair
+                </button>
+              </>
             ) : (
               <>
                 <button
