@@ -23,7 +23,7 @@ export default async function handler(req: any, res: any) {
     const token = authHeader.replace('Bearer ', '');
 
     // Create admin client with service role key
-    const supabase = createClient(
+    const supabase: any = createClient(
       process.env.VITE_SUPABASE_URL!,
       process.env.SUPABASE_SERVICE_ROLE_KEY!,
       {
