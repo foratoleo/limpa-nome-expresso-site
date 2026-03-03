@@ -340,15 +340,21 @@
       "type": "file"
     },
     {
-      "path": "client/src/App.tsx",
-      "accessCount": 6,
-      "lastAccessed": 1772555267346,
+      "path": "vercel.json",
+      "accessCount": 7,
+      "lastAccessed": 1772557201942,
       "type": "file"
     },
     {
       "path": "api/mercadopago.ts",
+      "accessCount": 7,
+      "lastAccessed": 1772558002302,
+      "type": "file"
+    },
+    {
+      "path": "client/src/App.tsx",
       "accessCount": 6,
-      "lastAccessed": 1772556923259,
+      "lastAccessed": 1772555267346,
       "type": "file"
     },
     {
@@ -361,12 +367,6 @@
       "path": "client/src/components/auth/LoginForm.tsx",
       "accessCount": 5,
       "lastAccessed": 1772552757614,
-      "type": "file"
-    },
-    {
-      "path": "vercel.json",
-      "accessCount": 5,
-      "lastAccessed": 1772557034884,
       "type": "file"
     },
     {

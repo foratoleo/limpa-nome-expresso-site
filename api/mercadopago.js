@@ -21,11 +21,12 @@ __export(mercadopago_exports, {
   default: () => handler
 });
 module.exports = __toCommonJS(mercadopago_exports);
-var import_mercadopago = require("mercadopago");
-const client = new import_mercadopago.MercadoPagoConfig({
-  accessToken: process.env.MERCADOPAGO_ACCESS_TOKEN || ""
-});
-const preference = new import_mercadopago.Preference(client);
+var import_supabase_js = require("@supabase/supabase-js");
+var import_mercadopago = require("../server/lib/mercadopago.js");
+const supabase = (0, import_supabase_js.createClient)(
+  process.env.VITE_SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY
+);
 async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
@@ -58,29 +59,16 @@ async function handler(req, res) {
         });
       }
     }
-    const result = await preference.create({
-      body: {
-        items: items.map((item) => ({
-          id: item.id,
-          title: item.title,
-          quantity: item.quantity,
-          unit_price: item.unit_price,
-          currency_id: item.currency_id || "BRL"
-        })),
-        metadata: metadata || {},
-        back_urls: {
-          success: `${process.env.VERCEL_URL || "https://limpa-nome-expresso-site.vercel.app"}/checkout/sucesso`,
-          failure: `${process.env.VERCEL_URL || "https://limpa-nome-expresso-site.vercel.app"}/checkout/falha`,
-          pending: `${process.env.VERCEL_URL || "https://limpa-nome-expresso-site.vercel.app"}/checkout/pendente`
-        }
-      }
+    const preference = await (0, import_mercadopago.createPreference)({
+      items,
+      metadata: metadata || {}
     });
     return res.status(200).json({
       success: true,
-      preferenceId: result.id,
-      initPoint: result.init_point,
-      sandboxInitPoint: result.sandbox_init_point,
-      checkoutUrl: result.sandbox_init_point || result.init_point
+      preferenceId: preference.id,
+      initPoint: preference.init_point,
+      sandboxInitPoint: preference.sandbox_init_point,
+      checkoutUrl: preference.sandbox_init_point || preference.init_point
     });
   } catch (error) {
     console.error("Error creating preference:", error);
