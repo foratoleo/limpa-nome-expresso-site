@@ -1,10 +1,12 @@
-import { createClient } from '@supabase/supabase-js';
-import { createPreference } from '../server/lib/mercadopago.js';
+import { MercadoPagoConfig, Preference } from 'mercadopago';
 
-const supabase = createClient(
-  process.env.VITE_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+// Initialize MercadoPago client with access token
+const client = new MercadoPagoConfig({
+  accessToken: process.env.MERCADOPAGO_ACCESS_TOKEN || '',
+});
+
+// Create preference instance
+const preference = new Preference(client);
 
 export default async function handler(req: any, res: any) {
   // Enable CORS
@@ -48,18 +50,31 @@ export default async function handler(req: any, res: any) {
       }
     }
 
-    // Create preference
-    const preference = await createPreference({
-      items,
-      metadata: metadata || {},
+    // Create preference directly
+    const result = await preference.create({
+      body: {
+        items: items.map((item: any) => ({
+          id: item.id,
+          title: item.title,
+          quantity: item.quantity,
+          unit_price: item.unit_price,
+          currency_id: item.currency_id || 'BRL',
+        })),
+        metadata: metadata || {},
+        back_urls: {
+          success: `${process.env.VERCEL_URL || 'https://limpa-nome-expresso-site.vercel.app'}/checkout/sucesso`,
+          failure: `${process.env.VERCEL_URL || 'https://limpa-nome-expresso-site.vercel.app'}/checkout/falha`,
+          pending: `${process.env.VERCEL_URL || 'https://limpa-nome-expresso-site.vercel.app'}/checkout/pendente`,
+        },
+      },
     });
 
     return res.status(200).json({
       success: true,
-      preferenceId: preference.id,
-      initPoint: preference.init_point,
-      sandboxInitPoint: preference.sandbox_init_point,
-      checkoutUrl: preference.sandbox_init_point || preference.init_point,
+      preferenceId: result.id,
+      initPoint: result.init_point,
+      sandboxInitPoint: result.sandbox_init_point,
+      checkoutUrl: result.sandbox_init_point || result.init_point,
     });
   } catch (error) {
     console.error('Error creating preference:', error);
