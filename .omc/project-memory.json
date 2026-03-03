@@ -304,15 +304,15 @@
       "type": "file"
     },
     {
-      "path": "server/routes/auth.ts",
-      "accessCount": 14,
-      "lastAccessed": 1772553667729,
+      "path": "api/payments.ts",
+      "accessCount": 15,
+      "lastAccessed": 1772558022668,
       "type": "file"
     },
     {
-      "path": "api/payments.ts",
+      "path": "server/routes/auth.ts",
       "accessCount": 14,
-      "lastAccessed": 1772555749257,
+      "lastAccessed": 1772553667729,
       "type": "file"
     },
     {
@@ -371,8 +371,8 @@
     },
     {
       "path": "package.json",
-      "accessCount": 4,
-      "lastAccessed": 1772554423347,
+      "accessCount": 5,
+      "lastAccessed": 1772558013779,
       "type": "directory"
     },
     {
@@ -472,6 +472,12 @@
       "type": "file"
     },
     {
+      "path": "server/lib/mercadopago.ts",
+      "accessCount": 2,
+      "lastAccessed": 1772558007801,
+      "type": "file"
+    },
+    {
       "path": "server/routes/mercadopago.ts",
       "accessCount": 1,
       "lastAccessed": 1772551096672,
@@ -538,9 +544,9 @@
       "type": "directory"
     },
     {
-      "path": "server/lib/mercadopago.ts",
+      "path": "api/create-preference.js",
       "accessCount": 1,
-      "lastAccessed": 1772556914155,
+      "lastAccessed": 1772558068986,
       "type": "file"
     }
   ],

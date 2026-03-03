@@ -1,16 +1,11 @@
-import { createClient } from '@supabase/supabase-js';
-import { createPreference } from '../server/lib/mercadopago.js';
+// MercadoPago serverless function for Vercel
+// All dependencies must be bundled or available in the runtime
 
-const supabase = createClient(
-  process.env.VITE_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
-
-export default async function handler(req: any, res: any) {
+export default async function handler(req, res) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
@@ -48,11 +43,40 @@ export default async function handler(req: any, res: any) {
       }
     }
 
-    // Create preference
-    const preference = await createPreference({
-      items,
-      metadata: metadata || {},
+    // Call MercadoPago API directly
+    const mercadopagoResponse = await fetch('https://api.mercadopago.com/checkout/preferences', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.MERCADOPAGO_ACCESS_TOKEN}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        items: items.map((item) => ({
+          id: item.id,
+          title: item.title,
+          quantity: item.quantity,
+          unit_price: item.unit_price,
+          currency_id: 'BRL',
+        })),
+        metadata: metadata || {},
+        back_urls: {
+          success: `${process.env.VERCEL_URL || 'https://limpa-nome-expresso-site.vercel.app'}/checkout/sucesso`,
+          failure: `${process.env.VERCEL_URL || 'https://limpa-nome-expresso-site.vercel.app'}/checkout/falha`,
+          pending: `${process.env.VERCEL_URL || 'https://limpa-nome-expresso-site.vercel.app'}/checkout/pendente`,
+        },
+      }),
     });
+
+    if (!mercadopagoResponse.ok) {
+      const errorText = await mercadopagoResponse.text();
+      console.error('MercadoPago API error:', errorText);
+      return res.status(500).json({
+        error: 'Failed to create preference with MercadoPago',
+        details: errorText
+      });
+    }
+
+    const preference = await mercadopagoResponse.json();
 
     return res.status(200).json({
       success: true,
