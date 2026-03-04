@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
-import { usePaymentStatus } from '@/contexts/PaymentContext';
+import { useAccessStatus } from '@/hooks/useAccessStatus';
 import { supabase } from '@/lib/supabase';
 import { API_ENDPOINTS } from '@/lib/stripe-config';
 
@@ -25,40 +25,25 @@ interface SubscriptionState {
 
 export function useSubscription() {
   const { user } = useAuth();
-  const { hasActiveAccess, hasManualAccess, loading: paymentLoading, initialized } = usePaymentStatus();
+  // Use React Query hook directly instead of PaymentContext
+  const { hasAccess, hasManualAccess, loading: paymentLoading, initialized, refetch } = useAccessStatus();
   const [state, setState] = useState<SubscriptionState>({
     subscription: null,
     loading: true,
     error: null,
   });
 
-  // Fetch subscription from database
+  // NOTE: Subscription fetching is now handled by PaymentContext
+  // which uses the user_access table instead of the obsolete subscriptions table
   const fetchSubscription = useCallback(async () => {
+    // Subscription data is managed by PaymentContext
+    // This hook now only exposes the access status
     if (!user) {
       setState({ subscription: null, loading: false, error: null });
       return;
     }
-
-    try {
-      const { data, error } = await supabase
-        .from('subscriptions')
-        .select('*')
-        .eq('user_id', user.id)
-        .eq('status', 'active')
-        .maybeSingle();
-
-      if (error && error.code !== 'PGRST116') {
-        throw error;
-      }
-
-      setState({ subscription: data || null, loading: false, error: null });
-    } catch (err) {
-      setState({
-        subscription: null,
-        loading: false,
-        error: err instanceof Error ? err.message : 'Failed to fetch subscription',
-      });
-    }
+    // No-op - subscription data comes from PaymentContext
+    setState({ subscription: null, loading: false, error: null });
   }, [user]);
 
   useEffect(() => {
@@ -121,14 +106,10 @@ export function useSubscription() {
   // Check if user has active subscription
   const hasActiveSubscription = state.subscription?.status === 'active';
 
-  // Check if user has access (from PaymentContext - single source of truth)
-  const hasAccess = hasActiveAccess;
-
   if (import.meta.env.DEV) {
     console.log('[useSubscription] State:', {
       hasActiveSubscription,
       hasManualAccess,
-      hasActiveAccess,
       hasAccess,
       paymentLoading
     });
@@ -144,6 +125,6 @@ export function useSubscription() {
     initialized,
     createCheckoutSession,
     createPortalSession,
-    refetch: fetchSubscription,
+    refetch, // From useAccessStatus now
   };
 }
