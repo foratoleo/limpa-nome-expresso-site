@@ -45,11 +45,17 @@ export const revokeAccessSchema = z.object({
 });
 
 /**
- * List all manual access grants
- * GET /api/admin/access/list
+ * List all manual access grants with optional search
+ * GET /api/admin/access/list?search=query
+ *
+ * Query parameters:
+ * - search: Optional search term to filter users by email or name
  */
 adminAccessRouter.get("/list", verifyAdmin, async (req: Request, res: Response) => {
   try {
+    // Extract search parameter from query string
+    const { search } = req.query;
+
     // Get all manual access records
     const { data: accesses, error } = await supabaseAdmin
       .from("user_manual_access")
@@ -69,17 +75,42 @@ adminAccessRouter.get("/list", verifyAdmin, async (req: Request, res: Response) 
       return res.status(500).json({ error: "Failed to fetch users" });
     }
 
+    // Build user email map for enrichment
     const userEmails = new Map<string, string>(
       (users || []).map(u => [u.id, u.email as string]).filter((entry): entry is [string, string] => !!entry[1])
     );
+
+    // Get admin user for granter email resolution
     const adminUser = (req as any).user;
 
     // Enrich access data with emails
-    const enrichedAccesses = accesses?.map(access => ({
+    let enrichedAccesses = accesses?.map(access => ({
       ...access,
       user_email: userEmails.get(access.user_id) || null,
       granter_email: access.granted_by === adminUser.id ? adminUser.email : userEmails.get(access.granted_by) || null,
     })) || [];
+
+    // Apply search filter if provided
+    if (search && typeof search === 'string' && search.trim()) {
+      const searchLower = search.toLowerCase().trim();
+
+      // Filter by email or user metadata name
+      enrichedAccesses = enrichedAccesses.filter(access => {
+        // Check email match
+        if (access.user_email?.toLowerCase().includes(searchLower)) {
+          return true;
+        }
+
+        // Check user metadata name match (requires fetching full user objects)
+        const user = (users || []).find(u => u.id === access.user_id);
+        const userName = user?.user_metadata?.name;
+        if (userName && typeof userName === 'string' && userName.toLowerCase().includes(searchLower)) {
+          return true;
+        }
+
+        return false;
+      });
+    }
 
     return res.status(200).json({ accesses: enrichedAccesses });
   } catch (error) {
