@@ -1,9 +1,15 @@
 import { Router, Request, Response } from "express";
 import { createClient } from "@supabase/supabase-js";
+import { z } from "zod";
+import { verifyAdmin, type AuthenticatedRequest } from "../middleware/admin-auth";
+import { logAdminAction } from "../lib/audit-logger";
 
 export const adminAccessRouter = Router();
 
-// Initialize Supabase admin client with service role key
+// ============================================================================
+// Supabase Admin Client
+// ============================================================================
+
 const supabaseUrl = process.env.VITE_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 
@@ -18,37 +24,25 @@ const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey, {
   },
 });
 
+// ============================================================================
+// Zod Validation Schemas
+// ============================================================================
+
 /**
- * Middleware to verify admin role
+ * Validation schema for granting manual access
  */
-async function verifyAdmin(req: Request, res: Response, next: Function) {
-  try {
-    const authHeader = req.headers.authorization;
-    if (!authHeader?.startsWith("Bearer ")) {
-      return res.status(401).json({ error: "Unauthorized" });
-    }
+export const grantAccessSchema = z.object({
+  email: z.string().email("Email inválido"),
+  reason: z.string().optional(),
+  expires_at: z.string().datetime().nullable().optional(),
+});
 
-    const token = authHeader.replace("Bearer ", "");
-    const { data: { user }, error: authError } = await supabaseAdmin.auth.getUser(token);
-
-    if (authError || !user) {
-      return res.status(401).json({ error: "Invalid token" });
-    }
-
-    // Check if user has admin role
-    const userRole = user.user_metadata?.role;
-    if (userRole !== "admin") {
-      return res.status(403).json({ error: "Forbidden: Admin access required" });
-    }
-
-    // Attach user to request for use in handlers
-    (req as any).user = user;
-    next();
-  } catch (error) {
-    console.error("Admin verification error:", error);
-    return res.status(500).json({ error: "Internal server error" });
-  }
-}
+/**
+ * Validation schema for revoking access
+ */
+export const revokeAccessSchema = z.object({
+  reason: z.string().optional(),
+});
 
 /**
  * List all manual access grants
@@ -102,11 +96,17 @@ adminAccessRouter.get("/list", verifyAdmin, async (req: Request, res: Response) 
  */
 adminAccessRouter.post("/grant", verifyAdmin, async (req: Request, res: Response) => {
   try {
-    const { email, reason, expires_at } = req.body;
-
-    if (!email) {
-      return res.status(400).json({ error: "Email is required" });
+    // Validate request body
+    const validationResult = grantAccessSchema.safeParse(req.body);
+    if (!validationResult.success) {
+      return res.status(400).json({
+        error: "Validation failed",
+        details: validationResult.error.errors,
+      });
     }
+
+    const { email, reason, expires_at } = validationResult.data;
+    const adminUser = (req as AuthenticatedRequest).user!;
 
     // Find user by email
     const { data: { users }, error: listError } = await supabaseAdmin.auth.admin.listUsers();
@@ -121,8 +121,6 @@ adminAccessRouter.post("/grant", verifyAdmin, async (req: Request, res: Response
     if (!targetUser) {
       return res.status(404).json({ error: "User not found" });
     }
-
-    const adminUser = (req as any).user;
 
     // Check if user already has active access
     const { data: existingAccess } = await supabaseAdmin
@@ -155,6 +153,23 @@ adminAccessRouter.post("/grant", verifyAdmin, async (req: Request, res: Response
       return res.status(500).json({ error: "Failed to grant access" });
     }
 
+    // Log audit entry
+    try {
+      await logAdminAction({
+        action: "grant_manual_access",
+        targetUserId: targetUser.id,
+        adminUserId: adminUser.id,
+        metadata: {
+          email: targetUser.email,
+          reason: reason || null,
+          expires_at: expires_at || null,
+        },
+      });
+    } catch (auditError) {
+      // Log failure shouldn't block the operation
+      console.error("Failed to log audit entry:", auditError);
+    }
+
     return res.status(201).json({
       success: true,
       message: "Access granted successfully",
@@ -170,19 +185,35 @@ adminAccessRouter.post("/grant", verifyAdmin, async (req: Request, res: Response
 /**
  * Revoke manual access from a user
  * DELETE /api/admin/access/:userId
+ * Body (optional): { reason: string }
  */
 adminAccessRouter.delete("/:userId", verifyAdmin, async (req: Request, res: Response) => {
   try {
     const { userId } = req.params;
+    const adminUser = (req as AuthenticatedRequest).user!;
 
     if (!userId) {
       return res.status(400).json({ error: "User ID is required" });
     }
 
-    // Set is_active to false instead of deleting
+    // Validate optional request body
+    let revokeReason: string | undefined;
+    if (req.body && Object.keys(req.body).length > 0) {
+      const validationResult = revokeAccessSchema.safeParse(req.body);
+      if (validationResult.success) {
+        revokeReason = validationResult.data.reason;
+      }
+    }
+
+    // Soft delete with audit fields
     const { data: access, error: updateError } = await supabaseAdmin
       .from("user_manual_access")
-      .update({ is_active: false })
+      .update({
+        is_active: false,
+        revoked_at: new Date().toISOString(),
+        revoked_by: adminUser.id,
+        revoke_reason: revokeReason || null,
+      })
       .eq("user_id", userId)
       .eq("is_active", true)
       .select()
@@ -195,6 +226,21 @@ adminAccessRouter.delete("/:userId", verifyAdmin, async (req: Request, res: Resp
 
     if (!access) {
       return res.status(404).json({ error: "No active access found for this user" });
+    }
+
+    // Log audit entry
+    try {
+      await logAdminAction({
+        action: "revoke_manual_access",
+        targetUserId: userId,
+        adminUserId: adminUser.id,
+        metadata: {
+          reason: revokeReason || "No reason provided",
+          access_id: access.id,
+        },
+      });
+    } catch (auditError) {
+      console.error("Failed to log audit entry:", auditError);
     }
 
     return res.status(200).json({
@@ -216,12 +262,13 @@ adminAccessRouter.delete("/:userId", verifyAdmin, async (req: Request, res: Resp
 adminAccessRouter.post("/:userId/reactivate", verifyAdmin, async (req: Request, res: Response) => {
   try {
     const { userId } = req.params;
+    const adminUser = (req as AuthenticatedRequest).user!;
 
     if (!userId) {
       return res.status(400).json({ error: "User ID is required" });
     }
 
-    // Set is_active to true
+    // Set is_active to true (preserves original granted_by and granted_at)
     const { data: access, error: updateError } = await supabaseAdmin
       .from("user_manual_access")
       .update({ is_active: true })
@@ -236,6 +283,22 @@ adminAccessRouter.post("/:userId/reactivate", verifyAdmin, async (req: Request, 
 
     if (!access) {
       return res.status(404).json({ error: "No access found for this user" });
+    }
+
+    // Log audit entry
+    try {
+      await logAdminAction({
+        action: "reactivate_manual_access",
+        targetUserId: userId,
+        adminUserId: adminUser.id,
+        metadata: {
+          access_id: access.id,
+          original_granted_by: access.granted_by,
+          original_granted_at: access.granted_at,
+        },
+      });
+    } catch (auditError) {
+      console.error("Failed to log audit entry:", auditError);
     }
 
     return res.status(200).json({
