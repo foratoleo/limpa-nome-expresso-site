@@ -9,11 +9,11 @@ Requisitos para correção do sistema de autenticação e implementação de pai
 
 ### Autenticação & Validação
 
-- [ ] **AUTH-01**: Sistema implementa endpoint `/api/payments/status` como única fonte de verdade para validação de acesso
-- [ ] **AUTH-02**: ProtectedRoute verifica acesso apenas após `isInitialized === true`, evitando loops de redirecionamento
-- [ ] **AUTH-03**: PaymentContext usa React Query para cache de status de acesso, eliminando re-renders infinitos
-- [ ] **AUTH-04**: Sistema implementa três estados de loading: `loading` → `initialized` → `decisionMade`
-- [ ] **AUTH-05**: Race conditions entre AuthContext e PaymentContext são resolvidas com sequenciamento adequado
+- [x] **AUTH-01**: Sistema implementa endpoint `/api/payments/status` como única fonte de verdade para validação de acesso
+- [x] **AUTH-02**: ProtectedRoute verifica acesso apenas após `isInitialized === true`, evitando loops de redirecionamento
+- [x] **AUTH-03**: PaymentContext usa React Query para cache de status de acesso, eliminando re-renders infinitos
+- [x] **AUTH-04**: Sistema implementa três estados de loading: `loading` → `initialized` → `decisionMade`
+- [x] **AUTH-05**: Race conditions entre AuthContext e PaymentContext são resolvidas com sequenciamento adequado
 
 ### Painel Admin
 
@@ -42,16 +42,16 @@ Requisitos para correção do sistema de autenticação e implementação de pai
 
 ### Integrações
 
-- [ ] **INT-01**: Webhook do MercadoPago atualiza tabela user_access corretamente após pagamento confirmado
-- [ ] **INT-02**: Sistema garante que webhook é idempotente (repetições não criam acessos duplicados)
-- [ ] **INT-03**: Dashboard redireciona usuários pagantes para guia após login bem-sucedido
-- [ ] **INT-04**: Dashboard redireciona usuários não pagantes para checkout após login bem-sucedido
+- [x] **INT-01**: Webhook do MercadoPago atualiza tabela user_access corretamente após pagamento confirmado
+- [x] **INT-02**: Sistema garante que webhook é idempotente (repetições não criam acessos duplicados)
+- [x] **INT-03**: Dashboard redireciona usuários pagantes para guia após login bem-sucedido
+- [x] **INT-04**: Dashboard redireciona usuários não pagantes para checkout após login bem-sucedido
 
 ### UX & Performance
 
 - [ ] **UX-01**: Painel admin atualiza status em tempo real sem refresh de página (React Query auto-refetch)
-- [ ] **UX-02**: Sistema mostra mensagens de erro claras quando acesso é negado (não genéricas)
-- [ ] **UX-03**: Loading states são exibidos durante validação de acesso (não redirecionamento prematuro)
+- [x] **UX-02**: Sistema mostra mensagens de erro claras quando acesso é negado (não genéricas)
+- [x] **UX-03**: Loading states são exibidos durante validação de acesso (não redirecionamento prematuro)
 - [ ] **UX-04**: Operações admin têm feedback otimista com rollback em caso de erro
 
 ## v2 Requirements
@@ -88,11 +88,11 @@ Which phases cover which requirements.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| AUTH-01 | Phase 1 | Pending |
-| AUTH-02 | Phase 1 | Pending |
-| AUTH-03 | Phase 1 | Pending |
-| AUTH-04 | Phase 1 | Pending |
-| AUTH-05 | Phase 1 | Pending |
+| AUTH-01 | Phase 1 | Complete |
+| AUTH-02 | Phase 1 | Complete |
+| AUTH-03 | Phase 1 | Complete |
+| AUTH-04 | Phase 1 | Complete |
+| AUTH-05 | Phase 1 | Complete |
 | SEC-01 | Phase 3 | Pending |
 | SEC-02 | Phase 3 | Pending |
 | SEC-03 | Phase 2 | Pending |
@@ -102,10 +102,10 @@ Which phases cover which requirements.
 | DB-02 | Phase 2 | Pending |
 | DB-03 | Phase 2 | Pending |
 | DB-04 | Phase 2 | Pending |
-| INT-01 | Phase 1 | Pending |
-| INT-02 | Phase 1 | Pending |
-| INT-03 | Phase 1 | Pending |
-| INT-04 | Phase 1 | Pending |
+| INT-01 | Phase 1 | Complete |
+| INT-02 | Phase 1 | Complete |
+| INT-03 | Phase 1 | Complete |
+| INT-04 | Phase 1 | Complete |
 | ADMIN-01 | Phase 3 | Pending |
 | ADMIN-02 | Phase 3 | Pending |
 | ADMIN-03 | Phase 3 | Pending |
@@ -114,8 +114,8 @@ Which phases cover which requirements.
 | ADMIN-06 | Phase 4 | Pending |
 | ADMIN-07 | Phase 3 | Pending |
 | UX-01 | Phase 4 | Pending |
-| UX-02 | Phase 1 | Pending |
-| UX-03 | Phase 1 | Pending |
+| UX-02 | Phase 1 | Complete |
+| UX-03 | Phase 1 | Complete |
 | UX-04 | Phase 4 | Pending |
 
 **Coverage:**
