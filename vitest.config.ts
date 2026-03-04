@@ -10,17 +10,30 @@ import path from "node:path";
 export default defineConfig({
   plugins: [react()],
   test: {
-    // Global test utilities
-    globals: true,
-    // Setup files for component tests
-    setupFiles: ["./client/src/__tests__/setup.ts"],
-    // Include patterns - both client and server tests
-    include: [
-      "client/src/**/*.{test,spec}.{ts,tsx}",
-      "server/tests/**/*.{test,spec}.{ts,tsx}"
+    // Use projects to separate client and server test environments
+    projects: [
+      // Client tests (React components) - uses jsdom
+      {
+        test: {
+          globals: true,
+          setupFiles: ["./client/src/__tests__/setup.ts"],
+          environment: "jsdom",
+          include: ["client/src/**/*.{test,spec}.{ts,tsx}"],
+          exclude: ["node_modules", "dist", "e2e"],
+          name: "client",
+        },
+      },
+      // Server tests (database, API) - uses node
+      {
+        test: {
+          globals: true,
+          environment: "node",
+          include: ["server/tests/**/*.{test,spec}.{ts,tsx}"],
+          exclude: ["node_modules", "dist", "e2e"],
+          name: "server",
+        },
+      },
     ],
-    // Exclude patterns
-    exclude: ["node_modules", "dist", "e2e"],
     // Coverage configuration
     coverage: {
       provider: "v8",
@@ -64,5 +77,10 @@ export default defineConfig({
   // Define environment variables for tests
   define: {
     "process.env.NODE_ENV": JSON.stringify("test"),
+  },
+  // Load environment variables from .env.local for tests
+  env: {
+    loadEnvFiles: true,
+    envDir: process.cwd(),
   },
 });
