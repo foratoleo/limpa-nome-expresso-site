@@ -64,6 +64,16 @@ export function ProtectedRoute({ children, requirePayment = true, requireAdmin =
   }, [user, loading, requirePayment, requireAdmin, hasAccess, hasManualAccess, paymentLoading, initialized, setLocation]);
 
   if (loading || (requirePayment && !initialized)) {
+    const reason = loading ? 'Auth loading' : 'Payment not initialized';
+    console.log('[ProtectedRoute] Still waiting:', {
+      loading,
+      initialized,
+      requirePayment,
+      paymentLoading,
+      reason,
+      userEmail: user?.email
+    });
+
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: "#12110d" }}>
         <div className="text-center">
@@ -72,6 +82,11 @@ export function ProtectedRoute({ children, requirePayment = true, requireAdmin =
             style={{ borderColor: "#d39e17", borderTopColor: "transparent" }}
           />
           <p style={{ color: "#94a3b8" }}>Verificando autenticacao...</p>
+          {import.meta.env.DEV && (
+            <p style={{ color: "#64748b", fontSize: "0.75rem", marginTop: "0.5rem" }}>
+              {reason}
+            </p>
+          )}
         </div>
       </div>
     );
