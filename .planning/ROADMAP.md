@@ -48,7 +48,9 @@
 4. Expired access (expires_at < NOW()) is correctly excluded from active access queries
 5. Revoked access records persist in database with is_active: false (soft delete)
 
-**Plans:** TBD
+**Plans:** 2 plans
+- [ ] 02-01-PLAN.md — Create user_access table with indexes and RLS policies
+- [ ] 02-02-PLAN.md — Create comprehensive database test suite
 
 ---
 
@@ -94,7 +96,7 @@
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Authentication Foundation | 0/1 | Planning | - |
-| 2. Database Security & Performance | 0/1 | Not started | - |
+| 2. Database Security & Performance | 0/2 | Planning | - |
 | 3. Admin Panel Core | 0/1 | Not started | - |
 | 4. Admin Panel Polish | 0/1 | Not started | - |
 
@@ -116,5 +118,6 @@
 | 4 | ADMIN-05, ADMIN-06, UX-01, UX-04 | 4 |
 
 ---
+
 *Roadmap created: 2026-03-04*
-*Last updated: 2026-03-04 - Phase 1 plan created*
+*Last updated: 2026-03-04 - Phase 2 plans created*
