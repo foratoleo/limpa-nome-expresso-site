@@ -36,9 +36,9 @@ Requisitos para correção do sistema de autenticação e implementação de pai
 ### Banco de Dados
 
 - [x] **DB-01**: Tabelas user_access e user_manual_access têm índices em user_id para performance (99.94% de melhoria)
-- [ ] **DB-02**: RLS policies usam wrapper SELECT em vez de auth.uid() direto para otimização
+- [x] **DB-02**: RLS policies usam wrapper SELECT em vez de auth.uid() direto para otimização
 - [x] **DB-03**: Sistema implementa soft delete (is_active: false) ao invés de DELETE para manter audit trail
-- [ ] **DB-04**: Queries verificam expires_at >= NOW() para acessos ativos
+- [x] **DB-04**: Queries verificam expires_at >= NOW() para acessos ativos
 
 ### Integrações
 
@@ -99,9 +99,9 @@ Which phases cover which requirements.
 | SEC-04 | Phase 2 | Complete |
 | SEC-05 | Phase 3 | Pending |
 | DB-01 | Phase 2 | Complete |
-| DB-02 | Phase 2 | Pending |
+| DB-02 | Phase 2 | Complete |
 | DB-03 | Phase 2 | Complete |
-| DB-04 | Phase 2 | Pending |
+| DB-04 | Phase 2 | Complete |
 | INT-01 | Phase 1 | Complete |
 | INT-02 | Phase 1 | Complete |
 | INT-03 | Phase 1 | Complete |
