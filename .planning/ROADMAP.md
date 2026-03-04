@@ -88,7 +88,9 @@
 3. Admin panel updates user status in real-time without page refresh after granting/revoking access
 4. Admin operations show optimistic feedback with rollback if operation fails
 
-**Plans:** TBD
+**Plans:** 1 plan
+
+- [ ] 04-01-PLAN.md — Add search, filters, and real-time updates with React Query
 
 ---
 
@@ -121,4 +123,4 @@
 ---
 
 *Roadmap created: 2026-03-04*
-*Last updated: 2026-03-04 - Phase 3 plan created*
+*Last updated: 2026-03-04 - Phase 4 plan created*
