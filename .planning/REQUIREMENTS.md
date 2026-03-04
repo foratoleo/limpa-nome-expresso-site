@@ -21,8 +21,8 @@ Requisitos para correção do sistema de autenticação e implementação de pai
 - [x] **ADMIN-02**: Admin pode conceder acesso manual a qualquer usuário com campo de motivo opcional
 - [x] **ADMIN-03**: Admin pode configurar expiração opcional para acesso manual (data ou sem expiração)
 - [x] **ADMIN-04**: Sistema revoga acesso (manual ou pago) com diálogo de confirmação antes de ação destrutiva
-- [ ] **ADMIN-05**: Painel implementa busca de usuários por nome ou email
-- [ ] **ADMIN-06**: Painel implementa filtros por tipo de acesso (pago/manual/grátis) e status (ativo/pendente/expirado)
+- [x] **ADMIN-05**: Painel implementa busca de usuários por nome ou email
+- [x] **ADMIN-06**: Painel implementa filtros por tipo de acesso (pago/manual/grátis) e status (ativo/pendente/expirado)
 - [x] **ADMIN-07**: Sistema registra histórico completo de concessões/revogações com timestamp, admin responsável e motivo
 
 ### Segurança & Permissões
@@ -49,10 +49,10 @@ Requisitos para correção do sistema de autenticação e implementação de pai
 
 ### UX & Performance
 
-- [ ] **UX-01**: Painel admin atualiza status em tempo real sem refresh de página (React Query auto-refetch)
+- [x] **UX-01**: Painel admin atualiza status em tempo real sem refresh de página (React Query auto-refetch)
 - [x] **UX-02**: Sistema mostra mensagens de erro claras quando acesso é negado (não genéricas)
 - [x] **UX-03**: Loading states são exibidos durante validação de acesso (não redirecionamento prematuro)
-- [ ] **UX-04**: Operações admin têm feedback otimista com rollback em caso de erro
+- [x] **UX-04**: Operações admin têm feedback otimista com rollback em caso de erro
 
 ## v2 Requirements
 
@@ -110,13 +110,13 @@ Which phases cover which requirements.
 | ADMIN-02 | Phase 3 | Complete |
 | ADMIN-03 | Phase 3 | Complete |
 | ADMIN-04 | Phase 3 | Complete |
-| ADMIN-05 | Phase 4 | Pending |
-| ADMIN-06 | Phase 4 | Pending |
+| ADMIN-05 | Phase 4 | Complete |
+| ADMIN-06 | Phase 4 | Complete |
 | ADMIN-07 | Phase 3 | Complete |
-| UX-01 | Phase 4 | Pending |
+| UX-01 | Phase 4 | Complete |
 | UX-02 | Phase 1 | Complete |
 | UX-03 | Phase 1 | Complete |
-| UX-04 | Phase 4 | Pending |
+| UX-04 | Phase 4 | Complete |
 
 **Coverage:**
 - v1.1 requirements: 25 total
