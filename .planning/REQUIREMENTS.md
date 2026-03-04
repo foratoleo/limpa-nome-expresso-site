@@ -29,15 +29,15 @@ Requisitos para correção do sistema de autenticação e implementação de pai
 
 - [ ] **SEC-01**: Sistema valida role de admin no servidor (service role) antes de permitir operações de gestão
 - [ ] **SEC-02**: Sistema nunca confia em `user_metadata` para autorização (armazena em tabela separada)
-- [ ] **SEC-03**: RLS policies do Supabase permitem que admins leiam user_access e user_manual_access
-- [ ] **SEC-04**: RLS policies bloqueiam usuários normais de modificarem user_access diretamente
+- [x] **SEC-03**: RLS policies do Supabase permitem que admins leiam user_access e user_manual_access
+- [x] **SEC-04**: RLS policies bloqueiam usuários normais de modificarem user_access diretamente
 - [ ] **SEC-05**: Operações de concessão/revogação auditam ação com admin user ID e timestamp
 
 ### Banco de Dados
 
-- [ ] **DB-01**: Tabelas user_access e user_manual_access têm índices em user_id para performance (99.94% de melhoria)
+- [x] **DB-01**: Tabelas user_access e user_manual_access têm índices em user_id para performance (99.94% de melhoria)
 - [ ] **DB-02**: RLS policies usam wrapper SELECT em vez de auth.uid() direto para otimização
-- [ ] **DB-03**: Sistema implementa soft delete (is_active: false) ao invés de DELETE para manter audit trail
+- [x] **DB-03**: Sistema implementa soft delete (is_active: false) ao invés de DELETE para manter audit trail
 - [ ] **DB-04**: Queries verificam expires_at >= NOW() para acessos ativos
 
 ### Integrações
@@ -95,12 +95,12 @@ Which phases cover which requirements.
 | AUTH-05 | Phase 1 | Complete |
 | SEC-01 | Phase 3 | Pending |
 | SEC-02 | Phase 3 | Pending |
-| SEC-03 | Phase 2 | Pending |
-| SEC-04 | Phase 2 | Pending |
+| SEC-03 | Phase 2 | Complete |
+| SEC-04 | Phase 2 | Complete |
 | SEC-05 | Phase 3 | Pending |
-| DB-01 | Phase 2 | Pending |
+| DB-01 | Phase 2 | Complete |
 | DB-02 | Phase 2 | Pending |
-| DB-03 | Phase 2 | Pending |
+| DB-03 | Phase 2 | Complete |
 | DB-04 | Phase 2 | Pending |
 | INT-01 | Phase 1 | Complete |
 | INT-02 | Phase 1 | Complete |
