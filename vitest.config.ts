@@ -1,10 +1,7 @@
 /**
  * Vitest Configuration for Limpa Nome Expresso
  *
- * Component testing configuration for React components using:
- * - jsdom environment for DOM simulation
- * - @testing-library/react for component testing
- * - Coverage reporting for migration validation
+ * Supports both component testing (jsdom) and database/integration tests (node)
  */
 import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
@@ -13,18 +10,15 @@ import path from "node:path";
 export default defineConfig({
   plugins: [react()],
   test: {
-    // Use jsdom for DOM simulation
-    environment: "jsdom",
-    jsdom: {
-      // Include custom elements for Atlaskit components
-      resources: "usable",
-    },
     // Global test utilities
     globals: true,
-    // Setup files
+    // Setup files for component tests
     setupFiles: ["./client/src/__tests__/setup.ts"],
-    // Include patterns
-    include: ["client/src/**/*.{test,spec}.{ts,tsx}"],
+    // Include patterns - both client and server tests
+    include: [
+      "client/src/**/*.{test,spec}.{ts,tsx}",
+      "server/tests/**/*.{test,spec}.{ts,tsx}"
+    ],
     // Exclude patterns
     exclude: ["node_modules", "dist", "e2e"],
     // Coverage configuration
@@ -37,11 +31,16 @@ export default defineConfig({
         "client/src/lib/**/*.{ts,tsx}",
         "client/src/utils/**/*.{ts,tsx}",
         "client/src/types/**/*.{ts,tsx}",
+        "server/routes/**/*.ts",
+        "server/lib/**/*.ts",
       ],
       exclude: [
         "client/src/**/*.d.ts",
         "client/src/**/index.ts",
         "client/src/**/__tests__/**",
+        "server/tests/**",
+        "server/**/*.test.ts",
+        "server/**/*.spec.ts",
       ],
       // Thresholds for migration validation
       thresholds: {
