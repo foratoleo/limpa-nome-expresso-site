@@ -17,21 +17,21 @@ Requisitos para correção do sistema de autenticação e implementação de pai
 
 ### Painel Admin
 
-- [ ] **ADMIN-01**: Painel admin exibe lista de usuários com status badges coloridos (verde=ativo, amarelo=pendente, vermelho=expirado, azul=manual)
-- [ ] **ADMIN-02**: Admin pode conceder acesso manual a qualquer usuário com campo de motivo opcional
-- [ ] **ADMIN-03**: Admin pode configurar expiração opcional para acesso manual (data ou sem expiração)
-- [ ] **ADMIN-04**: Sistema revoga acesso (manual ou pago) com diálogo de confirmação antes de ação destrutiva
+- [x] **ADMIN-01**: Painel admin exibe lista de usuários com status badges coloridos (verde=ativo, amarelo=pendente, vermelho=expirado, azul=manual)
+- [x] **ADMIN-02**: Admin pode conceder acesso manual a qualquer usuário com campo de motivo opcional
+- [x] **ADMIN-03**: Admin pode configurar expiração opcional para acesso manual (data ou sem expiração)
+- [x] **ADMIN-04**: Sistema revoga acesso (manual ou pago) com diálogo de confirmação antes de ação destrutiva
 - [ ] **ADMIN-05**: Painel implementa busca de usuários por nome ou email
 - [ ] **ADMIN-06**: Painel implementa filtros por tipo de acesso (pago/manual/grátis) e status (ativo/pendente/expirado)
-- [ ] **ADMIN-07**: Sistema registra histórico completo de concessões/revogações com timestamp, admin responsável e motivo
+- [x] **ADMIN-07**: Sistema registra histórico completo de concessões/revogações com timestamp, admin responsável e motivo
 
 ### Segurança & Permissões
 
-- [ ] **SEC-01**: Sistema valida role de admin no servidor (service role) antes de permitir operações de gestão
-- [ ] **SEC-02**: Sistema nunca confia em `user_metadata` para autorização (armazena em tabela separada)
+- [x] **SEC-01**: Sistema valida role de admin no servidor (service role) antes de permitir operações de gestão
+- [x] **SEC-02**: Sistema nunca confia em `user_metadata` para autorização (armazena em tabela separada)
 - [x] **SEC-03**: RLS policies do Supabase permitem que admins leiam user_access e user_manual_access
 - [x] **SEC-04**: RLS policies bloqueiam usuários normais de modificarem user_access diretamente
-- [ ] **SEC-05**: Operações de concessão/revogação auditam ação com admin user ID e timestamp
+- [x] **SEC-05**: Operações de concessão/revogação auditam ação com admin user ID e timestamp
 
 ### Banco de Dados
 
@@ -93,11 +93,11 @@ Which phases cover which requirements.
 | AUTH-03 | Phase 1 | Complete |
 | AUTH-04 | Phase 1 | Complete |
 | AUTH-05 | Phase 1 | Complete |
-| SEC-01 | Phase 3 | Pending |
-| SEC-02 | Phase 3 | Pending |
+| SEC-01 | Phase 3 | Complete |
+| SEC-02 | Phase 3 | Complete |
 | SEC-03 | Phase 2 | Complete |
 | SEC-04 | Phase 2 | Complete |
-| SEC-05 | Phase 3 | Pending |
+| SEC-05 | Phase 3 | Complete |
 | DB-01 | Phase 2 | Complete |
 | DB-02 | Phase 2 | Complete |
 | DB-03 | Phase 2 | Complete |
@@ -106,13 +106,13 @@ Which phases cover which requirements.
 | INT-02 | Phase 1 | Complete |
 | INT-03 | Phase 1 | Complete |
 | INT-04 | Phase 1 | Complete |
-| ADMIN-01 | Phase 3 | Pending |
-| ADMIN-02 | Phase 3 | Pending |
-| ADMIN-03 | Phase 3 | Pending |
-| ADMIN-04 | Phase 3 | Pending |
+| ADMIN-01 | Phase 3 | Complete |
+| ADMIN-02 | Phase 3 | Complete |
+| ADMIN-03 | Phase 3 | Complete |
+| ADMIN-04 | Phase 3 | Complete |
 | ADMIN-05 | Phase 4 | Pending |
 | ADMIN-06 | Phase 4 | Pending |
-| ADMIN-07 | Phase 3 | Pending |
+| ADMIN-07 | Phase 3 | Complete |
 | UX-01 | Phase 4 | Pending |
 | UX-02 | Phase 1 | Complete |
 | UX-03 | Phase 1 | Complete |
