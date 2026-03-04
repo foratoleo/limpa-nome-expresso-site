@@ -10,6 +10,7 @@ import { authRouter } from "./routes/auth.js";
 import { mercadopagoRouter } from "./routes/mercadopago.js";
 import { paymentsRouter } from "./routes/payments.js";
 import { adminAccessRouter } from "./routes/admin-access.js";
+import { adminUsersRouter } from "./routes/admin-users.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -90,9 +91,31 @@ async function startServer() {
   // Mount Admin Access API routes
   app.use("/api/admin/access", adminAccessRouter);
 
+  // Mount Admin Users API routes
+  app.use("/api/admin/users", adminUsersRouter);
+
   // Health check endpoint
   app.get("/api/health", (_req, res) => {
     res.json({ status: "ok", timestamp: new Date().toISOString() });
+  });
+
+  // Global API error handler: avoid HTML error pages for API routes.
+  app.use((err: unknown, req: express.Request, res: express.Response, next: express.NextFunction) => {
+    if (!req.path.startsWith("/api")) {
+      return next(err);
+    }
+
+    console.error("Unhandled API error:", err);
+
+    if (res.headersSent) {
+      return next(err);
+    }
+
+    res.status(500).json({
+      success: false,
+      error: "Erro interno no servidor",
+      code: "INTERNAL_SERVER_ERROR",
+    });
   });
 
   // Serve static files
