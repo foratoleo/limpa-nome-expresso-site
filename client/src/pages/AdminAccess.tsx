@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useLocation } from "wouter";
 import { useAuth } from "@/contexts/AuthContext";
 import { Container } from "@/components/ui/container";
@@ -10,28 +10,29 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from "@/components/ui/badge";
 import { Shield, UserX, UserCheck, Calendar, Mail, RefreshCw } from "lucide-react";
 import { toast } from "sonner";
-
-interface UserManualAccess {
-  id: string;
-  user_id: string;
-  granted_by: string;
-  granted_at: string;
-  expires_at: string | null;
-  reason: string | null;
-  is_active: boolean;
-  user: { email: string } | null;
-  granted_by_user: { email: string } | null;
-}
+import { useAdminUsers, type AdminUser } from "@/hooks/useAdminUsers";
+import { useGrantAccess, useRevokeAccess } from "@/hooks/useAdminMutations";
+import { UserSearchInput } from "@/components/admin/UserSearchInput";
+import { UserFilters, type StatusFilter, type AccessTypeFilter } from "@/components/admin/UserFilters";
 
 export default function AdminAccess() {
   const { user, loading: authLoading } = useAuth();
   const [, navigate] = useLocation();
-  const [accesses, setAccesses] = useState<UserManualAccess[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [submitting, setSubmitting] = useState(false);
+
+  // Search and filter state
+  const [searchTerm, setSearchTerm] = useState("");
+  const [statusFilters, setStatusFilters] = useState<StatusFilter[]>([]);
+  const [accessTypeFilters, setAccessTypeFilters] = useState<AccessTypeFilter[]>([]);
+
+  // Form state
   const [email, setEmail] = useState("");
   const [reason, setReason] = useState("");
   const [expiresAt, setExpiresAt] = useState("");
+
+  // React Query hooks
+  const { data: users = [], isLoading } = useAdminUsers(searchTerm);
+  const grantAccess = useGrantAccess();
+  const revokeAccess = useRevokeAccess();
 
   // Verify admin role
   useEffect(() => {
@@ -45,109 +46,68 @@ export default function AdminAccess() {
     }
   }, [user, authLoading, navigate]);
 
-  // Fetch manual accesses
-  const fetchAccesses = async () => {
-    try {
-      setLoading(true);
-      const response = await fetch("/api/admin/access/list");
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Erro ao carregar acessos");
-      }
-
-      setAccesses(data.accesses || []);
-    } catch (error) {
-      console.error("Error fetching accesses:", error);
-      toast.error("Erro ao carregar acessos", {
-        description: error instanceof Error ? error.message : "Tente novamente",
-      });
-    } finally {
-      setLoading(false);
-    }
+  /**
+   * Check if access is expired
+   */
+  const isExpired = (expiresAt: string | null) => {
+    if (!expiresAt) return false;
+    return new Date(expiresAt) < new Date();
   };
 
-  useEffect(() => {
-    if (user?.user_metadata?.role === "admin") {
-      fetchAccesses();
-    }
-  }, [user]);
+  /**
+   * Client-side filtering with useMemo
+   * Applies status and access type filters on top of server-side search
+   */
+  const filteredUsers = useMemo(() => {
+    return users.filter(user => {
+      // Status filter
+      const matchesStatus = statusFilters.length === 0 ||
+        (statusFilters.includes('active') && user.is_active && !isExpired(user.expires_at)) ||
+        (statusFilters.includes('expired') && isExpired(user.expires_at)) ||
+        (statusFilters.includes('inactive') && !user.is_active);
 
-  // Grant access
-  const handleGrantAccess = async (e: React.FormEvent) => {
+      // Access type filter (all manual accesses from this endpoint)
+      const matchesAccess = accessTypeFilters.length === 0 ||
+        accessTypeFilters.includes('manual');
+
+      return matchesStatus && matchesAccess;
+    });
+  }, [users, statusFilters, accessTypeFilters]);
+
+  /**
+   * Grant access handler
+   */
+  const handleGrantAccess = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim()) {
       toast.error("Email é obrigatório");
       return;
     }
 
-    try {
-      setSubmitting(true);
-      const response = await fetch("/api/admin/access/grant", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: email.trim(),
-          reason: reason.trim() || null,
-          expires_at: expiresAt ? new Date(expiresAt).toISOString() : null,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Erro ao conceder acesso");
-      }
-
-      toast.success("Acesso concedido", {
-        description: `Acesso manual concedido para ${email}`,
-      });
-
-      // Reset form
-      setEmail("");
-      setReason("");
-      setExpiresAt("");
-
-      // Refresh list
-      fetchAccesses();
-    } catch (error) {
-      console.error("Error granting access:", error);
-      toast.error("Erro ao conceder acesso", {
-        description: error instanceof Error ? error.message : "Tente novamente",
-      });
-    } finally {
-      setSubmitting(false);
-    }
+    grantAccess.mutate({
+      email: email.trim(),
+      reason: reason.trim() || undefined,
+      expires_at: expiresAt ? new Date(expiresAt).toISOString() : undefined,
+    }, {
+      onSuccess: () => {
+        // Reset form
+        setEmail("");
+        setReason("");
+        setExpiresAt("");
+      },
+    });
   };
 
-  // Revoke access
-  const handleRevokeAccess = async (userId: string, userEmail: string) => {
-    try {
-      const response = await fetch(`/api/admin/access/${userId}`, {
-        method: "DELETE",
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Erro ao revogar acesso");
-      }
-
-      toast.success("Acesso revogado", {
-        description: `Acesso de ${userEmail} foi revogado`,
-      });
-
-      // Refresh list
-      fetchAccesses();
-    } catch (error) {
-      console.error("Error revoking access:", error);
-      toast.error("Erro ao revogar acesso", {
-        description: error instanceof Error ? error.message : "Tente novamente",
-      });
-    }
+  /**
+   * Revoke access handler
+   */
+  const handleRevokeAccess = (userId: string, userEmail: string) => {
+    revokeAccess.mutate({ userId, email: userEmail });
   };
 
-  // Reactivate access
+  /**
+   * Reactivate access handler
+   */
   const handleReactivateAccess = async (userId: string, userEmail: string) => {
     try {
       const response = await fetch(`/api/admin/access/${userId}/reactivate`, {
@@ -163,9 +123,6 @@ export default function AdminAccess() {
       toast.success("Acesso reativado", {
         description: `Acesso de ${userEmail} foi reativado`,
       });
-
-      // Refresh list
-      fetchAccesses();
     } catch (error) {
       console.error("Error reactivating access:", error);
       toast.error("Erro ao reativar acesso", {
@@ -174,7 +131,19 @@ export default function AdminAccess() {
     }
   };
 
-  if (authLoading || loading) {
+  /**
+   * Format date for display
+   */
+  const formatDate = (dateStr: string) => {
+    return new Date(dateStr).toLocaleDateString("pt-BR", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
+  };
+
+  // Loading state
+  if (authLoading || isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: "#12110d" }}>
         <div className="text-center">
@@ -185,22 +154,10 @@ export default function AdminAccess() {
     );
   }
 
+  // Not admin
   if (!user || user.user_metadata?.role !== "admin") {
     return null;
   }
-
-  const formatDate = (dateStr: string) => {
-    return new Date(dateStr).toLocaleDateString("pt-BR", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-    });
-  };
-
-  const isExpired = (expiresAt: string | null) => {
-    if (!expiresAt) return false;
-    return new Date(expiresAt) < new Date();
-  };
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#12110d" }}>
@@ -226,15 +183,6 @@ export default function AdminAccess() {
               </p>
             </div>
           </div>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={fetchAccesses}
-            className="gap-2"
-          >
-            <RefreshCw size={16} />
-            Atualizar
-          </Button>
         </Container>
       </header>
 
@@ -304,7 +252,7 @@ export default function AdminAccess() {
               <div className="flex justify-end">
                 <Button
                   type="submit"
-                  isLoading={submitting}
+                  isLoading={grantAccess.isPending}
                   className="gap-2"
                   style={{ backgroundColor: "#d39e17", color: "#12110d" }}
                 >
@@ -313,6 +261,41 @@ export default function AdminAccess() {
                 </Button>
               </div>
             </form>
+          </div>
+
+          {/* Search and Filters */}
+          <div
+            className="rounded-2xl border p-6"
+            style={{
+              backgroundColor: "rgba(22, 40, 71, 0.95)",
+              borderColor: "rgba(211, 158, 23, 0.2)",
+            }}
+          >
+            <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
+              {/* Search Input */}
+              <div className="w-full md:w-auto md:flex-1">
+                <UserSearchInput
+                  value={searchTerm}
+                  onChange={setSearchTerm}
+                  placeholder="Buscar por nome ou email..."
+                />
+              </div>
+
+              {/* Filters */}
+              <UserFilters
+                statusFilters={statusFilters}
+                onStatusChange={setStatusFilters}
+                accessTypeFilters={accessTypeFilters}
+                onAccessTypeChange={setAccessTypeFilters}
+              />
+            </div>
+
+            {/* Results count */}
+            <p className="text-sm mt-4" style={{ color: "#94a3b8" }}>
+              {filteredUsers.length} {filteredUsers.length === 1 ? "acesso" : "acessos"}
+              {searchTerm && ` correspondendo à "${searchTerm}"`}
+              {(statusFilters.length > 0 || accessTypeFilters.length > 0) && " com filtros aplicados"}
+            </p>
           </div>
 
           {/* Access List */}
@@ -327,9 +310,6 @@ export default function AdminAccess() {
               <h2 className="text-lg font-semibold" style={{ color: "#f1f5f9" }}>
                 Acessos Manuais Concedidos
               </h2>
-              <p className="text-sm mt-1" style={{ color: "#94a3b8" }}>
-                {accesses.length} {accesses.length === 1 ? "acesso" : "acessos"}
-              </p>
             </div>
 
             <div className="overflow-x-auto">
@@ -346,14 +326,16 @@ export default function AdminAccess() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {accesses.length === 0 ? (
+                  {filteredUsers.length === 0 ? (
                     <TableRow>
                       <TableCell colSpan={7} className="text-center py-8" style={{ color: "#94a3b8" }}>
-                        Nenhum acesso manual concedido ainda
+                        {searchTerm || statusFilters.length > 0 || accessTypeFilters.length > 0
+                          ? "Nenhum acesso encontrado com os filtros aplicados"
+                          : "Nenhum acesso manual concedido ainda"}
                       </TableCell>
                     </TableRow>
                   ) : (
-                    accesses.map((access) => {
+                    filteredUsers.map((access) => {
                       const expired = isExpired(access.expires_at);
                       return (
                         <TableRow
@@ -364,10 +346,10 @@ export default function AdminAccess() {
                           }}
                         >
                           <TableCell style={{ color: "#e8e4d8" }}>
-                            {access.user?.email || "N/A"}
+                            {access.user_email || "N/A"}
                           </TableCell>
                           <TableCell style={{ color: "#94a3b8" }}>
-                            {access.granted_by_user?.email || "N/A"}
+                            {access.granter_email || "N/A"}
                           </TableCell>
                           <TableCell style={{ color: "#94a3b8" }}>
                             {formatDate(access.granted_at)}
@@ -394,9 +376,10 @@ export default function AdminAccess() {
                               <Button
                                 variant="ghost"
                                 size="icon-sm"
-                                onClick={() => handleRevokeAccess(access.user_id, access.user?.email || "")}
+                                onClick={() => handleRevokeAccess(access.user_id, access.user_email || "")}
                                 title="Revogar acesso"
                                 className="hover:bg-red-500/20 hover:text-red-400"
+                                disabled={revokeAccess.isPending}
                               >
                                 <UserX size={16} />
                               </Button>
@@ -404,7 +387,7 @@ export default function AdminAccess() {
                               <Button
                                 variant="ghost"
                                 size="icon-sm"
-                                onClick={() => handleReactivateAccess(access.user_id, access.user?.email || "")}
+                                onClick={() => handleReactivateAccess(access.user_id, access.user_email || "")}
                                 title="Reativar acesso"
                                 className="hover:bg-green-500/20 hover:text-green-400"
                               >
