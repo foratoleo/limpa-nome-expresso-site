@@ -28,7 +28,8 @@
 4. MercadoPago webhook updates user_access correctly after payment confirmation
 5. Access validation returns consistent results (no race conditions between AuthContext and PaymentContext)
 
-**Plans:** TBD
+**Plans:** 1 plan
+- [ ] 01-01-PLAN.md — Replace PaymentContext with React Query to eliminate race conditions and redirect loops
 
 ---
 
@@ -92,7 +93,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Authentication Foundation | 0/1 | Not started | - |
+| 1. Authentication Foundation | 0/1 | Planning | - |
 | 2. Database Security & Performance | 0/1 | Not started | - |
 | 3. Admin Panel Core | 0/1 | Not started | - |
 | 4. Admin Panel Polish | 0/1 | Not started | - |
@@ -116,3 +117,4 @@
 
 ---
 *Roadmap created: 2026-03-04*
+*Last updated: 2026-03-04 - Phase 1 plan created*
