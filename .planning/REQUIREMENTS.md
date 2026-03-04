@@ -84,7 +84,7 @@ Funcionalidades explicitamente excluídas deste milestone.
 
 ## Traceability
 
-Which phases cover which requirements. Updated during roadmap creation.
+Which phases cover which requirements.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
@@ -100,7 +100,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SEC-05 | Phase 3 | Pending |
 | DB-01 | Phase 2 | Pending |
 | DB-02 | Phase 2 | Pending |
-| DB-03 | Phase 3 | Pending |
+| DB-03 | Phase 2 | Pending |
 | DB-04 | Phase 2 | Pending |
 | INT-01 | Phase 1 | Pending |
 | INT-02 | Phase 1 | Pending |
@@ -110,19 +110,19 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ADMIN-02 | Phase 3 | Pending |
 | ADMIN-03 | Phase 3 | Pending |
 | ADMIN-04 | Phase 3 | Pending |
-| ADMIN-05 | Phase 3 | Pending |
-| ADMIN-06 | Phase 3 | Pending |
+| ADMIN-05 | Phase 4 | Pending |
+| ADMIN-06 | Phase 4 | Pending |
 | ADMIN-07 | Phase 3 | Pending |
-| UX-01 | Phase 3 | Pending |
+| UX-01 | Phase 4 | Pending |
 | UX-02 | Phase 1 | Pending |
 | UX-03 | Phase 1 | Pending |
-| UX-04 | Phase 3 | Pending |
+| UX-04 | Phase 4 | Pending |
 
 **Coverage:**
 - v1.1 requirements: 25 total
-- Mapped to phases: 0
-- Unmapped: 25 ⚠️
+- Mapped to phases: 25 (100%) ✓
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-04*
-*Last updated: 2026-03-04 after initial definition*
+*Last updated: 2026-03-04 after roadmap creation*

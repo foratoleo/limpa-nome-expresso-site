@@ -5,10 +5,10 @@
 
 ## Current Position
 
-**Phase:** Not started (defining requirements)
-**Plan:** —
-**Status:** Gathering requirements
-**Last activity:** 2026-03-04 — Milestone v1.1 started
+**Phase:** Phase 1 - Authentication Foundation
+**Plan:** TBD
+**Status:** Planning phase execution
+**Last activity:** 2026-03-04 — Roadmap created
 
 ## Milestone Context
 
@@ -31,6 +31,19 @@
 - Painel admin operacional
 - Routing correto baseado em status de pagamento
 - Webhook MercadoPago validado
+
+## Roadmap Structure
+
+**Phases:** 4
+**Granularity:** Standard
+**Coverage:** 25/25 requirements mapped (100%)
+
+| Phase | Focus | Requirements |
+|-------|-------|--------------|
+| 1 | Authentication Foundation | 11 requirements |
+| 2 | Database Security & Performance | 6 requirements |
+| 3 | Admin Panel Core | 8 requirements |
+| 4 | Admin Panel Polish | 4 requirements |
 
 ## Accumulated Context
 
@@ -56,20 +69,39 @@
 **Test User:**
 - forato@gmail.com - Tem acesso manual configurado, útil para testes
 
-## Technical Debt
+## Technical Decisions
 
-- PaymentContext com useEffect dependencies problemáticas
-- Ausência de tratamento de erro adequado em validações de acesso
-- Falta de logging para debug de problemas de permissão
-- Não há monitoramento de webhook MercadoPago
+| Decision | Rationale | Status |
+|----------|-----------|--------|
+| Validação centralizada em `/api/payments/status` | Single source of truth, evita problemas de cache | Approved |
+| React Query para caching de acesso | Elimina re-renders infinitos do Context | Approved |
+| Soft delete (is_active: false) | Mantém audit trail completo | Approved |
+| Separar validação de admin no servidor | Nunca confiar em user_metadata para autorização | Approved |
+| TanStack Table para painel admin | Leve (12KB vs 85KB AG Grid), type-safe | Approved |
 
 ## Next Steps
 
-1. Definir requisitos detalhados para correção
-2. Criar roadmap com fases de implementação
-3. Priorizar correção de bugs críticos (loop de login)
-4. Implementar painel admin
-5. Validar webhook MercadoPago
+1. Execute Phase 1 plan (/gsd:plan-phase 1)
+2. Fix ProtectedRoute redirect loop
+3. Implement centralized access validation endpoint
+4. Add React Query for access caching
+5. Test MercadoPago webhook idempotency
+
+## Performance Metrics
+
+*No metrics collected yet - baseline to be established during Phase 1*
+
+## Session Continuity
+
+**Last Session:** 2026-03-04 - Roadmap creation
+**Current Session:** 2026-03-04 - Ready for Phase 1 planning
+
+**Open Questions:**
+- None currently
+
+**Blockers:**
+- None currently
 
 ---
 *State initialized: 2026-03-04*
+*Last updated: 2026-03-04*
