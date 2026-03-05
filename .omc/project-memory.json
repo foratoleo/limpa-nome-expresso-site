@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1772550371822,
+  "lastScanned": 1772673717703,
   "projectRoot": "/Users/forato-dr/Desktop/projects/limpa-nome-expresso-site",
   "techStack": {
     "languages": [
@@ -69,7 +69,7 @@
     "scripts": {
       "dev": "vite --host",
       "build": "vite build && esbuild server/start.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
-      "start": "NODE_ENV=production node dist/index.js",
+      "start": "NODE_ENV=production node dist/start.js",
       "preview": "vite preview --host",
       "check": "tsc --noEmit",
       "format": "prettier --write .",
@@ -94,7 +94,8 @@
     "isMonorepo": false,
     "workspaces": [],
     "mainDirectories": [
-      "docs"
+      "docs",
+      "scripts"
     ],
     "gitBranches": {
       "defaultBranch": "main",
@@ -106,15 +107,20 @@
     "api": {
       "path": "api",
       "purpose": "API routes",
-      "fileCount": 0,
-      "lastAccessed": 1772550371737,
-      "keyFiles": []
+      "fileCount": 4,
+      "lastAccessed": 1772673717672,
+      "keyFiles": [
+        "create-preference.js",
+        "mercadopago-webhook.js",
+        "mercadopago.js",
+        "payments.ts"
+      ]
     },
     "client": {
       "path": "client",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1772550371738,
+      "lastAccessed": 1772673717673,
       "keyFiles": [
         "index.html"
       ]
@@ -123,7 +129,7 @@
       "path": "dist",
       "purpose": "Distribution/build output",
       "fileCount": 1,
-      "lastAccessed": 1772550371791,
+      "lastAccessed": 1772673717680,
       "keyFiles": [
         "start.js"
       ]
@@ -132,7 +138,7 @@
       "path": "docs",
       "purpose": "Documentation",
       "fileCount": 1,
-      "lastAccessed": 1772550371793,
+      "lastAccessed": 1772673717680,
       "keyFiles": [
         "emailit-integration.md"
       ]
@@ -140,10 +146,12 @@
     "e2e": {
       "path": "e2e",
       "purpose": null,
-      "fileCount": 2,
-      "lastAccessed": 1772550371794,
+      "fileCount": 4,
+      "lastAccessed": 1772673717680,
       "keyFiles": [
         "accessibility.spec.ts",
+        "admin-panel-search.spec.ts",
+        "admin-panel.spec.ts",
         "visual-regression.spec.ts"
       ]
     },
@@ -151,7 +159,7 @@
       "path": "out",
       "purpose": "Build output",
       "fileCount": 1,
-      "lastAccessed": 1772550371794,
+      "lastAccessed": 1772673717680,
       "keyFiles": [
         "ln01.mp4"
       ]
@@ -160,17 +168,28 @@
       "path": "patches",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1772550371795,
+      "lastAccessed": 1772673717680,
       "keyFiles": [
         "wouter@3.7.1.patch"
+      ]
+    },
+    "scripts": {
+      "path": "scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 2,
+      "lastAccessed": 1772673717681,
+      "keyFiles": [
+        "execute-migrations.ts",
+        "run-migrations.cjs"
       ]
     },
     "server": {
       "path": "server",
       "purpose": null,
-      "fileCount": 4,
-      "lastAccessed": 1772550371800,
+      "fileCount": 5,
+      "lastAccessed": 1772673717681,
       "keyFiles": [
+        "debug-env.ts",
         "index.ts",
         "start.ts",
         "test-emailit.ts",
@@ -181,7 +200,7 @@
       "path": "shared",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1772550371801,
+      "lastAccessed": 1772673717681,
       "keyFiles": [
         "const.ts"
       ]
@@ -189,15 +208,27 @@
     "supabase": {
       "path": "supabase",
       "purpose": null,
-      "fileCount": 0,
-      "lastAccessed": 1772550371802,
+      "fileCount": 1,
+      "lastAccessed": 1772673717681,
       "keyFiles": []
+    },
+    "tmp": {
+      "path": "tmp",
+      "purpose": null,
+      "fileCount": 4,
+      "lastAccessed": 1772673717682,
+      "keyFiles": [
+        "apply-manual-access-migration.js",
+        "apply-migrations.js",
+        "create-table-direct.ts",
+        "verify-table.ts"
+      ]
     },
     "client/public": {
       "path": "client/public",
       "purpose": "Public files",
       "fileCount": 5,
-      "lastAccessed": 1772550371803,
+      "lastAccessed": 1772673717682,
       "keyFiles": [
         "background-music.mp3",
         "favicon.svg",
@@ -208,7 +239,7 @@
       "path": "client/src",
       "purpose": "Source code",
       "fileCount": 4,
-      "lastAccessed": 1772550371804,
+      "lastAccessed": 1772673717682,
       "keyFiles": [
         "App.tsx",
         "const.ts",
@@ -219,7 +250,7 @@
       "path": "dist/public",
       "purpose": "Public files",
       "fileCount": 6,
-      "lastAccessed": 1772550371808,
+      "lastAccessed": 1772673717683,
       "keyFiles": [
         "background-music.mp3",
         "favicon.svg",
@@ -229,39 +260,41 @@
     "server/lib": {
       "path": "server/lib",
       "purpose": "Library code",
-      "fileCount": 4,
-      "lastAccessed": 1772550371820,
+      "fileCount": 5,
+      "lastAccessed": 1772673717683,
       "keyFiles": [
+        "audit-logger.ts",
         "emailit.ts",
-        "mercadopago-config.ts",
-        "mercadopago.ts"
+        "mercadopago-config.ts"
       ]
     },
     "server/middleware": {
       "path": "server/middleware",
       "purpose": "Middleware",
-      "fileCount": 1,
-      "lastAccessed": 1772550371820,
+      "fileCount": 3,
+      "lastAccessed": 1772673717683,
       "keyFiles": [
-        "stripe-webhook.ts"
+        "admin-auth.ts",
+        "stripe-webhook.ts",
+        "validation.ts"
       ]
     },
     "server/routes": {
       "path": "server/routes",
       "purpose": "Route handlers",
-      "fileCount": 5,
-      "lastAccessed": 1772550371821,
+      "fileCount": 7,
+      "lastAccessed": 1772673717683,
       "keyFiles": [
-        "auth.ts",
-        "contact.ts",
-        "mercadopago.ts"
+        "admin-access.ts",
+        "admin-users.ts",
+        "auth.ts"
       ]
     },
     "server/services": {
       "path": "server/services",
       "purpose": "Business logic services",
       "fileCount": 1,
-      "lastAccessed": 1772550371822,
+      "lastAccessed": 1772673717683,
       "keyFiles": [
         "email.service.ts"
       ]
@@ -269,8 +302,8 @@
     "supabase/migrations": {
       "path": "supabase/migrations",
       "purpose": "Database migrations",
-      "fileCount": 4,
-      "lastAccessed": 1772550371822,
+      "fileCount": 19,
+      "lastAccessed": 1772673717684,
       "keyFiles": [
         "001_initial_schema.sql",
         "002_checklist_documents.sql",
@@ -280,304 +313,124 @@
   },
   "hotPaths": [
     {
-      "path": "client/src/contexts/PaymentContext.tsx",
-      "accessCount": 95,
-      "lastAccessed": 1772673539035,
+      "path": "client/src/App.tsx",
+      "accessCount": 12,
+      "lastAccessed": 1772673979468,
       "type": "file"
     },
     {
       "path": "",
-      "accessCount": 77,
-      "lastAccessed": 1772673506377,
+      "accessCount": 3,
+      "lastAccessed": 1772673991120,
       "type": "directory"
-    },
-    {
-      "path": "client/src",
-      "accessCount": 68,
-      "lastAccessed": 1772673491034,
-      "type": "directory"
-    },
-    {
-      "path": "client/src/components/auth/ProtectedRoute.tsx",
-      "accessCount": 57,
-      "lastAccessed": 1772673566958,
-      "type": "file"
-    },
-    {
-      "path": "client/src/App.tsx",
-      "accessCount": 47,
-      "lastAccessed": 1772673502969,
-      "type": "file"
-    },
-    {
-      "path": "server/routes/payments.ts",
-      "accessCount": 34,
-      "lastAccessed": 1772673391609,
-      "type": "file"
-    },
-    {
-      "path": "client/src/contexts/AuthContext.tsx",
-      "accessCount": 34,
-      "lastAccessed": 1772673496658,
-      "type": "file"
     },
     {
       "path": "api/payments.ts",
-      "accessCount": 30,
-      "lastAccessed": 1772673473188,
+      "accessCount": 3,
+      "lastAccessed": 1772673994494,
+      "type": "file"
+    },
+    {
+      "path": "client/src/components/auth/ProtectedRoute.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1772673873864,
       "type": "file"
     },
     {
       "path": "server/index.ts",
-      "accessCount": 20,
-      "lastAccessed": 1772672767245,
+      "accessCount": 2,
+      "lastAccessed": 1772674001696,
       "type": "file"
     },
     {
-      "path": "client/src/components/auth/AuthModal.tsx",
-      "accessCount": 18,
-      "lastAccessed": 1772552769423,
+      "path": "DEPLOYMENT_SUMMARY_ITERATION_3.md",
+      "accessCount": 1,
+      "lastAccessed": 1772673815579,
       "type": "file"
     },
     {
-      "path": "server/routes/auth.ts",
-      "accessCount": 18,
-      "lastAccessed": 1772673077974,
+      "path": "client/src/pages/Welcome.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1772673873854,
       "type": "file"
     },
     {
-      "path": "client/src/types/supabase.ts",
-      "accessCount": 16,
-      "lastAccessed": 1772572051280,
+      "path": "client/src/lib/debugAuth.ts",
+      "accessCount": 1,
+      "lastAccessed": 1772673873867,
+      "type": "file"
+    },
+    {
+      "path": "client/src/pages/DebugAccess.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1772673873877,
+      "type": "file"
+    },
+    {
+      "path": "client/src/hooks/useSubscription.ts",
+      "accessCount": 1,
+      "lastAccessed": 1772673878619,
+      "type": "file"
+    },
+    {
+      "path": "client/src/contexts/AuthContext.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1772673878623,
       "type": "file"
     },
     {
       "path": "client/src/pages/AuthCallback.tsx",
-      "accessCount": 13,
-      "lastAccessed": 1772673078009,
+      "accessCount": 1,
+      "lastAccessed": 1772673878632,
       "type": "file"
     },
     {
-      "path": "client/src/lib/supabase.ts",
-      "accessCount": 12,
-      "lastAccessed": 1772572070113,
+      "path": "client/src/hooks/useAccessStatus.ts",
+      "accessCount": 1,
+      "lastAccessed": 1772673878645,
       "type": "file"
     },
     {
-      "path": "package.json",
-      "accessCount": 12,
-      "lastAccessed": 1772672789312,
-      "type": "directory"
-    },
-    {
-      "path": "client",
-      "accessCount": 11,
-      "lastAccessed": 1772673086370,
-      "type": "directory"
-    },
-    {
-      "path": "client/src/components/auth/MagicLinkForm.tsx",
-      "accessCount": 10,
-      "lastAccessed": 1772552769397,
+      "path": "client/src/contexts/PaymentContext.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1772673878676,
       "type": "file"
     },
     {
       "path": "vercel.json",
-      "accessCount": 10,
-      "lastAccessed": 1772673473157,
-      "type": "file"
-    },
-    {
-      "path": "client/src/pages/Landing.tsx",
-      "accessCount": 9,
-      "lastAccessed": 1772672767123,
+      "accessCount": 1,
+      "lastAccessed": 1772673882420,
       "type": "file"
     },
     {
       "path": "vite.config.ts",
-      "accessCount": 9,
-      "lastAccessed": 1772672819895,
-      "type": "file"
-    },
-    {
-      "path": "api/mercadopago.ts",
-      "accessCount": 7,
-      "lastAccessed": 1772558002302,
-      "type": "file"
-    },
-    {
-      "path": "client/src/components/auth/RegisterForm.tsx",
-      "accessCount": 5,
-      "lastAccessed": 1772552757562,
-      "type": "file"
-    },
-    {
-      "path": "client/src/components/auth/LoginForm.tsx",
-      "accessCount": 5,
-      "lastAccessed": 1772552757614,
-      "type": "file"
-    },
-    {
-      "path": "client/src/lib/api/mercadopago.ts",
-      "accessCount": 5,
-      "lastAccessed": 1772558360626,
-      "type": "file"
-    },
-    {
-      "path": "server",
-      "accessCount": 5,
-      "lastAccessed": 1772672789801,
-      "type": "directory"
-    },
-    {
-      "path": "api/create-preference.js",
-      "accessCount": 4,
-      "lastAccessed": 1772558348038,
-      "type": "file"
-    },
-    {
-      "path": "client/src/components/checkout/CheckoutPage.tsx",
-      "accessCount": 4,
-      "lastAccessed": 1772558364597,
+      "accessCount": 1,
+      "lastAccessed": 1772673887007,
       "type": "file"
     },
     {
       "path": "server/start.ts",
-      "accessCount": 4,
-      "lastAccessed": 1772672798021,
+      "accessCount": 1,
+      "lastAccessed": 1772673892616,
       "type": "file"
     },
     {
-      "path": "server/services/email.service.ts",
-      "accessCount": 3,
-      "lastAccessed": 1772551947128,
+      "path": "server/routes/payments.ts",
+      "accessCount": 1,
+      "lastAccessed": 1772673896796,
       "type": "file"
     },
     {
-      "path": "client/src/components/auth/ForgotPasswordForm.tsx",
-      "accessCount": 3,
-      "lastAccessed": 1772552757557,
-      "type": "file"
-    },
-    {
-      "path": "client/public/email-templates/confirm-signup.html",
-      "accessCount": 3,
-      "lastAccessed": 1772552783578,
-      "type": "file"
-    },
-    {
-      "path": "server/lib/mercadopago.ts",
-      "accessCount": 3,
-      "lastAccessed": 1772558304820,
-      "type": "file"
-    },
-    {
-      "path": ".env.local",
-      "accessCount": 3,
-      "lastAccessed": 1772566143312,
-      "type": "file"
-    },
-    {
-      "path": "docs/emailit-integration.md",
-      "accessCount": 2,
-      "lastAccessed": 1772551804841,
-      "type": "file"
-    },
-    {
-      "path": "server/lib/emailit.ts",
-      "accessCount": 2,
-      "lastAccessed": 1772551804857,
-      "type": "file"
-    },
-    {
-      "path": "client/src/pages",
-      "accessCount": 2,
-      "lastAccessed": 1772552539149,
+      "path": "client/src",
+      "accessCount": 1,
+      "lastAccessed": 1772673935332,
       "type": "directory"
     },
     {
-      "path": "client/public/email-templates/README.md",
-      "accessCount": 2,
-      "lastAccessed": 1772552773739,
-      "type": "file"
-    },
-    {
-      "path": "client/src/pages/Home.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1772565653300,
-      "type": "file"
-    },
-    {
-      "path": "client/src/types",
-      "accessCount": 2,
-      "lastAccessed": 1772566218083,
+      "path": "server",
+      "accessCount": 1,
+      "lastAccessed": 1772673986916,
       "type": "directory"
-    },
-    {
-      "path": "server/lib/supabase-server.ts",
-      "accessCount": 2,
-      "lastAccessed": 1772672760879,
-      "type": "file"
-    },
-    {
-      "path": "api",
-      "accessCount": 2,
-      "lastAccessed": 1772672833744,
-      "type": "directory"
-    },
-    {
-      "path": "server/routes/mercadopago.ts",
-      "accessCount": 1,
-      "lastAccessed": 1772551096672,
-      "type": "file"
-    },
-    {
-      "path": "shared/supabase/types.ts",
-      "accessCount": 1,
-      "lastAccessed": 1772551804725,
-      "type": "file"
-    },
-    {
-      "path": ".env.local.bak",
-      "accessCount": 1,
-      "lastAccessed": 1772551817373,
-      "type": "file"
-    },
-    {
-      "path": ".dr_ai/tasks/phase6-integration/SECURITY-FIX-USER-ENUMERATION.md",
-      "accessCount": 1,
-      "lastAccessed": 1772552700263,
-      "type": "file"
-    },
-    {
-      "path": "client/src/components/ui/chart.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1772552775372,
-      "type": "file"
-    },
-    {
-      "path": "api/mercadopago.js",
-      "accessCount": 1,
-      "lastAccessed": 1772558293295,
-      "type": "file"
-    },
-    {
-      "path": "api/mercadopago-webhook.js",
-      "accessCount": 1,
-      "lastAccessed": 1772558339845,
-      "type": "file"
-    },
-    {
-      "path": "client/src/lib/mercadopago-config.ts",
-      "accessCount": 1,
-      "lastAccessed": 1772558351804,
-      "type": "file"
-    },
-    {
-      "path": "client/src/main.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1772559083747,
-      "type": "file"
     }
   ],
   "userDirectives": []

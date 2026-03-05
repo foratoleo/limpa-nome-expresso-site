@@ -27,18 +27,6 @@ import AdminPanel from "./pages/AdminPanel";
 import DebugAccess from "./pages/DebugAccess";
 import { type ReactNode } from "react";
 
-// ULTRA-AGGRESSIVE ADMIN BYPASS - Router Level
-// This component runs BEFORE ProtectedRoute and guarantees admin access
-const isAdminUser = (user: any) => user?.user_metadata?.role === 'admin';
-
-function AdminBypass({ children, user }: { children: ReactNode; user: any }) {
-  // Admin users bypass ALL ProtectedRoute checks
-  if (isAdminUser(user)) {
-    return <>{children}</>;
-  }
-  return children;
-}
-
 function Router() {
   return (
     <Switch>
@@ -127,15 +115,8 @@ function Router() {
   );
 }
 
-// RouterWithBypass - Wraps Router with admin bypass
-function RouterWithBypass() {
-  const { user } = useAuth();
-  return (
-    <AdminBypass user={user}>
-      <Router />
-    </AdminBypass>
-  );
-}
+// NOTE: Admin access bypass is handled by ProtectedRoute component (lines 47-53, 110-115)
+// No router-level wrapper needed - ProtectedRoute handles all access control
 
 // NOTE: About Theme
 // - The app uses a dual-provider architecture during the Atlassian Design System migration:
@@ -164,7 +145,7 @@ function App() {
             >
               <TooltipProvider>
                 <Toaster />
-                <RouterWithBypass />
+                <Router />
                 {import.meta.env.DEV && <Agentation />}
               </TooltipProvider>
             </ThemeProvider>
