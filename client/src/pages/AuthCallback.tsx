@@ -33,7 +33,7 @@ export default function AuthCallback() {
         setStatus("success");
 
         setTimeout(() => {
-          setLocation("/dashboard");
+          setLocation("/welcome");
         }, 1000);
       } catch (err) {
         setStatus("error");

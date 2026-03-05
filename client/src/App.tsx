@@ -11,6 +11,7 @@ import { ProtectedRoute } from "./components/auth/ProtectedRoute";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Landing from "./pages/Landing";
+import Welcome from "./pages/Welcome";
 import Documents from "./pages/Documents";
 import Templates from "./pages/Templates";
 import Support from "./pages/Support";
@@ -28,6 +29,11 @@ function Router() {
   return (
     <Switch>
       <Route path={"/"} component={Landing} />
+      <Route path={"/welcome"}>
+        <ProtectedRoute requirePayment={false}>
+          <Welcome />
+        </ProtectedRoute>
+      </Route>
       <Route path={"/guia"}>
         <ProtectedRoute requirePayment={true}>
           <Home />
