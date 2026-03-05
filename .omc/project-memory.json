@@ -325,16 +325,16 @@
       "type": "file"
     },
     {
-      "path": "",
-      "accessCount": 4,
-      "lastAccessed": 1772674376328,
-      "type": "directory"
+      "path": "vercel.json",
+      "accessCount": 6,
+      "lastAccessed": 1772675302226,
+      "type": "file"
     },
     {
-      "path": "vercel.json",
-      "accessCount": 4,
-      "lastAccessed": 1772674953781,
-      "type": "file"
+      "path": "",
+      "accessCount": 5,
+      "lastAccessed": 1772675233944,
+      "type": "directory"
     },
     {
       "path": "server/routes/payments.ts",
@@ -382,6 +382,12 @@
       "path": "package.json",
       "accessCount": 2,
       "lastAccessed": 1772674478751,
+      "type": "file"
+    },
+    {
+      "path": "api/payments.js",
+      "accessCount": 2,
+      "lastAccessed": 1772675131584,
       "type": "file"
     },
     {
@@ -478,6 +484,12 @@
       "path": "COMPLETE_FIX_SUMMARY.md",
       "accessCount": 1,
       "lastAccessed": 1772674904318,
+      "type": "file"
+    },
+    {
+      "path": "ARCHITECTURAL_ISSUE.md",
+      "accessCount": 1,
+      "lastAccessed": 1772675248819,
       "type": "file"
     }
   ],
