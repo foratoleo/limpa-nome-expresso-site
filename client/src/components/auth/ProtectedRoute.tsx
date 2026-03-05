@@ -45,6 +45,14 @@ export function ProtectedRoute({ children, requirePayment = true, requireAdmin =
       return;
     }
 
+    // Admin bypass - admins always have access
+    if (user?.user_metadata?.role === 'admin') {
+      if (import.meta.env.DEV) {
+        console.log('[ProtectedRoute] Admin bypass - access granted');
+      }
+      return;
+    }
+
     // Only check payment access if NOT loading
     if (requirePayment && !paymentLoading && !hasAccess) {
       if (import.meta.env.DEV) {
@@ -90,6 +98,14 @@ export function ProtectedRoute({ children, requirePayment = true, requireAdmin =
         </div>
       </div>
     );
+  }
+
+  // Admin bypass - admins always have access
+  if (user?.user_metadata?.role === 'admin') {
+    if (import.meta.env.DEV) {
+      console.log('[ProtectedRoute] Admin bypass (render) - access granted');
+    }
+    return <>{children}</>;
   }
 
   if (!user || (requirePayment && !hasAccess) || (requireAdmin && user.user_metadata?.role !== 'admin')) {

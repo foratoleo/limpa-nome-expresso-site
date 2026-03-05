@@ -40,8 +40,24 @@ export default async function handler(req: any, res: any) {
     );
 
     if (authError || !user) {
+      console.log('[PAYMENTS DEBUG] Step 1 - Token verification FAILED:', {
+        hasAuthError: !!authError,
+        authErrorMessage: authError?.message,
+        hasUser: !!user
+      });
       return res.status(401).json({ error: 'Invalid token' });
     }
+
+    console.log('[PAYMENTS DEBUG] Step 1 - Token verified:', {
+      tokenLength: token.length,
+      userId: user.id
+    });
+
+    console.log('[PAYMENTS DEBUG] Step 2 - User found:', {
+      userId: user.id,
+      email: user.email,
+      userMetadata: user.user_metadata
+    });
 
     // Check for active access
     const { data: access, error } = await supabase
@@ -52,6 +68,12 @@ export default async function handler(req: any, res: any) {
       .gte('expires_at', new Date().toISOString())
       .maybeSingle();
 
+    console.log('[PAYMENTS DEBUG] Step 3 - user_access result:', {
+      found: !!access,
+      error: error?.message,
+      data: access
+    });
+
     // Check for manual access
     const { data: manualAccess, error: manualError } = await supabase
       .from('user_manual_access')
@@ -60,6 +82,12 @@ export default async function handler(req: any, res: any) {
       .eq('is_active', true)
       .or('expires_at.is.null,expires_at.gte.' + new Date().toISOString())
       .maybeSingle();
+
+    console.log('[PAYMENTS DEBUG] Step 4 - user_manual_access result:', {
+      found: !!manualAccess,
+      error: manualError?.message,
+      data: manualAccess
+    });
 
     if (process.env.NODE_ENV === 'development') {
       console.log('[Payments API] Manual access check:', {
@@ -76,13 +104,22 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: 'Failed to check access' });
     }
 
-    return res.status(200).json({
+    const finalResponse = {
       hasActiveAccess: !!access || !!manualAccess,
       hasManualAccess: !!manualAccess,
       manualAccessExpiresAt: manualAccess?.expires_at || null,
       accessType: access?.access_type || 'manual',
       expiresAt: access?.expires_at || manualAccess?.expires_at || null,
+    };
+
+    console.log('[PAYMENTS DEBUG] Step 5 - Final response:', {
+      hasActiveAccess: finalResponse.hasActiveAccess,
+      hasManualAccess: finalResponse.hasManualAccess,
+      accessType: finalResponse.accessType,
+      expiresAt: finalResponse.expiresAt
     });
+
+    return res.status(200).json(finalResponse);
   } catch (error) {
     console.error('Error in /status:', error);
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';

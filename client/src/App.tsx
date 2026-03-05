@@ -24,6 +24,7 @@ import PaymentFailed from "./pages/PaymentFailed";
 import AuthCallback from "./pages/AuthCallback";
 import { Agentation } from "agentation";
 import AdminPanel from "./pages/AdminPanel";
+import DebugAccess from "./pages/DebugAccess";
 
 function Router() {
   return (
@@ -99,6 +100,11 @@ function Router() {
       <Route path={"/admin/access"}>
         <ProtectedRoute requirePayment={false} requireAdmin={true}>
           <AdminPanel />
+        </ProtectedRoute>
+      </Route>
+      <Route path={"/debug-access"}>
+        <ProtectedRoute requirePayment={false}>
+          <DebugAccess />
         </ProtectedRoute>
       </Route>
       <Route path={"/404"} component={NotFound} />
