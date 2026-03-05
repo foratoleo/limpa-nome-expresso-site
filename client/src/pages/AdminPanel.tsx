@@ -332,7 +332,12 @@ export default function AdminPanel() {
           </div>
 
           {/* User List Table */}
-          <UserListTable users={users} loading={usersLoading} onRefresh={refetch} />
+          <UserListTable
+            users={users}
+            loading={usersLoading}
+            onRefresh={refetch}
+            currentUserId={user.id}
+          />
         </div>
       </Container>
     </div>

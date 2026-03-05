@@ -111,3 +111,6 @@ temp/
 .env.local.bak
 .env.local.migrations
 .dmux/
+
+# Local Netlify folder
+.netlify

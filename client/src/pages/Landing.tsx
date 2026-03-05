@@ -28,7 +28,7 @@ export default function Landing() {
   useEffect(() => {
     if (user && !authModalTab && !paymentLoading) {
       if (hasActiveAccess) {
-        setLocation("/guia");
+        setLocation("/bem-vindo");
       } else {
         // Don't auto-redirect to checkout - let user choose
         // setLocation("/checkout");

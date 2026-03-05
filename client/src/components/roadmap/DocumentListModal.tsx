@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { CrossIcon, DownloadIcon, FileIcon, TrashIcon, AddCircleIcon } from "@/utils/icons";
 import type { UserDocument } from "@/types/supabase";
 import { useDocuments } from "@/hooks/useDocuments";
+import { toast } from "sonner";
 
 interface DocumentWithAttachment {
   id: string;
@@ -46,6 +47,12 @@ export function DocumentListModal({
   const [uploadingDirect, setUploadingDirect] = useState(false);
   const attachListRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
 
   // Close on escape key
   useEffect(() => {
@@ -127,12 +134,15 @@ export function DocumentListModal({
           console.log('[DocumentListModal] Refresh complete');
         } else {
           console.error('[DocumentListModal] Failed to attach document');
+          toast.error("Arquivo enviado, mas não foi possível vincular ao item");
         }
       } else {
         console.error('[DocumentListModal] Upload failed or no document ID:', result);
+        toast.error("Não foi possível enviar o arquivo");
       }
     } catch (err) {
       console.error('[DocumentListModal] Error in upload process:', err);
+      toast.error("Erro ao enviar arquivo");
     } finally {
       console.log('[DocumentListModal] Upload process complete, resetting state');
       setUploadingDirect(false);
@@ -170,12 +180,14 @@ export function DocumentListModal({
         type="file"
         style={{ display: 'none' }}
         accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+        onClick={(e) => e.stopPropagation()}
+        onMouseDown={(e) => e.stopPropagation()}
         onChange={handleDirectUpload}
       />
       {(() => {
         const modalContent = (
     <div
-      onClick={onClose}
+      onClick={handleBackdropClick}
       style={{
         position: "fixed",
         top: 0,

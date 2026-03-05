@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1772673717703,
+  "lastScanned": 1772722830318,
   "projectRoot": "/Users/forato-dr/Desktop/projects/limpa-nome-expresso-site",
   "techStack": {
     "languages": [
@@ -107,20 +107,19 @@
     "api": {
       "path": "api",
       "purpose": "API routes",
-      "fileCount": 4,
-      "lastAccessed": 1772673717672,
+      "fileCount": 3,
+      "lastAccessed": 1772722830204,
       "keyFiles": [
         "create-preference.js",
         "mercadopago-webhook.js",
-        "mercadopago.js",
-        "payments.ts"
+        "mercadopago.js"
       ]
     },
     "client": {
       "path": "client",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1772673717673,
+      "lastAccessed": 1772722830205,
       "keyFiles": [
         "index.html"
       ]
@@ -129,7 +128,7 @@
       "path": "dist",
       "purpose": "Distribution/build output",
       "fileCount": 1,
-      "lastAccessed": 1772673717680,
+      "lastAccessed": 1772722830285,
       "keyFiles": [
         "start.js"
       ]
@@ -138,7 +137,7 @@
       "path": "docs",
       "purpose": "Documentation",
       "fileCount": 1,
-      "lastAccessed": 1772673717680,
+      "lastAccessed": 1772722830286,
       "keyFiles": [
         "emailit-integration.md"
       ]
@@ -147,7 +146,7 @@
       "path": "e2e",
       "purpose": null,
       "fileCount": 4,
-      "lastAccessed": 1772673717680,
+      "lastAccessed": 1772722830287,
       "keyFiles": [
         "accessibility.spec.ts",
         "admin-panel-search.spec.ts",
@@ -155,11 +154,18 @@
         "visual-regression.spec.ts"
       ]
     },
+    "netlify": {
+      "path": "netlify",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1772722830288,
+      "keyFiles": []
+    },
     "out": {
       "path": "out",
       "purpose": "Build output",
       "fileCount": 1,
-      "lastAccessed": 1772673717680,
+      "lastAccessed": 1772722830289,
       "keyFiles": [
         "ln01.mp4"
       ]
@@ -168,7 +174,7 @@
       "path": "patches",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1772673717680,
+      "lastAccessed": 1772722830290,
       "keyFiles": [
         "wouter@3.7.1.patch"
       ]
@@ -177,7 +183,7 @@
       "path": "scripts",
       "purpose": "Build/utility scripts",
       "fileCount": 2,
-      "lastAccessed": 1772673717681,
+      "lastAccessed": 1772722830291,
       "keyFiles": [
         "execute-migrations.ts",
         "run-migrations.cjs"
@@ -187,7 +193,7 @@
       "path": "server",
       "purpose": null,
       "fileCount": 5,
-      "lastAccessed": 1772673717681,
+      "lastAccessed": 1772722830292,
       "keyFiles": [
         "debug-env.ts",
         "index.ts",
@@ -200,7 +206,7 @@
       "path": "shared",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1772673717681,
+      "lastAccessed": 1772722830293,
       "keyFiles": [
         "const.ts"
       ]
@@ -209,14 +215,14 @@
       "path": "supabase",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1772673717681,
+      "lastAccessed": 1772722830294,
       "keyFiles": []
     },
     "tmp": {
       "path": "tmp",
       "purpose": null,
       "fileCount": 4,
-      "lastAccessed": 1772673717682,
+      "lastAccessed": 1772722830295,
       "keyFiles": [
         "apply-manual-access-migration.js",
         "apply-migrations.js",
@@ -224,11 +230,18 @@
         "verify-table.ts"
       ]
     },
+    "api/dist": {
+      "path": "api/dist",
+      "purpose": "Distribution/build output",
+      "fileCount": 0,
+      "lastAccessed": 1772722830295,
+      "keyFiles": []
+    },
     "client/public": {
       "path": "client/public",
       "purpose": "Public files",
       "fileCount": 5,
-      "lastAccessed": 1772673717682,
+      "lastAccessed": 1772722830296,
       "keyFiles": [
         "background-music.mp3",
         "favicon.svg",
@@ -239,7 +252,7 @@
       "path": "client/src",
       "purpose": "Source code",
       "fileCount": 4,
-      "lastAccessed": 1772673717682,
+      "lastAccessed": 1772722830298,
       "keyFiles": [
         "App.tsx",
         "const.ts",
@@ -250,7 +263,7 @@
       "path": "dist/public",
       "purpose": "Public files",
       "fileCount": 6,
-      "lastAccessed": 1772673717683,
+      "lastAccessed": 1772722830299,
       "keyFiles": [
         "background-music.mp3",
         "favicon.svg",
@@ -261,7 +274,7 @@
       "path": "server/lib",
       "purpose": "Library code",
       "fileCount": 5,
-      "lastAccessed": 1772673717683,
+      "lastAccessed": 1772722830308,
       "keyFiles": [
         "audit-logger.ts",
         "emailit.ts",
@@ -272,7 +285,7 @@
       "path": "server/middleware",
       "purpose": "Middleware",
       "fileCount": 3,
-      "lastAccessed": 1772673717683,
+      "lastAccessed": 1772722830308,
       "keyFiles": [
         "admin-auth.ts",
         "stripe-webhook.ts",
@@ -283,7 +296,7 @@
       "path": "server/routes",
       "purpose": "Route handlers",
       "fileCount": 7,
-      "lastAccessed": 1772673717683,
+      "lastAccessed": 1772722830309,
       "keyFiles": [
         "admin-access.ts",
         "admin-users.ts",
@@ -294,7 +307,7 @@
       "path": "server/services",
       "purpose": "Business logic services",
       "fileCount": 1,
-      "lastAccessed": 1772673717683,
+      "lastAccessed": 1772722830309,
       "keyFiles": [
         "email.service.ts"
       ]
@@ -303,7 +316,7 @@
       "path": "supabase/migrations",
       "purpose": "Database migrations",
       "fileCount": 19,
-      "lastAccessed": 1772673717684,
+      "lastAccessed": 1772722830310,
       "keyFiles": [
         "001_initial_schema.sql",
         "002_checklist_documents.sql",
@@ -313,303 +326,273 @@
   },
   "hotPaths": [
     {
-      "path": "client/src/App.tsx",
-      "accessCount": 15,
-      "lastAccessed": 1772714468740,
-      "type": "file"
-    },
-    {
-      "path": "vercel.json",
-      "accessCount": 14,
-      "lastAccessed": 1772714482632,
-      "type": "file"
-    },
-    {
       "path": "",
-      "accessCount": 14,
-      "lastAccessed": 1772714488541,
+      "accessCount": 31,
+      "lastAccessed": 1772745248481,
       "type": "directory"
     },
     {
-      "path": "api/payments.ts",
-      "accessCount": 10,
-      "lastAccessed": 1772674778294,
-      "type": "file"
+      "path": "client/src",
+      "accessCount": 15,
+      "lastAccessed": 1772727581980,
+      "type": "directory"
     },
     {
-      "path": "server/index.ts",
-      "accessCount": 8,
-      "lastAccessed": 1772715218659,
-      "type": "file"
-    },
-    {
-      "path": "package.json",
-      "accessCount": 7,
-      "lastAccessed": 1772715208016,
+      "path": "client/src/App.tsx",
+      "accessCount": 11,
+      "lastAccessed": 1772726741293,
       "type": "file"
     },
     {
       "path": "client/src/components/auth/ProtectedRoute.tsx",
-      "accessCount": 6,
-      "lastAccessed": 1772714472902,
-      "type": "file"
-    },
-    {
-      "path": "api/payments/status.js",
-      "accessCount": 6,
-      "lastAccessed": 1772714547234,
-      "type": "file"
-    },
-    {
-      "path": "server/routes/admin-access.ts",
-      "accessCount": 6,
-      "lastAccessed": 1772714547249,
-      "type": "file"
-    },
-    {
-      "path": "client/src/hooks/useAccessStatus.ts",
-      "accessCount": 5,
-      "lastAccessed": 1772676055349,
-      "type": "file"
-    },
-    {
-      "path": "client/src",
-      "accessCount": 5,
-      "lastAccessed": 1772676056159,
-      "type": "directory"
-    },
-    {
-      "path": "vite.config.ts",
-      "accessCount": 5,
-      "lastAccessed": 1772715213158,
-      "type": "file"
-    },
-    {
-      "path": "server/routes/payments.ts",
-      "accessCount": 4,
-      "lastAccessed": 1772675441429,
-      "type": "file"
-    },
-    {
-      "path": "client/src/hooks/useSubscription.ts",
-      "accessCount": 4,
-      "lastAccessed": 1772676051683,
-      "type": "file"
-    },
-    {
-      "path": "client/src/pages/AdminPanel.tsx",
-      "accessCount": 4,
-      "lastAccessed": 1772714714899,
-      "type": "file"
-    },
-    {
-      "path": "api/contact/send.ts",
-      "accessCount": 4,
-      "lastAccessed": 1772714795140,
-      "type": "file"
-    },
-    {
-      "path": "server/start.ts",
-      "accessCount": 4,
-      "lastAccessed": 1772715213193,
+      "accessCount": 9,
+      "lastAccessed": 1772726746229,
       "type": "file"
     },
     {
       "path": "client/src/pages/AuthCallback.tsx",
-      "accessCount": 3,
-      "lastAccessed": 1772676043093,
+      "accessCount": 7,
+      "lastAccessed": 1772726741734,
       "type": "file"
     },
     {
-      "path": "client/src/pages/Welcome.tsx",
-      "accessCount": 3,
-      "lastAccessed": 1772676047572,
+      "path": "client/src/pages/Landing.tsx",
+      "accessCount": 7,
+      "lastAccessed": 1772726741850,
       "type": "file"
     },
     {
       "path": "client/src/contexts/AuthContext.tsx",
-      "accessCount": 3,
-      "lastAccessed": 1772676059941,
+      "accessCount": 7,
+      "lastAccessed": 1772726741895,
+      "type": "file"
+    },
+    {
+      "path": "client/src/hooks/useSubscription.ts",
+      "accessCount": 6,
+      "lastAccessed": 1772726741914,
+      "type": "file"
+    },
+    {
+      "path": "netlify.toml",
+      "accessCount": 6,
+      "lastAccessed": 1772727631656,
+      "type": "file"
+    },
+    {
+      "path": "client/src/pages/Welcome.tsx",
+      "accessCount": 5,
+      "lastAccessed": 1772726749963,
+      "type": "file"
+    },
+    {
+      "path": "client/src/lib/supabase.ts",
+      "accessCount": 5,
+      "lastAccessed": 1772726759954,
       "type": "file"
     },
     {
       "path": "client",
-      "accessCount": 3,
-      "lastAccessed": 1772714676309,
+      "accessCount": 5,
+      "lastAccessed": 1772727575699,
       "type": "directory"
     },
     {
-      "path": "api/payments.js",
-      "accessCount": 2,
-      "lastAccessed": 1772675131584,
+      "path": ".env.production.example",
+      "accessCount": 4,
+      "lastAccessed": 1772725873918,
+      "type": "file"
+    },
+    {
+      "path": "client/src/pages/WelcomeHome.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1772726741744,
+      "type": "file"
+    },
+    {
+      "path": "client/src/hooks/useAccessStatus.ts",
+      "accessCount": 4,
+      "lastAccessed": 1772726746266,
+      "type": "file"
+    },
+    {
+      "path": ".env.production",
+      "accessCount": 4,
+      "lastAccessed": 1772726751078,
+      "type": "file"
+    },
+    {
+      "path": "client/src/lib/debugAuth.ts",
+      "accessCount": 3,
+      "lastAccessed": 1772725879015,
       "type": "file"
     },
     {
       "path": "client/src/contexts/PaymentContext.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1772676051730,
+      "accessCount": 3,
+      "lastAccessed": 1772726390916,
       "type": "file"
     },
     {
-      "path": "server/middleware/admin-auth.ts",
-      "accessCount": 2,
-      "lastAccessed": 1772714551628,
+      "path": "client/src/components/auth/LoginForm.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1772726455150,
       "type": "file"
     },
     {
-      "path": "client/src/hooks/useAdminUsers.ts",
-      "accessCount": 2,
-      "lastAccessed": 1772714607168,
+      "path": "client/src/components/ui/container.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1772726746202,
       "type": "file"
     },
     {
-      "path": "api/admin/access/list.js",
+      "path": "vite.config.ts",
+      "accessCount": 3,
+      "lastAccessed": 1772727728555,
+      "type": "file"
+    },
+    {
+      "path": "render.yaml",
       "accessCount": 2,
-      "lastAccessed": 1772714776517,
+      "lastAccessed": 1772725747144,
+      "type": "file"
+    },
+    {
+      "path": "client/src/pages/Dashboard.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1772726439661,
+      "type": "file"
+    },
+    {
+      "path": "client/src/pages/Home.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1772726449292,
+      "type": "file"
+    },
+    {
+      "path": "package.json",
+      "accessCount": 2,
+      "lastAccessed": 1772726729327,
       "type": "file"
     },
     {
       "path": ".env.example",
       "accessCount": 2,
-      "lastAccessed": 1772715218647,
+      "lastAccessed": 1772726754852,
       "type": "file"
     },
     {
-      "path": ".env.production",
-      "accessCount": 2,
-      "lastAccessed": 1772715447008,
+      "path": ".env.local",
+      "accessCount": 1,
+      "lastAccessed": 1772722902996,
       "type": "file"
     },
     {
-      "path": "DEPLOYMENT_SUMMARY_ITERATION_3.md",
+      "path": "server/lib/supabase-server.ts",
       "accessCount": 1,
-      "lastAccessed": 1772673815579,
-      "type": "file"
-    },
-    {
-      "path": "client/src/lib/debugAuth.ts",
-      "accessCount": 1,
-      "lastAccessed": 1772673873867,
-      "type": "file"
-    },
-    {
-      "path": "client/src/pages/DebugAccess.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1772673873877,
-      "type": "file"
-    },
-    {
-      "path": "server",
-      "accessCount": 1,
-      "lastAccessed": 1772673986916,
-      "type": "directory"
-    },
-    {
-      "path": "FINAL_FIX_SUMMARY.md",
-      "accessCount": 1,
-      "lastAccessed": 1772674124295,
-      "type": "file"
-    },
-    {
-      "path": "RALPH_LOOP_STATUS.md",
-      "accessCount": 1,
-      "lastAccessed": 1772674164430,
-      "type": "file"
-    },
-    {
-      "path": "CRITICAL_FIX_ITERATION_6.md",
-      "accessCount": 1,
-      "lastAccessed": 1772674329546,
-      "type": "file"
-    },
-    {
-      "path": "client/src/lib/stripe-config.ts",
-      "accessCount": 1,
-      "lastAccessed": 1772674372329,
-      "type": "file"
-    },
-    {
-      "path": "FINAL_VALIDATION_REQUEST.md",
-      "accessCount": 1,
-      "lastAccessed": 1772674416618,
-      "type": "file"
-    },
-    {
-      "path": "tsconfig.json",
-      "accessCount": 1,
-      "lastAccessed": 1772674474201,
-      "type": "file"
-    },
-    {
-      "path": "COMPLETE_FIX_SUMMARY.md",
-      "accessCount": 1,
-      "lastAccessed": 1772674904318,
-      "type": "file"
-    },
-    {
-      "path": "ARCHITECTURAL_ISSUE.md",
-      "accessCount": 1,
-      "lastAccessed": 1772675248819,
-      "type": "file"
-    },
-    {
-      "path": "api/payment-status.js",
-      "accessCount": 1,
-      "lastAccessed": 1772675453814,
-      "type": "file"
-    },
-    {
-      "path": "RALPH_LOOP_FIX_COMPLETE.md",
-      "accessCount": 1,
-      "lastAccessed": 1772675704322,
-      "type": "file"
-    },
-    {
-      "path": "RALPH_LOOP_FINAL_VALIDATION.md",
-      "accessCount": 1,
-      "lastAccessed": 1772675882676,
+      "lastAccessed": 1772722935537,
       "type": "file"
     },
     {
       "path": "test-auth-flow.md",
       "accessCount": 1,
-      "lastAccessed": 1772675981084,
+      "lastAccessed": 1772723537527,
       "type": "file"
     },
     {
-      "path": "server/routes/admin-users.ts",
+      "path": "client/src/components/auth/RegisterForm.tsx",
       "accessCount": 1,
-      "lastAccessed": 1772714474118,
+      "lastAccessed": 1772723928249,
       "type": "file"
     },
     {
-      "path": "client/src/components/providers/AtlaskitProvider.tsx",
+      "path": "server/routes/auth.ts",
       "accessCount": 1,
-      "lastAccessed": 1772714475430,
+      "lastAccessed": 1772724093731,
       "type": "file"
     },
     {
-      "path": ".vercel/project.json",
+      "path": "server/services/email.service.ts",
       "accessCount": 1,
-      "lastAccessed": 1772714481434,
+      "lastAccessed": 1772724105796,
       "type": "file"
     },
     {
-      "path": "api",
+      "path": "server/lib/emailit.ts",
       "accessCount": 1,
-      "lastAccessed": 1772714495920,
+      "lastAccessed": 1772724125152,
+      "type": "file"
+    },
+    {
+      "path": "api/payments/status.js",
+      "accessCount": 1,
+      "lastAccessed": 1772725742383,
+      "type": "file"
+    },
+    {
+      "path": "netlify/functions/api.ts",
+      "accessCount": 1,
+      "lastAccessed": 1772725754597,
+      "type": "file"
+    },
+    {
+      "path": "client/src/pages",
+      "accessCount": 1,
+      "lastAccessed": 1772726446636,
       "type": "directory"
     },
     {
-      "path": "api/admin/access/list.ts",
+      "path": "client/src/components/auth",
       "accessCount": 1,
-      "lastAccessed": 1772714591980,
+      "lastAccessed": 1772726452820,
+      "type": "directory"
+    },
+    {
+      "path": "client/src/components/auth/AuthModal.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1772726455154,
       "type": "file"
     },
     {
-      "path": "client/src/hooks/useAdminMutations.ts",
+      "path": "tsconfig.json",
       "accessCount": 1,
-      "lastAccessed": 1772714601703,
+      "lastAccessed": 1772726741270,
+      "type": "file"
+    },
+    {
+      "path": "client/src/pages/PaymentSuccess.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1772726749975,
+      "type": "file"
+    },
+    {
+      "path": "client/src/components/ui/chart.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1772726750783,
+      "type": "file"
+    },
+    {
+      "path": "supabase/migrations/007_create_user_access_table.sql",
+      "accessCount": 1,
+      "lastAccessed": 1772726768979,
+      "type": "file"
+    },
+    {
+      "path": "supabase/migrations/009_verify_rls_policies.sql",
+      "accessCount": 1,
+      "lastAccessed": 1772726768991,
+      "type": "file"
+    },
+    {
+      "path": "client/public/__manus__/debug-collector.js",
+      "accessCount": 1,
+      "lastAccessed": 1772727565894,
+      "type": "file"
+    },
+    {
+      "path": "client/index.html",
+      "accessCount": 1,
+      "lastAccessed": 1772727581409,
       "type": "file"
     }
   ],

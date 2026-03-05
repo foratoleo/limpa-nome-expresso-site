@@ -1,0 +1,2 @@
+{"t":0,"agent":"system","event":"skill_invoked","skill_name":"dr:git:ship"}
+{"t":0,"agent":"a305ddd","agent_type":"dr:git-specialist","event":"agent_start","parent_mode":"none"}

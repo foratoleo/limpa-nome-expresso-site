@@ -1,6 +1,9 @@
 {
   "enabledPlugins": {
     "vercel@claude-plugins-official": true,
-    "supabase@dr-marketplace": true
+    "supabase@dr-marketplace": true,
+    "oh-my-claudecode@omc": true,
+    "supabase@claude-plugins-official": true,
+    "context7@claude-plugins-official": true
   }
 }

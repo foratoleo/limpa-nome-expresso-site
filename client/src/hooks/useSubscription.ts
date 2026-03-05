@@ -26,7 +26,7 @@ interface SubscriptionState {
 export function useSubscription() {
   const { user } = useAuth();
   // Use React Query hook directly instead of PaymentContext
-  const { hasAccess, hasManualAccess, loading: paymentLoading, initialized, refetch } = useAccessStatus();
+  const { hasAccess, hasManualAccess, isLoading: paymentLoading, initialized, refetch } = useAccessStatus();
   const [state, setState] = useState<SubscriptionState>({
     subscription: null,
     loading: true,

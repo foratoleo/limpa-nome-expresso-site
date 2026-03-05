@@ -1,21 +1,25 @@
 import { useEffect, useState } from "react";
-import { useLocation, useSearch } from "wouter";
+import { useLocation } from "wouter";
 import { supabase } from "@/lib/supabase";
 
 export default function AuthCallback() {
   const [, setLocation] = useLocation();
-  const searchParams = useSearch();
   const [status, setStatus] = useState<"loading" | "success" | "error">("loading");
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const handleCallback = async () => {
       try {
-        const params = new URLSearchParams(searchParams);
-        const accessToken = params.get("access_token");
-        const refreshToken = params.get("refresh_token");
-        const errorCode = params.get("error");
-        const errorDescription = params.get("error_description");
+        const url = new URL(window.location.href);
+        const queryParams = url.searchParams;
+        const hashParams = new URLSearchParams(url.hash.startsWith("#") ? url.hash.slice(1) : "");
+        const getParam = (key: string) => queryParams.get(key) || hashParams.get(key);
+
+        const accessToken = getParam("access_token");
+        const refreshToken = getParam("refresh_token");
+        const code = getParam("code");
+        const errorCode = getParam("error");
+        const errorDescription = getParam("error_description");
 
         if (errorCode) {
           setStatus("error");
@@ -23,17 +27,42 @@ export default function AuthCallback() {
           return;
         }
 
-        if (accessToken && refreshToken) {
-          await supabase.auth.setSession({
+        let session = null;
+
+        // PKCE flow (Supabase default for this app): exchange auth code for session.
+        if (code) {
+          const { data, error: exchangeError } = await supabase.auth.exchangeCodeForSession(code);
+          if (exchangeError) {
+            throw exchangeError;
+          }
+          session = data.session;
+        } else if (accessToken && refreshToken) {
+          // Legacy/implicit flow fallback when tokens are returned directly.
+          const { data, error: setSessionError } = await supabase.auth.setSession({
             access_token: accessToken,
             refresh_token: refreshToken,
           });
+          if (setSessionError) {
+            throw setSessionError;
+          }
+          session = data.session;
+        } else {
+          const { data } = await supabase.auth.getSession();
+          session = data.session;
         }
 
+        if (!session) {
+          setStatus("error");
+          setError("Nao foi possivel criar sessao. Solicite um novo link de confirmacao.");
+          return;
+        }
+
+        // Remove sensitive query/hash params from URL.
+        window.history.replaceState({}, document.title, "/auth/callback");
         setStatus("success");
 
         setTimeout(() => {
-          setLocation("/welcome");
+          setLocation("/bem-vindo");
         }, 1000);
       } catch (err) {
         setStatus("error");
@@ -42,7 +71,7 @@ export default function AuthCallback() {
     };
 
     handleCallback();
-  }, [searchParams, setLocation]);
+  }, [setLocation]);
 
   if (status === "loading") {
     return (

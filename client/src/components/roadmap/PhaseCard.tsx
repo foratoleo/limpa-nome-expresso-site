@@ -39,7 +39,7 @@ const PHASE_DESCRIPTIONS: Record<number, { description: string; tasks: string }>
 export function PhaseCard({ phase, phaseIndex, isCurrent, isLast, onClick }: PhaseCardProps) {
   const [selectedDocPhase, setSelectedDocPhase] = useState<number | null>(null);
   const checklistDocs = useChecklistDocuments();
-  const { documents: allUserDocuments, downloadDocument } = useDocuments();
+  const { documents: allUserDocuments, downloadDocument, refresh: refreshUserDocuments } = useDocuments();
 
   const phaseInfo = PHASE_DESCRIPTIONS[phase.phaseNumber] || { description: "", tasks: "" };
 
@@ -194,7 +194,10 @@ export function PhaseCard({ phase, phaseIndex, isCurrent, isLast, onClick }: Pha
             return await checklistDocs.detachDocument(checklistDocId);
           }}
           onDownload={(doc) => downloadDocument(doc.file_url, doc.name)}
-          onRefresh={checklistDocs.refresh}
+          onRefresh={async () => {
+            await checklistDocs.refresh();
+            await refreshUserDocuments();
+          }}
         />
       )}
 

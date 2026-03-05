@@ -21,7 +21,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'sonner';
 import { supabase } from '@/lib/supabase';
-import type { AdminUser } from './useAdminUsers';
 
 // ============================================================================
 // TypeScript Types
@@ -87,71 +86,14 @@ export function useGrantAccess() {
 
       return responseData;
     },
-
-    /**
-     * Optimistic update: Add temporary user to cache immediately
-     */
-    onMutate: async (newAccess) => {
-      // Cancel outgoing refetches
-      await queryClient.cancelQueries({ queryKey: ['admin-users'] });
-
-      // Snapshot previous value for rollback
-      const previousUsers = queryClient.getQueryData<AdminUser[]>([
-        'admin-users',
-        'search',
-        '',
-      ]);
-
-      // Optimistically add user to cache
-      queryClient.setQueryData(['admin-users', 'search', ''], (old: AdminUser[] | undefined) => {
-        if (!old) return old;
-
-        return [
-          {
-            // Create temporary access record
-            id: 'temp-' + Date.now(),
-            user_id: 'temp-user',
-            granted_by: 'temp-admin',
-            granted_at: new Date().toISOString(),
-            expires_at: newAccess.expires_at || null,
-            reason: newAccess.reason || null,
-            is_active: true,
-            user_email: newAccess.email,
-            granter_email: null,
-          },
-          ...old,
-        ];
-      });
-
-      // Return context with previous value for rollback
-      return { previousUsers };
-    },
-
-    /**
-     * Rollback on error: Restore previous cache state
-     */
-    onError: (err, newAccess, context) => {
-      // Restore previous users
-      if (context?.previousUsers) {
-        queryClient.setQueryData(['admin-users', 'search', ''], context.previousUsers);
-      }
-
-      // Show error toast
+    onError: (err) => {
       toast.error('Erro ao conceder acesso', {
         description: err instanceof Error ? err.message : 'Tente novamente',
       });
     },
-
-    /**
-     * Always refetch after mutation (success or error)
-     */
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: ['admin-users'] });
     },
-
-    /**
-     * Success toast notification
-     */
     onSuccess: () => {
       toast.success('Acesso concedido com sucesso');
     },
@@ -199,61 +141,14 @@ export function useRevokeAccess() {
 
       return responseData;
     },
-
-    /**
-     * Optimistic update: Set is_active to false immediately
-     */
-    onMutate: async ({ userId }) => {
-      // Cancel outgoing refetches
-      await queryClient.cancelQueries({ queryKey: ['admin-users'] });
-
-      // Snapshot previous value for rollback
-      const previousUsers = queryClient.getQueryData<AdminUser[]>([
-        'admin-users',
-        'search',
-        '',
-      ]);
-
-      // Optimistically update user status
-      queryClient.setQueryData(['admin-users', 'search', ''], (old: AdminUser[] | undefined) => {
-        if (!old) return old;
-
-        return old.map(user =>
-          user.user_id === userId
-            ? { ...user, is_active: false }
-            : user
-        );
-      });
-
-      // Return context with previous value for rollback
-      return { previousUsers };
-    },
-
-    /**
-     * Rollback on error: Restore active status
-     */
-    onError: (err, variables, context) => {
-      // Restore previous users
-      if (context?.previousUsers) {
-        queryClient.setQueryData(['admin-users', 'search', ''], context.previousUsers);
-      }
-
-      // Show error toast
+    onError: (err) => {
       toast.error('Erro ao revogar acesso', {
         description: err instanceof Error ? err.message : 'Tente novamente',
       });
     },
-
-    /**
-     * Always refetch after mutation (success or error)
-     */
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: ['admin-users'] });
     },
-
-    /**
-     * Success toast notification
-     */
     onSuccess: () => {
       toast.success('Acesso revogado com sucesso');
     },

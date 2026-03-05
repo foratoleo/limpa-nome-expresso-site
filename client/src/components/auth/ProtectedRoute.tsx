@@ -28,7 +28,7 @@ export function ProtectedRoute({ children, requirePayment = true, requireAdmin =
       userRole: user?.user_metadata?.role
     });
 
-    if (loading || (requirePayment && !initialized)) {
+    if (loading || (requirePayment && !!user && !initialized)) {
       debugAuthFlow('ProtectedRoute: Still loading', {
         loading,
         paymentLoading,
@@ -77,7 +77,7 @@ export function ProtectedRoute({ children, requirePayment = true, requireAdmin =
     });
   }, [user, loading, requirePayment, requireAdmin, hasAccess, hasManualAccess, paymentLoading, initialized, setLocation]);
 
-  if (loading || (requirePayment && !initialized)) {
+  if (loading || (requirePayment && !!user && !initialized)) {
     const reason = loading ? 'Auth loading' : 'Payment not initialized';
     console.log('[ProtectedRoute] Still waiting:', {
       loading,

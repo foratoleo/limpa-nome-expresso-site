@@ -3,6 +3,9 @@ import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/lib/supabase";
 import type { UserDocument } from "@/types/supabase";
 
+let checklistDocumentsTableUnavailable = false;
+let checklistDocumentsUnavailableWarned = false;
+
 interface ChecklistDocumentWithDetails {
   id: string;
   user_id: string;
@@ -46,6 +49,13 @@ export function useChecklistDocuments(): UseChecklistDocumentsReturn {
       return;
     }
 
+    if (checklistDocumentsTableUnavailable) {
+      setAllDocs([]);
+      setError(null);
+      setLoading(false);
+      return;
+    }
+
     try {
       setLoading(true);
       const { data, error: fetchError } = await supabase
@@ -57,7 +67,23 @@ export function useChecklistDocuments(): UseChecklistDocumentsReturn {
         .eq("user_id", user.id)
         .order("created_at", { ascending: false });
 
-      if (fetchError) throw fetchError;
+      if (fetchError) {
+        // Production fallback when migration 002_checklist_documents is not applied.
+        if (fetchError.code === "PGRST205") {
+          checklistDocumentsTableUnavailable = true;
+          if (!checklistDocumentsUnavailableWarned) {
+            checklistDocumentsUnavailableWarned = true;
+            console.warn(
+              "Checklist documents table not found. Skipping checklist document features in this environment."
+            );
+          }
+          setAllDocs([]);
+          setError(null);
+          return;
+        }
+        throw fetchError;
+      }
+
       setAllDocs((data as unknown as ChecklistDocumentWithDetails[]) || []);
       setError(null);
     } catch (err) {
@@ -93,6 +119,10 @@ export function useChecklistDocuments(): UseChecklistDocumentsReturn {
   const attachDocument = useCallback(
     async (itemId: string, stepNumber: number, documentId: string): Promise<boolean> => {
       if (!user) return false;
+      if (checklistDocumentsTableUnavailable) {
+        setError("Funcionalidade de documentos do checklist indisponivel neste ambiente");
+        return false;
+      }
 
       try {
         const { error: insertError } = await supabase
@@ -128,6 +158,10 @@ export function useChecklistDocuments(): UseChecklistDocumentsReturn {
   const detachDocument = useCallback(
     async (checklistDocId: string): Promise<boolean> => {
       if (!user) return false;
+      if (checklistDocumentsTableUnavailable) {
+        setError("Funcionalidade de documentos do checklist indisponivel neste ambiente");
+        return false;
+      }
 
       try {
         const { error: deleteError } = await supabase

@@ -1,391 +1,382 @@
-# PLANO DE IMPLEMENTAÇÃO - Passwordless Auth System
+# Implementation Plan: User Welcome Dashboard
 
-**Baseado em:** `.omc/autopilot/spec.md`
-**Data:** 2026-03-03
-**Estimativa Total:** 4-5 horas
-**Status:** Pronto para Execução
-
----
-
-## VISÃO GERAL
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                         FLUXO DE IMPLEMENTAÇÃO                              │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                             │
-│  FASE 1 (30min)     FASE 2 (25min)      FASE 3 (2h)        FASE 4-5 (1.5h)  │
-│  ┌─────────┐        ┌──────────┐        ┌──────────┐        ┌──────────────┐ │
-│  │ Backend │ ─────▶ │ Context  │ ────▶  │ UI       │ ──────▶ │ Template &   │ │
-│  │ Check   │        │ Auth     │        │ Components│       │ Testes       │ │
-│  │ User    │        │ Client   │        │ MagicLink │       │              │ │
-│  └─────────┘        └──────────┘        └──────────┘        └──────────────┘ │
-│       │                  │                  │                     │          │
-│       ▼                  ▼                  ▼                     ▼          │
-│  CheckUserAPI      signInWithOtp()    Formulários         Dashboard         │
-│  endpoint          implementation     React              Supabase +         │
-│  /check-user       AuthContext.tsx    Components         E2E Tests          │
-│                                                                             │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
+**Status:** Planning Complete ✓
+**Date:** 2026-03-05
+**Route:** `/bem-vindo` (changed from `/dashboard` to preserve existing Dashboard)
 
 ---
 
-## FASE 1: BACKEND - Check User Endpoint (30 min)
+## Executive Summary
 
-### Tarefa 1.1: Criar endpoint POST /api/auth/check-user
+Create a new welcome page at route `/bem-vindo` that serves as the landing page for authenticated users with access. This approach preserves the existing complex Dashboard at `/dashboard` while adding the simple welcome interface specified.
 
-**Arquivo:** `/server/routes/auth.ts`
-**Após linha 254**
-
-```typescript
-authRouter.post("/check-user", async (req, res) => {
-  try {
-    const { email } = req.body;
-
-    if (!email) {
-      return res.status(400).json({
-        success: false,
-        error: "Email é obrigatório",
-      });
-    }
-
-    const { data: { users }, error: listError } = await supabaseAdmin.auth.admin.listUsers();
-
-    if (listError) {
-      console.error("Error listing users:", listError);
-      return res.status(500).json({
-        success: false,
-        error: "Erro ao verificar usuário",
-      });
-    }
-
-    const user = users?.find(u => u.email === email);
-
-    res.json({
-      success: true,
-      exists: !!user,
-      hasPassword: user?.app_metadata?.provider === 'email' && !user?.app_metadata?.passwordless,
-      emailConfirmed: user?.email_confirmed_at !== null,
-    });
-  } catch (err) {
-    console.error("Check user error:", err);
-    res.status(500).json({
-      success: false,
-      error: "Erro ao verificar usuário. Tente novamente.",
-    });
-  }
-});
-```
-
-**Critérios:**
-- [ ] Endpoint responde em < 200ms
-- [ ] Retorna 400 para email vazio
-- [ ] Previne enumeração de usuários
+**Key Decision:** NEW route `/bem-vindo` instead of replacing existing `/dashboard`
 
 ---
 
-## FASE 2: FRONTEND - Auth Context (25 min)
+## Task Breakdown
 
-### Tarefa 2.1: Adicionar signInWithMagicLink
+### Task 1: Create WelcomeHome Component
+**Effort:** Low | **Priority:** 1 | **Agent:** executor (sonnet)
 
-**Arquivo:** `/client/src/contexts/AuthContext.tsx`
+**File:** NEW `/client/src/pages/WelcomeHome.tsx`
 
-**Modificar interface (linha 5-13):**
-```typescript
-interface AuthContextType {
-  // ... existentes
-  signInWithMagicLink: (email: string) => Promise<{ error: AuthError | null; success: boolean }>;
+**Requirements:**
+- Personalized welcome message with user's name
+- Success icon/checkmark visual
+- Primary CTA button: "Acessar Guia" → navigates to `/guia`
+- Uses `Container` component for layout
+- Navy/gold color scheme matching existing design
+- NO auto-redirect (manual navigation only)
+- Fully responsive (mobile/tablet/desktop)
+
+**Component Structure:**
+```tsx
+export default function WelcomeHome() {
+  const { user } = useAuth();
+  const [, setLocation] = useLocation();
+
+  const userName = user?.user_metadata?.full_name
+    || user?.email?.split('@')[0]
+    || 'Usuário';
+
+  return (
+    <Container>
+      {/* Success icon */}
+      {/* Welcome message with userName */}
+      {/* CTA button to /guia */}
+    </Container>
+  );
 }
 ```
 
-**Adicionar implementação após linha 90:**
-```typescript
-const signInWithMagicLink = async (email: string) => {
-  const { error } = await supabase.auth.signInWithOtp({
-    email,
-    options: {
-      emailRedirectTo: `${window.location.origin}/auth/callback`,
-    }
-  });
+**Acceptance Criteria:**
+- [ ] Component renders without errors
+- [ ] User's name displays correctly
+- [ ] Falls back to email if name missing
+- [ ] Falls back to "Usuário" if both missing
+- [ ] CTA button navigates to `/guia` on click
+- [ ] Layout is responsive on all screen sizes
 
-  return { error, success: !error };
-};
+---
+
+### Task 2: Add /bem-vindo Route
+**Effort:** Low | **Priority:** 2 | **Agent:** executor (sonnet)
+
+**File:** MODIFY `/client/src/App.tsx`
+
+**Changes:**
+- Add new route definition for `/bem-vindo`
+- Wrap with `ProtectedRoute requirePayment={true}`
+- Place before existing `/dashboard` route (for route matching order)
+
+**Code Addition:**
+```tsx
+// Add before /dashboard route
+<Route path={"/bem-vindo"}>
+  <ProtectedRoute requirePayment={true}>
+    <WelcomeHome />
+  </ProtectedRoute>
+</Route>
 ```
 
-**Modificar value object (linha 105):**
-```typescript
-const value: AuthContextType = {
-  user,
-  session,
-  loading,
-  signUp,
-  signIn,
-  signInWithMagicLink,  // Adicionar
-  signOut,
-  resetPassword,
-};
+**Import Addition:**
+```tsx
+import WelcomeHome from '@/pages/WelcomeHome';
 ```
 
-### Tarefa 2.2: Adicionar checkUser
+**Acceptance Criteria:**
+- [ ] Route `/bem-vindo` is accessible
+- [ ] ProtectedRoute with `requirePayment={true}` wraps component
+- [ ] Unpaid users redirected to `/checkout`
+- [ ] Unauthenticated users redirected to `/`
 
-**Adicionar à interface:**
-```typescript
-checkUser: (email: string) => Promise<{ exists: boolean; hasPassword: boolean; emailConfirmed: boolean } | null>;
+---
+
+### Task 3.1: Update AuthCallback Redirect
+**Effort:** Low | **Priority:** 3 | **Agent:** executor (sonnet)
+
+**File:** MODIFY `/client/src/pages/AuthCallback.tsx`
+
+**Change:** Line 36 - Update redirect target from `/welcome` to `/bem-vindo`
+
+**Before:**
+```tsx
+setLocation("/welcome");
 ```
 
-**Adicionar implementação:**
-```typescript
-const checkUser = async (email: string) => {
-  try {
-    const response = await fetch("/api/auth/check-user", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
-    });
+**After:**
+```tsx
+setLocation("/bem-vindo");
+```
 
-    if (!response.ok) return null;
+**Acceptance Criteria:**
+- [ ] Magic link users land on `/bem-vindo` after authentication
+- [ ] No redirect loop occurs
+- [ ] Existing `/welcome` route still accessible (if needed)
 
-    const data = await response.json();
-    return data;
-  } catch {
-    return null;
+---
+
+### Task 3.2: Update Landing Redirect Logic
+**Effort:** Low | **Priority:** 4 | **Agent:** executor (sonnet)
+
+**File:** MODIFY `/client/src/pages/Landing.tsx`
+
+**Change:** Lines 28-37 - Update redirect to `/bem-vindo` instead of `/guia`
+
+**Current Logic (lines 28-37):**
+```tsx
+useEffect(() => {
+  if (user && hasAccess && !loading && !paymentLoading) {
+    setLocation('/guia');
   }
+}, [user, hasAccess, loading, paymentLoading, setLocation]);
+```
+
+**Updated Logic:**
+```tsx
+useEffect(() => {
+  if (user && hasAccess && !loading && !paymentLoading) {
+    setLocation('/bem-vindo');
+  }
+}, [user, hasAccess, loading, paymentLoading, setLocation]);
+```
+
+**Acceptance Criteria:**
+- [ ] Password login users land on `/bem-vindo` after authentication
+- [ ] No redirect loop occurs
+- [ ] Loading states respected (no premature redirect)
+
+---
+
+### Task 4: (Optional) Add Dashboard Link
+**Effort:** Low | **Priority:** 5 | **Agent:** executor-low (haiku)
+
+**File:** MODIFY `/client/src/pages/WelcomeHome.tsx`
+
+**Add:** Secondary link or button to access `/dashboard`
+
+**Rationale:** Advanced users may want direct access to the complex Dashboard with documents, notes, tasks, processes.
+
+**Implementation:**
+```tsx
+<Link href="/dashboard" className="text-sm text-gray-400 hover:text-gray-300">
+  Ir para Dashboard Avançado
+</Link>
+```
+
+**Acceptance Criteria:**
+- [ ] Link navigates to `/dashboard`
+- [ ] Visual hierarchy shows CTA to `/guia` is primary
+- [ ] Link is subtle/secondary (doesn't compete with main CTA)
+
+---
+
+## Implementation Order
+
+**Phase 1: Core Functionality**
+1. Task 1 - Create WelcomeHome component
+2. Task 2 - Add route configuration
+
+**Phase 2: Integration**
+3. Task 3.1 - Update AuthCallback redirect
+4. Task 3.2 - Update Landing redirect
+
+**Phase 3: Enhancement (Optional)**
+5. Task 4 - Add Dashboard link
+
+---
+
+## File Structure Summary
+
+```
+client/src/
+├── pages/
+│   ├── WelcomeHome.tsx          [NEW - Task 1]
+│   ├── AuthCallback.tsx         [MODIFY - Task 3.1, line 36]
+│   └── Landing.tsx              [MODIFY - Task 3.2, lines 28-37]
+├── App.tsx                       [MODIFY - Task 2, add route]
+└── ...
+```
+
+---
+
+## Testing Strategy
+
+### Manual Testing Checklist
+
+**Test 1: Access Control - Unauthenticated User**
+- [ ] Logout
+- [ ] Navigate to `/bem-vindo`
+- [ ] Expected: Redirect to `/` (landing page)
+
+**Test 2: Access Control - User Without Payment**
+- [ ] Login as unpaid user
+- [ ] Navigate to `/bem-vindo`
+- [ ] Expected: Redirect to `/checkout`
+
+**Test 3: Magic Link Login Flow**
+- [ ] Initiate magic link login
+- [ ] Complete authentication via email
+- [ ] Expected: Land on `/bem-vindo` (AuthCallback redirect)
+
+**Test 4: Password Login Flow**
+- [ ] Login with email/password
+- [ ] Close auth modal
+- [ ] Expected: Land on `/bem-vindo` (Landing redirect)
+
+**Test 5: Welcome Page Display**
+- [ ] Access `/bem-vindo` as authenticated user with access
+- [ ] Verify: Welcome message displays
+- [ ] Verify: User's name shows correctly
+- [ ] Verify: CTA button "Acessar Guia" is visible
+- [ ] Verify: No auto-redirect occurs
+
+**Test 6: CTA Navigation**
+- [ ] On welcome page, click "Acessar Guia" button
+- [ ] Expected: Navigate to `/guia`
+
+**Test 7: Responsive Design**
+- [ ] View welcome page on mobile (< 640px)
+- [ ] View welcome page on tablet (640px - 1024px)
+- [ ] View welcome page on desktop (> 1024px)
+- [ ] Expected: Layout adapts correctly, no horizontal scroll
+
+**Test 8: User Name Fallbacks**
+- [ ] Test with user having `full_name` metadata
+- [ ] Test with user missing `full_name` but having email
+- [ ] Test with user missing both
+- [ ] Expected: Appropriate fallback for each case
+
+**Test 9: Admin Access**
+- [ ] Login as admin user
+- [ ] Navigate to `/bem-vindo`
+- [ ] Expected: Page loads (admin bypass in ProtectedRoute)
+
+**Test 10: Existing Dashboard Still Works**
+- [ ] Login as user with access
+- [ ] Navigate to `/dashboard`
+- [ ] Expected: Complex Dashboard with tabs still loads
+
+---
+
+## Design Specifications
+
+### Color Palette
+```tsx
+const COLORS = {
+  background: '#12110d',     // Dark background
+  navy: '#162847',           // Primary navy
+  gold: '#d39e17',           // Primary gold (CTA buttons)
+  goldLight: '#e5b020',      // Light gold (hover states)
+  textPrimary: '#f1f5f9',    // Primary text
+  textSecondary: '#94a3b8',  // Secondary text
 };
 ```
 
-**Critérios:**
-- [ ] Métodos chamam APIs corretamente
-- [ ] TypeScript sem erros
-- [ ] Tipagem correta
+### Typography
+- **Heading:** Bold, 2xl size, white color
+- **Body:** Regular, base size, light gray color
+- **CTA Button:** Semibold, base size, gold background
+
+### Layout
+- **Container:** Centered with max-width
+- **Spacing:** Vertical rhythm with Tailwind utilities (gap-6, gap-8)
+- **Alignment:** Center-aligned content
+
+### Components to Use
+- `Container` from `@/components/ui/container`
+- `CheckCircle` icon from `lucide-react`
+- `ArrowRight` icon from `lucide-react` (CTA button)
 
 ---
 
-## FASE 3: FRONTEND - Componentes UI (2h)
+## Edge Cases & Error Handling
 
-### Tarefa 3.1: Criar MagicLinkForm.tsx
+### Case 1: Missing User Metadata
+**Scenario:** User exists but `user_metadata` is null
+**Handling:** Fallback to email username, then to "Usuário"
 
-**Arquivo NOVO:** `/client/src/components/auth/MagicLinkForm.tsx`
+### Case 2: Session Expiration
+**Scenario:** User's session expires while viewing welcome page
+**Handling:** ProtectedRoute redirects to `/` automatically
 
-Ver código completo no arquivo `.omc/autopilot/spec.md` seção "Tarefa 3.1"
+### Case 3: Payment API Failure
+**Scenario:** `/api/payments/status` returns error
+**Handling:** ProtectedRoute shows loading state, doesn't render content
 
-**Componente inclui:**
-- Input de email apenas
-- Botão "Enviar link de acesso"
-- Loading state
-- Tela de sucesso com instruções
-- Tratamento de erros
-- Link "Voltar para login com senha"
+### Case 4: Direct URL Access
+**Scenario:** User types `/bem-vindo` directly in browser
+**Handling:** ProtectedRoute verifies auth + payment, redirects appropriately
 
-**Critérios:**
-- [ ] Form valida email
-- [ ] Mostra loading durante envio
-- [ ] Mostra tela de sucesso após envio
-- [ ] Tratamento de erros adequado
-
-### Tarefa 3.2: Modificar AuthModal.tsx
-
-**Arquivo:** `/client/src/components/auth/AuthModal.tsx`
-
-**Modificar type Tab (linha 13):**
-```typescript
-type Tab = "login" | "register" | "forgot" | "magic";
-```
-
-**Importar MagicLinkForm (linha 1-5):**
-```typescript
-import { MagicLinkForm } from "./MagicLinkForm";
-```
-
-**Adicionar botões de tabs (após linha 103):**
-```typescript
-{tab !== "forgot" && tab !== "magic" && (
-  <div className="flex gap-2 mb-6 rounded-xl overflow-hidden" style={{ backgroundColor: "rgba(255, 255, 255, 0.05)" }}>
-    <button onClick={() => setTab("login")} className="flex-1 py-2.5 text-sm font-medium transition-colors rounded-lg"
-      style={{ backgroundColor: tab === "login" ? "#d39e17" : "transparent", color: tab === "login" ? "#12110d" : "#94a3b8" }}>
-      Com Senha
-    </button>
-    <button onClick={() => setTab("magic")} className="flex-1 py-2.5 text-sm font-medium transition-colors rounded-lg"
-      style={{ backgroundColor: tab === "magic" ? "#d39e17" : "transparent", color: tab === "magic" ? "#12110d" : "#94a3b8" }}>
-      Magic Link
-    </button>
-    <button onClick={() => setTab("register")} className="flex-1 py-2.5 text-sm font-medium transition-colors rounded-lg"
-      style={{ backgroundColor: tab === "register" ? "#d39e17" : "transparent", color: tab === "register" ? "#12110d" : "#94a3b8" }}>
-      Criar Conta
-    </button>
-  </div>
-)}
-```
-
-**Adicionar renderização do MagicLinkForm (após linha 121):**
-```typescript
-{tab === "magic" && (
-  <MagicLinkForm
-    onSuccess={onClose}
-    onBackToLogin={() => setTab("login")}
-  />
-)}
-```
-
-**Critérios:**
-- [ ] Nova tab "Magic Link" visível
-- [ ] Navegação entre tabs funciona
-- [ ] Form renderiza corretamente
-
-### Tarefa 3.3: Criar AuthCallbackPage
-
-**Arquivo NOVO:** Criar página de callback para processar Magic Link
-
-Ver código completo em `.omc/autopilot/spec.md` seção "Tarefa 3.3"
-
-**Funcionalidades:**
-- Processa tokens da URL (`access_token`, `refresh_token`)
-- Trata erros e links expirados
-- Redireciona para /client-area após sucesso
-- Estados: loading, success, error
-
-**Adicionar rota no sistema de rotas:**
-```typescript
-import { AuthCallbackPage } from "./pages/auth/callback";
-<Route path="/auth/callback" component={AuthCallbackPage} />
-```
-
-**Critérios:**
-- [ ] Página processa tokens da URL
-- [ ] Redireciona para /client-area
-- [ ] Trata erros e links expirados
+### Case 5: Rapid Navigation
+**Scenario:** User clicks CTA button multiple times rapidly
+**Handling:** Wouter handles navigation, no issues expected
 
 ---
 
-## FASE 4: SUPABASE DASHBOARD - Template Email (20 min)
+## Success Metrics
 
-### Tarefa 4.1: Configurar Magic Link Template
-
-**Passos Manuais:**
-
-1. Acessar `https://supabase.com/dashboard`
-2. Selecionar projeto
-3. Navegar para `Authentication` > `Email Templates`
-4. Selecionar template `Magic Link`
-5. Copiar e adaptar HTML de `/client/public/email-templates/confirm-signup.html`
-
-**Variáveis disponíveis:**
-- `{{ .ConfirmationURL }}` - Link de confirmação
-- `{{ .Email }}` - Email do usuário
-- `{{ .SiteURL }}` - URL do site
-
-**HTML adaptado:**
-```html
-<!-- Manter estilo do confirm-signup.html -->
-<h2>Acesse sua conta</h2>
-<p>Clique no botão abaixo para acessar sua conta:</p>
-<a href="{{ .ConfirmationURL }}" class="button">Acessar Conta</a>
-<p>Este link expira em 1 hora.</p>
-```
-
-**Critérios:**
-- [ ] Template configurado no Dashboard
-- [ ] Preview visual correto
-- [ ] Teste de envio bem-sucedido
+- [ ] Welcome page loads in < 2 seconds
+- [ ] CTA button responds in < 100ms
+- [ ] No console errors on page load
+- [ ] No console errors on button click
+- [ ] All authentication flows redirect correctly
+- [ ] Responsive layout works on all devices
+- [ ] Existing Dashboard functionality preserved
 
 ---
 
-## FASE 5: INTEGRAÇÃO E TESTES (45 min)
+## Rollback Plan
 
-### Tarefa 5.1: Teste E2E do Fluxo Magic Link
+If issues occur:
+1. **Revert App.tsx:** Remove `/bem-vindo` route
+2. **Revert AuthCallback.tsx:** Change back to `/welcome`
+3. **Revert Landing.tsx:** Change back to `/guia`
+4. **Delete WelcomeHome.tsx:** Remove new component
 
-**Cenário de Teste:**
-
-| Passo | Ação | Resultado Esperado |
-|-------|------|---------------------|
-| 1 | Acessar site, clicar "Entrar" | Modal abre com 3 tabs |
-| 2 | Selecionar tab "Magic Link" | Form de apenas email |
-| 3 | Digitar email e enviar | "Link enviado!" aparece |
-| 4 | Verificar email | Email com template customizado |
-| 5 | Clicar no botão do email | Redireciona para /auth/callback |
-| 6 | Callback processa | Redireciona para /client-area |
-| 7 | Usuario logado | Dados disponíveis |
-
-**Teste Edge Cases:**
-- Email inválido
-- Link expirado (> 1h)
-- Já logado
-- Link já usado
-
-### Tarefa 5.2: Verificar Compatibilidade Híbrida
-
-**Verificações:**
-- [ ] Login com senha ainda funciona
-- [ ] Cadastro ainda funciona
-- [ ] Recuperação de senha ainda funciona
-- [ ] Usuários antigos continuam funcionando
-
-**Critérios:**
-- [ ] Fluxo completo funciona
-- [ ] Zero regressões em funcionalidades existentes
+All changes are additive or simple string replacements, making rollback straightforward.
 
 ---
 
-## CHECKPOINTS
+## Post-Implementation Notes
 
+### Route Summary After Implementation
+- `/` - Landing page (public)
+- `/bem-vindo` - NEW welcome page for authenticated users with access
+- `/welcome` - Existing intermediate page (can be deprecated if unused)
+- `/dashboard` - Existing complex client area (unchanged)
+- `/guia` - Main content/guide (unchanged)
+- `/checkout` - Payment page (unchanged)
+
+### Navigation Flow Summary
+**Magic Link Flow:**
 ```
-┌────────────────────────────────────────────────────────────────────────────┐
-│                           CHECKPOINTS                                      │
-├────────────────────────────────────────────────────────────────────────────┤
-│                                                                            │
-│  ▼ CHECKPOINT 1: Backend Ready (Após Fase 1)                              │
-│  └─ Endpoint /api/auth/check-user funcionando                             │
-│                                                                            │
-│  ▼ CHECKPOINT 2: Client Context Ready (Após Fase 2)                        │
-│  └─ signInWithMagicLink() e checkUser() implementados                      │
-│                                                                            │
-│  ▼ CHECKPOINT 3: UI Components Ready (Após Fase 3)                         │
-│  └─ MagicLinkForm, AuthModal modificado, AuthCallbackPage                  │
-│                                                                            │
-│  ▼ CHECKPOINT 4: Integration Complete (Após Fase 4)                        │
-│  └─ Template configurado no Supabase                                       │
-│                                                                            │
-│  ▼ CHECKPOINT FINAL: E2E Pass (Após Fase 5)                                │
-│  └─ Fluxo completo testado, zero regressões                                │
-│                                                                            │
-└────────────────────────────────────────────────────────────────────────────┘
+User clicks login link
+→ AuthCallback
+→ /bem-vindo (NEW welcome page)
+→ User clicks "Acessar Guia"
+→ /guia (main content)
+```
+
+**Password Login Flow:**
+```
+User enters credentials in modal
+→ AuthModal closes
+→ Landing useEffect
+→ /bem-vindo (NEW welcome page)
+→ User clicks "Acessar Guia"
+→ /guia (main content)
+```
+
+**Advanced User Flow:**
+```
+User logs in
+→ /bem-vindo (welcome page)
+→ User clicks "Ir para Dashboard" (optional link)
+→ /dashboard (complex client area)
 ```
 
 ---
 
-## RISCOS E MITIGAÇÕES
-
-| Risco | Mitigação |
-|-------|-----------|
-| Email cai no spam | Configurar SPF/DKIM; instruir sobre pasta spam |
-| Usuario não recebe email | Opção "reenviar"; suporte manual |
-| Link expira antes do uso | 1h de validade; reenvio fácil |
-| Template Supabase limitado | HTML customizado no Dashboard |
-
----
-
-## TEMPO ESTIMADO
-
-| Fase | Tempo | Paralelizável |
-|------|-------|---------------|
-| Fase 1 | 30min | Não |
-| Fase 2 | 25min | Sim (com 1) |
-| Fase 3 | 2h | Não |
-| Fase 4 | 20min | Sim (com tudo) |
-| Fase 5 | 45min | Não |
-| Buffer | 30min | - |
-| **TOTAL** | **~4h** | Mínimo 3h |
-
----
-
-## CRITICAL SUCCESS FACTORS
-
-✅ **Nenhuma dependência nova** - Supabase v2.98 já suporta `signInWithOtp()`
-✅ **Email não precisa de server-side** - Supabase envia automaticamente
-✅ **PKCE já configurado** - Segurança garantida
-✅ **Zero downtime** - Sistema híbrido, ambos funcionam
-✅ **Template existe** - Apenas adaptar confirm-signup.html
-
----
-
-**PLANO COMPLETO - PRONTO PARA EXECUÇÃO** ✅
+**Planning Phase: COMPLETE ✓**

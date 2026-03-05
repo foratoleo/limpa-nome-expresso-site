@@ -22,8 +22,20 @@ export function PhaseModal({ phase, isOpen, onClose, checkedItems, onToggleItem 
 
   // Document attachment state
   const [selectedItem, setSelectedItem] = useState<{ id: string; label: string } | null>(null);
-  const { documentsByItem, attachDocument, detachDocument, getDocumentCount } = useChecklistDocuments();
-  const { documents: allUserDocuments, downloadDocument } = useDocuments();
+  const {
+    documentsByItem,
+    attachDocument,
+    detachDocument,
+    getDocumentCount,
+    refresh: refreshChecklistDocuments,
+  } = useChecklistDocuments();
+  const { documents: allUserDocuments, downloadDocument, refresh: refreshUserDocuments } = useDocuments();
+
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
 
   // Close on escape key
   useEffect(() => {
@@ -52,7 +64,7 @@ export function PhaseModal({ phase, isOpen, onClose, checkedItems, onToggleItem 
 
   const modalContent = (
     <div
-      onClick={onClose}
+      onClick={handleBackdropClick}
       style={{
         position: "fixed",
         top: 0,
@@ -408,6 +420,10 @@ export function PhaseModal({ phase, isOpen, onClose, checkedItems, onToggleItem 
           }}
           onDetachDocument={detachDocument}
           onDownload={(doc) => downloadDocument(doc.file_url, doc.name)}
+          onRefresh={async () => {
+            await refreshChecklistDocuments();
+            await refreshUserDocuments();
+          }}
         />
       )}
     </div>

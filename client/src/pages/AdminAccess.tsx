@@ -14,6 +14,7 @@ import { useAdminUsers, type AdminUser } from "@/hooks/useAdminUsers";
 import { useGrantAccess, useRevokeAccess } from "@/hooks/useAdminMutations";
 import { UserSearchInput } from "@/components/admin/UserSearchInput";
 import { UserFilters, type StatusFilter, type AccessTypeFilter } from "@/components/admin/UserFilters";
+import { supabase } from "@/lib/supabase";
 
 export default function AdminAccess() {
   const { user, loading: authLoading } = useAuth();
@@ -110,8 +111,17 @@ export default function AdminAccess() {
    */
   const handleReactivateAccess = async (userId: string, userEmail: string) => {
     try {
+      const { data: { session } } = await supabase.auth.getSession();
+
+      if (!session?.access_token) {
+        throw new Error("Sessão expirada. Faça login novamente.");
+      }
+
       const response = await fetch(`/api/admin/access/${userId}/reactivate`, {
         method: "POST",
+        headers: {
+          "Authorization": `Bearer ${session.access_token}`,
+        },
       });
 
       const data = await response.json();

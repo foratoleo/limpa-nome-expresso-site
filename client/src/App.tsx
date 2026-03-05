@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Landing from "./pages/Landing";
 import Welcome from "./pages/Welcome";
+import WelcomeHome from "./pages/WelcomeHome";
 import Documents from "./pages/Documents";
 import Templates from "./pages/Templates";
 import Support from "./pages/Support";
@@ -64,6 +65,11 @@ function Router() {
       <Route path={"/processo"}>
         <ProtectedRoute requirePayment={true}>
           <Process />
+        </ProtectedRoute>
+      </Route>
+      <Route path={"/bem-vindo"}>
+        <ProtectedRoute requirePayment={true}>
+          <WelcomeHome />
         </ProtectedRoute>
       </Route>
       <Route path={"/dashboard"}>
