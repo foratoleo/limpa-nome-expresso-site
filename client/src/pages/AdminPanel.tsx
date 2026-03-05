@@ -143,13 +143,30 @@ export default function AdminPanel() {
     );
   }
 
-  // Error state
+  // Error state - prevent React error #31 by safely rendering error message
   if (error) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: "#12110d" }}>
-        <div className="text-center">
-          <p style={{ color: "#ef4444" }}>Erro: {error}</p>
-          <Button onClick={() => refetch()} className="mt-4">
+        <div className="text-center max-w-md px-4">
+          <div
+            className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+            style={{ backgroundColor: "rgba(239, 68, 68, 0.1)" }}
+          >
+            <Shield size={32} style={{ color: "#ef4444" }} />
+          </div>
+          <h2 className="text-xl font-bold mb-2" style={{ color: "#f1f5f9" }}>
+            Erro ao carregar dados
+          </h2>
+          <p className="text-sm mb-6" style={{ color: "#94a3b8" }}>
+            {errorMessage}
+          </p>
+          <Button
+            onClick={() => refetch()}
+            className="gap-2"
+            style={{ backgroundColor: "#d39e17", color: "#12110d" }}
+          >
+            <RefreshCw size={16} />
             Tentar novamente
           </Button>
         </div>
