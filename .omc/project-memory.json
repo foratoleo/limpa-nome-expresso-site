@@ -314,9 +314,21 @@
   "hotPaths": [
     {
       "path": "client/src/App.tsx",
-      "accessCount": 12,
-      "lastAccessed": 1772673979468,
+      "accessCount": 15,
+      "lastAccessed": 1772714468740,
       "type": "file"
+    },
+    {
+      "path": "vercel.json",
+      "accessCount": 14,
+      "lastAccessed": 1772714482632,
+      "type": "file"
+    },
+    {
+      "path": "",
+      "accessCount": 14,
+      "lastAccessed": 1772714488541,
+      "type": "directory"
     },
     {
       "path": "api/payments.ts",
@@ -325,16 +337,52 @@
       "type": "file"
     },
     {
-      "path": "vercel.json",
+      "path": "server/index.ts",
       "accessCount": 8,
-      "lastAccessed": 1772675507872,
+      "lastAccessed": 1772715218659,
       "type": "file"
     },
     {
-      "path": "",
+      "path": "package.json",
+      "accessCount": 7,
+      "lastAccessed": 1772715208016,
+      "type": "file"
+    },
+    {
+      "path": "client/src/components/auth/ProtectedRoute.tsx",
+      "accessCount": 6,
+      "lastAccessed": 1772714472902,
+      "type": "file"
+    },
+    {
+      "path": "api/payments/status.js",
+      "accessCount": 6,
+      "lastAccessed": 1772714547234,
+      "type": "file"
+    },
+    {
+      "path": "server/routes/admin-access.ts",
+      "accessCount": 6,
+      "lastAccessed": 1772714547249,
+      "type": "file"
+    },
+    {
+      "path": "client/src/hooks/useAccessStatus.ts",
       "accessCount": 5,
-      "lastAccessed": 1772675233944,
+      "lastAccessed": 1772676055349,
+      "type": "file"
+    },
+    {
+      "path": "client/src",
+      "accessCount": 5,
+      "lastAccessed": 1772676056159,
       "type": "directory"
+    },
+    {
+      "path": "vite.config.ts",
+      "accessCount": 5,
+      "lastAccessed": 1772715213158,
+      "type": "file"
     },
     {
       "path": "server/routes/payments.ts",
@@ -343,46 +391,52 @@
       "type": "file"
     },
     {
-      "path": "client/src/components/auth/ProtectedRoute.tsx",
-      "accessCount": 3,
-      "lastAccessed": 1772674365161,
-      "type": "file"
-    },
-    {
-      "path": "vite.config.ts",
-      "accessCount": 3,
-      "lastAccessed": 1772674380182,
-      "type": "file"
-    },
-    {
-      "path": "client/src/hooks/useAccessStatus.ts",
-      "accessCount": 3,
-      "lastAccessed": 1772674457358,
-      "type": "file"
-    },
-    {
-      "path": "server/index.ts",
-      "accessCount": 2,
-      "lastAccessed": 1772674001696,
-      "type": "file"
-    },
-    {
       "path": "client/src/hooks/useSubscription.ts",
-      "accessCount": 2,
-      "lastAccessed": 1772674368510,
+      "accessCount": 4,
+      "lastAccessed": 1772676051683,
       "type": "file"
     },
     {
-      "path": "client/src",
-      "accessCount": 2,
-      "lastAccessed": 1772674368981,
+      "path": "client/src/pages/AdminPanel.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1772714714899,
+      "type": "file"
+    },
+    {
+      "path": "api/contact/send.ts",
+      "accessCount": 4,
+      "lastAccessed": 1772714795140,
+      "type": "file"
+    },
+    {
+      "path": "server/start.ts",
+      "accessCount": 4,
+      "lastAccessed": 1772715213193,
+      "type": "file"
+    },
+    {
+      "path": "client/src/pages/AuthCallback.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1772676043093,
+      "type": "file"
+    },
+    {
+      "path": "client/src/pages/Welcome.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1772676047572,
+      "type": "file"
+    },
+    {
+      "path": "client/src/contexts/AuthContext.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1772676059941,
+      "type": "file"
+    },
+    {
+      "path": "client",
+      "accessCount": 3,
+      "lastAccessed": 1772714676309,
       "type": "directory"
-    },
-    {
-      "path": "package.json",
-      "accessCount": 2,
-      "lastAccessed": 1772674478751,
-      "type": "file"
     },
     {
       "path": "api/payments.js",
@@ -391,15 +445,45 @@
       "type": "file"
     },
     {
-      "path": "DEPLOYMENT_SUMMARY_ITERATION_3.md",
-      "accessCount": 1,
-      "lastAccessed": 1772673815579,
+      "path": "client/src/contexts/PaymentContext.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1772676051730,
       "type": "file"
     },
     {
-      "path": "client/src/pages/Welcome.tsx",
+      "path": "server/middleware/admin-auth.ts",
+      "accessCount": 2,
+      "lastAccessed": 1772714551628,
+      "type": "file"
+    },
+    {
+      "path": "client/src/hooks/useAdminUsers.ts",
+      "accessCount": 2,
+      "lastAccessed": 1772714607168,
+      "type": "file"
+    },
+    {
+      "path": "api/admin/access/list.js",
+      "accessCount": 2,
+      "lastAccessed": 1772714776517,
+      "type": "file"
+    },
+    {
+      "path": ".env.example",
+      "accessCount": 2,
+      "lastAccessed": 1772715218647,
+      "type": "file"
+    },
+    {
+      "path": ".env.production",
+      "accessCount": 2,
+      "lastAccessed": 1772715447008,
+      "type": "file"
+    },
+    {
+      "path": "DEPLOYMENT_SUMMARY_ITERATION_3.md",
       "accessCount": 1,
-      "lastAccessed": 1772673873854,
+      "lastAccessed": 1772673815579,
       "type": "file"
     },
     {
@@ -412,30 +496,6 @@
       "path": "client/src/pages/DebugAccess.tsx",
       "accessCount": 1,
       "lastAccessed": 1772673873877,
-      "type": "file"
-    },
-    {
-      "path": "client/src/contexts/AuthContext.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1772673878623,
-      "type": "file"
-    },
-    {
-      "path": "client/src/pages/AuthCallback.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1772673878632,
-      "type": "file"
-    },
-    {
-      "path": "client/src/contexts/PaymentContext.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1772673878676,
-      "type": "file"
-    },
-    {
-      "path": "server/start.ts",
-      "accessCount": 1,
-      "lastAccessed": 1772673892616,
       "type": "file"
     },
     {
@@ -496,6 +556,60 @@
       "path": "api/payment-status.js",
       "accessCount": 1,
       "lastAccessed": 1772675453814,
+      "type": "file"
+    },
+    {
+      "path": "RALPH_LOOP_FIX_COMPLETE.md",
+      "accessCount": 1,
+      "lastAccessed": 1772675704322,
+      "type": "file"
+    },
+    {
+      "path": "RALPH_LOOP_FINAL_VALIDATION.md",
+      "accessCount": 1,
+      "lastAccessed": 1772675882676,
+      "type": "file"
+    },
+    {
+      "path": "test-auth-flow.md",
+      "accessCount": 1,
+      "lastAccessed": 1772675981084,
+      "type": "file"
+    },
+    {
+      "path": "server/routes/admin-users.ts",
+      "accessCount": 1,
+      "lastAccessed": 1772714474118,
+      "type": "file"
+    },
+    {
+      "path": "client/src/components/providers/AtlaskitProvider.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1772714475430,
+      "type": "file"
+    },
+    {
+      "path": ".vercel/project.json",
+      "accessCount": 1,
+      "lastAccessed": 1772714481434,
+      "type": "file"
+    },
+    {
+      "path": "api",
+      "accessCount": 1,
+      "lastAccessed": 1772714495920,
+      "type": "directory"
+    },
+    {
+      "path": "api/admin/access/list.ts",
+      "accessCount": 1,
+      "lastAccessed": 1772714591980,
+      "type": "file"
+    },
+    {
+      "path": "client/src/hooks/useAdminMutations.ts",
+      "accessCount": 1,
+      "lastAccessed": 1772714601703,
       "type": "file"
     }
   ],
