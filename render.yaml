@@ -14,21 +14,21 @@ services:
       - key: PORT
         value: 3001
       - key: VITE_SUPABASE_URL
-        sync: false
+        value: https://dtbrzojuopcyfgmaybzt.supabase.co
       - key: VITE_SUPABASE_ANON_KEY
-        sync: false
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0YnJ6b2p1b3BjeWZnbWF5Ynp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIxMzY5MjEsImV4cCI6MjA4NzcxMjkyMX0.g412nHS7eKLdDivErQi3Zw12HV0L9Amz6p7dCClLvYo
       - key: VITE_SUPABASE_SERVICE_ROLE_KEY
-        sync: false
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0YnJ6b2p1b3BjeWZnbWF5Ynp0Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MjEzNjkyMSwiZXhwIjoyMDg3NzEyOTIxfQ.pCCSbuq1EOqeSsKg-b0Z18zbTadHXmlYAH4BeTx_a90
       - key: SUPABASE_URL
-        sync: false
+        value: https://dtbrzojuopcyfgmaybzt.supabase.co
       - key: SUPABASE_SERVICE_ROLE_KEY
-        sync: false
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0YnJ6b2p1b3BjeWZnbWF5Ynp0Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MjEzNjkyMSwiZXhwIjoyMDg3NzEyOTIxfQ.pCCSbuq1EOqeSsKg-b0Z18zbTadHXmlYAH4BeTx_a90
       - key: VITE_APP_URL
         generateValue: true
       - key: EMAILIT_API_KEY
-        sync: false
+        value: secret_1sjFHygScUBcZ5foQXL2CNDU2FKNmjUr
       - key: EMAILIT_DEFAULT_FROM
-        sync: false
+        value: noreply@f2w2.store
       - key: STRIPE_SECRET_KEY
         sync: false
       - key: STRIPE_WEBHOOK_SECRET
@@ -36,4 +36,4 @@ services:
       - key: VITE_STRIPE_PUBLIC_KEY
         sync: false
       - key: MERCADOPAGO_ACCESS_TOKEN
-        sync: false
+        value: APP_USR-5442375502779607-030220-a3f918f99801ab336122553f78d401fc-127911044
