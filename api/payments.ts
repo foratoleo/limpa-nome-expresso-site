@@ -24,9 +24,14 @@ export default async function handler(req: any, res: any) {
 
     // Create admin client with service role key
     // Note: Serverless functions use non-VITE_ prefixed env vars
+    const supabaseUrl = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL;
+    if (!supabaseUrl) {
+      throw new Error('SUPABASE_URL environment variable is not set');
+    }
+
     const supabase: any = createClient(
-      process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY,
+      supabaseUrl,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!,
       {
         auth: {
           autoRefreshToken: false,
