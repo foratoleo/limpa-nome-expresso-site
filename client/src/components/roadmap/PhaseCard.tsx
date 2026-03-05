@@ -49,19 +49,31 @@ export function PhaseCard({ phase, phaseIndex, isCurrent, isLast, onClick }: Pha
 
   return (
     <div className="flex items-stretch">
-      {/* Card */}
-      <button
-        onClick={onClick}
+      {/* Card wrapper */}
+      <div
         className={`
-          flex-1 flex items-start gap-4 p-5 rounded-2xl border-2 transition-all duration-300 text-left
+          flex-1 flex flex-col rounded-2xl border-2 transition-all duration-300
           ${phase.isComplete
-            ? "border-[#22c55e]/40 bg-[#22c55e]/5 hover:bg-[#22c55e]/10"
+            ? "border-[#22c55e]/40 bg-[#22c55e]/5"
             : isCurrent
-              ? "border-[#d39e17] bg-[#d39e17]/10 hover:bg-[#d39e17]/15"
-              : "border-[#64748b]/20 bg-[#64748b]/5 hover:bg-[#64748b]/10 opacity-60"
+              ? "border-[#d39e17] bg-[#d39e17]/10"
+              : "border-[#64748b]/20 bg-[#64748b]/5 opacity-60"
           }
         `}
         style={isCurrent && !phase.isComplete ? { boxShadow: "0 0 25px rgba(211, 158, 23, 0.4)" } : undefined}
+      >
+      {/* Clickable card area */}
+      <button
+        onClick={onClick}
+        className={`
+          flex-1 flex items-start gap-4 p-5 rounded-t-2xl transition-all duration-300 text-left
+          ${phase.isComplete
+            ? "hover:bg-[#22c55e]/10"
+            : isCurrent
+              ? "hover:bg-[#d39e17]/15"
+              : "hover:bg-[#64748b]/10"
+          }
+        `}
       >
         {/* Number Circle */}
         <div
@@ -142,36 +154,48 @@ export function PhaseCard({ phase, phaseIndex, isCurrent, isLast, onClick }: Pha
             </div>
           </div>
 
-          {/* Document Actions */}
-          <div className="flex items-center gap-2 mt-3 pt-3 border-t border-white/10">
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedDocPhase(phase.phaseNumber);
-              }}
-              aria-label={docCount > 0 ? `${docCount} documentos vinculados. Clique para gerenciar.` : 'Adicionar documentos a esta fase'}
-              aria-haspopup="dialog"
-              aria-expanded={selectedDocPhase === phase.phaseNumber}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all"
-              style={{
-                border: docCount > 0 ? '1px solid rgba(34, 197, 94, 0.3)' : '1px solid rgba(211, 158, 23, 0.3)',
-                backgroundColor: docCount > 0 ? 'rgba(34, 197, 94, 0.1)' : 'rgba(211, 158, 23, 0.08)',
-                color: docCount > 0 ? '#22c55e' : '#d39e17',
-              }}
-              title={docCount > 0 ? `${docCount} documento(s)` : 'Adicionar documentos'}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = docCount > 0 ? 'rgba(34, 197, 94, 0.2)' : 'rgba(211, 158, 23, 0.15)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = docCount > 0 ? 'rgba(34, 197, 94, 0.1)' : 'rgba(211, 158, 23, 0.08)';
-              }}
-            >
-              <FileIcon size="small" label="" />
-              {docCount > 0 && <span>{docCount}</span>}
-            </button>
-          </div>
         </div>
       </button>
+
+      {/* Document Actions - outside the button to prevent event conflicts */}
+      <div
+        className="flex items-center gap-2 px-5 pb-4"
+        style={{
+          marginLeft: '64px',
+          borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+          paddingTop: '8px',
+        }}
+      >
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            setSelectedDocPhase(phase.phaseNumber);
+          }}
+          onMouseDown={(e) => e.stopPropagation()}
+          onTouchStart={(e) => e.stopPropagation()}
+          aria-label={docCount > 0 ? `${docCount} documentos vinculados. Clique para gerenciar.` : 'Adicionar documentos a esta fase'}
+          aria-haspopup="dialog"
+          aria-expanded={selectedDocPhase === phase.phaseNumber}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all"
+          style={{
+            border: docCount > 0 ? '1px solid rgba(34, 197, 94, 0.3)' : '1px solid rgba(211, 158, 23, 0.3)',
+            backgroundColor: docCount > 0 ? 'rgba(34, 197, 94, 0.1)' : 'rgba(211, 158, 23, 0.08)',
+            color: docCount > 0 ? '#22c55e' : '#d39e17',
+          }}
+          title={docCount > 0 ? `${docCount} documento(s)` : 'Adicionar documentos'}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = docCount > 0 ? 'rgba(34, 197, 94, 0.2)' : 'rgba(211, 158, 23, 0.15)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = docCount > 0 ? 'rgba(34, 197, 94, 0.1)' : 'rgba(211, 158, 23, 0.08)';
+          }}
+        >
+          <FileIcon size="small" label="" />
+          {docCount > 0 && <span>{docCount}</span>}
+        </button>
+      </div>
+      </div>
 
       {/* Document List Modal */}
       {selectedDocPhase === phase.phaseNumber && (

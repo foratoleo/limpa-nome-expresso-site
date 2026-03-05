@@ -67,11 +67,15 @@ export function DocumentListModal({
     };
     if (isOpen) {
       document.addEventListener("keydown", handleEscape);
+      const prevOverflow = document.body.style.overflow;
       document.body.style.overflow = "hidden";
+      return () => {
+        document.removeEventListener("keydown", handleEscape);
+        document.body.style.overflow = prevOverflow;
+      };
     }
     return () => {
       document.removeEventListener("keydown", handleEscape);
-      document.body.style.overflow = "";
     };
   }, [isOpen, onClose, showAttachList]);
 
@@ -173,19 +177,7 @@ export function DocumentListModal({
 
   if (!isOpen) return null;
 
-  return (
-    <>
-      <input
-        ref={fileInputRef}
-        type="file"
-        style={{ display: 'none' }}
-        accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-        onClick={(e) => e.stopPropagation()}
-        onMouseDown={(e) => e.stopPropagation()}
-        onChange={handleDirectUpload}
-      />
-      {(() => {
-        const modalContent = (
+  const modalContent = (
     <div
       onClick={handleBackdropClick}
       style={{
@@ -206,6 +198,24 @@ export function DocumentListModal({
         WebkitBackdropFilter: "blur(8px)",
       }}
     >
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+        onClick={(e) => e.stopPropagation()}
+        onMouseDown={(e) => e.stopPropagation()}
+        onChange={handleDirectUpload}
+        style={{
+          position: 'fixed',
+          top: '-9999px',
+          left: '-9999px',
+          opacity: 0,
+          width: 0,
+          height: 0,
+          overflow: 'hidden',
+          pointerEvents: 'none',
+        }}
+      />
       <div
         onClick={(e) => e.stopPropagation()}
         style={{
@@ -521,8 +531,5 @@ export function DocumentListModal({
     </div>
   );
 
-        return createPortal(modalContent, document.body);
-      })()}
-    </>
-  );
+  return createPortal(modalContent, document.body);
 }
