@@ -2,6 +2,7 @@ import { ReactNode, useEffect } from "react";
 import { useLocation } from "wouter";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSubscription } from "@/hooks/useSubscription";
+import { debugAuthFlow } from "@/lib/debugAuth";
 
 interface ProtectedRouteProps {
   children: ReactNode;
@@ -15,60 +16,65 @@ export function ProtectedRoute({ children, requirePayment = true, requireAdmin =
   const [, setLocation] = useLocation();
 
   useEffect(() => {
-    if (import.meta.env.DEV) {
-      console.log('[ProtectedRoute] Check:', {
-        user: user?.email,
-        loading,
-        paymentLoading,
-        requirePayment,
-        requireAdmin,
-        hasAccess,
-        hasManualAccess,
-        userRole: user?.user_metadata?.role
-      });
-    }
+    debugAuthFlow('ProtectedRoute: Check', {
+      userEmail: user?.email,
+      userId: user?.id,
+      loading,
+      paymentLoading,
+      requirePayment,
+      requireAdmin,
+      hasAccess,
+      hasManualAccess,
+      userRole: user?.user_metadata?.role
+    });
 
     if (loading || (requirePayment && !initialized)) {
-      if (import.meta.env.DEV) {
-        console.log('[ProtectedRoute] Still loading - waiting...', {
-          loading,
-          paymentLoading,
-          initialized,
-          userExists: !!user
-        });
-      }
+      debugAuthFlow('ProtectedRoute: Still loading', {
+        loading,
+        paymentLoading,
+        initialized,
+        userExists: !!user
+      });
       return;
     }
 
     if (!user) {
+      debugAuthFlow('ProtectedRoute: No user - redirecting to home', {});
       setLocation("/");
       return;
     }
 
     // Admin bypass - admins always have access
     if (user?.user_metadata?.role === 'admin') {
-      if (import.meta.env.DEV) {
-        console.log('[ProtectedRoute] Admin bypass - access granted');
-      }
+      debugAuthFlow('ProtectedRoute: Admin bypass - access granted', {
+        userEmail: user?.email,
+      });
       return;
     }
 
     // Only check payment access if NOT loading
     if (requirePayment && !paymentLoading && !hasAccess) {
-      if (import.meta.env.DEV) {
-        console.log('[ProtectedRoute] Redirecting to /checkout - no access', {
-          hasAccess,
-          hasManualAccess
-        });
-      }
+      debugAuthFlow('ProtectedRoute: No payment access - redirecting to checkout', {
+        hasAccess,
+        hasManualAccess,
+      });
       setLocation("/checkout");
       return;
     }
 
     if (requireAdmin && user.user_metadata?.role !== 'admin') {
+      debugAuthFlow('ProtectedRoute: Not admin - redirecting to home', {
+        userRole: user.user_metadata?.role,
+      });
       setLocation("/");
       return;
     }
+
+    debugAuthFlow('ProtectedRoute: Access granted', {
+      userEmail: user?.email,
+      requirePayment,
+      requireAdmin,
+    });
   }, [user, loading, requirePayment, requireAdmin, hasAccess, hasManualAccess, paymentLoading, initialized, setLocation]);
 
   if (loading || (requirePayment && !initialized)) {

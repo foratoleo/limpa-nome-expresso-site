@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import type { User, Session, AuthError } from "@supabase/supabase-js";
 import { supabase } from "@/lib/supabase";
+import { debugAuthFlow } from "@/lib/debugAuth";
 
 interface AuthContextType {
   user: User | null;
@@ -26,6 +27,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const {
         data: { session },
       } = await supabase.auth.getSession();
+
+      debugAuthFlow('AuthContext: Initial session retrieved', {
+        hasSession: !!session,
+        userId: session?.user?.id,
+        userEmail: session?.user?.email,
+      });
+
       setSession(session);
       setUser(session?.user ?? null);
       setLoading(false);
@@ -36,6 +44,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
+      debugAuthFlow('AuthContext: Auth state changed', {
+        event: _event,
+        hasSession: !!session,
+        userId: session?.user?.id,
+        userEmail: session?.user?.email,
+      });
+
       setSession(session);
       setUser(session?.user ?? null);
       setLoading(false);
@@ -146,18 +161,39 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const signIn = async (email: string, password: string) => {
+    debugAuthFlow('AuthContext: signIn called', { email });
+
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
+
+    debugAuthFlow('AuthContext: signIn completed', {
+      email,
+      hasError: !!error,
+      errorMessage: error?.message,
+      hasUser: !!data?.user,
+      userId: data?.user?.id,
+      hasSession: !!data?.session,
+    });
+
     // Return both error and data to allow caller to handle post-signin actions
     return { error, data };
   };
 
   const signOut = async () => {
+    debugAuthFlow('AuthContext: signOut called', {
+      userId: user?.id,
+      userEmail: user?.email,
+    });
+
     await supabase.auth.signOut();
     setUser(null);
     setSession(null);
+
+    debugAuthFlow('AuthContext: signOut completed', {
+      previousUserId: user?.id,
+    });
   };
 
   const resetPassword = async (email: string) => {

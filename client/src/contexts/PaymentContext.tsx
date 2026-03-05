@@ -1,5 +1,6 @@
-import { createContext, useContext, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, type ReactNode } from 'react';
 import { useAccessStatus } from '@/hooks/useAccessStatus';
+import { debugAuthFlow } from '@/lib/debugAuth';
 
 interface PaymentContextType {
   hasActiveAccess: boolean;
@@ -27,10 +28,29 @@ export function PaymentProvider({ children }: { children: ReactNode }) {
     refetch: refetch,
   };
 
-  // Log errors in development
-  if (error && import.meta.env.DEV) {
-    console.error('[PaymentContext] Error fetching access status:', error);
-  }
+  // Log context value changes
+  useEffect(() => {
+    debugAuthFlow('PaymentContext: Context value updated', {
+      hasActiveAccess: hasAccess,
+      hasManualAccess: hasManualAccess,
+      accessType,
+      expiresAt,
+      isLoading,
+      initialized,
+      hasError: !!error,
+      errorMessage: error?.message,
+    });
+  }, [hasAccess, hasManualAccess, accessType, expiresAt, isLoading, initialized, error]);
+
+  // Log errors
+  useEffect(() => {
+    if (error) {
+      debugAuthFlow('PaymentContext: Error fetching access status', {
+        errorMessage: error.message,
+        errorStack: error.stack,
+      });
+    }
+  }, [error]);
 
   return (
     <PaymentContext.Provider value={value}>

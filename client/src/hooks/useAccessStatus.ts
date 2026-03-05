@@ -1,6 +1,7 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useAuth } from '@/contexts/AuthContext';
 import { useEffect } from 'react';
+import { debugAuthFlow } from '@/lib/debugAuth';
 
 export interface AccessStatusResponse {
   hasActiveAccess: boolean;
@@ -11,6 +12,11 @@ export interface AccessStatusResponse {
 }
 
 async function fetchAccessStatus(sessionAccessToken: string): Promise<AccessStatusResponse> {
+  debugAuthFlow('useAccessStatus: Fetching access status', {
+    hasToken: !!sessionAccessToken,
+    tokenPrefix: sessionAccessToken?.substring(0, 10) + '...',
+  });
+
   const response = await fetch('/api/payments/status', {
     headers: {
       Authorization: `Bearer ${sessionAccessToken}`,
@@ -19,10 +25,23 @@ async function fetchAccessStatus(sessionAccessToken: string): Promise<AccessStat
   });
 
   if (!response.ok) {
+    debugAuthFlow('useAccessStatus: Fetch failed', {
+      status: response.status,
+      statusText: response.statusText,
+    });
     throw new Error(`Failed to fetch access status: ${response.status}`);
   }
 
-  return response.json();
+  const data = await response.json();
+
+  debugAuthFlow('useAccessStatus: Fetch successful', {
+    hasActiveAccess: data.hasActiveAccess,
+    hasManualAccess: data.hasManualAccess,
+    accessType: data.accessType,
+    expiresAt: data.expiresAt,
+  });
+
+  return data;
 }
 
 export function useAccessStatus() {
@@ -34,6 +53,7 @@ export function useAccessStatus() {
   // Invalidate cache when user signs out or session changes
   useEffect(() => {
     if (!userId) {
+      debugAuthFlow('useAccessStatus: User cleared - removing queries', {});
       queryClient.removeQueries({ queryKey: ['accessStatus'] });
     }
   }, [userId, queryClient]);
@@ -47,6 +67,20 @@ export function useAccessStatus() {
     retry: 1,
     refetchOnWindowFocus: false,
   });
+
+  // Log query state changes
+  useEffect(() => {
+    debugAuthFlow('useAccessStatus: Query state changed', {
+      userId,
+      isLoading: query.isLoading,
+      isError: query.isError,
+      error: query.error?.message,
+      hasData: !!query.data,
+      hasAccess: query.data?.hasActiveAccess ?? false,
+      hasManualAccess: query.data?.hasManualAccess ?? false,
+      accessType: query.data?.accessType,
+    });
+  }, [query.isLoading, query.isError, query.error, query.data, userId]);
 
   return {
     hasAccess: query.data?.hasActiveAccess ?? false,

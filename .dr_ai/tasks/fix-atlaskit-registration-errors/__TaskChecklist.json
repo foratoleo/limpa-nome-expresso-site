@@ -1,0 +1,130 @@
+{
+  "version": "1.0",
+  "task_name": "fix-atlaskit-registration-errors",
+  "tasks": [
+    {
+      "id": "T0",
+      "description": "Create branch fix/fix-atlaskit-registration-errors",
+      "status": "pending",
+      "agent": null,
+      "plan_ref": null,
+      "subtasks": []
+    },
+    {
+      "id": "T1",
+      "description": "Fix PaymentContext infinite loop causing Maximum update depth exceeded",
+      "status": "completed",
+      "agent": "react-hooks-specialist",
+      "plan_ref": "1",
+      "subtasks": [
+        {
+          "id": "T1.1",
+          "description": "Refactor PaymentContext using useRef to break circular dependency",
+          "status": "completed"
+        },
+        {
+          "id": "T1.2",
+          "description": "Test PaymentContext to verify infinite loop is fixed",
+          "status": "completed"
+        },
+        {
+          "id": "T1.3",
+          "description": "Add unit tests for PaymentContext to prevent regression",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "T2",
+      "description": "Fix Atlaskit AppProvider feature gate error",
+      "status": "completed",
+      "agent": "react-architect",
+      "plan_ref": "2",
+      "subtasks": [
+        {
+          "id": "T2.1",
+          "description": "Investigate Atlaskit AppProvider usage across codebase",
+          "status": "completed"
+        },
+        {
+          "id": "T2.2",
+          "description": "Check documentation for feature gate configuration options",
+          "status": "completed"
+        },
+        {
+          "id": "T2.3",
+          "description": "Implement fix based on investigation findings",
+          "status": "completed"
+        },
+        {
+          "id": "T2.4",
+          "description": "Test theme functionality after changes",
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "id": "T3",
+      "description": "Improve registration error handling and validation",
+      "status": "completed",
+      "agent": "react-forms-specialist",
+      "plan_ref": "3",
+      "subtasks": [
+        {
+          "id": "T3.1",
+          "description": "Create email validation utility in lib/validation/email.ts",
+          "status": "pending"
+        },
+        {
+          "id": "T3.2",
+          "description": "Add real-time validation to RegisterForm email input",
+          "status": "pending"
+        },
+        {
+          "id": "T3.3",
+          "description": "Improve error handling in AuthContext signUp function",
+          "status": "pending"
+        },
+        {
+          "id": "T3.4",
+          "description": "Add zod schema validation for registration form",
+          "status": "pending"
+        },
+        {
+          "id": "T3.5",
+          "description": "Test all registration error scenarios",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "T4",
+      "description": "Verify server restart and enhance error logging",
+      "status": "pending",
+      "agent": "nodejs-specialist",
+      "plan_ref": "4",
+      "subtasks": [
+        {
+          "id": "T4.1",
+          "description": "Add enhanced logging to auth register endpoint",
+          "status": "pending"
+        },
+        {
+          "id": "T4.2",
+          "description": "Verify server is running latest code",
+          "status": "pending"
+        },
+        {
+          "id": "T4.3",
+          "description": "Add request validation middleware",
+          "status": "pending"
+        },
+        {
+          "id": "T4.4",
+          "description": "Test registration endpoint with curl or Postman",
+          "status": "pending"
+        }
+      ]
+    }
+  ]
+}

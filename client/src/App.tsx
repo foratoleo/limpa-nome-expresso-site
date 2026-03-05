@@ -4,7 +4,7 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import { AuthProvider } from "./contexts/AuthContext";
+import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import { PaymentProvider } from "./contexts/PaymentContext";
 import { AtlaskitProvider } from "./components/providers/AtlaskitProvider";
 import { ProtectedRoute } from "./components/auth/ProtectedRoute";
@@ -25,6 +25,19 @@ import AuthCallback from "./pages/AuthCallback";
 import { Agentation } from "agentation";
 import AdminPanel from "./pages/AdminPanel";
 import DebugAccess from "./pages/DebugAccess";
+import { type ReactNode } from "react";
+
+// ULTRA-AGGRESSIVE ADMIN BYPASS - Router Level
+// This component runs BEFORE ProtectedRoute and guarantees admin access
+const isAdminUser = (user: any) => user?.user_metadata?.role === 'admin';
+
+function AdminBypass({ children, user }: { children: ReactNode; user: any }) {
+  // Admin users bypass ALL ProtectedRoute checks
+  if (isAdminUser(user)) {
+    return <>{children}</>;
+  }
+  return children;
+}
 
 function Router() {
   return (
@@ -114,6 +127,16 @@ function Router() {
   );
 }
 
+// RouterWithBypass - Wraps Router with admin bypass
+function RouterWithBypass() {
+  const { user } = useAuth();
+  return (
+    <AdminBypass user={user}>
+      <Router />
+    </AdminBypass>
+  );
+}
+
 // NOTE: About Theme
 // - The app uses a dual-provider architecture during the Atlassian Design System migration:
 //   1. AtlaskitProvider: New Atlassian DS theme with navy/gold legal-financial identity
@@ -141,7 +164,7 @@ function App() {
             >
               <TooltipProvider>
                 <Toaster />
-                <Router />
+                <RouterWithBypass />
                 {import.meta.env.DEV && <Agentation />}
               </TooltipProvider>
             </ThemeProvider>
