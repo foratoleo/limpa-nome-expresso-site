@@ -319,27 +319,69 @@
       "type": "file"
     },
     {
+      "path": "api/payments.ts",
+      "accessCount": 10,
+      "lastAccessed": 1772674778294,
+      "type": "file"
+    },
+    {
       "path": "",
-      "accessCount": 3,
-      "lastAccessed": 1772673991120,
+      "accessCount": 4,
+      "lastAccessed": 1772674376328,
       "type": "directory"
     },
     {
-      "path": "api/payments.ts",
+      "path": "vercel.json",
+      "accessCount": 4,
+      "lastAccessed": 1772674953781,
+      "type": "file"
+    },
+    {
+      "path": "server/routes/payments.ts",
       "accessCount": 3,
-      "lastAccessed": 1772673994494,
+      "lastAccessed": 1772674365146,
       "type": "file"
     },
     {
       "path": "client/src/components/auth/ProtectedRoute.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1772673873864,
+      "accessCount": 3,
+      "lastAccessed": 1772674365161,
+      "type": "file"
+    },
+    {
+      "path": "vite.config.ts",
+      "accessCount": 3,
+      "lastAccessed": 1772674380182,
+      "type": "file"
+    },
+    {
+      "path": "client/src/hooks/useAccessStatus.ts",
+      "accessCount": 3,
+      "lastAccessed": 1772674457358,
       "type": "file"
     },
     {
       "path": "server/index.ts",
       "accessCount": 2,
       "lastAccessed": 1772674001696,
+      "type": "file"
+    },
+    {
+      "path": "client/src/hooks/useSubscription.ts",
+      "accessCount": 2,
+      "lastAccessed": 1772674368510,
+      "type": "file"
+    },
+    {
+      "path": "client/src",
+      "accessCount": 2,
+      "lastAccessed": 1772674368981,
+      "type": "directory"
+    },
+    {
+      "path": "package.json",
+      "accessCount": 2,
+      "lastAccessed": 1772674478751,
       "type": "file"
     },
     {
@@ -367,12 +409,6 @@
       "type": "file"
     },
     {
-      "path": "client/src/hooks/useSubscription.ts",
-      "accessCount": 1,
-      "lastAccessed": 1772673878619,
-      "type": "file"
-    },
-    {
       "path": "client/src/contexts/AuthContext.tsx",
       "accessCount": 1,
       "lastAccessed": 1772673878623,
@@ -385,27 +421,9 @@
       "type": "file"
     },
     {
-      "path": "client/src/hooks/useAccessStatus.ts",
-      "accessCount": 1,
-      "lastAccessed": 1772673878645,
-      "type": "file"
-    },
-    {
       "path": "client/src/contexts/PaymentContext.tsx",
       "accessCount": 1,
       "lastAccessed": 1772673878676,
-      "type": "file"
-    },
-    {
-      "path": "vercel.json",
-      "accessCount": 1,
-      "lastAccessed": 1772673882420,
-      "type": "file"
-    },
-    {
-      "path": "vite.config.ts",
-      "accessCount": 1,
-      "lastAccessed": 1772673887007,
       "type": "file"
     },
     {
@@ -415,22 +433,52 @@
       "type": "file"
     },
     {
-      "path": "server/routes/payments.ts",
-      "accessCount": 1,
-      "lastAccessed": 1772673896796,
-      "type": "file"
-    },
-    {
-      "path": "client/src",
-      "accessCount": 1,
-      "lastAccessed": 1772673935332,
-      "type": "directory"
-    },
-    {
       "path": "server",
       "accessCount": 1,
       "lastAccessed": 1772673986916,
       "type": "directory"
+    },
+    {
+      "path": "FINAL_FIX_SUMMARY.md",
+      "accessCount": 1,
+      "lastAccessed": 1772674124295,
+      "type": "file"
+    },
+    {
+      "path": "RALPH_LOOP_STATUS.md",
+      "accessCount": 1,
+      "lastAccessed": 1772674164430,
+      "type": "file"
+    },
+    {
+      "path": "CRITICAL_FIX_ITERATION_6.md",
+      "accessCount": 1,
+      "lastAccessed": 1772674329546,
+      "type": "file"
+    },
+    {
+      "path": "client/src/lib/stripe-config.ts",
+      "accessCount": 1,
+      "lastAccessed": 1772674372329,
+      "type": "file"
+    },
+    {
+      "path": "FINAL_VALIDATION_REQUEST.md",
+      "accessCount": 1,
+      "lastAccessed": 1772674416618,
+      "type": "file"
+    },
+    {
+      "path": "tsconfig.json",
+      "accessCount": 1,
+      "lastAccessed": 1772674474201,
+      "type": "file"
+    },
+    {
+      "path": "COMPLETE_FIX_SUMMARY.md",
+      "accessCount": 1,
+      "lastAccessed": 1772674904318,
+      "type": "file"
     }
   ],
   "userDirectives": []
