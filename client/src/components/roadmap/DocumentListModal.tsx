@@ -1,7 +1,8 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, ChangeEvent } from "react";
 import { createPortal } from "react-dom";
 import { CrossIcon, DownloadIcon, FileIcon, TrashIcon, AddCircleIcon } from "@/utils/icons";
 import type { UserDocument } from "@/types/supabase";
+import { useDocuments } from "@/hooks/useDocuments";
 
 interface DocumentWithAttachment {
   id: string;
@@ -20,6 +21,8 @@ interface DocumentListModalProps {
   onAttachDocument: (documentId: string) => Promise<boolean>;
   onDetachDocument: (checklistDocId: string) => Promise<boolean>;
   onDownload: (document: UserDocument) => void;
+  onRefresh?: () => void;
+  documentKey?: number; // Force re-render when this changes
 }
 
 export function DocumentListModal({
@@ -33,11 +36,16 @@ export function DocumentListModal({
   onAttachDocument,
   onDetachDocument,
   onDownload,
+  onRefresh,
+  documentKey,
 }: DocumentListModalProps) {
+  const { uploadDocument } = useDocuments();
   const [showAttachList, setShowAttachList] = useState(false);
   const [attaching, setAttaching] = useState<string | null>(null);
   const [detaching, setDetaching] = useState<string | null>(null);
+  const [uploadingDirect, setUploadingDirect] = useState(false);
   const attachListRef = useRef<HTMLDivElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Close on escape key
   useEffect(() => {
@@ -68,8 +76,12 @@ export function DocumentListModal({
     setAttaching(documentId);
     try {
       const success = await onAttachDocument(documentId);
+      console.log('[DocumentListModal] Attach result:', success, 'Refreshing documents...');
       if (success) {
         setShowAttachList(false);
+        // Explicitly refresh to get updated documents
+        await onRefresh?.();
+        console.log('[DocumentListModal] Documents after refresh:', documents.length);
       }
     } finally {
       setAttaching(null);
@@ -82,6 +94,58 @@ export function DocumentListModal({
       await onDetachDocument(checklistDocId);
     } finally {
       setDetaching(null);
+    }
+  };
+
+  const handleDirectUpload = async (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) {
+      console.log('[DocumentListModal] No file selected');
+      return;
+    }
+
+    console.log('[DocumentListModal] File selected:', file.name, file.size, file.type);
+    setUploadingDirect(true);
+
+    try {
+      // Upload com nome padrão
+      const name = file.name.replace(/\.[^/.]+$/, "");
+      console.log('[DocumentListModal] Starting upload...');
+      const result = await uploadDocument(file, name, "geral");
+      console.log('[DocumentListModal] Upload result:', result);
+
+      if (result.success && result.documentId && onAttachDocument) {
+        console.log('[DocumentListModal] Upload successful, attaching document...');
+        // Vincular automaticamente
+        const attachSuccess = await onAttachDocument(result.documentId);
+        console.log('[DocumentListModal] Attach result:', attachSuccess);
+
+        if (attachSuccess) {
+          console.log('[DocumentListModal] Document attached successfully, refreshing...');
+          // Recarregar lista para mostrar novo documento
+          await onRefresh?.();
+          console.log('[DocumentListModal] Refresh complete');
+        } else {
+          console.error('[DocumentListModal] Failed to attach document');
+        }
+      } else {
+        console.error('[DocumentListModal] Upload failed or no document ID:', result);
+      }
+    } catch (err) {
+      console.error('[DocumentListModal] Error in upload process:', err);
+    } finally {
+      console.log('[DocumentListModal] Upload process complete, resetting state');
+      setUploadingDirect(false);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    }
+  };
+
+  const handleDirectUploadClick = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (!uploadingDirect) {
+      fileInputRef.current?.click();
     }
   };
 
@@ -99,7 +163,17 @@ export function DocumentListModal({
 
   if (!isOpen) return null;
 
-  const modalContent = (
+  return (
+    <>
+      <input
+        ref={fileInputRef}
+        type="file"
+        style={{ display: 'none' }}
+        accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+        onChange={handleDirectUpload}
+      />
+      {(() => {
+        const modalContent = (
     <div
       onClick={onClose}
       style={{
@@ -187,21 +261,57 @@ export function DocumentListModal({
           <div style={{ padding: "16px 20px" }}>
             {documents.length === 0 ? (
               <div
+                onClick={(e) => {
+                  console.log('[Empty Area] Clicked, stopping propagation');
+                  e.stopPropagation();
+                  e.preventDefault();
+                  handleDirectUploadClick(e);
+                }}
+                onKeyPress={(e) => {
+                  if (e.key === 'Enter' && !uploadingDirect) {
+                    console.log('[Empty Area] Enter key pressed');
+                    e.stopPropagation();
+                    handleDirectUploadClick();
+                  }
+                }}
+                onMouseDown={(e) => {
+                  console.log('[Empty Area] Mouse down, stopping propagation');
+                  e.stopPropagation();
+                }}
                 style={{
                   textAlign: "center",
                   padding: "24px",
                   borderRadius: "12px",
                   backgroundColor: "rgba(255, 255, 255, 0.03)",
                   border: "1px dashed rgba(211, 158, 23, 0.3)",
+                  cursor: uploadingDirect ? "wait" : "pointer",
+                  opacity: uploadingDirect ? 0.7 : 1,
                 }}
+                role="button"
+                tabIndex={0}
+                aria-label="Fazer upload de documento"
               >
-                <FileIcon size="medium" label="" />
-                <p style={{ margin: "12px 0 4px", fontSize: "14px", color: "#94a3b8" }}>
-                  Nenhum documento vinculado
-                </p>
-                <p style={{ margin: 0, fontSize: "12px", color: "#64748b" }}>
-                  Clique no botao abaixo para adicionar
-                </p>
+                {uploadingDirect ? (
+                  <>
+                    <div
+                      className="w-12 h-12 border-4 border-t-transparent rounded-full animate-spin mx-auto mb-4"
+                      style={{ borderColor: "#d39e17", borderTopColor: "transparent" }}
+                    />
+                    <p style={{ margin: "12px 0 4px", fontSize: "14px", color: "#94a3b8" }}>
+                      Enviando documento...
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <FileIcon size="medium" label="" />
+                    <p style={{ margin: "12px 0 4px", fontSize: "14px", color: "#94a3b8" }}>
+                      Nenhum documento vinculado
+                    </p>
+                    <p style={{ margin: 0, fontSize: "12px", color: "#64748b" }}>
+                      Clique aqui para adicionar
+                    </p>
+                  </>
+                )}
               </div>
             ) : (
               <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
@@ -399,5 +509,8 @@ export function DocumentListModal({
     </div>
   );
 
-  return createPortal(modalContent, document.body);
+        return createPortal(modalContent, document.body);
+      })()}
+    </>
+  );
 }

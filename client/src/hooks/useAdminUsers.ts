@@ -24,11 +24,17 @@ import { UserManualAccess } from '@/types/supabase';
 // ============================================================================
 
 /**
- * Enriched user object with email information
+ * User status type
+ */
+export type UserStatus = "active" | "pending" | "expired" | "manual" | "free";
+
+/**
+ * Enriched user object with email information and calculated status
  */
 export interface AdminUser extends UserManualAccess {
   user_email: string | null;
   granter_email: string | null;
+  status: UserStatus;
 }
 
 /**

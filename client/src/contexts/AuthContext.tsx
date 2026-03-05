@@ -57,12 +57,70 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         body: JSON.stringify({ email, password }),
       });
 
-      const data = await response.json();
+      const contentType = response.headers.get("content-type") || "";
+      let data: any = null;
 
-      if (!response.ok || !data.success) {
+      if (contentType.includes("application/json")) {
+        data = await response.json();
+      } else {
+        const rawBody = await response.text();
+        if (import.meta.env.DEV) {
+          console.error("Registration returned non-JSON response:", {
+            status: response.status,
+            contentType,
+            bodyPreview: rawBody.slice(0, 200),
+          });
+        }
+
+        // API unavailable (common in local dev when backend is down):
+        // Do NOT fallback to direct Supabase signup, because registration
+        // must go through backend to send custom confirmation template.
+        if (response.status >= 500) {
+          return {
+            error: {
+              message: "Serviço de cadastro indisponível. Tente novamente em instantes.",
+              name: "ServiceUnavailableError",
+              status: response.status,
+            } as AuthError,
+          };
+        }
+
         return {
           error: {
-            message: data.error || "Erro ao criar conta",
+            message: "Resposta inválida do servidor",
+            name: "ServerResponseError",
+            status: response.status,
+          } as AuthError,
+        };
+      }
+
+      if (!response.ok || !data.success) {
+        // Parse specific error types for better user feedback
+        let errorMessage = data.error || "Erro ao criar conta";
+
+        // Log error for debugging (in development)
+        if (import.meta.env.DEV) {
+          console.log("Registration error:", {
+            status: response.status,
+            message: errorMessage,
+            originalError: data.error,
+          });
+        }
+
+        // Keep backend as single source for registration to ensure custom email flow.
+        if (response.status >= 500) {
+          return {
+            error: {
+              message: "Serviço de cadastro indisponível. Tente novamente em instantes.",
+              name: "ServiceUnavailableError",
+              status: response.status,
+            } as AuthError,
+          };
+        }
+
+        return {
+          error: {
+            message: errorMessage,
             name: "AuthError",
             status: response.status,
           } as AuthError,
@@ -73,9 +131,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       // The caller should handle navigation based on their needs
       return { error: null, data: data.data };
     } catch (err) {
+      // Log network errors for debugging
+      if (import.meta.env.DEV) {
+        console.error("Registration network error:", err);
+      }
+
       return {
         error: {
-          message: "Erro ao conectar com o servidor",
+          message: "Erro ao conectar com o servidor de cadastro",
           name: "NetworkError",
         } as AuthError,
       };

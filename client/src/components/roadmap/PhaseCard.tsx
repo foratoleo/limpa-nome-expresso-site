@@ -1,5 +1,9 @@
-import { CheckCircleIcon, ChevronRightIcon } from "@/utils/icons";
+import { useState } from "react";
+import { CheckCircleIcon, ChevronRightIcon, FileIcon } from "@/utils/icons";
 import type { PhaseStatus } from "@/hooks/useCurrentPhase";
+import { useChecklistDocuments } from "@/hooks/useChecklistDocuments";
+import { useDocuments } from "@/hooks/useDocuments";
+import { DocumentListModal } from "./DocumentListModal";
 
 interface PhaseCardProps {
   phase: PhaseStatus;
@@ -33,7 +37,15 @@ const PHASE_DESCRIPTIONS: Record<number, { description: string; tasks: string }>
 };
 
 export function PhaseCard({ phase, phaseIndex, isCurrent, isLast, onClick }: PhaseCardProps) {
+  const [selectedDocPhase, setSelectedDocPhase] = useState<number | null>(null);
+  const checklistDocs = useChecklistDocuments();
+  const { documents: allUserDocuments, downloadDocument } = useDocuments();
+
   const phaseInfo = PHASE_DESCRIPTIONS[phase.phaseNumber] || { description: "", tasks: "" };
+
+  // Get documents for this phase
+  const documentsByStep = checklistDocs.documentsByStep[phase.phaseNumber] || [];
+  const docCount = documentsByStep.length;
 
   return (
     <div className="flex items-stretch">
@@ -129,8 +141,62 @@ export function PhaseCard({ phase, phaseIndex, isCurrent, isLast, onClick }: Pha
               <ChevronRightIcon size="small" label="" />
             </div>
           </div>
+
+          {/* Document Actions */}
+          <div className="flex items-center gap-2 mt-3 pt-3 border-t border-white/10">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedDocPhase(phase.phaseNumber);
+              }}
+              aria-label={docCount > 0 ? `${docCount} documentos vinculados. Clique para gerenciar.` : 'Adicionar documentos a esta fase'}
+              aria-haspopup="dialog"
+              aria-expanded={selectedDocPhase === phase.phaseNumber}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all"
+              style={{
+                border: docCount > 0 ? '1px solid rgba(34, 197, 94, 0.3)' : '1px solid rgba(211, 158, 23, 0.3)',
+                backgroundColor: docCount > 0 ? 'rgba(34, 197, 94, 0.1)' : 'rgba(211, 158, 23, 0.08)',
+                color: docCount > 0 ? '#22c55e' : '#d39e17',
+              }}
+              title={docCount > 0 ? `${docCount} documento(s)` : 'Adicionar documentos'}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = docCount > 0 ? 'rgba(34, 197, 94, 0.2)' : 'rgba(211, 158, 23, 0.15)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = docCount > 0 ? 'rgba(34, 197, 94, 0.1)' : 'rgba(211, 158, 23, 0.08)';
+              }}
+            >
+              <FileIcon size="small" label="" />
+              {docCount > 0 && <span>{docCount}</span>}
+            </button>
+          </div>
         </div>
       </button>
+
+      {/* Document List Modal */}
+      {selectedDocPhase === phase.phaseNumber && (
+        <DocumentListModal
+          isOpen={true}
+          onClose={() => setSelectedDocPhase(null)}
+          itemId={`phase-${phase.phaseNumber}`}
+          itemLabel={phase.phaseName}
+          stepNumber={phase.phaseNumber}
+          documents={documentsByStep.map((doc) => ({
+            id: doc.id,
+            document: doc.document,
+            checklistDocId: doc.id,
+          }))}
+          allUserDocuments={allUserDocuments}
+          onAttachDocument={async (documentId) => {
+            return await checklistDocs.attachDocument(`phase-${phase.phaseNumber}`, phase.phaseNumber, documentId);
+          }}
+          onDetachDocument={async (checklistDocId) => {
+            return await checklistDocs.detachDocument(checklistDocId);
+          }}
+          onDownload={(doc) => downloadDocument(doc.file_url, doc.name)}
+          onRefresh={checklistDocs.refresh}
+        />
+      )}
 
       {/* Connector */}
       {!isLast && (

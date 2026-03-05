@@ -110,3 +110,4 @@ temp/
 .vercel
 .env.local.bak
 .env.local.migrations
+.dmux/

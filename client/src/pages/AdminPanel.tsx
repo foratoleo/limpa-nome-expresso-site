@@ -50,7 +50,7 @@ import { grantAccessSchema, type GrantAccessInput } from "@/lib/validation/admin
 export default function AdminPanel() {
   const { user, loading: authLoading } = useAuth();
   const [, navigate] = useLocation();
-  const { users, loading: usersLoading, error, refetch } = useAdminUsers();
+  const { data: users = [], isLoading: usersLoading, error, refetch } = useAdminUsers();
   const [submitting, setSubmitting] = useState(false);
 
   // React Hook Form setup

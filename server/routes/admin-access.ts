@@ -7,6 +7,44 @@ import { logAdminAction } from "../lib/audit-logger";
 export const adminAccessRouter = Router();
 
 // ============================================================================
+// Type Definitions
+// ============================================================================
+
+type UserStatus = "active" | "pending" | "expired" | "manual" | "free";
+
+// ============================================================================
+// Helper Functions
+// ============================================================================
+
+/**
+ * Calculate user status based on access record
+ * @param access - User manual access record
+ * @returns Calculated status string
+ */
+function calculateUserStatus(access: any): UserStatus {
+  const now = new Date();
+  const expiresAt = access.expires_at ? new Date(access.expires_at) : null;
+
+  // Check if access is revoked
+  if (access.revoked_at) {
+    return "expired";
+  }
+
+  // Check if access is inactive
+  if (!access.is_active) {
+    return "expired";
+  }
+
+  // Check if access has expired
+  if (expiresAt && expiresAt < now) {
+    return "expired";
+  }
+
+  // Active manual access
+  return "manual";
+}
+
+// ============================================================================
 // Supabase Admin Client
 // ============================================================================
 
@@ -83,11 +121,12 @@ adminAccessRouter.get("/list", verifyAdmin, async (req: Request, res: Response) 
     // Get admin user for granter email resolution
     const adminUser = (req as any).user;
 
-    // Enrich access data with emails
+    // Enrich access data with emails and calculated status
     let enrichedAccesses = accesses?.map(access => ({
       ...access,
       user_email: userEmails.get(access.user_id) || null,
       granter_email: access.granted_by === adminUser.id ? adminUser.email : userEmails.get(access.granted_by) || null,
+      status: calculateUserStatus(access),
     })) || [];
 
     // Apply search filter if provided

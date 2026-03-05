@@ -32,11 +32,18 @@ import type { VariantProps } from "class-variance-authority";
 export type UserStatus = "active" | "pending" | "expired" | "manual" | "free";
 
 /**
+ * Extended status type for runtime validation
+ * Includes all valid UserStatus values plus invalid types that may be passed at runtime
+ */
+type RuntimeStatus = UserStatus | undefined | null | string;
+
+/**
  * Props for UserStatusBadge component
+ * Accepts string input to handle runtime values gracefully
  */
 export interface UserStatusBadgeProps {
   /** The status to display */
-  status: UserStatus;
+  status: RuntimeStatus;
 }
 
 // ============================================================================
@@ -87,6 +94,34 @@ const statusConfig: Record<UserStatus, StatusConfig> = {
   },
 };
 
+/**
+ * Default configuration for unknown or invalid status values
+ * Provides a safe fallback to prevent runtime errors
+ */
+const defaultConfig: StatusConfig = {
+  variant: "secondary",
+  icon: <User size={12} />,
+  label: "Desconhecido",
+  className: "bg-gray-400 text-white border-gray-400 hover:bg-gray-500",
+};
+
+/**
+ * Safely retrieves the status configuration with a fallback for invalid values
+ *
+ * @param status - The runtime status value (may be undefined, null, or invalid string)
+ * @returns The StatusConfig for the given status, or the default config if invalid
+ */
+function getStatusConfig(status: RuntimeStatus): StatusConfig {
+  // Check if status is a valid UserStatus key
+  if (!status || typeof status !== "string") {
+    return defaultConfig;
+  }
+
+  // Type assertion for the lookup since we've validated the input
+  const validStatus = status as UserStatus;
+  return statusConfig[validStatus] ?? defaultConfig;
+}
+
 // ============================================================================
 // Component
 // ============================================================================
@@ -99,7 +134,7 @@ const statusConfig: Record<UserStatus, StatusConfig> = {
  * @returns JSX element
  */
 export function UserStatusBadge({ status }: UserStatusBadgeProps) {
-  const config = statusConfig[status];
+  const config = getStatusConfig(status);
   const { variant, icon, label, className } = config;
 
   return (

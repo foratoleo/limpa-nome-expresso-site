@@ -1,9 +1,17 @@
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { validateEmail } from "@/lib/validation/email";
 
 interface RegisterFormProps {
   onSuccess?: () => void;
   onLogin: () => void;
+}
+
+interface FormErrors {
+  email?: string;
+  password?: string;
+  confirmPassword?: string;
+  general?: string;
 }
 
 export function RegisterForm({ onSuccess, onLogin }: RegisterFormProps) {
@@ -12,31 +20,167 @@ export function RegisterForm({ onSuccess, onLogin }: RegisterFormProps) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [errors, setErrors] = useState<FormErrors>({});
   const [success, setSuccess] = useState(false);
+  const [touched, setTouched] = useState<{
+    email: boolean;
+    password: boolean;
+    confirmPassword: boolean;
+  }>({
+    email: false,
+    password: false,
+    confirmPassword: false,
+  });
+
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+    let isValid = true;
+
+    // Validate email
+    if (!email) {
+      newErrors.email = "Email é obrigatório";
+      isValid = false;
+    } else {
+      const emailValidation = validateEmail(email);
+      if (!emailValidation.valid) {
+        newErrors.email = emailValidation.message || "Email inválido";
+        isValid = false;
+      }
+    }
+
+    // Validate password
+    if (!password) {
+      newErrors.password = "Senha é obrigatória";
+      isValid = false;
+    } else if (password.length < 6) {
+      newErrors.password = "A senha deve ter pelo menos 6 caracteres";
+      isValid = false;
+    }
+
+    // Validate confirm password
+    if (!confirmPassword) {
+      newErrors.confirmPassword = "Confirme sua senha";
+      isValid = false;
+    } else if (password !== confirmPassword) {
+      newErrors.confirmPassword = "As senhas não coincidem";
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
+  const handleEmailChange = (value: string) => {
+    setEmail(value);
+
+    // Validate email in real-time if field has been touched
+    if (touched.email && value) {
+      const validation = validateEmail(value);
+      setErrors((prev) => ({
+        ...prev,
+        email: validation.valid ? undefined : validation.message,
+      }));
+    } else if (touched.email && !value) {
+      setErrors((prev) => ({
+        ...prev,
+        email: "Email é obrigatório",
+      }));
+    } else {
+      // Clear email error when user starts typing
+      setErrors((prev) => ({
+        ...prev,
+        email: undefined,
+      }));
+    }
+  };
+
+  const handlePasswordChange = (value: string) => {
+    setPassword(value);
+
+    // Validate password in real-time if field has been touched
+    if (touched.password) {
+      if (!value) {
+        setErrors((prev) => ({
+          ...prev,
+          password: "Senha é obrigatória",
+        }));
+      } else if (value.length < 6) {
+        setErrors((prev) => ({
+          ...prev,
+          password: "A senha deve ter pelo menos 6 caracteres",
+        }));
+      } else {
+        setErrors((prev) => ({
+          ...prev,
+          password: undefined,
+        }));
+      }
+    }
+
+    // Re-validate confirm password if it has been touched
+    if (touched.confirmPassword && confirmPassword) {
+      if (value !== confirmPassword) {
+        setErrors((prev) => ({
+          ...prev,
+          confirmPassword: "As senhas não coincidem",
+        }));
+      } else {
+        setErrors((prev) => ({
+          ...prev,
+          confirmPassword: undefined,
+        }));
+      }
+    }
+  };
+
+  const handleConfirmPasswordChange = (value: string) => {
+    setConfirmPassword(value);
+
+    // Validate confirm password in real-time if field has been touched
+    if (touched.confirmPassword) {
+      if (!value) {
+        setErrors((prev) => ({
+          ...prev,
+          confirmPassword: "Confirme sua senha",
+        }));
+      } else if (password !== value) {
+        setErrors((prev) => ({
+          ...prev,
+          confirmPassword: "As senhas não coincidem",
+        }));
+      } else {
+        setErrors((prev) => ({
+          ...prev,
+          confirmPassword: undefined,
+        }));
+      }
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError(null);
 
-    if (password !== confirmPassword) {
-      setError("As senhas não coincidem");
-      return;
-    }
+    // Mark all fields as touched
+    setTouched({
+      email: true,
+      password: true,
+      confirmPassword: true,
+    });
 
-    if (password.length < 6) {
-      setError("A senha deve ter pelo menos 6 caracteres");
+    // Validate form
+    if (!validateForm()) {
       return;
     }
 
     setLoading(true);
+    setErrors({});
 
     const { error } = await signUp(email, password);
 
     setLoading(false);
 
     if (error) {
-      setError(getErrorMessage(error.message));
+      setErrors({ general: getErrorMessage(error.message) });
     } else {
       setSuccess(true);
       onSuccess?.();
@@ -73,7 +217,7 @@ export function RegisterForm({ onSuccess, onLogin }: RegisterFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4" noValidate>
       <div>
         <label
           htmlFor="register-email"
@@ -86,18 +230,38 @@ export function RegisterForm({ onSuccess, onLogin }: RegisterFormProps) {
           id="register-email"
           type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => handleEmailChange(e.target.value)}
+          onBlur={() => setTouched((prev) => ({ ...prev, email: true }))}
           required
           autoComplete="email"
+          aria-invalid={!!errors.email}
+          aria-describedby={errors.email ? "register-email-error" : undefined}
           className="w-full px-4 py-2.5 rounded-xl border outline-none transition-colors"
           style={{
             backgroundColor: "rgba(255, 255, 255, 0.05)",
-            borderColor: "rgba(211, 158, 23, 0.2)",
+            borderColor: errors.email
+              ? "#ef4444"
+              : touched.email && email && !errors.email
+              ? "#22c55e"
+              : "rgba(211, 158, 23, 0.2)",
             color: "#f1f5f9",
           }}
-          onFocus={(e) => e.currentTarget.style.borderColor = "rgba(211, 158, 23, 0.5)"}
-          onBlur={(e) => e.currentTarget.style.borderColor = "rgba(211, 158, 23, 0.2)"}
+          onFocus={(e) =>
+            (e.currentTarget.style.borderColor = errors.email
+              ? "#ef4444"
+              : "rgba(211, 158, 23, 0.5)")
+          }
         />
+        {errors.email && (
+          <p
+            id="register-email-error"
+            className="text-sm mt-1"
+            style={{ color: "#ef4444" }}
+            role="alert"
+          >
+            {errors.email}
+          </p>
+        )}
       </div>
 
       <div>
@@ -112,19 +276,39 @@ export function RegisterForm({ onSuccess, onLogin }: RegisterFormProps) {
           id="register-password"
           type="password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => handlePasswordChange(e.target.value)}
+          onBlur={() => setTouched((prev) => ({ ...prev, password: true }))}
           required
           autoComplete="new-password"
           minLength={6}
+          aria-invalid={!!errors.password}
+          aria-describedby={errors.password ? "register-password-error" : undefined}
           className="w-full px-4 py-2.5 rounded-xl border outline-none transition-colors"
           style={{
             backgroundColor: "rgba(255, 255, 255, 0.05)",
-            borderColor: "rgba(211, 158, 23, 0.2)",
+            borderColor: errors.password
+              ? "#ef4444"
+              : touched.password && password && !errors.password
+              ? "#22c55e"
+              : "rgba(211, 158, 23, 0.2)",
             color: "#f1f5f9",
           }}
-          onFocus={(e) => e.currentTarget.style.borderColor = "rgba(211, 158, 23, 0.5)"}
-          onBlur={(e) => e.currentTarget.style.borderColor = "rgba(211, 158, 23, 0.2)"}
+          onFocus={(e) =>
+            (e.currentTarget.style.borderColor = errors.password
+              ? "#ef4444"
+              : "rgba(211, 158, 23, 0.5)")
+          }
         />
+        {errors.password && (
+          <p
+            id="register-password-error"
+            className="text-sm mt-1"
+            style={{ color: "#ef4444" }}
+            role="alert"
+          >
+            {errors.password}
+          </p>
+        )}
       </div>
 
       <div>
@@ -139,24 +323,52 @@ export function RegisterForm({ onSuccess, onLogin }: RegisterFormProps) {
           id="register-confirm-password"
           type="password"
           value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
+          onChange={(e) => handleConfirmPasswordChange(e.target.value)}
+          onBlur={() => setTouched((prev) => ({ ...prev, confirmPassword: true }))}
           required
           autoComplete="new-password"
+          aria-invalid={!!errors.confirmPassword}
+          aria-describedby={
+            errors.confirmPassword ? "register-confirm-password-error" : undefined
+          }
           className="w-full px-4 py-2.5 rounded-xl border outline-none transition-colors"
           style={{
             backgroundColor: "rgba(255, 255, 255, 0.05)",
-            borderColor: "rgba(211, 158, 23, 0.2)",
+            borderColor: errors.confirmPassword
+              ? "#ef4444"
+              : touched.confirmPassword && confirmPassword && !errors.confirmPassword
+              ? "#22c55e"
+              : "rgba(211, 158, 23, 0.2)",
             color: "#f1f5f9",
           }}
-          onFocus={(e) => e.currentTarget.style.borderColor = "rgba(211, 158, 23, 0.5)"}
-          onBlur={(e) => e.currentTarget.style.borderColor = "rgba(211, 158, 23, 0.2)"}
+          onFocus={(e) =>
+            (e.currentTarget.style.borderColor = errors.confirmPassword
+              ? "#ef4444"
+              : "rgba(211, 158, 23, 0.5)")
+          }
         />
+        {errors.confirmPassword && (
+          <p
+            id="register-confirm-password-error"
+            className="text-sm mt-1"
+            style={{ color: "#ef4444" }}
+            role="alert"
+          >
+            {errors.confirmPassword}
+          </p>
+        )}
       </div>
 
-      {error && (
-        <p className="text-sm" style={{ color: "#ef4444" }}>
-          {error}
-        </p>
+      {errors.general && (
+        <div
+          className="px-4 py-3 rounded-lg"
+          style={{ backgroundColor: "rgba(239, 68, 68, 0.1)", border: "1px solid #ef4444" }}
+          role="alert"
+        >
+          <p className="text-sm" style={{ color: "#ef4444" }}>
+            {errors.general}
+          </p>
+        </div>
       )}
 
       <button
@@ -187,11 +399,17 @@ export function RegisterForm({ onSuccess, onLogin }: RegisterFormProps) {
 }
 
 function getErrorMessage(message: string): string {
-  if (message.includes("already registered")) {
+  if (message.includes("Serviço de cadastro indisponível")) {
+    return "Não foi possível enviar o e-mail de confirmação agora. Tente novamente em instantes.";
+  }
+  if (message.includes("already registered") || message.includes("já está cadastrado")) {
     return "Este email já está cadastrado";
   }
-  if (message.includes("Password")) {
+  if (message.includes("Password") || message.includes("senha")) {
     return "A senha deve ter pelo menos 6 caracteres";
+  }
+  if (message.includes("invalid") || message.includes("inválido") || message.includes("formato")) {
+    return "Insira um endereço de email válido";
   }
   return "Erro ao criar conta. Tente novamente";
 }

@@ -19,14 +19,14 @@ import {
 // import { PricingSection } from "@/components/pricing";
 
 export default function Landing() {
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [authModalTab, setAuthModalTab] = useState<"login" | "register" | null>(null);
   const { user, signOut } = useAuth();
   const { hasActiveAccess, loading: paymentLoading } = usePaymentStatus();
   const [, setLocation] = useLocation();
 
   // Redirect to /guia when user logs in
   useEffect(() => {
-    if (user && !isAuthModalOpen && !paymentLoading) {
+    if (user && !authModalTab && !paymentLoading) {
       if (hasActiveAccess) {
         setLocation("/guia");
       } else {
@@ -34,7 +34,7 @@ export default function Landing() {
         // setLocation("/checkout");
       }
     }
-  }, [user, isAuthModalOpen, paymentLoading, hasActiveAccess, setLocation]);
+  }, [user, authModalTab, paymentLoading, hasActiveAccess, setLocation]);
 
   return (
     <div
@@ -107,14 +107,14 @@ export default function Landing() {
             ) : (
               <>
                 <button
-                  onClick={() => setIsAuthModalOpen(true)}
+                  onClick={() => setAuthModalTab("login")}
                   className="text-sm font-medium hover:text-[#d39e17] transition-colors"
                   style={{ color: "#cbd5e1" }}
                 >
                   Entrar
                 </button>
                 <button
-                  onClick={() => setIsAuthModalOpen(true)}
+                  onClick={() => setAuthModalTab("register")}
                   className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-all"
                   style={{
                     backgroundColor: "#d39e17",
@@ -131,8 +131,9 @@ export default function Landing() {
 
       {/* Auth Modal */}
       <AuthModal
-        isOpen={isAuthModalOpen}
-        onClose={() => setIsAuthModalOpen(false)}
+        isOpen={authModalTab !== null}
+        onClose={() => setAuthModalTab(null)}
+        defaultTab={authModalTab ?? undefined}
       />
 
       {/* Main Content */}
@@ -145,7 +146,7 @@ export default function Landing() {
         <LegalBasisSection />
         {/* REMOVIDO: PricingSection antiga do Stripe - Agora usando checkout MercadoPago */}
         <FAQSection />
-        <CTASection onOpenAuth={() => setIsAuthModalOpen(true)} />
+        <CTASection onOpenAuth={() => setAuthModalTab("login")} />
       </main>
 
       {/* Footer */}

@@ -7,7 +7,7 @@ interface UseDocumentsReturn {
   documents: UserDocument[];
   loading: boolean;
   error: string | null;
-  uploadDocument: (file: File, name: string, category?: string, notes?: string) => Promise<boolean>;
+  uploadDocument: (file: File, name: string, category?: string, notes?: string) => Promise<{ success: boolean; documentId: string | null }>;
   deleteDocument: (id: string) => Promise<boolean>;
   updateDocument: (id: string, updates: Partial<UserDocumentInsert>) => Promise<boolean>;
   downloadDocument: (fileUrl: string, fileName: string) => void;
@@ -51,8 +51,8 @@ export function useDocuments(): UseDocumentsReturn {
   }, [fetchDocuments]);
 
   const uploadDocument = useCallback(
-    async (file: File, name: string, category = "geral", notes?: string): Promise<boolean> => {
-      if (!user) return false;
+    async (file: File, name: string, category = "geral", notes?: string): Promise<{ success: boolean; documentId: string | null }> => {
+      if (!user) return { success: false, documentId: null };
 
       try {
         const fileExt = file.name.split(".").pop();
@@ -78,18 +78,20 @@ export function useDocuments(): UseDocumentsReturn {
           notes,
         };
 
-        const { error: insertError } = await supabase
+        const { data, error: insertError } = await supabase
           .from("user_documents")
-          .insert(insertData);
+          .insert(insertData)
+          .select()
+          .single();
 
         if (insertError) throw insertError;
 
         await fetchDocuments();
-        return true;
+        return { success: true, documentId: data.id };
       } catch (err) {
         console.error("Error uploading document:", err);
         setError("Erro ao enviar documento");
-        return false;
+        return { success: false, documentId: null };
       }
     },
     [user, fetchDocuments]
@@ -152,6 +154,16 @@ export function useDocuments(): UseDocumentsReturn {
   );
 
   const downloadDocument = useCallback((fileUrl: string, fileName: string): void => {
+    // Validar que URL pertence ao bucket Supabase deste projeto
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://dvkfvhqfwffxgmmjbgjd.supabase.co';
+    const expectedBucket = `${supabaseUrl}/storage/v1/object/public/user-documents/`;
+
+    if (!fileUrl.startsWith(expectedBucket)) {
+      console.error('[Security] URL de documento inválida:', fileUrl);
+      // TODO: Reportar para serviço de monitoring
+      return;
+    }
+
     const link = document.createElement("a");
     link.href = fileUrl;
     link.download = fileName;

@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { useLocation } from "wouter";
 
 interface UserProfileProps {
   onOpenAuth: () => void;
@@ -7,6 +8,7 @@ interface UserProfileProps {
 
 export function UserProfile({ onOpenAuth }: UserProfileProps) {
   const { user, signOut } = useAuth();
+  const [, navigate] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -44,6 +46,7 @@ export function UserProfile({ onOpenAuth }: UserProfileProps) {
   const handleSignOut = async () => {
     setIsOpen(false);
     await signOut();
+    navigate("/");
   };
 
   return (
