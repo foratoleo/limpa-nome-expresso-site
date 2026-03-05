@@ -23,9 +23,10 @@ export default async function handler(req: any, res: any) {
     const token = authHeader.replace('Bearer ', '');
 
     // Create admin client with service role key
+    // Note: Serverless functions use non-VITE_ prefixed env vars
     const supabase: any = createClient(
-      process.env.VITE_SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!,
+      process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL,
+      process.env.SUPABASE_SERVICE_ROLE_KEY,
       {
         auth: {
           autoRefreshToken: false,
