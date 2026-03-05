@@ -1,4 +1,4 @@
-// Vercel serverless function for /api/payment-status
+// Vercel serverless function for /api/payments/status
 // Uses Supabase REST API directly (no package imports needed)
 
 export default async function handler(req, res) {
@@ -18,11 +18,15 @@ export default async function handler(req, res) {
     const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
     if (!supabaseUrl || !supabaseKey) {
-      console.error('Missing Supabase configuration');
+      console.error('[Payment Status] Missing Supabase configuration', {
+        hasUrl: !!supabaseUrl,
+        hasKey: !!supabaseKey
+      });
       return res.status(500).json({ error: 'Server configuration error' });
     }
 
     // Step 1: Verify the user token using Supabase Auth REST API
+    // Using the /auth/v1/user endpoint with the user's token
     const userResponse = await fetch(`${supabaseUrl}/auth/v1/user`, {
       method: 'GET',
       headers: {
@@ -32,28 +36,40 @@ export default async function handler(req, res) {
     });
 
     if (!userResponse.ok) {
-      console.error('Auth failed:', userResponse.status, userResponse.statusText);
+      const errorText = await userResponse.text();
+      console.error('[Payment Status] Auth failed', {
+        status: userResponse.status,
+        statusText: userResponse.statusText,
+        error: errorText
+      });
       return res.status(401).json({ error: 'Invalid token' });
     }
 
     const user = await userResponse.json();
     if (!user || !user.id) {
+      console.error('[Payment Status] Invalid user response');
       return res.status(401).json({ error: 'Invalid user' });
     }
 
-    console.log('[Payment Status] User verified:', user.email);
+    console.log('[Payment Status] User verified', {
+      userId: user.id,
+      email: user.email,
+      role: user.user_metadata?.role
+    });
 
     // Step 2: Check for active payment access
     const now = new Date().toISOString();
-    const accessQuery = `
-      user_id=eq.${user.id}&
-      is_active=eq.true&
-      expires_at=gte.${now}
-      &select=*
-    `.replace(/\s+/g, '');
+
+    // Build query parameters for user_access check
+    const accessParams = new URLSearchParams({
+      user_id: `eq.${user.id}`,
+      is_active: 'eq.true',
+      expires_at: `gte.${now}`,
+      select: '*'
+    });
 
     const accessResponse = await fetch(
-      `${supabaseUrl}/rest/v1/user_access?${accessQuery}`,
+      `${supabaseUrl}/rest/v1/user_access?${accessParams.toString()}`,
       {
         method: 'GET',
         headers: {
@@ -63,21 +79,30 @@ export default async function handler(req, res) {
         }
       }
     );
+
+    if (!accessResponse.ok) {
+      console.error('[Payment Status] Failed to check access', {
+        status: accessResponse.status
+      });
+      return res.status(500).json({ error: 'Failed to check access' });
+    }
 
     const accessData = await accessResponse.json();
     const hasAccess = Array.isArray(accessData) && accessData.length > 0;
     const activeAccess = hasAccess ? accessData[0] : null;
 
     // Step 3: Check for manual access (admin bypass)
-    const manualAccessQuery = `
-      user_id=eq.${user.id}&
-      is_active=eq.true&
-      (expires_at.is.null,expires_at.gte.${now})
-      &select=*
-    `.replace(/\s+/g, '');
+    // Using Supabase's filter syntax for OR condition
+    const manualParams = new URLSearchParams({
+      user_id: `eq.${user.id}`,
+      is_active: 'eq.true',
+      select: '*'
+    });
+    // Add OR condition for expires_at
+    manualParams.append('or', `(expires_at.is.null,expires_at.gte.${now})`);
 
     const manualAccessResponse = await fetch(
-      `${supabaseUrl}/rest/v1/user_manual_access?${manualAccessQuery}`,
+      `${supabaseUrl}/rest/v1/user_manual_access?${manualParams.toString()}`,
       {
         method: 'GET',
         headers: {
@@ -88,19 +113,30 @@ export default async function handler(req, res) {
       }
     );
 
+    if (!manualAccessResponse.ok) {
+      console.error('[Payment Status] Failed to check manual access', {
+        status: manualAccessResponse.status
+      });
+      return res.status(500).json({ error: 'Failed to check manual access' });
+    }
+
     const manualAccessData = await manualAccessResponse.json();
     const hasManualAccess = Array.isArray(manualAccessData) && manualAccessData.length > 0;
     const manualAccessRecord = hasManualAccess ? manualAccessData[0] : null;
 
     // Log for debugging
-    console.log('[Payment Status] Access check result:', {
+    const result = {
       userId: user.id,
       userEmail: user.email,
+      userRole: user.user_metadata?.role,
       hasPaymentAccess: hasAccess,
       hasManualAccess: hasManualAccess,
       finalAccess: hasAccess || hasManualAccess,
-      accessType: activeAccess?.access_type || (hasManualAccess ? 'manual' : 'none')
-    });
+      accessType: activeAccess?.access_type || (hasManualAccess ? 'manual' : 'none'),
+      accessExpires: activeAccess?.expires_at || manualAccessRecord?.expires_at || null
+    };
+
+    console.log('[Payment Status] Access check result:', result);
 
     // Step 4: Return the combined access status
     return res.status(200).json({
@@ -112,7 +148,7 @@ export default async function handler(req, res) {
     });
 
   } catch (error) {
-    console.error('[Payment Status] Error:', error);
+    console.error('[Payment Status] Unexpected error:', error);
     return res.status(500).json({
       error: 'Internal server error',
       details: error.message
