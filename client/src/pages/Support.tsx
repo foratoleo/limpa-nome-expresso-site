@@ -183,7 +183,7 @@ export default function Support() {
             >
               <div className="flex gap-3 mb-4">
                 <span style={{ color: "#60a5fa" }} className="flex-shrink-0 mt-0.5"><VideoIcon size="medium" label="" /></span>
-                <h4 className="font-bold text-lg" style={{ color: "#f1f5f9" }}>JEC (e-SAJ) vs. Balcao Virtual: Qual a diferenca?</h4>
+                <h4 className="font-bold text-lg" style={{ color: "#f1f5f9" }}>JEC (e-SAJ) vs. Balcão Virtual: Qual a diferença?</h4>
               </div>
               <div className="grid md:grid-cols-2 gap-4 text-sm mb-4">
                 <div
@@ -193,9 +193,9 @@ export default function Support() {
                     borderColor: "rgba(34, 197, 94, 0.2)"
                   }}
                 >
-                  <div className="font-semibold mb-1" style={{ color: "#22c55e" }}>Juizado Especial Civel - e-SAJ</div>
+                  <div className="font-semibold mb-1" style={{ color: "#22c55e" }}>Juizado Especial Cível - e-SAJ</div>
                   <p style={{ color: "#94a3b8" }} className="leading-relaxed">
-                    Onde voce <strong style={{ color: "#e8e4d8" }}>protocola a acao</strong>. E o tribunal. Sem ele, nao ha processo. Acesse em <strong style={{ color: "#60a5fa" }}>tjsp.jus.br/peticionamentojec</strong>
+                    Onde você <strong style={{ color: "#e8e4d8" }}>protocola a ação</strong>. É o tribunal. Sem ele, não há processo. Acesse em <strong style={{ color: "#60a5fa" }}>tjsp.jus.br/peticionamentojec</strong>
                   </p>
                 </div>
                 <div
@@ -205,9 +205,9 @@ export default function Support() {
                     borderColor: "rgba(96, 165, 250, 0.2)"
                   }}
                 >
-                  <div className="font-semibold mb-1" style={{ color: "#60a5fa" }}>Balcao Virtual TJSP</div>
+                  <div className="font-semibold mb-1" style={{ color: "#60a5fa" }}>Balcão Virtual TJSP</div>
                   <p style={{ color: "#94a3b8" }} className="leading-relaxed">
-                    Onde voce <strong style={{ color: "#e8e4d8" }}>acelera o processo</strong>. Canal de videoconferencia do mesmo TJ. Use <em>depois</em> de protocolar para pedir urgencia ao escrevente.
+                    Onde você <strong style={{ color: "#e8e4d8" }}>acelera o processo</strong>. Canal de videoconferência do mesmo TJ. Use <em>depois</em> de protocolar para pedir urgência ao escrevente.
                   </p>
                 </div>
               </div>
@@ -219,7 +219,7 @@ export default function Support() {
                 }}
               >
                 <p className="text-xs leading-relaxed" style={{ color: "#64748b" }}>
-                  <strong style={{ color: "#94a3b8" }}>Nota sobre o e-Proc:</strong> O TJSP iniciou a migracao do e-SAJ para o e-Proc em outubro de 2025. O peticionamento do JEC para o cidadao sem advogado ainda utiliza o sistema <strong style={{ color: "#e8e4d8" }}>e-SAJ</strong> (tjsp.jus.br/peticionamentojec). O e-Proc e voltado principalmente para advogados e servidores. Verifique sempre o link oficial antes de protocolar.
+                  <strong style={{ color: "#94a3b8" }}>Nota sobre o e-Proc:</strong> O TJSP iniciou a migração do e-SAJ para o e-Proc em outubro de 2025. O peticionamento do JEC para o cidadão sem advogado ainda utiliza o sistema <strong style={{ color: "#e8e4d8" }}>e-SAJ</strong> (tjsp.jus.br/peticionamentojec). O e-Proc é voltado principalmente para advogados e servidores. Verifique sempre o link oficial antes de protocolar.
                 </p>
               </div>
             </div>
@@ -239,9 +239,9 @@ export default function Support() {
                   <line x1="12" y1="17" x2="12.01" y2="17" />
                 </svg>
                 <div>
-                  <h4 className="font-semibold mb-1" style={{ color: "#ef4444" }}>Atencao: Golpes Frequentes</h4>
+                  <h4 className="font-semibold mb-1" style={{ color: "#ef4444" }}>Atenção: Golpes Frequentes</h4>
                   <p className="text-sm leading-relaxed" style={{ color: "#94a3b8" }}>
-                    Desconfie de empresas que cobram valores altos para "limpar o nome sem pagar a divida". A via judicial pelo JEC e gratuita para o cidadao e nao exige advogado para causas de ate 20 salarios minimos. Voce tem o poder de fazer isso sozinho com este guia.
+                    Desconfie de empresas que cobram valores altos para "limpar o nome sem pagar a dívida". A via judicial pelo JEC é gratuita para o cidadão e não exige advogado para causas de até 20 salários mínimos. Você tem o poder de fazer isso sozinho com este guia.
                   </p>
                 </div>
               </div>
@@ -258,16 +258,16 @@ export default function Support() {
               <h4 className="font-bold text-sm uppercase tracking-wider mb-4" style={{ color: "#d39e17" }}>Base Legal</h4>
               <div className="space-y-3 text-sm">
                 <p className="leading-relaxed" style={{ color: "#94a3b8" }}>
-                  <strong style={{ color: "#e8e4d8" }}>Art. 43, paragrafo 2 do CDC:</strong> A abertura de cadastro de inadimplentes devera ser comunicada por escrito ao consumidor, quando nao solicitada por ele.
+                  <strong style={{ color: "#e8e4d8" }}>Art. 43, parágrafo 2º do CDC:</strong> A abertura de cadastro de inadimplentes deverá ser comunicada por escrito ao consumidor, quando não solicitada por ele.
                 </p>
                 <p className="leading-relaxed" style={{ color: "#94a3b8" }}>
-                  <strong style={{ color: "#e8e4d8" }}>Sumula 359 do STJ:</strong> Cabe ao orgao mantenedor do Cadastro de Protecao ao Credito a notificacao do devedor antes de proceder a inscricao.
+                  <strong style={{ color: "#e8e4d8" }}>Súmula 359 do STJ:</strong> Cabe ao órgão mantenedor do Cadastro de Proteção ao Crédito a notificação do devedor antes de proceder à inscrição.
                 </p>
                 <p className="leading-relaxed" style={{ color: "#94a3b8" }}>
-                  <strong style={{ color: "#e8e4d8" }}>Art. 9 da Lei 9.099/95:</strong> Nas causas de ate 20 salarios minimos, as partes comparecerao pessoalmente, podendo ser assistidas por advogado.
+                  <strong style={{ color: "#e8e4d8" }}>Art. 9º da Lei 9.099/95:</strong> Nas causas de até 20 salários mínimos, as partes comparecerão pessoalmente, podendo ser assistidas por advogado.
                 </p>
                 <p className="leading-relaxed" style={{ color: "#94a3b8" }}>
-                  <strong style={{ color: "#e8e4d8" }}>Resolucao CNJ no 372/21:</strong> Institui o Balcao Virtual para atendimento imediato por videoconferencia nas unidades judiciais.
+                  <strong style={{ color: "#e8e4d8" }}>Resolução CNJ nº 372/21:</strong> Institui o Balcão Virtual para atendimento imediato por videoconferência nas unidades judiciais.
                 </p>
               </div>
             </div>

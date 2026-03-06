@@ -4,6 +4,13 @@ import type { CheckItemData } from "@/components/CheckItem";
 // Re-export CheckItemData as CheckItem for backward compatibility
 export type { CheckItemData as CheckItem } from "@/components/CheckItem";
 
+export interface StepDownload {
+  label: string;
+  file: string;
+  description: string;
+  template?: 'form-fillable';
+}
+
 export interface Step {
   number: number;
   title: string;
@@ -13,7 +20,7 @@ export interface Step {
   items: CheckItemData[];
   tip?: string;
   links?: { label: string; url: string; external?: boolean }[];
-  downloads?: { label: string; file: string; description: string }[];
+  downloads?: StepDownload[];
 }
 
 export const STEPS: Step[] = [
@@ -45,7 +52,7 @@ export const STEPS: Step[] = [
     color: "#60a5fa",
     tip: "Mantenha o pedido de exclusão 'até o trânsito em julgado da presente ação' - isso garante mais de 12 meses de nome limpo.",
     downloads: [
-      { label: "Petição Inicial Pré-Preenchida (SP)", file: "/docs/peticao_inicial_jec_sp.md", description: "Modelo completo para o JEC de São Paulo - preencha os campos [...]" }
+      { label: "Petição Inicial Pré-Preenchida (SP)", file: "/docs/peticao_inicial_jec_sp.md", description: "Modelo completo para o JEC de São Paulo - preencha os campos [...]", template: 'form-fillable' }
     ],
     items: [
       { id: "baixar_modelo", label: "Baixar e abrir o modelo de petição (link abaixo)", detail: "Arquivo .md - abra com qualquer editor de texto ou Word" },

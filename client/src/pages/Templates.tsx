@@ -72,7 +72,7 @@ export default function Templates() {
             Modelos e Templates
           </h1>
           <p className="text-sm" style={{ color: "#94a3b8" }}>
-            Documentos pre-preenchidos para facilitar seu processo
+            Documentos pré-preenchidos para facilitar seu processo
           </p>
         </div>
 
@@ -85,7 +85,7 @@ export default function Templates() {
           }}
         >
           <h2 className="text-lg font-bold mb-4" style={{ color: "#f1f5f9" }}>
-            Downloads Rapidos
+            Downloads Rápidos
           </h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <a
@@ -108,8 +108,8 @@ export default function Templates() {
             >
               <DownloadIcon size="medium" label="" />
               <div>
-                <p className="font-medium" style={{ color: "#60a5fa" }}>Peticao Inicial JEC SP</p>
-                <p className="text-xs" style={{ color: "#64748b" }}>Modelo pre-preenchido</p>
+                <p className="font-medium" style={{ color: "#60a5fa" }}>Petição Inicial JEC SP</p>
+                <p className="text-xs" style={{ color: "#64748b" }}>Modelo pré-preenchido</p>
               </div>
             </a>
             <a
@@ -120,7 +120,7 @@ export default function Templates() {
             >
               <DownloadIcon size="medium" label="" />
               <div>
-                <p className="font-medium" style={{ color: "#22c55e" }}>Roteiro Balcao Virtual</p>
+                <p className="font-medium" style={{ color: "#22c55e" }}>Roteiro Balcão Virtual</p>
                 <p className="text-xs" style={{ color: "#64748b" }}>Script de atendimento</p>
               </div>
             </a>
@@ -147,7 +147,7 @@ export default function Templates() {
                 <path d="M9 4L13 6.5V11.5L9 14L5 11.5V6.5L9 4Z" fill="#12110d"/>
               </svg>
               <span className="text-sm" style={{ color: "#64748b" }}>
-                2026 Limpa Nome Expresso. Sistema de Apoio Juridico Automatico.
+                2026 Limpa Nome Expresso. Sistema de Apoio Jurídico Automático.
               </span>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8">

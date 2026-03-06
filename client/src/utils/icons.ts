@@ -31,6 +31,7 @@
  * | FileText         | FileIcon             | Closest match                 |
  * | Video            | VideoIcon            | Direct equivalent             |
  * | Shield           | ShieldIcon           | Direct equivalent             |
+ * | Edit             | EditIcon             | Direct equivalent             |
  */
 
 // ============================================================================
@@ -56,6 +57,7 @@ export { default as CrossIcon } from "@atlaskit/icon/core/cross";
 export { default as ChevronRightIcon } from "@atlaskit/icon/core/chevron-right";
 export { default as TrashIcon } from "@atlaskit/icon/core/delete";
 export { default as AddCircleIcon } from "@atlaskit/icon/core/add";
+export { default as EditIcon } from "@atlaskit/icon/core/edit";
 
 // Aliases for convenience (proper re-export pattern for default exports)
 import BookWithBookmarkIconAlias from "@atlaskit/icon/core/book-with-bookmark";

@@ -76,8 +76,8 @@ export default function Downloads() {
             </h1>
           </div>
           <p className="text-sm max-w-2xl" style={{ color: "#94a3b8" }}>
-            Baixe todos os documentos necessarios para seu processo de limpeza de nome.
-            Cada arquivo esta otimizado para facilitar seu preenchimento.
+            Baixe todos os documentos necessários para seu processo de limpeza de nome.
+            Cada arquivo está otimizado para facilitar seu preenchimento.
           </p>
         </div>
 
@@ -99,9 +99,9 @@ export default function Downloads() {
           <div>
             <h3 className="font-semibold mb-1" style={{ color: "#60a5fa" }}>Como usar os downloads</h3>
             <p className="text-sm leading-relaxed" style={{ color: "#94a3b8" }}>
-              Os documentos estao no formato Markdown (.md) e podem ser abertos em qualquer editor de texto.
-              Recomendamos usar o Notepad (Windows), TextEdit (Mac) ou qualquer editor de codigo.
-              Preencha os campos destacados com suas informacoes pessoais antes de utilizar.
+              Os documentos estão no formato Markdown (.md) e podem ser abertos em qualquer editor de texto.
+              Recomendamos usar o Notepad (Windows), TextEdit (Mac) ou qualquer editor de código.
+              Preencha os campos destacados com suas informações pessoais antes de utilizar.
             </p>
           </div>
         </div>
@@ -131,8 +131,8 @@ export default function Downloads() {
                 <DownloadIcon size="medium" label="" />
               </div>
               <div>
-                <p className="font-semibold" style={{ color: "#f1f5f9" }}>Procuracao Ad Judicia</p>
-                <p className="text-sm mt-0.5" style={{ color: "#64748b" }}>Modelo de procuracao para representacao legal</p>
+                <p className="font-semibold" style={{ color: "#f1f5f9" }}>Procuração Ad Judicia</p>
+                <p className="text-sm mt-0.5" style={{ color: "#64748b" }}>Modelo de procuração para representação legal</p>
               </div>
             </a>
             <a
@@ -151,8 +151,8 @@ export default function Downloads() {
                 <DownloadIcon size="medium" label="" />
               </div>
               <div>
-                <p className="font-semibold" style={{ color: "#f1f5f9" }}>Declaracao de Pobreza</p>
-                <p className="text-sm mt-0.5" style={{ color: "#64748b" }}>Declaracao para gratuidade de justica</p>
+                <p className="font-semibold" style={{ color: "#f1f5f9" }}>Declaração de Pobreza</p>
+                <p className="text-sm mt-0.5" style={{ color: "#64748b" }}>Declaração para gratuidade de justiça</p>
               </div>
             </a>
           </div>
@@ -175,7 +175,7 @@ export default function Downloads() {
                 <path d="M9 4L13 6.5V11.5L9 14L5 11.5V6.5L9 4Z" fill="#12110d"/>
               </svg>
               <span className="text-sm" style={{ color: "#64748b" }}>
-                2024 Limpa Nome Expresso. Sistema de Apoio Juridico Automatico.
+                2026 Limpa Nome Expresso. Sistema de Apoio Jurídico Automático.
               </span>
             </div>
             <div className="flex items-center gap-8">

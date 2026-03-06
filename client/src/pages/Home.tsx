@@ -165,7 +165,7 @@ export default function Home() {
                 <path d="M9 4L13 6.5V11.5L9 14L5 11.5V6.5L9 4Z" fill="#12110d"/>
               </svg>
               <span className="text-sm" style={{ color: "#64748b" }}>
-                2024 Limpa Nome Expresso. Sistema de Apoio Jurídico Automático.
+                2026 Limpa Nome Expresso. Sistema de Apoio Jurídico Automático.
               </span>
             </div>
             <div className="flex items-center gap-8">

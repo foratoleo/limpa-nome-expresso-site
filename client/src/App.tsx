@@ -150,7 +150,19 @@ function App() {
               // switchable
             >
               <TooltipProvider>
-                <Toaster />
+                <Toaster
+                  position="top-right"
+                  richColors
+                  closeButton
+                  duration={5000}
+                  toastOptions={{
+                    style: {
+                      background: '#162847',
+                      border: '1px solid #d39e17',
+                      color: '#f1f5f9',
+                    },
+                  }}
+                />
                 <Router />
                 {import.meta.env.DEV && <Agentation />}
               </TooltipProvider>

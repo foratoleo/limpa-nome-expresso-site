@@ -43,6 +43,15 @@ interface AdminAuthContext {
   adminUser: AdminAuthUser;
 }
 
+interface ContactFormPayload {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+const CONTACT_EMAIL = 'limpanome@f2w2.com.br';
+
 function jsonResponse(
   headers: Record<string, string>,
   statusCode: number,
@@ -170,6 +179,159 @@ function buildConfirmationEmailHtml(email: string, actionLink: string): string {
     </body>
     </html>
   `.trim();
+}
+
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function getContactSubjectLabel(subject: string): string {
+  const subjectMap: Record<string, string> = {
+    duvida: 'Duvida sobre o processo',
+    problema: 'Problema tecnico',
+    sugestao: 'Sugestao',
+    outro: 'Outro',
+  };
+
+  return subjectMap[subject] || subject || 'Contato';
+}
+
+function buildContactEmailHtml(payload: ContactFormPayload): string {
+  const subjectLabel = getContactSubjectLabel(payload.subject);
+  const submittedAt = new Date().toISOString();
+
+  return `
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Novo contato - Limpa Nome Expresso</title>
+    </head>
+    <body style="margin:0;padding:0;background:#f5f7fb;font-family:Arial,sans-serif;color:#111827;">
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="padding:24px;">
+        <tr>
+          <td align="center">
+            <table role="presentation" width="640" cellspacing="0" cellpadding="0" style="max-width:640px;background:#ffffff;border-radius:12px;border:1px solid #e5e7eb;overflow:hidden;">
+              <tr>
+                <td style="background:#12110d;padding:20px 24px;">
+                  <h1 style="margin:0;font-size:20px;line-height:1.3;color:#f9fafb;">Nova mensagem de suporte</h1>
+                  <p style="margin:8px 0 0;color:#d1d5db;font-size:13px;">Limpa Nome Expresso</p>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:24px;">
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
+                    <tr>
+                      <td style="padding:10px 0;border-bottom:1px solid #e5e7eb;width:160px;font-weight:700;color:#374151;">Nome</td>
+                      <td style="padding:10px 0;border-bottom:1px solid #e5e7eb;color:#111827;">${escapeHtml(payload.name)}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:10px 0;border-bottom:1px solid #e5e7eb;width:160px;font-weight:700;color:#374151;">Email</td>
+                      <td style="padding:10px 0;border-bottom:1px solid #e5e7eb;color:#111827;">
+                        <a href="mailto:${escapeHtml(payload.email)}" style="color:#1d4ed8;text-decoration:none;">${escapeHtml(payload.email)}</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding:10px 0;border-bottom:1px solid #e5e7eb;width:160px;font-weight:700;color:#374151;">Assunto</td>
+                      <td style="padding:10px 0;border-bottom:1px solid #e5e7eb;color:#111827;">${escapeHtml(subjectLabel)}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:10px 0;border-bottom:1px solid #e5e7eb;width:160px;font-weight:700;color:#374151;">Recebido em</td>
+                      <td style="padding:10px 0;border-bottom:1px solid #e5e7eb;color:#111827;">${escapeHtml(submittedAt)}</td>
+                    </tr>
+                  </table>
+
+                  <h2 style="margin:24px 0 8px;font-size:16px;color:#111827;">Mensagem</h2>
+                  <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:14px;white-space:pre-wrap;color:#111827;">${escapeHtml(payload.message)}</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </body>
+    </html>
+  `.trim();
+}
+
+function buildContactEmailText(payload: ContactFormPayload): string {
+  const subjectLabel = getContactSubjectLabel(payload.subject);
+  const submittedAt = new Date().toISOString();
+
+  return `
+Novo contato - Limpa Nome Expresso
+
+Nome: ${payload.name}
+Email: ${payload.email}
+Assunto: ${subjectLabel}
+Recebido em: ${submittedAt}
+
+Mensagem:
+${payload.message}
+  `.trim();
+}
+
+async function sendContactWithEmailIt(payload: ContactFormPayload): Promise<void> {
+  const emailItApiKey = process.env.EMAILIT_API_KEY;
+  const emailItFrom = process.env.EMAILIT_DEFAULT_FROM;
+
+  if (!emailItApiKey || !emailItFrom) {
+    throw new Error('EMAILIT_CONFIG_MISSING');
+  }
+
+  const subjectLabel = getContactSubjectLabel(payload.subject);
+
+  const response = await fetch('https://api.emailit.com/v2/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${emailItApiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: emailItFrom,
+      to: [CONTACT_EMAIL],
+      reply_to: `${payload.name} <${payload.email}>`,
+      subject: `[Limpa Nome Expresso] ${subjectLabel} - ${payload.name}`,
+      html: buildContactEmailHtml(payload),
+      text: buildContactEmailText(payload),
+      tags: ['contact-form', 'support'],
+      metadata: {
+        form_type: 'support_contact',
+        subject_type: payload.subject,
+      },
+    }),
+  });
+
+  const responseData = await response.json().catch(() => ({}));
+
+  if (!response.ok) {
+    console.error('[Netlify API] Contact email send failed', {
+      status: response.status,
+      details: responseData,
+    });
+    throw new Error(`EMAILIT_CONTACT_SEND_FAILED_${response.status}`);
+  }
+
+  console.log('[Netlify API] Contact email queued via EmailIt', {
+    emailId:
+      typeof (responseData as Record<string, unknown>).id === 'string'
+        ? (responseData as Record<string, unknown>).id
+        : null,
+    status:
+      typeof (responseData as Record<string, unknown>).status === 'string'
+        ? (responseData as Record<string, unknown>).status
+        : null,
+    to:
+      Array.isArray((responseData as Record<string, unknown>).to)
+        ? (responseData as Record<string, unknown>).to
+        : [CONTACT_EMAIL],
+  });
 }
 
 async function createSupabaseUserAndLink(
@@ -1732,29 +1894,71 @@ export const handler = async (event: any, context: any) => {
   }
 
   // Contact form endpoint
-  if (normalizedPath === '/api/contact' && event.httpMethod === 'POST') {
+  if (
+    (normalizedPath === '/api/contact' || normalizedPath === '/api/contact/send') &&
+    event.httpMethod === 'POST'
+  ) {
     try {
-      const body = JSON.parse(event.body || '{}');
-      
-      // TODO: Implementar envio real de email
-      // Por enquanto, retorna sucesso simulado
-      return {
-        statusCode: 200,
-        headers,
-        body: JSON.stringify({
-          success: true,
-          message: 'Mensagem recebida - configure email service para funcionalidade real',
-        }),
-      };
+      const body = parseJsonBody(event as NetlifyEvent);
+      const name = typeof body.name === 'string' ? body.name.trim() : '';
+      const email = typeof body.email === 'string' ? body.email.trim().toLowerCase() : '';
+      const subject = typeof body.subject === 'string' ? body.subject.trim().toLowerCase() : '';
+      const message = typeof body.message === 'string' ? body.message.trim() : '';
+
+      if (!name || !email || !subject || !message) {
+        return jsonResponse(headers, 400, {
+          success: false,
+          error: 'Todos os campos sao obrigatorios',
+        });
+      }
+
+      if (!isValidEmail(email)) {
+        return jsonResponse(headers, 400, {
+          success: false,
+          error: 'Email invalido',
+        });
+      }
+
+      await sendContactWithEmailIt({
+        name,
+        email,
+        subject,
+        message,
+      });
+
+      return jsonResponse(headers, 200, {
+        success: true,
+        message: 'Mensagem enviada com sucesso',
+      });
     } catch (error) {
-      return {
-        statusCode: 400,
-        headers,
-        body: JSON.stringify({
+      const message = error instanceof Error ? error.message : 'UNKNOWN_ERROR';
+
+      if (message === 'INVALID_JSON_BODY') {
+        return jsonResponse(headers, 400, {
           success: false,
           error: 'Invalid request body',
-        }),
-      };
+        });
+      }
+
+      if (message === 'EMAILIT_CONFIG_MISSING') {
+        return jsonResponse(headers, 503, {
+          success: false,
+          error: 'Servico de email indisponivel no momento',
+        });
+      }
+
+      if (message.startsWith('EMAILIT_CONTACT_SEND_FAILED_')) {
+        return jsonResponse(headers, 502, {
+          success: false,
+          error: 'Falha ao enviar email de suporte',
+        });
+      }
+
+      console.error('[Netlify API] Unexpected contact endpoint error', error);
+      return jsonResponse(headers, 500, {
+        success: false,
+        error: 'Erro ao enviar mensagem. Tente novamente.',
+      });
     }
   }
 

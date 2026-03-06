@@ -18,14 +18,14 @@ const QUICK_LINKS = [
   {
     href: "https://www.tjsp.jus.br/peticionamentojec",
     title: "Peticionamento JEC",
-    description: "Protocolar acao no e-SAJ",
+    description: "Protocolar ação no e-SAJ",
     icon: Scale,
     color: "#22c55e",
   },
   {
     href: "https://www.tjsp.jus.br/balcaovirtual",
-    title: "Balcao Virtual",
-    description: "Atendimento por videoconferencia",
+    title: "Balcão Virtual",
+    description: "Atendimento por videoconferência",
     icon: Video,
     color: "#60a5fa",
   },
@@ -56,7 +56,7 @@ export default function Process() {
 
   if (!user) return null;
 
-  const displayName = user.user_metadata?.name ?? user.email?.split("@")[0] ?? "Usuario";
+  const displayName = user.user_metadata?.name ?? user.email?.split("@")[0] ?? "Usuário";
 
   // Calculate completion status
   const completedPhases = phases.filter(p => p.isComplete).length;
@@ -104,7 +104,7 @@ export default function Process() {
           }}
         >
           <h1 className="text-2xl font-bold mb-2" style={{ color: "#f1f5f9" }}>
-            Ola, {displayName}!
+            Olá, {displayName}!
           </h1>
           <p className="text-sm" style={{ color: "#94a3b8" }}>
             Acompanhe o progresso do seu processo de limpeza de nome.
@@ -315,7 +315,7 @@ export default function Process() {
               }}
             >
               <h3 className="text-lg font-semibold mb-4" style={{ color: "#22c55e" }}>
-                Proximo Passo
+                Próximo Passo
               </h3>
               <div className="flex items-start gap-3">
                 <div
@@ -354,7 +354,7 @@ export default function Process() {
             }}
           >
             <h3 className="text-lg font-semibold mb-4" style={{ color: "#f1f5f9" }}>
-              Links Rapidos
+              Links Rápidos
             </h3>
             <div className="space-y-3">
               {QUICK_LINKS.map((link) => {
@@ -402,7 +402,7 @@ export default function Process() {
           }}
         >
           <h3 className="text-lg font-semibold mb-4" style={{ color: "#f1f5f9" }}>
-            Visualizacao do Progresso
+            Visualização do Progresso
           </h3>
           <div className="flex items-end justify-between gap-4 h-40">
             {phases.map((phase, index) => {

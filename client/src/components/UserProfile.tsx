@@ -35,13 +35,13 @@ export function UserProfile({ onOpenAuth }: UserProfileProps) {
           boxShadow: "0 0 20px rgba(211, 158, 23, 0.3)",
         }}
       >
-        Area do Cliente
+        Área do Cliente
       </button>
     );
   }
 
   const initials = user.email?.substring(0, 2).toUpperCase() ?? "U";
-  const displayName = user.user_metadata?.name ?? user.email?.split("@")[0] ?? "Usuario";
+  const displayName = user.user_metadata?.name ?? user.email?.split("@")[0] ?? "Usuário";
 
   const handleSignOut = async () => {
     setIsOpen(false);
@@ -126,7 +126,7 @@ export function UserProfile({ onOpenAuth }: UserProfileProps) {
                 e.currentTarget.style.backgroundColor = "transparent";
               }}
             >
-              Configuracoes
+              Configurações
             </a>
           </div>
 

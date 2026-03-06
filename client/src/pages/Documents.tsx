@@ -124,7 +124,7 @@ export default function Documents() {
                 <path d="M9 4L13 6.5V11.5L9 14L5 11.5V6.5L9 4Z" fill="#12110d"/>
               </svg>
               <span className="text-sm" style={{ color: "#64748b" }}>
-                2026 Limpa Nome Expresso. Sistema de Apoio Juridico Automatico.
+                2026 Limpa Nome Expresso. Sistema de Apoio Jurídico Automático.
               </span>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8">

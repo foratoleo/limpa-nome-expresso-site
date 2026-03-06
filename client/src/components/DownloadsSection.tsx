@@ -26,7 +26,7 @@ const DEFAULT_DOCS: DownloadDoc[] = [
   },
   {
     icon: <span style={{ color: "#60a5fa" }}><ScalesIcon size="medium" label="" /></span>,
-    title: "Petição Inicial Pre-Preenchida",
+    title: "Petição Inicial Pré-Preenchida",
     description: "Modelo completo para o JEC de São Paulo - sistema e-SAJ TJSP",
     file: "/docs/peticao_inicial_jec_sp.md",
     badge: "Passo 2",
@@ -35,7 +35,7 @@ const DEFAULT_DOCS: DownloadDoc[] = [
   {
     icon: <span style={{ color: "#d39e17" }}><VideoIcon size="medium" label="" /></span>,
     title: "Roteiro do Balcão Virtual",
-    description: "Script de fala pre-preenchido para o atendimento por videoconferência",
+    description: "Script de fala pré-preenchido para o atendimento por videoconferência",
     file: "/docs/roteiro_balcao_virtual.md",
     badge: "Passo 4",
     badgeColor: "#d39e17",

@@ -9,7 +9,7 @@ const CATEGORIES = [
   { value: "rg", label: "RG" },
   { value: "cpf", label: "CPF" },
   { value: "comprovante", label: "Comprovantes" },
-  { value: "peticao", label: "Peticoes" },
+  { value: "peticao", label: "Petições" },
   { value: "outro", label: "Outros" },
 ];
 

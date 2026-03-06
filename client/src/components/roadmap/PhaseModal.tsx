@@ -7,6 +7,14 @@ import type { CheckItemData } from "@/components/CheckItem";
 import { useChecklistDocuments } from "@/hooks/useChecklistDocuments";
 import { useDocuments } from "@/hooks/useDocuments";
 import { DocumentListModal } from "./DocumentListModal";
+import { DualActionCard } from "@/components/ui/DualActionCard";
+import { FormModal } from "@/components/form/FormModal";
+import { useFormFill } from "@/hooks/useFormFill";
+import { PETICAO_INICIAL_FORM_SCHEMA } from "@/config/formSchemas";
+import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "sonner";
+import { generatePDF } from "@/lib/pdfGenerator";
+import { fetchTemplate } from "@/lib/templateFetcher";
 
 interface PhaseModalProps {
   phase: PhaseStatus;
@@ -22,6 +30,16 @@ export function PhaseModal({ phase, isOpen, onClose, checkedItems, onToggleItem 
 
   // Document attachment state
   const [selectedItem, setSelectedItem] = useState<{ id: string; label: string } | null>(null);
+
+  // Form modal state
+  const [formModalOpen, setFormModalOpen] = useState(false);
+  const [currentTemplate, setCurrentTemplate] = useState<{ path: string; title: string } | null>(null);
+
+  // Get user from auth
+  const { user } = useAuth();
+
+  // Initialize form hook
+  const formFill = useFormFill(PETICAO_INICIAL_FORM_SCHEMA, user?.email || '');
   const {
     documentsByItem,
     attachDocument,
@@ -219,31 +237,52 @@ export function PhaseModal({ phase, isOpen, onClose, checkedItems, onToggleItem 
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                 {stepData.downloads.map((download, idx) => (
-                  <a
-                    key={idx}
-                    href={download.file}
-                    download
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "12px",
-                      padding: "12px",
-                      borderRadius: "12px",
-                      backgroundColor: "rgba(211, 158, 23, 0.08)",
-                      border: "1px solid rgba(211, 158, 23, 0.2)",
-                      textDecoration: "none",
-                    }}
-                  >
-                    <DownloadIcon size="medium" label="" />
-                    <div>
-                      <p style={{ fontWeight: 500, fontSize: "14px", color: "#d39e17", margin: 0 }}>
-                        {download.label}
-                      </p>
-                      <p style={{ fontSize: "12px", color: "#64748b", margin: 0 }}>
-                        {download.description}
-                      </p>
-                    </div>
-                  </a>
+                  download.template === 'form-fillable' ? (
+                    <DualActionCard
+                      key={idx}
+                      download={download}
+                      onDownload={() => {
+                        // Trigger browser download
+                        const link = document.createElement('a');
+                        link.href = download.file;
+                        link.download = '';
+                        link.click();
+                      }}
+                      onFillOnline={() => {
+                        setCurrentTemplate({
+                          path: download.file,
+                          title: download.label,
+                        });
+                        setFormModalOpen(true);
+                      }}
+                    />
+                  ) : (
+                    <a
+                      key={idx}
+                      href={download.file}
+                      download
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "12px",
+                        padding: "12px",
+                        borderRadius: "12px",
+                        backgroundColor: "rgba(211, 158, 23, 0.08)",
+                        border: "1px solid rgba(211, 158, 23, 0.2)",
+                        textDecoration: "none",
+                      }}
+                    >
+                      <DownloadIcon size="medium" label="" />
+                      <div>
+                        <p style={{ fontWeight: 500, fontSize: "14px", color: "#d39e17", margin: 0 }}>
+                          {download.label}
+                        </p>
+                        <p style={{ fontSize: "12px", color: "#64748b", margin: 0 }}>
+                          {download.description}
+                        </p>
+                      </div>
+                    </a>
+                  )
                 ))}
               </div>
             </div>
@@ -423,6 +462,41 @@ export function PhaseModal({ phase, isOpen, onClose, checkedItems, onToggleItem 
           onRefresh={async () => {
             await refreshChecklistDocuments();
             await refreshUserDocuments();
+          }}
+        />
+      )}
+
+      {/* Form Modal for Online Filling */}
+      {formModalOpen && currentTemplate && (
+        <FormModal
+          isOpen={formModalOpen}
+          onClose={() => setFormModalOpen(false)}
+          templatePath={currentTemplate.path}
+          templateTitle={currentTemplate.title}
+          userEmail={user?.email}
+          onSavePDF={async () => {
+            try {
+              const template = await fetchTemplate(currentTemplate.path);
+              // Convert FormValues to Record<string, string> for PDF generation
+              const stringValues: Record<string, string> = {};
+              for (const [key, value] of Object.entries(formFill.values)) {
+                stringValues[key] = String(value);
+              }
+              await generatePDF({
+                template,
+                values: stringValues,
+                filename: `peticao_inicial_jec_sp`,
+                onSuccess: () => {
+                  toast.success('PDF gerado com sucesso!');
+                  setFormModalOpen(false);
+                },
+                onError: (error) => {
+                  toast.error('Erro ao gerar PDF. Tente baixar o arquivo.');
+                },
+              });
+            } catch (error) {
+              toast.error('Erro ao carregar template. Baixe o arquivo manualmente.');
+            }
           }}
         />
       )}
