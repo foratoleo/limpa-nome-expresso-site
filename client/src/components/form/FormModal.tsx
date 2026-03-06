@@ -64,10 +64,12 @@ export function FormModal({
   onSavePDF,
 }: FormModalProps) {
   const [values, setValues] = useState<Record<string, string>>({});
+  const [showValidation, setShowValidation] = useState(false);
 
   useEffect(() => {
     if (!isOpen) return;
     setValues({});
+    setShowValidation(false);
   }, [isOpen, templateContent]);
 
   useEffect(() => {
@@ -100,6 +102,10 @@ export function FormModal({
     const filled = uniqueKeys.filter((key) => (values[key] || "").trim().length > 0).length;
     return uniqueKeys.length - filled;
   }, [uniqueKeys, values]);
+  const missingKeys = useMemo(
+    () => uniqueKeys.filter((key) => (values[key] || "").trim().length === 0),
+    [uniqueKeys, values]
+  );
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
@@ -108,6 +114,11 @@ export function FormModal({
   };
 
   const handleSavePDF = () => {
+    if (missingKeys.length > 0) {
+      setShowValidation(true);
+      return;
+    }
+
     const safeValues: Record<string, string> = {};
     for (const key of uniqueKeys) {
       safeValues[key] = (values[key] || "").trim() || "____________________";
@@ -119,6 +130,9 @@ export function FormModal({
 
   const updateValue = (key: string, value: string) => {
     setValues((prev) => ({ ...prev, [key]: value }));
+    if (showValidation) {
+      setShowValidation(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -235,6 +249,20 @@ export function FormModal({
         >
           Espaços em branco restantes: <strong style={{ color: "#f1f5f9" }}>{blanksLeft}</strong>
         </div>
+        {showValidation && (
+          <div
+            style={{
+              padding: "10px 24px",
+              borderBottom: "1px solid rgba(239, 68, 68, 0.25)",
+              backgroundColor: "rgba(239, 68, 68, 0.1)",
+              color: "#fca5a5",
+              fontSize: "13px",
+              fontWeight: 600,
+            }}
+          >
+            Preencha todos os espaços obrigatórios antes de salvar ({missingKeys.length} pendente(s)).
+          </div>
+        )}
 
         <div style={{ flex: 1, padding: "16px 24px 24px" }}>
           <div
@@ -260,6 +288,7 @@ export function FormModal({
 
               const currentValue = values[part.key] || "";
               const longField = isLongField(part.key);
+              const hasError = showValidation && currentValue.trim().length === 0;
 
               if (longField) {
                 return (
@@ -276,7 +305,7 @@ export function FormModal({
                       margin: "4px 0",
                       padding: "8px 10px",
                       borderRadius: "8px",
-                      border: "1px solid rgba(211, 158, 23, 0.45)",
+                      border: hasError ? "1px solid #ef4444" : "1px solid rgba(211, 158, 23, 0.45)",
                       backgroundColor: "rgba(18, 17, 13, 0.82)",
                       color: "#fde68a",
                       fontFamily: "inherit",
@@ -302,7 +331,7 @@ export function FormModal({
                     margin: "0 3px",
                     padding: "3px 8px",
                     borderRadius: "6px",
-                    border: "1px solid rgba(211, 158, 23, 0.45)",
+                    border: hasError ? "1px solid #ef4444" : "1px solid rgba(211, 158, 23, 0.45)",
                     backgroundColor: "rgba(18, 17, 13, 0.82)",
                     color: "#fde68a",
                     fontFamily: "inherit",
