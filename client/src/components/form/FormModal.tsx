@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { CrossIcon, DownloadIcon } from "@/utils/icons";
+import { replacePlaceholders } from "@/lib/templateParser";
 
 interface FormModalProps {
   isOpen: boolean;
@@ -10,11 +11,49 @@ interface FormModalProps {
   onSavePDF?: (filledMarkdown: string) => void;
 }
 
-function toEditableTemplate(template: string): string {
-  return template.replace(/\[PREENCHER:\s*([^\]]+?)\s*\]/g, (_, placeholder: string) => {
-    const blankSize = Math.max(20, Math.min(placeholder.trim().length + 8, 64));
-    return "_".repeat(blankSize);
-  });
+type TemplatePart =
+  | { type: "text"; value: string }
+  | { type: "placeholder"; key: string };
+
+const PLACEHOLDER_REGEX = /\[PREENCHER:\s*([^\]]+?)\s*\]/g;
+
+function parseTemplateParts(template: string): TemplatePart[] {
+  const parts: TemplatePart[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = PLACEHOLDER_REGEX.exec(template)) !== null) {
+    const fullMatch = match[0];
+    const key = match[1].trim();
+
+    if (match.index > lastIndex) {
+      parts.push({ type: "text", value: template.slice(lastIndex, match.index) });
+    }
+
+    if (key) {
+      parts.push({ type: "placeholder", key });
+    } else {
+      parts.push({ type: "text", value: fullMatch });
+    }
+
+    lastIndex = match.index + fullMatch.length;
+  }
+
+  if (lastIndex < template.length) {
+    parts.push({ type: "text", value: template.slice(lastIndex) });
+  }
+
+  return parts;
+}
+
+function isLongField(key: string): boolean {
+  const value = key.toLowerCase();
+  return (
+    value.includes("descreva") ||
+    value.includes("repita o prejuizo") ||
+    value.includes("repita o prejuízo") ||
+    value.length > 55
+  );
 }
 
 export function FormModal({
@@ -24,11 +63,11 @@ export function FormModal({
   templateContent,
   onSavePDF,
 }: FormModalProps) {
-  const [editableContent, setEditableContent] = useState("");
+  const [values, setValues] = useState<Record<string, string>>({});
 
   useEffect(() => {
     if (!isOpen) return;
-    setEditableContent(toEditableTemplate(templateContent));
+    setValues({});
   }, [isOpen, templateContent]);
 
   useEffect(() => {
@@ -49,9 +88,18 @@ export function FormModal({
     };
   }, [isOpen, onClose]);
 
+  const templateParts = useMemo(() => parseTemplateParts(templateContent), [templateContent]);
+  const uniqueKeys = useMemo(() => {
+    const keys = templateParts
+      .filter((part): part is Extract<TemplatePart, { type: "placeholder" }> => part.type === "placeholder")
+      .map((part) => part.key);
+    return [...new Set(keys)];
+  }, [templateParts]);
+
   const blanksLeft = useMemo(() => {
-    return (editableContent.match(/_{8,}/g) || []).length;
-  }, [editableContent]);
+    const filled = uniqueKeys.filter((key) => (values[key] || "").trim().length > 0).length;
+    return uniqueKeys.length - filled;
+  }, [uniqueKeys, values]);
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
@@ -60,7 +108,17 @@ export function FormModal({
   };
 
   const handleSavePDF = () => {
-    onSavePDF?.(editableContent);
+    const safeValues: Record<string, string> = {};
+    for (const key of uniqueKeys) {
+      safeValues[key] = (values[key] || "").trim() || "____________________";
+    }
+
+    const filledMarkdown = replacePlaceholders(templateContent, safeValues);
+    onSavePDF?.(filledMarkdown);
+  };
+
+  const updateValue = (key: string, value: string) => {
+    setValues((prev) => ({ ...prev, [key]: value }));
   };
 
   if (!isOpen) return null;
@@ -179,14 +237,10 @@ export function FormModal({
         </div>
 
         <div style={{ flex: 1, padding: "16px 24px 24px" }}>
-          <textarea
-            value={editableContent}
-            onChange={(e) => setEditableContent(e.target.value)}
-            spellCheck={false}
+          <div
             style={{
               width: "100%",
               height: "100%",
-              resize: "none",
               padding: "18px",
               borderRadius: "12px",
               border: "1px solid rgba(211, 158, 23, 0.25)",
@@ -195,8 +249,69 @@ export function FormModal({
               lineHeight: 1.55,
               fontSize: "14px",
               fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+              overflowY: "auto",
+              whiteSpace: "pre-wrap",
             }}
-          />
+          >
+            {templateParts.map((part, index) => {
+              if (part.type === "text") {
+                return <span key={`text-${index}`}>{part.value}</span>;
+              }
+
+              const currentValue = values[part.key] || "";
+              const longField = isLongField(part.key);
+
+              if (longField) {
+                return (
+                  <textarea
+                    key={`field-${index}`}
+                    value={currentValue}
+                    onChange={(e) => updateValue(part.key, e.target.value)}
+                    placeholder="preencha aqui"
+                    style={{
+                      display: "inline-block",
+                      verticalAlign: "middle",
+                      width: "min(100%, 560px)",
+                      minHeight: "82px",
+                      margin: "4px 0",
+                      padding: "8px 10px",
+                      borderRadius: "8px",
+                      border: "1px solid rgba(211, 158, 23, 0.45)",
+                      backgroundColor: "rgba(18, 17, 13, 0.82)",
+                      color: "#fde68a",
+                      fontFamily: "inherit",
+                      fontSize: "13px",
+                      lineHeight: 1.45,
+                      resize: "vertical",
+                    }}
+                  />
+                );
+              }
+
+              return (
+                <input
+                  key={`field-${index}`}
+                  value={currentValue}
+                  onChange={(e) => updateValue(part.key, e.target.value)}
+                  placeholder="preencher"
+                  style={{
+                    display: "inline-block",
+                    verticalAlign: "middle",
+                    width: "min(420px, 100%)",
+                    minWidth: "220px",
+                    margin: "0 3px",
+                    padding: "3px 8px",
+                    borderRadius: "6px",
+                    border: "1px solid rgba(211, 158, 23, 0.45)",
+                    backgroundColor: "rgba(18, 17, 13, 0.82)",
+                    color: "#fde68a",
+                    fontFamily: "inherit",
+                    fontSize: "13px",
+                  }}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
