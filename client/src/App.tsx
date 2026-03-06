@@ -26,6 +26,7 @@ import AuthCallback from "./pages/AuthCallback";
 import { Agentation } from "agentation";
 import AdminPanel from "./pages/AdminPanel";
 import DebugAccess from "./pages/DebugAccess";
+import SpecialAdvisory from "./pages/SpecialAdvisory";
 import { type ReactNode } from "react";
 
 function Router() {
@@ -65,6 +66,11 @@ function Router() {
       <Route path={"/processo"}>
         <ProtectedRoute requirePayment={true}>
           <Process />
+        </ProtectedRoute>
+      </Route>
+      <Route path={"/assessoria-especializada"}>
+        <ProtectedRoute requirePayment={true}>
+          <SpecialAdvisory />
         </ProtectedRoute>
       </Route>
       <Route path={"/bem-vindo"}>

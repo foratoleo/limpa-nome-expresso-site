@@ -9,6 +9,7 @@ import { UserProfile } from "@/components/UserProfile";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { GuideButton, GuidePanel, ProcessMap } from "@/components/roadmap";
 import { PhaseTrail } from "@/components/PhaseTrail";
+import { SpecialAdvisoryNavCta } from "@/components/SpecialAdvisoryNavCta";
 import { TOTAL_ITEMS } from "@/data/steps";
 import type { Step, CheckItem } from "@/data/steps";
 
@@ -55,6 +56,7 @@ export default function Home() {
               <a href="/modelos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Modelos</a>
               <a href="/downloads" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Downloads</a>
               <a href="/suporte" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Suporte</a>
+              <SpecialAdvisoryNavCta />
             </nav>
           </div>
 
@@ -70,6 +72,9 @@ export default function Home() {
                 className="bg-transparent border-none outline-none py-2.5 px-3 text-sm w-full"
                 style={{ color: "#f1f5f9" }}
               />
+            </div>
+            <div className="md:hidden">
+              <SpecialAdvisoryNavCta shortLabel />
             </div>
             <UserProfile onOpenAuth={() => setIsAuthModalOpen(true)} />
           </div>

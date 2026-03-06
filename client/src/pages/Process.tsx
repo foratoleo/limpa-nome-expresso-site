@@ -3,6 +3,7 @@ import { useChecklistSync } from "@/hooks/useChecklistSync";
 import { useCurrentPhase } from "@/hooks/useCurrentPhase";
 import { Container } from "@/components/ui/container";
 import { Progress } from "@/components/ui/progress";
+import { SpecialAdvisoryNavCta } from "@/components/SpecialAdvisoryNavCta";
 import { CheckCircle2, Circle, Clock, ArrowRight, ExternalLink, FileText, Scale, Video, Search } from "lucide-react";
 import { TOTAL_ITEMS } from "@/data/steps";
 
@@ -89,7 +90,13 @@ export default function Process() {
             <a href="/processo" className="text-sm font-medium transition-colors" style={{ color: "#d39e17" }}>Meu Processo</a>
             <a href="/documentos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Documentos</a>
             <a href="/modelos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Modelos</a>
+            <a href="/downloads" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Downloads</a>
+            <a href="/suporte" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Suporte</a>
+            <SpecialAdvisoryNavCta />
           </nav>
+          <div className="md:hidden">
+            <SpecialAdvisoryNavCta shortLabel />
+          </div>
         </Container>
       </header>
 

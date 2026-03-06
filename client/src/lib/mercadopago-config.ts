@@ -7,6 +7,15 @@ export const MERCADOPAGO_PRODUCT = {
   duration: '12 meses de acesso',
 } as const;
 
+export const MERCADOPAGO_SPECIAL_ADVISORY_PRODUCT = {
+  id: 'limpa_nome_expresso_assessoria_especializada',
+  title: 'Limpa Nome Expresso - Assessoria Especializada Completa',
+  quantity: 1,
+  unit_price: 997.0,
+  currency: 'BRL',
+  duration: 'Serviço completo com equipe dedicada',
+} as const;
+
 export const CHECKOUT_BENEFITS = [
   {
     icon: 'FileText',

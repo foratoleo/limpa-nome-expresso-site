@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/accordion";
 import { UserProfile } from "@/components/UserProfile";
 import { AuthModal } from "@/components/auth/AuthModal";
+import { SpecialAdvisoryNavCta } from "@/components/SpecialAdvisoryNavCta";
 import { SearchIcon, BookWithBookmarkIcon, LinkExternalIcon, VideoIcon } from "@/utils/icons";
 import { WarningBanner } from "@/components/WarningBanner";
 
@@ -142,13 +143,19 @@ export default function Support() {
               </h2>
             </a>
             <nav className="hidden md:flex items-center gap-6">
-              <a href="/processos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Meus Processos</a>
+              <a href="/guia" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Meus Processos</a>
               <a href="/documentos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Documentos</a>
               <a href="/modelos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Modelos</a>
               <a href="/suporte" className="text-sm font-medium transition-colors" style={{ color: "#d39e17" }}>Suporte</a>
+              <SpecialAdvisoryNavCta />
             </nav>
           </div>
-          <UserProfile onOpenAuth={() => setIsAuthModalOpen(true)} />
+          <div className="flex items-center gap-3">
+            <div className="md:hidden">
+              <SpecialAdvisoryNavCta shortLabel />
+            </div>
+            <UserProfile onOpenAuth={() => setIsAuthModalOpen(true)} />
+          </div>
         </Container>
       </header>
 

@@ -3,6 +3,7 @@ import { SearchIcon, DownloadIcon } from "@/utils/icons";
 import { Container } from "@/components/ui/container";
 import { UserProfile } from "@/components/UserProfile";
 import { AuthModal } from "@/components/auth/AuthModal";
+import { SpecialAdvisoryNavCta } from "@/components/SpecialAdvisoryNavCta";
 import { TemplatesSection } from "@/components/TemplatesSection";
 
 export default function Templates() {
@@ -33,10 +34,11 @@ export default function Templates() {
               </h2>
             </a>
             <nav className="hidden md:flex items-center gap-6">
-              <a href="/processos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Meus Processos</a>
+              <a href="/guia" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Meus Processos</a>
               <a href="/documentos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Documentos</a>
               <a href="/modelos" className="text-sm font-medium transition-colors" style={{ color: "#d39e17" }}>Modelos</a>
               <a href="/suporte" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Suporte</a>
+              <SpecialAdvisoryNavCta />
             </nav>
           </div>
 
@@ -52,6 +54,9 @@ export default function Templates() {
                 className="bg-transparent border-none outline-none py-2.5 px-3 text-sm w-full"
                 style={{ color: "#f1f5f9" }}
               />
+            </div>
+            <div className="md:hidden">
+              <SpecialAdvisoryNavCta shortLabel />
             </div>
             <UserProfile onOpenAuth={() => setIsAuthModalOpen(true)} />
           </div>
