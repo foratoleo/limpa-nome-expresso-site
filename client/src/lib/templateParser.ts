@@ -1,5 +1,9 @@
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 export function extractPlaceholders(template: string): string[] {
-  const regex = /\[PREENCHER:([^\]]+)\]/g;
+  const regex = /\[PREENCHER:\s*([^\]]+?)\s*\]/g;
   const placeholders: string[] = [];
   let match;
 
@@ -16,13 +20,18 @@ export function replacePlaceholders(
 ): string {
   let result = template;
 
-  for (const [key, value] of Object.entries(values)) {
-    const placeholder = `[PREENCHER:${key}]`;
-    result = result.replace(new RegExp(placeholder, 'g'), value);
+  for (const [rawKey, rawValue] of Object.entries(values)) {
+    const key = rawKey.trim();
+    const value = rawValue ?? '';
+    const placeholderRegex = new RegExp(
+      `\\[PREENCHER:\\s*${escapeRegExp(key)}\\s*\\]`,
+      'g'
+    );
+    result = result.replace(placeholderRegex, value);
   }
 
   // Replace any remaining placeholders with empty string
-  result = result.replace(/\[PREENCHER:[^\]]+\]/g, '');
+  result = result.replace(/\[PREENCHER:\s*[^\]]+\]/g, '');
 
   return result;
 }

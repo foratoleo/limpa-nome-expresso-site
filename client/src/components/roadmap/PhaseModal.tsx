@@ -9,12 +9,12 @@ import { useDocuments } from "@/hooks/useDocuments";
 import { DocumentListModal } from "./DocumentListModal";
 import { DualActionCard } from "@/components/ui/DualActionCard";
 import { FormModal } from "@/components/form/FormModal";
-import { PETICAO_INICIAL_FORM_SCHEMA } from "@/config/formSchemas";
-import type { FormValues } from "@/types/form";
+import type { FormSection, FormValues } from "@/types/form";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import { generatePDF } from "@/lib/pdfGenerator";
 import { fetchTemplate } from "@/lib/templateFetcher";
+import { buildFormSchemaFromTemplate, mapFormValuesToTemplateValues } from "@/lib/templateFormSchema";
 
 interface PhaseModalProps {
   phase: PhaseStatus;
@@ -34,6 +34,8 @@ export function PhaseModal({ phase, isOpen, onClose, checkedItems, onToggleItem 
   // Form modal state
   const [formModalOpen, setFormModalOpen] = useState(false);
   const [currentTemplate, setCurrentTemplate] = useState<{ path: string; title: string } | null>(null);
+  const [currentTemplateContent, setCurrentTemplateContent] = useState("");
+  const [currentFormSections, setCurrentFormSections] = useState<FormSection[]>([]);
 
   // Get user from auth
   const { user } = useAuth();
@@ -50,6 +52,25 @@ export function PhaseModal({ phase, isOpen, onClose, checkedItems, onToggleItem 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       onClose();
+    }
+  };
+
+  const handleOpenTemplateForm = async (file: string, label: string) => {
+    try {
+      const template = await fetchTemplate(file);
+      const schema = buildFormSchemaFromTemplate(template, label);
+
+      if (schema.length === 0) {
+        toast.error("Este modelo não possui campos editáveis [PREENCHER: ...].");
+        return;
+      }
+
+      setCurrentTemplate({ path: file, title: label });
+      setCurrentTemplateContent(template);
+      setCurrentFormSections(schema);
+      setFormModalOpen(true);
+    } catch {
+      toast.error("Erro ao abrir o modelo original. Tente baixar o arquivo.");
     }
   };
 
@@ -247,11 +268,7 @@ export function PhaseModal({ phase, isOpen, onClose, checkedItems, onToggleItem 
                         link.click();
                       }}
                       onFillOnline={() => {
-                        setCurrentTemplate({
-                          path: download.file,
-                          title: download.label,
-                        });
-                        setFormModalOpen(true);
+                        void handleOpenTemplateForm(download.file, download.label);
                       }}
                     />
                   ) : (
@@ -468,25 +485,31 @@ export function PhaseModal({ phase, isOpen, onClose, checkedItems, onToggleItem 
       {formModalOpen && currentTemplate && (
         <FormModal
           isOpen={formModalOpen}
-          onClose={() => setFormModalOpen(false)}
+          onClose={() => {
+            setFormModalOpen(false);
+            setCurrentTemplate(null);
+            setCurrentTemplateContent("");
+            setCurrentFormSections([]);
+          }}
           templatePath={currentTemplate.path}
           templateTitle={currentTemplate.title}
           userEmail={user?.email}
-          formSections={PETICAO_INICIAL_FORM_SCHEMA}
+          formSections={currentFormSections}
           onSavePDF={async (formValues: FormValues) => {
             try {
-              const template = await fetchTemplate(currentTemplate.path);
-              const stringValues: Record<string, string> = {};
-              for (const [key, value] of Object.entries(formValues)) {
-                stringValues[key] = String(value);
-              }
+              const template = currentTemplateContent || await fetchTemplate(currentTemplate.path);
+              const templateValues = mapFormValuesToTemplateValues(formValues, currentFormSections);
+              const filename = currentTemplate.path.split("/").pop()?.replace(/\.md$/i, "") || "peticao_inicial_jec_sp";
               await generatePDF({
                 template,
-                values: stringValues,
-                filename: `peticao_inicial_jec_sp`,
+                values: templateValues,
+                filename,
                 onSuccess: () => {
                   toast.success('PDF gerado com sucesso!');
                   setFormModalOpen(false);
+                  setCurrentTemplate(null);
+                  setCurrentTemplateContent("");
+                  setCurrentFormSections([]);
                 },
                 onError: () => {
                   toast.error('Erro ao gerar PDF. Tente baixar o arquivo.');
