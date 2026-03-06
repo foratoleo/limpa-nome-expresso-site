@@ -1,6 +1,5 @@
 export interface FormField {
   id: string;
-  templateKey?: string;
   label: string;
   type: 'text' | 'number' | 'currency' | 'date' | 'textarea';
   placeholder: string;

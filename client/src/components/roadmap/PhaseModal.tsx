@@ -9,12 +9,9 @@ import { useDocuments } from "@/hooks/useDocuments";
 import { DocumentListModal } from "./DocumentListModal";
 import { DualActionCard } from "@/components/ui/DualActionCard";
 import { FormModal } from "@/components/form/FormModal";
-import type { FormSection, FormValues } from "@/types/form";
-import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
-import { generatePDF } from "@/lib/pdfGenerator";
+import { generatePDFFromMarkdown } from "@/lib/pdfGenerator";
 import { fetchTemplate } from "@/lib/templateFetcher";
-import { buildFormSchemaFromTemplate, mapFormValuesToTemplateValues } from "@/lib/templateFormSchema";
 
 interface PhaseModalProps {
   phase: PhaseStatus;
@@ -33,12 +30,7 @@ export function PhaseModal({ phase, isOpen, onClose, checkedItems, onToggleItem 
 
   // Form modal state
   const [formModalOpen, setFormModalOpen] = useState(false);
-  const [currentTemplate, setCurrentTemplate] = useState<{ path: string; title: string } | null>(null);
-  const [currentTemplateContent, setCurrentTemplateContent] = useState("");
-  const [currentFormSections, setCurrentFormSections] = useState<FormSection[]>([]);
-
-  // Get user from auth
-  const { user } = useAuth();
+  const [currentTemplate, setCurrentTemplate] = useState<{ path: string; title: string; content: string } | null>(null);
 
   const {
     documentsByItem,
@@ -58,16 +50,7 @@ export function PhaseModal({ phase, isOpen, onClose, checkedItems, onToggleItem 
   const handleOpenTemplateForm = async (file: string, label: string) => {
     try {
       const template = await fetchTemplate(file);
-      const schema = buildFormSchemaFromTemplate(template, label);
-
-      if (schema.length === 0) {
-        toast.error("Este modelo não possui campos editáveis [PREENCHER: ...].");
-        return;
-      }
-
-      setCurrentTemplate({ path: file, title: label });
-      setCurrentTemplateContent(template);
-      setCurrentFormSections(schema);
+      setCurrentTemplate({ path: file, title: label, content: template });
       setFormModalOpen(true);
     } catch {
       toast.error("Erro ao abrir o modelo original. Tente baixar o arquivo.");
@@ -488,35 +471,18 @@ export function PhaseModal({ phase, isOpen, onClose, checkedItems, onToggleItem 
           onClose={() => {
             setFormModalOpen(false);
             setCurrentTemplate(null);
-            setCurrentTemplateContent("");
-            setCurrentFormSections([]);
           }}
-          templatePath={currentTemplate.path}
           templateTitle={currentTemplate.title}
-          userEmail={user?.email}
-          formSections={currentFormSections}
-          onSavePDF={async (formValues: FormValues) => {
+          templateContent={currentTemplate.content}
+          onSavePDF={async (filledMarkdown: string) => {
             try {
-              const template = currentTemplateContent || await fetchTemplate(currentTemplate.path);
-              const templateValues = mapFormValuesToTemplateValues(formValues, currentFormSections);
               const filename = currentTemplate.path.split("/").pop()?.replace(/\.md$/i, "") || "peticao_inicial_jec_sp";
-              await generatePDF({
-                template,
-                values: templateValues,
-                filename,
-                onSuccess: () => {
-                  toast.success('PDF gerado com sucesso!');
-                  setFormModalOpen(false);
-                  setCurrentTemplate(null);
-                  setCurrentTemplateContent("");
-                  setCurrentFormSections([]);
-                },
-                onError: () => {
-                  toast.error('Erro ao gerar PDF. Tente baixar o arquivo.');
-                },
-              });
+              await generatePDFFromMarkdown(filledMarkdown, filename);
+              toast.success('PDF gerado com sucesso!');
+              setFormModalOpen(false);
+              setCurrentTemplate(null);
             } catch {
-              toast.error('Erro ao carregar template. Baixe o arquivo manualmente.');
+              toast.error('Erro ao gerar o PDF. Tente novamente.');
             }
           }}
         />
