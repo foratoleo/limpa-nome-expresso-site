@@ -9,8 +9,8 @@ import { useDocuments } from "@/hooks/useDocuments";
 import { DocumentListModal } from "./DocumentListModal";
 import { DualActionCard } from "@/components/ui/DualActionCard";
 import { FormModal } from "@/components/form/FormModal";
-import { useFormFill } from "@/hooks/useFormFill";
 import { PETICAO_INICIAL_FORM_SCHEMA } from "@/config/formSchemas";
+import type { FormValues } from "@/types/form";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import { generatePDF } from "@/lib/pdfGenerator";
@@ -38,8 +38,6 @@ export function PhaseModal({ phase, isOpen, onClose, checkedItems, onToggleItem 
   // Get user from auth
   const { user } = useAuth();
 
-  // Initialize form hook
-  const formFill = useFormFill(PETICAO_INICIAL_FORM_SCHEMA, user?.email || '');
   const {
     documentsByItem,
     attachDocument,
@@ -474,12 +472,12 @@ export function PhaseModal({ phase, isOpen, onClose, checkedItems, onToggleItem 
           templatePath={currentTemplate.path}
           templateTitle={currentTemplate.title}
           userEmail={user?.email}
-          onSavePDF={async () => {
+          formSections={PETICAO_INICIAL_FORM_SCHEMA}
+          onSavePDF={async (formValues: FormValues) => {
             try {
               const template = await fetchTemplate(currentTemplate.path);
-              // Convert FormValues to Record<string, string> for PDF generation
               const stringValues: Record<string, string> = {};
-              for (const [key, value] of Object.entries(formFill.values)) {
+              for (const [key, value] of Object.entries(formValues)) {
                 stringValues[key] = String(value);
               }
               await generatePDF({
@@ -490,11 +488,11 @@ export function PhaseModal({ phase, isOpen, onClose, checkedItems, onToggleItem 
                   toast.success('PDF gerado com sucesso!');
                   setFormModalOpen(false);
                 },
-                onError: (error) => {
+                onError: () => {
                   toast.error('Erro ao gerar PDF. Tente baixar o arquivo.');
                 },
               });
-            } catch (error) {
+            } catch {
               toast.error('Erro ao carregar template. Baixe o arquivo manualmente.');
             }
           }}

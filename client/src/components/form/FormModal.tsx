@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { CrossIcon, DownloadIcon } from "@/utils/icons";
-import { FormSection } from "@/types/form";
+import { FormSection, FormValues } from "@/types/form";
 import { useFormFill } from "@/hooks/useFormFill";
 
 interface FormModalProps {
@@ -11,7 +11,7 @@ interface FormModalProps {
   templateTitle: string;
   userEmail?: string;
   formSections?: FormSection[];
-  onSavePDF?: () => void;
+  onSavePDF?: (values: FormValues) => void;
 }
 
 export function FormModal({
@@ -73,7 +73,7 @@ export function FormModal({
       setErrors(validation.errors);
       return;
     }
-    onSavePDF?.();
+    onSavePDF?.(formFill.values);
   };
 
   if (!isOpen) return null;
