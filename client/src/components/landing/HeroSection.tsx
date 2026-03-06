@@ -10,7 +10,57 @@ const COLORS = {
   textSecondary: "#94a3b8",
 } as const;
 
+const ROTATING_HEADLINE_PHRASES = [
+  "sem pagar advogado",
+  "sem pagar suas dívidas",
+  "amparado na lei",
+] as const;
+
 export function HeroSection() {
+  const [phraseIndex, setPhraseIndex] = React.useState(0);
+  const [typedPhrase, setTypedPhrase] = React.useState("");
+  const [isDeleting, setIsDeleting] = React.useState(false);
+
+  React.useEffect(() => {
+    const currentPhrase = ROTATING_HEADLINE_PHRASES[phraseIndex];
+
+    if (!isDeleting && typedPhrase === currentPhrase) {
+      const pauseTimer = window.setTimeout(() => {
+        setIsDeleting(true);
+      }, 1400);
+
+      return () => window.clearTimeout(pauseTimer);
+    }
+
+    if (isDeleting && typedPhrase.length === 0) {
+      setIsDeleting(false);
+      setPhraseIndex(
+        (previousIndex) =>
+          (previousIndex + 1) % ROTATING_HEADLINE_PHRASES.length,
+      );
+      return;
+    }
+
+    const nextLength = typedPhrase.length + (isDeleting ? -1 : 1);
+    const typingTimer = window.setTimeout(
+      () => {
+        setTypedPhrase(currentPhrase.slice(0, nextLength));
+      },
+      isDeleting ? 45 : 85,
+    );
+
+    return () => window.clearTimeout(typingTimer);
+  }, [isDeleting, phraseIndex, typedPhrase]);
+
+  const maxPhraseLength = React.useMemo(
+    () =>
+      ROTATING_HEADLINE_PHRASES.reduce(
+        (maxLength, phrase) => Math.max(maxLength, phrase.length),
+        0,
+      ),
+    [],
+  );
+
   return (
     <>
       {/* Hero Content - altura compacta perto do header */}
@@ -66,8 +116,19 @@ export function HeroSection() {
           {/* Headline */}
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#f1f5f9] leading-tight mb-5 mt-2">
             Limpe seu nome em até{" "}
-            <span style={{ color: COLORS.gold }}>15 dias</span> sem pagar
-            advogado
+            <span style={{ color: COLORS.gold }}>15 dias</span>{" "}
+            <span
+              style={{
+                display: "inline-block",
+                minWidth: `${maxPhraseLength}ch`,
+                color: COLORS.textPrimary,
+              }}
+            >
+              {typedPhrase}
+              <span style={{ color: COLORS.gold }} className="animate-pulse">
+                |
+              </span>
+            </span>
           </h1>
 
           {/* Content Row - Texto legal + Video */}
@@ -87,9 +148,10 @@ export function HeroSection() {
                   margin: "0 0 16px 0",
                 }}
               >
-                Baseado no Art. 43, parágrafo 2 do Código de Defesa do
-                Consumidor. O prazo para exclusão dos registros é de até 5 dias
-                úteis após a quitação.
+                Recupere seu nome com estratégia certa: mostramos como
+                contestar negativação indevida no SPC/Serasa usando base legal
+                e roteiro pronto. Tudo de forma simples, 100% online e sem
+                depender de empresas de "limpa nome".
               </p>
               <div
                 style={{
