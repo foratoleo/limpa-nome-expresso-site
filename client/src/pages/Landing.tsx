@@ -24,6 +24,12 @@ export default function Landing() {
   const { hasActiveAccess, loading: paymentLoading } = usePaymentStatus();
   const [, setLocation] = useLocation();
 
+  const handleRegisterSuccess = (email: string) => {
+    setAuthModalTab(null);
+    const emailParam = encodeURIComponent(email);
+    setLocation(`/checkout?signup=1&email=${emailParam}`);
+  };
+
   // Redirect to /guia when user logs in
   useEffect(() => {
     if (user && !authModalTab && !paymentLoading) {
@@ -134,6 +140,7 @@ export default function Landing() {
         isOpen={authModalTab !== null}
         onClose={() => setAuthModalTab(null)}
         defaultTab={authModalTab ?? undefined}
+        onRegisterSuccess={handleRegisterSuccess}
       />
 
       {/* Main Content */}

@@ -3,7 +3,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { validateEmail } from "@/lib/validation/email";
 
 interface RegisterFormProps {
-  onSuccess?: () => void;
+  onSuccess?: (email: string) => void;
   onLogin: () => void;
 }
 
@@ -182,8 +182,11 @@ export function RegisterForm({ onSuccess, onLogin }: RegisterFormProps) {
     if (error) {
       setErrors({ general: getErrorMessage(error.message) });
     } else {
-      setSuccess(true);
-      onSuccess?.();
+      if (onSuccess) {
+        onSuccess(email.trim().toLowerCase());
+      } else {
+        setSuccess(true);
+      }
     }
   };
 

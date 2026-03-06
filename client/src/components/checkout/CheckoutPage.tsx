@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container } from '@/components/ui/container';
 import { MERCADOPAGO_PRODUCT } from '@/lib/mercadopago-config';
 import { createSingleItemPreference } from '@/lib/api/mercadopago';
@@ -19,7 +19,26 @@ const COLORS = {
 export function CheckoutPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [showSignupPopup, setShowSignupPopup] = useState(false);
+  const [signupEmail, setSignupEmail] = useState<string | null>(null);
   const { user } = useAuth();
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const signup = params.get('signup');
+
+    if (signup === '1') {
+      const emailFromUrl = params.get('email');
+      setSignupEmail(emailFromUrl || user?.email || null);
+      setShowSignupPopup(true);
+
+      params.delete('signup');
+      params.delete('email');
+      const query = params.toString();
+      const cleanUrl = query ? `${window.location.pathname}?${query}` : window.location.pathname;
+      window.history.replaceState({}, '', cleanUrl);
+    }
+  }, [user?.email]);
 
   const handlePayment = async () => {
     setError(null);
@@ -53,6 +72,60 @@ export function CheckoutPage() {
       className="min-h-screen"
       style={{ backgroundColor: COLORS.background }}
     >
+      {showSignupPopup && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center px-4">
+          <div
+            className="absolute inset-0"
+            style={{ backgroundColor: 'rgba(0, 0, 0, 0.58)' }}
+            onClick={() => setShowSignupPopup(false)}
+          />
+          <div
+            className="relative w-full max-w-xl rounded-2xl border p-6 sm:p-7"
+            style={{
+              backgroundColor: 'rgba(22, 40, 71, 0.98)',
+              borderColor: 'rgba(211, 158, 23, 0.35)',
+              boxShadow: '0 30px 70px rgba(0, 0, 0, 0.4)',
+            }}
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] mb-2" style={{ color: COLORS.gold }}>
+                  Conta criada
+                </p>
+                <h2 className="text-2xl font-bold mb-3" style={{ color: COLORS.textPrimary }}>
+                  Confirme seu e-mail para ativar o acesso
+                </h2>
+                <p className="text-sm leading-relaxed" style={{ color: COLORS.textSecondary }}>
+                  Enviamos um link de confirmação para{' '}
+                  <strong style={{ color: COLORS.textPrimary }}>{signupEmail || 'seu e-mail'}</strong>.
+                  Verifique sua caixa de entrada e também a pasta de spam/lixo eletrônico.
+                </p>
+              </div>
+              <button
+                onClick={() => setShowSignupPopup(false)}
+                className="px-3 py-1.5 rounded-lg text-sm font-medium"
+                style={{
+                  backgroundColor: 'rgba(148, 163, 184, 0.14)',
+                  color: COLORS.textPrimary,
+                }}
+              >
+                Fechar
+              </button>
+            </div>
+            <div
+              className="mt-5 rounded-xl border p-4 text-sm"
+              style={{
+                backgroundColor: 'rgba(211, 158, 23, 0.1)',
+                borderColor: 'rgba(211, 158, 23, 0.25)',
+                color: '#f8fafc',
+              }}
+            >
+              O checkout já está aberto abaixo para você concluir quando quiser.
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Hero Section */}
       <section className="px-4 py-12 md:px-10 md:py-16">
         <Container>

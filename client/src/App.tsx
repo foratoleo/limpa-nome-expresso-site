@@ -88,9 +88,7 @@ function Router() {
         </ProtectedRoute>
       </Route>
       <Route path={"/checkout"}>
-        <ProtectedRoute requirePayment={false}>
-          <CheckoutPage />
-        </ProtectedRoute>
+        <CheckoutPage />
       </Route>
       <Route path={"/checkout/sucesso"}>
         <PaymentSuccess />
