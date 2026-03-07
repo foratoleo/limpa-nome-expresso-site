@@ -22,6 +22,8 @@ export function RegisterForm({ onSuccess, onLogin }: RegisterFormProps) {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
   const [success, setSuccess] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [touched, setTouched] = useState<{
     email: boolean;
     password: boolean;
@@ -220,7 +222,7 @@ export function RegisterForm({ onSuccess, onLogin }: RegisterFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+    <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4" noValidate>
       <div>
         <label
           htmlFor="register-email"
@@ -237,6 +239,10 @@ export function RegisterForm({ onSuccess, onLogin }: RegisterFormProps) {
           onBlur={() => setTouched((prev) => ({ ...prev, email: true }))}
           required
           autoComplete="email"
+          inputMode="email"
+          autoCapitalize="none"
+          autoCorrect="off"
+          spellCheck={false}
           aria-invalid={!!errors.email}
           aria-describedby={errors.email ? "register-email-error" : undefined}
           className="w-full px-4 py-2.5 rounded-xl border outline-none transition-colors"
@@ -275,33 +281,44 @@ export function RegisterForm({ onSuccess, onLogin }: RegisterFormProps) {
         >
           Senha
         </label>
-        <input
-          id="register-password"
-          type="password"
-          value={password}
-          onChange={(e) => handlePasswordChange(e.target.value)}
-          onBlur={() => setTouched((prev) => ({ ...prev, password: true }))}
-          required
-          autoComplete="new-password"
-          minLength={6}
-          aria-invalid={!!errors.password}
-          aria-describedby={errors.password ? "register-password-error" : undefined}
-          className="w-full px-4 py-2.5 rounded-xl border outline-none transition-colors"
-          style={{
-            backgroundColor: "rgba(255, 255, 255, 0.05)",
-            borderColor: errors.password
-              ? "#ef4444"
-              : touched.password && password && !errors.password
-              ? "#22c55e"
-              : "rgba(211, 158, 23, 0.2)",
-            color: "#f1f5f9",
-          }}
-          onFocus={(e) =>
-            (e.currentTarget.style.borderColor = errors.password
-              ? "#ef4444"
-              : "rgba(211, 158, 23, 0.5)")
-          }
-        />
+        <div className="relative">
+          <input
+            id="register-password"
+            type={showPassword ? "text" : "password"}
+            value={password}
+            onChange={(e) => handlePasswordChange(e.target.value)}
+            onBlur={() => setTouched((prev) => ({ ...prev, password: true }))}
+            required
+            autoComplete="new-password"
+            minLength={6}
+            aria-invalid={!!errors.password}
+            aria-describedby={errors.password ? "register-password-error" : "register-password-hint"}
+            className="w-full px-4 py-2.5 pr-20 rounded-xl border outline-none transition-colors"
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.05)",
+              borderColor: errors.password
+                ? "#ef4444"
+                : touched.password && password && !errors.password
+                ? "#22c55e"
+                : "rgba(211, 158, 23, 0.2)",
+              color: "#f1f5f9",
+            }}
+            onFocus={(e) =>
+              (e.currentTarget.style.borderColor = errors.password
+                ? "#ef4444"
+                : "rgba(211, 158, 23, 0.5)")
+            }
+          />
+          <button
+            type="button"
+            className="absolute right-2 top-1/2 -translate-y-1/2 px-2.5 py-1 text-xs rounded-md"
+            style={{ color: "#d39e17", backgroundColor: "rgba(211, 158, 23, 0.12)" }}
+            onClick={() => setShowPassword((prev) => !prev)}
+            aria-label={showPassword ? "Ocultar senha" : "Mostrar senha"}
+          >
+            {showPassword ? "Ocultar" : "Mostrar"}
+          </button>
+        </div>
         {errors.password && (
           <p
             id="register-password-error"
@@ -310,6 +327,11 @@ export function RegisterForm({ onSuccess, onLogin }: RegisterFormProps) {
             role="alert"
           >
             {errors.password}
+          </p>
+        )}
+        {!errors.password && (
+          <p id="register-password-hint" className="text-xs mt-1" style={{ color: "#94a3b8" }}>
+            Use pelo menos 6 caracteres.
           </p>
         )}
       </div>
@@ -322,34 +344,45 @@ export function RegisterForm({ onSuccess, onLogin }: RegisterFormProps) {
         >
           Confirmar Senha
         </label>
-        <input
-          id="register-confirm-password"
-          type="password"
-          value={confirmPassword}
-          onChange={(e) => handleConfirmPasswordChange(e.target.value)}
-          onBlur={() => setTouched((prev) => ({ ...prev, confirmPassword: true }))}
-          required
-          autoComplete="new-password"
-          aria-invalid={!!errors.confirmPassword}
-          aria-describedby={
-            errors.confirmPassword ? "register-confirm-password-error" : undefined
-          }
-          className="w-full px-4 py-2.5 rounded-xl border outline-none transition-colors"
-          style={{
-            backgroundColor: "rgba(255, 255, 255, 0.05)",
-            borderColor: errors.confirmPassword
-              ? "#ef4444"
-              : touched.confirmPassword && confirmPassword && !errors.confirmPassword
-              ? "#22c55e"
-              : "rgba(211, 158, 23, 0.2)",
-            color: "#f1f5f9",
-          }}
-          onFocus={(e) =>
-            (e.currentTarget.style.borderColor = errors.confirmPassword
-              ? "#ef4444"
-              : "rgba(211, 158, 23, 0.5)")
-          }
-        />
+        <div className="relative">
+          <input
+            id="register-confirm-password"
+            type={showConfirmPassword ? "text" : "password"}
+            value={confirmPassword}
+            onChange={(e) => handleConfirmPasswordChange(e.target.value)}
+            onBlur={() => setTouched((prev) => ({ ...prev, confirmPassword: true }))}
+            required
+            autoComplete="new-password"
+            aria-invalid={!!errors.confirmPassword}
+            aria-describedby={
+              errors.confirmPassword ? "register-confirm-password-error" : undefined
+            }
+            className="w-full px-4 py-2.5 pr-20 rounded-xl border outline-none transition-colors"
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.05)",
+              borderColor: errors.confirmPassword
+                ? "#ef4444"
+                : touched.confirmPassword && confirmPassword && !errors.confirmPassword
+                ? "#22c55e"
+                : "rgba(211, 158, 23, 0.2)",
+              color: "#f1f5f9",
+            }}
+            onFocus={(e) =>
+              (e.currentTarget.style.borderColor = errors.confirmPassword
+                ? "#ef4444"
+                : "rgba(211, 158, 23, 0.5)")
+            }
+          />
+          <button
+            type="button"
+            className="absolute right-2 top-1/2 -translate-y-1/2 px-2.5 py-1 text-xs rounded-md"
+            style={{ color: "#d39e17", backgroundColor: "rgba(211, 158, 23, 0.12)" }}
+            onClick={() => setShowConfirmPassword((prev) => !prev)}
+            aria-label={showConfirmPassword ? "Ocultar confirmação de senha" : "Mostrar confirmação de senha"}
+          >
+            {showConfirmPassword ? "Ocultar" : "Mostrar"}
+          </button>
+        </div>
         {errors.confirmPassword && (
           <p
             id="register-confirm-password-error"

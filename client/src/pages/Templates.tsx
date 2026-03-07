@@ -1,13 +1,20 @@
 import { useState } from "react";
-import { SearchIcon, DownloadIcon } from "@/utils/icons";
+import { SearchIcon } from "@/utils/icons";
 import { Container } from "@/components/ui/container";
 import { UserProfile } from "@/components/UserProfile";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { SpecialAdvisoryNavCta } from "@/components/SpecialAdvisoryNavCta";
-import { TemplatesSection } from "@/components/TemplatesSection";
+import { TemplatesSidebar, TemplatesGrid } from "@/components/TemplatesSection";
 
 export default function Templates() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [activeStep, setActiveStep] = useState<number | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleClearFilters = () => {
+    setActiveStep(null);
+    setSearchQuery("");
+  };
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#12110d", fontFamily: "'Public Sans', sans-serif" }}>
@@ -44,13 +51,22 @@ export default function Templates() {
 
           {/* Search & Actions */}
           <div className="flex items-center gap-4">
-            <div className="hidden lg:flex items-center rounded-full overflow-hidden" style={{ backgroundColor: "rgba(255, 255, 255, 0.1)", maxWidth: 256 }}>
+            <div
+              className="hidden lg:flex items-center rounded-full overflow-hidden transition-all"
+              style={{
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                maxWidth: 256,
+                borderBottom: searchQuery.length > 0 ? "2px solid #d39e17" : "2px solid transparent",
+              }}
+            >
               <div className="pl-4 flex items-center justify-center">
                 <SearchIcon size="small" label="" />
               </div>
               <input
                 type="text"
                 placeholder="Buscar modelos..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 className="bg-transparent border-none outline-none py-2.5 px-3 text-sm w-full"
                 style={{ color: "#f1f5f9" }}
               />
@@ -81,59 +97,27 @@ export default function Templates() {
           </p>
         </div>
 
-        {/* Quick Downloads */}
-        <div
-          className="mb-8 p-6 rounded-2xl border"
-          style={{
-            backgroundColor: "rgba(22, 40, 71, 0.95)",
-            borderColor: "rgba(211, 158, 23, 0.2)"
-          }}
-        >
-          <h2 className="text-lg font-bold mb-4" style={{ color: "#f1f5f9" }}>
-            Downloads Rápidos
-          </h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <a
-              href="/docs/checklist_documentos.md"
-              download
-              className="flex items-center gap-3 p-4 rounded-xl transition-colors hover:bg-[rgba(211,158,23,0.1)]"
-              style={{ backgroundColor: "rgba(211, 158, 23, 0.05)", border: "1px solid rgba(211, 158, 23, 0.2)" }}
-            >
-              <DownloadIcon size="medium" label="" />
-              <div>
-                <p className="font-medium" style={{ color: "#d39e17" }}>Checklist de Documentos</p>
-                <p className="text-xs" style={{ color: "#64748b" }}>Lista completa do que reunir</p>
-              </div>
-            </a>
-            <a
-              href="/docs/peticao_inicial_jec_sp.md"
-              download
-              className="flex items-center gap-3 p-4 rounded-xl transition-colors hover:bg-[rgba(96,165,250,0.1)]"
-              style={{ backgroundColor: "rgba(96, 165, 250, 0.05)", border: "1px solid rgba(96, 165, 250, 0.2)" }}
-            >
-              <DownloadIcon size="medium" label="" />
-              <div>
-                <p className="font-medium" style={{ color: "#60a5fa" }}>Petição Inicial JEC SP</p>
-                <p className="text-xs" style={{ color: "#64748b" }}>Modelo pré-preenchido</p>
-              </div>
-            </a>
-            <a
-              href="/docs/roteiro_balcao_virtual.md"
-              download
-              className="flex items-center gap-3 p-4 rounded-xl transition-colors hover:bg-[rgba(34,197,94,0.1)]"
-              style={{ backgroundColor: "rgba(34, 197, 94, 0.05)", border: "1px solid rgba(34, 197, 94, 0.2)" }}
-            >
-              <DownloadIcon size="medium" label="" />
-              <div>
-                <p className="font-medium" style={{ color: "#22c55e" }}>Roteiro Balcão Virtual</p>
-                <p className="text-xs" style={{ color: "#64748b" }}>Script de atendimento</p>
-              </div>
-            </a>
+        {/* Two-column layout: Sidebar + Main */}
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
+          {/* Sidebar — sticky on desktop, full width on mobile */}
+          <div className="w-full lg:w-72 xl:w-80 lg:sticky lg:top-24 shrink-0">
+            <TemplatesSidebar
+              activeStep={activeStep}
+              onStepChange={setActiveStep}
+              searchQuery={searchQuery}
+              onSearchChange={setSearchQuery}
+            />
+          </div>
+
+          {/* Main content */}
+          <div className="flex-1 min-w-0">
+            <TemplatesGrid
+              activeStep={activeStep}
+              searchQuery={searchQuery}
+              onClearFilters={handleClearFilters}
+            />
           </div>
         </div>
-
-        {/* Templates Section */}
-        <TemplatesSection />
       </Container>
 
       {/* Footer */}
