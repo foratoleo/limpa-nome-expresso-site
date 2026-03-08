@@ -1,25 +1,64 @@
-import { useState } from "react";
-import { SearchIcon } from "@/utils/icons";
+import { useLocation } from "wouter";
+import { motion } from "framer-motion";
 import { Container } from "@/components/ui/container";
-import { UserProfile } from "@/components/UserProfile";
-import { AuthModal } from "@/components/auth/AuthModal";
+import { ArticleSeo } from "@/components/ArticleSeo";
+import { NewsCard } from "@/components/NewsCard";
 import { SpecialAdvisoryNavCta } from "@/components/SpecialAdvisoryNavCta";
-import { DocumentsList } from "@/components/documents/DocumentsList";
-import { LegalGuidesSection } from "@/components/legal-guides/LegalGuidesSection";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { NEWS_ARTICLES } from "@/data/news-articles";
 
-export default function Documents() {
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("documentos");
+const LISTING_KEYWORDS = [
+  "negativação indevida",
+  "indenização negativação indevida",
+  "dívida caduca 5 anos",
+  "dívida prescrita",
+  "nome sujo Brasil",
+  "telefonia negativação indevida",
+  "notificação prévia negativação",
+  "juizado especial cível sem advogado",
+  "fraude CPF negativação",
+  "score Serasa negativação indevida",
+];
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.07,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4 },
+  },
+};
+
+export default function Noticias() {
+  const [location] = useLocation();
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#12110d", fontFamily: "'Public Sans', sans-serif" }}>
+    <div
+      className="min-h-screen flex flex-col"
+      style={{ backgroundColor: "#12110d", fontFamily: "'Public Sans', sans-serif" }}
+    >
+      <ArticleSeo
+        title="Noticias e Direitos do Consumidor"
+        description="Decisoes judiciais, estatisticas e tudo que o consumidor negativado precisa saber para defender seus direitos."
+        keywords={LISTING_KEYWORDS}
+        canonicalUrl="https://limpa-nome-expresso-site.netlify.app/noticias"
+        type="website"
+      />
+
       {/* Header */}
       <header
         className="sticky top-0 z-50 backdrop-blur-[6px] border-b"
         style={{
           backgroundColor: "rgba(18, 17, 13, 0.5)",
-          borderColor: "rgba(211, 158, 23, 0.2)"
+          borderColor: "rgba(211, 158, 23, 0.2)",
         }}
       >
         <Container as="div" maxWidth="xl" className="flex items-center justify-between py-4">
@@ -32,86 +71,66 @@ export default function Documents() {
                   <path d="M13.5 6L20 10V19L13.5 23L7 19V10L13.5 6Z" fill="#12110d"/>
                 </svg>
               </div>
-              <h2 className="text-lg md:text-xl font-bold whitespace-nowrap hidden sm:block" style={{ color: "#f1f5f9", letterSpacing: "-0.3px" }}>
+              <h2
+                className="text-lg md:text-xl font-bold whitespace-nowrap hidden sm:block"
+                style={{ color: "#f1f5f9", letterSpacing: "-0.3px" }}
+              >
                 Limpa Nome <span style={{ color: "#d39e17" }}>Expresso</span>
               </h2>
             </a>
             <nav className="hidden md:flex items-center gap-6">
               <a href="/guia" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Meus Processos</a>
-              <a href="/documentos" className="text-sm font-medium transition-colors" style={{ color: "#d39e17" }}>Documentos</a>
+              <a href="/documentos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Documentos</a>
               <a href="/modelos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Modelos</a>
               <a href="/suporte" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Suporte</a>
-              <a href="/noticias" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Noticias</a>
+              <a
+                href="/noticias"
+                className="text-sm font-medium transition-colors"
+                style={{ color: location.startsWith("/noticias") ? "#d39e17" : "#cbd5e1" }}
+              >
+                Noticias
+              </a>
               <SpecialAdvisoryNavCta />
             </nav>
           </div>
 
-          {/* Search & Actions */}
+          {/* Actions */}
           <div className="flex items-center gap-4">
-            <div className="hidden lg:flex items-center rounded-full overflow-hidden" style={{ backgroundColor: "rgba(255, 255, 255, 0.1)", maxWidth: 256 }}>
-              <div className="pl-4 flex items-center justify-center">
-                <SearchIcon size="small" label="" />
-              </div>
-              <input
-                type="text"
-                placeholder="Buscar documentos..."
-                className="bg-transparent border-none outline-none py-2.5 px-3 text-sm w-full"
-                style={{ color: "#f1f5f9" }}
-              />
-            </div>
             <div className="md:hidden">
               <SpecialAdvisoryNavCta shortLabel />
             </div>
-            <UserProfile onOpenAuth={() => setIsAuthModalOpen(true)} />
           </div>
         </Container>
       </header>
-
-      {/* Auth Modal */}
-      <AuthModal
-        isOpen={isAuthModalOpen}
-        onClose={() => setIsAuthModalOpen(false)}
-      />
 
       {/* Main Content */}
       <Container as="main" maxWidth="xl" className="py-8 flex-1">
         {/* Page Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-2" style={{ color: "#f1f5f9" }}>
-            Documentos
+          <h1
+            className="font-bold mb-2"
+            style={{ color: "#f1f5f9", fontSize: "2rem" }}
+          >
+            Noticias e Direitos do Consumidor
           </h1>
           <p className="text-sm" style={{ color: "#94a3b8" }}>
-            Gerencie seus documentos e acesse guias jurídicos
+            Decisoes judiciais, estatisticas e orientacoes para consumidores negativados defenderem seus direitos.
           </p>
         </div>
 
-        {/* Tabs Navigation */}
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-2 mb-6" style={{ backgroundColor: "rgba(255, 255, 255, 0.05)" }}>
-            <TabsTrigger
-              value="documentos"
-              className="data-[state=active]:text-[#d39e17] data-[state=active]:bg-[#d39e17]/10"
-              style={{ color: "#cbd5e1" }}
-            >
-              Meus Documentos
-            </TabsTrigger>
-            <TabsTrigger
-              value="guias"
-              className="data-[state=active]:text-[#d39e17] data-[state=active]:bg-[#d39e17]/10"
-              style={{ color: "#cbd5e1" }}
-            >
-              Guias Jurídicos
-            </TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="documentos" className="space-y-6 mt-0">
-            <DocumentsList />
-          </TabsContent>
-
-          <TabsContent value="guias" className="space-y-6 mt-0">
-            <LegalGuidesSection />
-          </TabsContent>
-        </Tabs>
+        {/* Staggered NewsCard Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {NEWS_ARTICLES.map((article) => (
+            <motion.div key={article.id} variants={cardVariants}>
+              <NewsCard article={article} />
+            </motion.div>
+          ))}
+        </motion.div>
       </Container>
 
       {/* Footer */}
@@ -119,7 +138,7 @@ export default function Documents() {
         className="border-t py-8 mt-auto"
         style={{
           backgroundColor: "rgba(18, 17, 13, 0.8)",
-          borderColor: "rgba(211, 158, 23, 0.1)"
+          borderColor: "rgba(211, 158, 23, 0.1)",
         }}
       >
         <Container as="div" maxWidth="xl">
@@ -130,7 +149,7 @@ export default function Documents() {
                 <path d="M9 4L13 6.5V11.5L9 14L5 11.5V6.5L9 4Z" fill="#12110d"/>
               </svg>
               <span className="text-sm" style={{ color: "#64748b" }}>
-                2026 Limpa Nome Expresso. Sistema de Apoio Jurídico Automático.
+                2026 Limpa Nome Expresso. Sistema de Apoio Juridico Automatico.
               </span>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8">

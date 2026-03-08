@@ -39,6 +39,7 @@ export default function Downloads() {
               <a href="/modelos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Modelos</a>
               <a href="/downloads" className="text-sm font-medium transition-colors" style={{ color: "#d39e17" }}>Downloads</a>
               <a href="/suporte" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Suporte</a>
+              <a href="/noticias" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Noticias</a>
               <SpecialAdvisoryNavCta />
             </nav>
           </div>

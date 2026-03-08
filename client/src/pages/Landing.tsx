@@ -85,6 +85,9 @@ export default function Landing() {
               <a href="#faq" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>
                 FAQ
               </a>
+              <a href="/noticias" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>
+                Noticias
+              </a>
             </nav>
           </div>
 

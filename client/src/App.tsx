@@ -2,6 +2,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
+import { HelmetProvider } from "react-helmet-async";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
@@ -27,6 +28,8 @@ import { Agentation } from "agentation";
 import AdminPanel from "./pages/AdminPanel";
 import DebugAccess from "./pages/DebugAccess";
 import SpecialAdvisory from "./pages/SpecialAdvisory";
+import Noticias from "./pages/Noticias";
+import NoticiaDetail from "./pages/NoticiaDetail";
 import { type ReactNode } from "react";
 
 function Router() {
@@ -118,6 +121,8 @@ function Router() {
           <DebugAccess />
         </ProtectedRoute>
       </Route>
+      <Route path={"/noticias"} component={Noticias} />
+      <Route path={"/noticias/:slug"} component={NoticiaDetail} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
@@ -138,6 +143,7 @@ function Router() {
 
 function App() {
   return (
+    <HelmetProvider>
     <ErrorBoundary>
       {/* AuthProvider: Supabase authentication context */}
       <AuthProvider>
@@ -175,6 +181,7 @@ function App() {
         </PaymentProvider>
       </AuthProvider>
     </ErrorBoundary>
+    </HelmetProvider>
   );
 }
 
