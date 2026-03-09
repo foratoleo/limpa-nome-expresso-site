@@ -5,6 +5,8 @@ import { GlobalProgressBar, StickyProgressBar } from "@/components/ProgressBar";
 import { Container } from "@/components/ui/container";
 import { useChecklistSync } from "@/hooks/useChecklistSync";
 import { useCurrentPhase } from "@/hooks/useCurrentPhase";
+import { useSearchGuide } from "@/hooks/useSearchGuide";
+import { SearchResults } from "@/components/SearchResults";
 import { UserProfile } from "@/components/UserProfile";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { GuideButton, GuidePanel, ProcessMap } from "@/components/roadmap";
@@ -18,11 +20,29 @@ export type { Step, CheckItem };
 
 export default function Home() {
   const { checked, toggle, progress, totalChecked, totalItems, resetAll, loading, syncError } = useChecklistSync(TOTAL_ITEMS);
+  const { query, setQuery, results, hasResults, clearSearch } = useSearchGuide();
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isGuideOpen, setIsGuideOpen] = useState(false);
+  const [isSearchResultsOpen, setIsSearchResultsOpen] = useState(false);
   const [selectedPhase, setSelectedPhase] = useState<number | null>(null);
 
   const { currentPhase, phases, nextItem, overallProgress } = useCurrentPhase(checked);
+
+  const handleSearchResultSelect = (result: any) => {
+    if (result.type === 'step' && result.phase) {
+      setSelectedPhase(result.phase);
+      setIsGuideOpen(true);
+    } else if (result.type === 'guide') {
+      // Navigate to guide page (would need to implement guide routes)
+      console.log('Navigate to guide:', result.id);
+    }
+  };
+
+  const handleSearchClick = () => {
+    if (query.trim() && hasResults) {
+      setIsSearchResultsOpen(true);
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#12110d", fontFamily: "'Public Sans', sans-serif" }}>
@@ -30,7 +50,7 @@ export default function Home() {
 
       {/* Header - Figma Design */}
       <header
-        className="sticky top-0 z-50 backdrop-blur-[6px] border-b"
+        className="sticky top-0 z-50 backdrop-blur-[6px] border"
         style={{
           backgroundColor: "rgba(18, 17, 13, 0.5)",
           borderColor: "rgba(211, 158, 23, 0.2)"
@@ -69,11 +89,25 @@ export default function Home() {
               </div>
               <input
                 type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onFocus={() => {
+                  if (query.trim() && hasResults) {
+                    setIsSearchResultsOpen(true);
+                  }
+                }}
                 placeholder="Buscar no guia..."
                 className="bg-transparent border-none outline-none py-2.5 px-3 text-sm w-full"
                 style={{ color: "#f1f5f9" }}
               />
             </div>
+            <button
+              onClick={handleSearchClick}
+              className="hidden lg:flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/10 transition-colors"
+              style={{ backgroundColor: "rgba(255, 255, 255, 0.05)" }}
+            >
+              <SearchIcon size="small" label="" />
+            </button>
             <div className="md:hidden">
               <SpecialAdvisoryNavCta shortLabel />
             </div>
@@ -86,6 +120,14 @@ export default function Home() {
       <AuthModal
         isOpen={isAuthModalOpen}
         onClose={() => setIsAuthModalOpen(false)}
+      />
+
+      {/* Search Results */}
+      <SearchResults
+        results={results}
+        isOpen={isSearchResultsOpen}
+        onClose={() => setIsSearchResultsOpen(false)}
+        onSelect={handleSearchResultSelect}
       />
 
       {/* Welcome Section - Compact */}

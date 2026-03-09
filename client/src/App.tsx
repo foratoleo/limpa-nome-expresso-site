@@ -30,6 +30,7 @@ import DebugAccess from "./pages/DebugAccess";
 import SpecialAdvisory from "./pages/SpecialAdvisory";
 import Noticias from "./pages/Noticias";
 import NoticiaDetail from "./pages/NoticiaDetail";
+import GuidePage from "./pages/GuidePage";
 import { type ReactNode } from "react";
 
 function Router() {
@@ -46,6 +47,8 @@ function Router() {
           <Home />
         </ProtectedRoute>
       </Route>
+      <Route path={"/guia/:id"} component={GuidePage} />
+      <Route path={"/guia/:slug"} component={GuidePage} />
       <Route path={"/documentos"}>
         <ProtectedRoute requirePayment={true}>
           <Documents />

@@ -58,11 +58,13 @@ export { default as ChevronRightIcon } from "@atlaskit/icon/core/chevron-right";
 export { default as TrashIcon } from "@atlaskit/icon/core/delete";
 export { default as AddCircleIcon } from "@atlaskit/icon/core/add";
 export { default as EditIcon } from "@atlaskit/icon/core/edit";
+export { default as ArrowLeftIcon } from "@atlaskit/icon/core/arrow-left";
 
 // Aliases for convenience (proper re-export pattern for default exports)
 import BookWithBookmarkIconAlias from "@atlaskit/icon/core/book-with-bookmark";
 import CrossIconAlias from "@atlaskit/icon/core/cross";
-export { BookWithBookmarkIconAlias as BookOpenIcon, CrossIconAlias as XIcon };
+import LinkExternalIconAlias from "@atlaskit/icon/core/link-external";
+export { BookWithBookmarkIconAlias as BookOpenIcon, CrossIconAlias as XIcon, LinkExternalIconAlias as ExternalLinkIcon };
 
 // ============================================================================
 // lucide-react Imports (Fallback for unavailable @atlaskit equivalents)
