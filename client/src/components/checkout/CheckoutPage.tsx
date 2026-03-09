@@ -292,16 +292,16 @@ export function CheckoutPage() {
                 <div className="flex-1 h-px" style={{ backgroundColor: 'rgba(211, 158, 23, 0.2)' }} />
               </div>
 
-              {/* MercadoPago Button */}
+              {/* Kiwify Button - Primary */}
               <button
-                onClick={handleMercadoPagoPayment}
+                onClick={handleKiwifyPayment}
                 disabled={loading !== null}
                 className="w-full mt-4 py-4 px-6 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2"
                 style={{
-                  backgroundColor: loading === 'mercadopago' ? 'rgba(211, 158, 23, 0.5)' : COLORS.gold,
+                  backgroundColor: loading === 'kiwify' ? 'rgba(211, 158, 23, 0.5)' : COLORS.gold,
                   color: '#12110d',
                   cursor: loading !== null ? 'not-allowed' : 'pointer',
-                  opacity: loading !== null && loading !== 'mercadopago' ? 0.5 : 1,
+                  opacity: loading !== null && loading !== 'kiwify' ? 0.5 : 1,
                 }}
                 onMouseEnter={(e) => {
                   if (loading === null) {
@@ -312,7 +312,7 @@ export function CheckoutPage() {
                   e.currentTarget.style.backgroundColor = COLORS.gold;
                 }}
               >
-                {loading === 'mercadopago' ? (
+                {loading === 'kiwify' ? (
                   <>
                     <div
                       className="animate-spin rounded-full h-5 w-5 border-2"
@@ -325,7 +325,7 @@ export function CheckoutPage() {
                   </>
                 ) : (
                   <>
-                    PAGAR COM MERCADOPAGO
+                    PAGAR COM KIWIFY
                     <svg
                       width="20"
                       height="20"
@@ -343,17 +343,17 @@ export function CheckoutPage() {
                 )}
               </button>
 
-              {/* Kiwify Button */}
+              {/* MercadoPago Button - Secondary */}
               <button
-                onClick={handleKiwifyPayment}
+                onClick={handleMercadoPagoPayment}
                 disabled={loading !== null}
                 className="w-full mt-3 py-4 px-6 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2 border-2"
                 style={{
-                  backgroundColor: loading === 'kiwify' ? 'rgba(34, 197, 94, 0.1)' : 'transparent',
-                  borderColor: loading === 'kiwify' ? COLORS.green : 'rgba(34, 197, 94, 0.5)',
-                  color: loading === 'kiwify' ? COLORS.green : '#22c55e',
+                  backgroundColor: loading === 'mercadopago' ? 'rgba(34, 197, 94, 0.1)' : 'transparent',
+                  borderColor: loading === 'mercadopago' ? COLORS.green : 'rgba(34, 197, 94, 0.5)',
+                  color: loading === 'mercadopago' ? COLORS.green : '#22c55e',
                   cursor: loading !== null ? 'not-allowed' : 'pointer',
-                  opacity: loading !== null && loading !== 'kiwify' ? 0.5 : 1,
+                  opacity: loading !== null && loading !== 'mercadopago' ? 0.5 : 1,
                 }}
                 onMouseEnter={(e) => {
                   if (loading === null) {
@@ -361,12 +361,12 @@ export function CheckoutPage() {
                   }
                 }}
                 onMouseLeave={(e) => {
-                  if (loading !== 'kiwify') {
+                  if (loading !== 'mercadopago') {
                     e.currentTarget.style.backgroundColor = 'transparent';
                   }
                 }}
               >
-                {loading === 'kiwify' ? (
+                {loading === 'mercadopago' ? (
                   <>
                     <div
                       className="animate-spin rounded-full h-5 w-5 border-2"
@@ -379,7 +379,7 @@ export function CheckoutPage() {
                   </>
                 ) : (
                   <>
-                    PAGAR COM KIWIFY
+                    PAGAR COM MERCADOPAGO
                     <svg
                       width="20"
                       height="20"
