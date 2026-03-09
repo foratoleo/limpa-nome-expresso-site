@@ -1,20 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <defs>
-    <linearGradient id="shield-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e40af"/>
-      <stop offset="100%" style="stop-color:#3b82f6"/>
+    <linearGradient id="bg" x1="10" y1="8" x2="54" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#162847"/>
+      <stop offset="1" stop-color="#12110d"/>
     </linearGradient>
-    <linearGradient id="check-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#22c55e"/>
-      <stop offset="100%" style="stop-color:#16a34a"/>
+    <linearGradient id="gold" x1="16" y1="14" x2="46" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f0c04d"/>
+      <stop offset="1" stop-color="#d39e17"/>
+    </linearGradient>
+    <linearGradient id="green" x1="33" y1="30" x2="47" y2="45" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4ade80"/>
+      <stop offset="1" stop-color="#16a34a"/>
     </linearGradient>
   </defs>
-  <!-- Shield background -->
-  <path d="M16 2L4 7v9c0 7.18 5.12 13.89 12 16 6.88-2.11 12-8.82 12-16V7L16 2z" fill="url(#shield-gradient)"/>
-  <!-- Inner shield highlight -->
-  <path d="M16 4L6 8.5V16c0 6.02 4.27 11.65 10 13.5 5.73-1.85 10-7.48 10-13.5V8.5L16 4z" fill="none" stroke="#60a5fa" stroke-width="0.5" opacity="0.5"/>
-  <!-- Check mark -->
-  <path d="M10 16l4 4 8-8" stroke="url(#check-gradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <!-- Shine effect -->
-  <ellipse cx="12" cy="10" rx="3" ry="2" fill="white" opacity="0.15"/>
+  <rect x="6" y="6" width="52" height="52" rx="16" fill="url(#bg)"/>
+  <rect x="8.5" y="8.5" width="47" height="47" rx="13.5" stroke="#d39e17" stroke-opacity=".28" stroke-width="1.5"/>
+  <path d="M22 18c0-1.1.9-2 2-2h6c1.1 0 2 .9 2 2v24h13c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2H24c-1.1 0-2-.9-2-2V18Z" fill="url(#gold)"/>
+  <path d="M18 15.5c0-1.38 1.12-2.5 2.5-2.5h10.75c1.38 0 2.5 1.12 2.5 2.5V19h-4v-1.5h-7.75V44H18V15.5Z" fill="#fff3cf" opacity=".18"/>
+  <path d="M28.5 36.5l5.25 5.25L46 29.5" stroke="url(#green)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="46" cy="19" r="3" fill="#60a5fa" opacity=".9"/>
 </svg>
