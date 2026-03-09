@@ -1,112 +1,179 @@
-# External Integrations
+# Integrations
 
-**Analysis Date:** 2026-02-25
+## Overview
 
-## APIs & External Services
+- The main external platform is Supabase for auth, database, and file storage.
+- Payments are split across two providers in source:
+  - Mercado Pago is the active checkout path for the current landing/checkout flow.
+  - Stripe subscription infrastructure still exists and is still used by billing/admin access code paths.
+- Email sending uses EmailIt on the Express/Netlify paths, with a logging-only fallback in the Vercel contact handler.
+- No SMS provider, analytics SDK, or error-monitoring SDK is wired in current source.
 
-**Mapping & Geolocation:**
-- Google Maps Platform - Interactive maps component
-  - SDK/Client: Google Maps JavaScript API (via custom proxy)
-  - Libraries: marker, places, geocoding, geometry
-  - Implementation: `/client/src/components/Map.tsx`
-  - Proxy: Butterfly Effect Forge (`https://forge.butterflyeffect.dev/v1/maps/proxy`)
-  - Auth: `VITE_FRONTEND_FORGE_API_KEY` environment variable
-  - Type definitions: `@types/google.maps@^3.58.1`
+## Database, Auth, And Storage
 
-**Authentication (configured but not actively used in current codebase):**
-- OAuth Portal - External authentication service
-  - Environment variables: `VITE_OAUTH_PORTAL_URL`, `VITE_APP_ID`
-  - Redirect URI pattern: `{origin}/api/oauth/callback`
-  - Implementation: `/client/src/const.ts` (getLoginUrl function)
+### Supabase
 
-## Data Storage
+- Frontend client: `client/src/lib/supabase.ts`
+- Backend/admin clients:
+  - `server/lib/supabase-server.ts`
+  - direct `createClient(...)` usage in `server/routes/auth.ts`, `server/routes/payments.ts`, `server/routes/admin-access.ts`, `server/routes/admin-users.ts`, `server/routes/stripe.ts`, `server/routes/mercadopago.ts`, and `server/middleware/*.ts`
+  - Netlify wrapper usage in `netlify/functions/api.ts`
+  - Vercel serverless usage in `api/payments/status.js`, `api/mercadopago-webhook.js`, and `api/admin/access/*.js`
+- Auth model:
+  - Supabase Auth email/password sign-in in `client/src/contexts/AuthContext.tsx`
+  - Supabase magic links in `client/src/contexts/AuthContext.tsx`
+  - PKCE callback completion in `client/src/pages/AuthCallback.tsx`
+  - Backend-assisted registration with admin user creation and custom confirmation links in `server/routes/auth.ts`
+- Storage:
+  - Supabase Storage bucket `user-documents` is used in `client/src/hooks/useDocuments.ts`
+  - The app stores public URLs from Supabase Storage in the `user_documents` table
+- Schema/migrations:
+  - Base app data in `supabase/migrations/001_initial_schema.sql`
+  - document linking in `supabase/migrations/002_checklist_documents.sql`
+  - Stripe-related schema in `supabase/migrations/002_stripe_schema.sql`
+  - manual access in `supabase/migrations/003_manual_access.sql`
+  - payment access in `supabase/migrations/007_create_user_access_table.sql`
+  - admin audit log in `supabase/migrations/010_admin_audit_log.sql`
 
-**Databases:**
-- None - Static site with no database integration
+## Payment Providers
 
-**Client-Side Storage:**
-- localStorage - Checklist progress persistence
-  - Key: `limpa-nome-checklist`
-  - Implementation: `/client/src/pages/Home.tsx` (useChecklist hook)
-  - Data: JSON object mapping item IDs to boolean completion state
+### Mercado Pago
 
-**File Storage:**
-- Local filesystem - Static markdown documents
-  - Location: `/client/public/docs/`
-  - Files:
-    - `checklist_documentos.md` - Complete document checklist
-    - `peticao_inicial_jec_sp.md` - JEC SP initial petition template
-    - `roteiro_balcao_virtual.md` - Virtual counter speaking script
-  - Served via Express static middleware or Vite dev server
+- SDK integration lives in `server/lib/mercadopago.ts` using the `mercadopago` package.
+- Product/pricing config is hardcoded in:
+  - `client/src/lib/mercadopago-config.ts`
+  - `server/lib/mercadopago-config.ts`
+- Active frontend usage:
+  - Main checkout page `client/src/components/checkout/CheckoutPage.tsx`
+  - Special advisory upsell `client/src/pages/SpecialAdvisory.tsx`
+  - Client helper `client/src/lib/api/mercadopago.ts` posts to `/api/create-preference`
+- Express endpoints:
+  - `POST /api/mercadopago/create-preference` in `server/routes/mercadopago.ts`
+  - `GET /api/mercadopago/payment/:paymentId` in `server/routes/mercadopago.ts`
+  - `POST /api/mercadopago/webhook` in `server/routes/mercadopago.ts`
+  - `GET /api/mercadopago/config` in `server/routes/mercadopago.ts`
+- Vercel endpoints:
+  - `api/create-preference.js`
+  - `api/mercadopago.js`
+  - `api/mercadopago-webhook.js`
+- Business effect of approved payments:
+  - inserts `payments` rows
+  - grants `user_access`
+  - uses `payment_provider = 'mercadopago'` in `server/routes/mercadopago.ts`
+- Webhook notes:
+  - Express path verifies headers with `verifyWebhookSignature(...)` in `server/lib/mercadopago.ts`
+  - current signature helper logs that HMAC verification is not fully implemented yet
 
-**Caching:**
-- None - No caching layer implemented
+### Stripe
 
-## Authentication & Identity
+- Stripe server integration exists in `server/routes/stripe.ts`.
+- Stripe webhook processing exists in `server/middleware/stripe-webhook.ts`.
+- Frontend subscription/billing config exists in:
+  - `client/src/lib/stripe-config.ts`
+  - `client/src/hooks/useSubscription.ts`
+  - `client/src/pages/Billing.tsx`
+  - `client/src/components/pricing/*.tsx`
+- Stripe-backed data model exists in `supabase/migrations/002_stripe_schema.sql`:
+  - `stripe_customers`
+  - `subscriptions`
+  - `payments`
+  - cached `products` and `prices`
+- Current storefront status:
+  - `client/src/pages/Landing.tsx` explicitly comments that the old Stripe pricing section was removed
+  - Stripe remains available in code for subscription checkout and billing portal flows, but it is not the current landing-page purchase path
 
-**Auth Provider:**
-- Custom OAuth integration (configured but not actively used)
-  - Implementation: External OAuth Portal service
-  - Cookie name: `app_session_id` (defined in `/shared/const.ts`)
-  - Cookie duration: ONE_YEAR_MS (365 days)
-  - Note: Authentication infrastructure exists but current site is public/read-only
+## Email Providers
 
-## Monitoring & Observability
+### EmailIt
 
-**Error Tracking:**
-- Console-based error logging
-- Custom debug collector plugin for development (`vitePluginManusDebugCollector` in `vite.config.ts`)
+- Primary email client: `server/lib/emailit.ts`
+- Email service wrapper: `server/services/email.service.ts`
+- Used for:
+  - registration/confirmation emails in `server/routes/auth.ts`
+  - support/contact form delivery in `server/routes/contact.ts`
+  - equivalent Netlify implementation in `netlify/functions/api.ts`
+- Required env on these paths:
+  - `EMAILIT_API_KEY`
+  - `EMAILIT_DEFAULT_FROM`
+- Fallback behavior:
+  - `server/routes/contact.ts` logs the message payload if EmailIt is not configured
+  - `server/routes/auth.ts` still creates the user even if custom email sending is skipped
 
-**Logs:**
-- Manus Debug Collector - Development-only browser log collection
-  - Logs written to: `/.manus-logs/`
-  - Files: `browserConsole.log`, `networkRequests.log`, `sessionReplay.log`
-  - Max size: 1MB per file (auto-trims to 60%)
-  - Endpoint: `POST /__manus__/logs` (dev only)
-  - Injected script: `/__manus__/debug-collector.js` (dev only)
+### Vercel Contact Fallback
 
-## CI/CD & Deployment
+- `api/contact/send.ts` does not currently send via a provider.
+- It logs the composed message and contains TODO comments for a future provider such as Resend or SendGrid.
+- If the app is deployed on Vercel using this handler, contact email delivery is not a real external integration yet.
 
-**Hosting:**
-- Not detected - Configuration not present in codebase
-- Build output: `/dist/public` (static files)
+## Admin And Audit Integrations
 
-**CI Pipeline:**
-- None detected - No GitHub Actions, GitLab CI, or similar configuration files
+- Admin authorization is based on Supabase JWT/user metadata role checks in:
+  - `server/middleware/admin-auth.ts`
+  - `api/admin/access/*.js`
+  - `netlify/functions/api.ts`
+- Audit trail writes go to Supabase table `admin_audit_log` via `server/lib/audit-logger.ts`.
+- Admin APIs present in source:
+  - Express: `server/routes/admin-access.ts`, `server/routes/admin-users.ts`
+  - Vercel: `api/admin/access/list.js`, `api/admin/access/grant.js`, `api/admin/access/[userId].js`
 
-## Environment Configuration
+## Webhooks
 
-**Required env vars:**
-- `VITE_FRONTEND_FORGE_API_KEY` - Google Maps API proxy authentication
-- `VITE_FRONTEND_FORGE_API_URL` - Forge API base URL (optional, defaults to https://forge.butterflyeffect.dev)
-- `VITE_OAUTH_PORTAL_URL` - OAuth portal URL (not actively used)
-- `VITE_APP_ID` - OAuth application ID (not actively used)
-- `PORT` - Server port (optional, defaults to 3000)
-- `NODE_ENV` - Environment mode (development/production)
+- Stripe webhook endpoint: `POST /api/stripe/webhook` in `server/index.ts`, handled by `server/middleware/stripe-webhook.ts`
+- Mercado Pago webhook endpoint:
+  - Express: `POST /api/mercadopago/webhook` in `server/routes/mercadopago.ts`
+  - Vercel: `api/mercadopago-webhook.js`
+- Both webhook families mutate Supabase records to reflect payment/access state.
 
-**Secrets location:**
-- Environment variables via import.meta.env (Vite convention)
-- No .env files committed to repository (per .gitignore)
-- No secrets management integration detected
+## Maps And Other Third-Party Services
 
-## Webhooks & Callbacks
+### Google Maps Via Forge Proxy
 
-**Incoming:**
-- `/api/oauth/callback` - OAuth callback route (configured but route handler not implemented in current server code)
+- `client/src/components/Map.tsx` loads the Google Maps JS API through a proxy URL:
+  - default proxy base `https://forge.butterfly-effect.dev`
+  - path `${FORGE_BASE_URL}/v1/maps/proxy`
+- Required env for this path:
+  - `VITE_FRONTEND_FORGE_API_KEY`
+  - optional `VITE_FRONTEND_FORGE_API_URL`
+- This is an optional frontend-only integration. I did not find current page wiring that proves it is part of the primary user flow.
 
-**Outgoing:**
-- None - Site is static/read-only with no external API calls
+### Agentation
 
-## External Links (User-Facing)
+- `agentation` is mounted in development only in `client/src/App.tsx`.
+- This is a local/dev UX integration rather than a production third-party customer service.
 
-The site links to external government services:
-- TJSP Peticionamento JEC: https://www.tjsp.jus.br/peticionamentojec
-- TJSP Balcão Virtual: https://www.tjsp.jus.br/balcaovirtual
-- e-SAJ Process Search: https://esaj.tjsp.jus.br/cpopg/open.do
-- Serasa (credit check): https://www.serasa.com.br
+## Analytics, Tracking, And Monitoring
 
-These are informational links only - no API integration with these services.
+- SEO metadata is handled locally with `react-helmet-async` in `client/src/components/ArticleSeo.tsx`.
+- I did not find active integrations for:
+  - Google Analytics / GA4
+  - Meta Pixel
+  - PostHog
+  - Mixpanel
+  - Hotjar
+  - Sentry
+  - Intercom / Crisp
+- News/article content is local static content in `client/src/data/news-articles.ts` and `client/public/docs/`; there is no CMS or external content API in current source.
 
----
+## SMS And Messaging
 
-*Integration audit: 2026-02-25*
+- No Twilio, MessageBird, WhatsApp API, Telegram bot, or similar SMS/chat provider integration appears in current source.
+- Some UI copy mentions support channels, but I did not find an implemented messaging API.
+
+## Environment-Driven Integration Surface
+
+- Integration-related env templates are documented in `.env.example`.
+- Hosting-specific routing/config files that affect integrations:
+  - `vercel.json`
+  - `netlify.toml`
+  - `netlify/functions/api.ts`
+- Current source also includes tracked local/prod env files:
+  - `.env.local`
+  - `.env.production`
+- For planning, treat those checked-in env files as current repo state, but the canonical variable inventory should still come from `.env.example` plus code reads.
+
+## Practical Planning Notes
+
+- Canonical external platform today is Supabase.
+- Canonical payment flow for the public checkout is Mercado Pago.
+- Stripe is still a real dependency because billing/subscription code and schema are present, but it is not the current landing-page checkout path.
+- Backend integration behavior can differ by target because Express, Netlify, and Vercel each implement overlapping API logic separately.
