@@ -25,6 +25,7 @@ O projeto foi desenvolvido para orientar o cidadão paulista a exercer seu direi
 - **Links diretos** para o e-SAJ, Balcão Virtual e consulta processual
 - **Seção explicativa** sobre a diferença entre JEC (e-SAJ) e Balcão Virtual
 - **Alertas de golpe** e base legal completa
+- **Multiplos gateways de pagamento**: MercadoPago, Stripe e Kiwify
 
 ---
 
@@ -76,6 +77,43 @@ Os documentos estão em `client/public/docs/`:
 - **Art. 300 do CPC:** Requisitos para concessão de tutela de urgência
 - **Art. 9º da Lei 9.099/95:** Dispensa de advogado no JEC para causas até 20 salários mínimos
 - **Resolução CNJ nº 372/21:** Institui o Balcão Virtual nos tribunais
+
+---
+
+## Integracao de Pagamentos
+
+O projeto suporta multiplos gateways de pagamento para oferecer flexibilidade aos usuarios:
+
+| Gateway | Status | Uso |
+|:---|:---|:---|
+| MercadoPago | Producao | Checkout principal para pagamentos via PIX, cartao e boleto |
+| Stripe | Producao | Alternativa internacional para pagamentos com cartao |
+| Kiwify | Producao | Checkout otimizado com alta conversao para publico brasileiro |
+
+### Configuracao do Kiwify
+
+Para configurar a integracao com Kiwify, adicione as seguintes variaveis de ambiente:
+
+```bash
+# Kiwify Configuration
+KIWIFY_CLIENT_ID=seu-client-id        # UUID do Kiwify Dashboard > Apps > API
+KIWIFY_CLIENT_SECRET=seu-client-secret # Secredo do OAuth (nunca expor no cliente)
+KIWIFY_ACCOUNT_ID=seu-account-id      # ID da conta para isolamento multi-tenant
+KIWIFY_WEBHOOK_TOKEN=seu-webhook-token # Token para verificar webhooks
+```
+
+**Endpoints do Kiwify:**
+- Webhook: `POST /api/webhooks/kiwify`
+- Configuracao: `GET /api/kiwify/config`
+- Health Check: `GET /api/kiwify/health`
+
+**Eventos de webhook suportados:**
+- `compra_aprovada` - Cria/atualiza usuario com acesso premium
+- `compra_recusada` - Registra pagamento recusado
+- `compra_reembolsada` - Revoga acesso do usuario
+- `chargeback` - Revoga acesso imediatamente
+
+Para documentacao completa da integracao, consulte o arquivo `.env.example`.
 
 ---
 

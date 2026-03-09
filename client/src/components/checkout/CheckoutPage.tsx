@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Container } from '@/components/ui/container';
 import { MERCADOPAGO_PRODUCT } from '@/lib/mercadopago-config';
+import { KIWIFY_PRODUCT, KIWIFY_API_ENDPOINTS } from '@/lib/kiwify-config';
 import { createSingleItemPreference } from '@/lib/api/mercadopago';
 import { BenefitsList } from './BenefitsList';
 import { PricingCard } from './PricingCard';
 import { useAuth } from '@/contexts/AuthContext';
+import { trackCheckoutInitiated, trackCheckoutFailed } from '@/lib/analytics';
+
+type PaymentProvider = 'mercadopago' | 'kiwify';
 
 const COLORS = {
   background: '#12110d',
@@ -17,7 +21,7 @@ const COLORS = {
 } as const;
 
 export function CheckoutPage() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<PaymentProvider | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [showSignupPopup, setShowSignupPopup] = useState(false);
   const [signupEmail, setSignupEmail] = useState<string | null>(null);
@@ -40,9 +44,20 @@ export function CheckoutPage() {
     }
   }, [user?.email]);
 
-  const handlePayment = async () => {
+  const handleMercadoPagoPayment = async () => {
     setError(null);
-    setLoading(true);
+    setLoading('mercadopago');
+
+    // Track checkout initiated event
+    trackCheckoutInitiated({
+      provider: 'mercadopago',
+      product_id: MERCADOPAGO_PRODUCT.id,
+      product_name: MERCADOPAGO_PRODUCT.title,
+      price: MERCADOPAGO_PRODUCT.unit_price,
+      currency: MERCADOPAGO_PRODUCT.currency,
+      user_id: user?.id,
+      email: user?.email,
+    });
 
     try {
       const { checkoutUrl } = await createSingleItemPreference({
@@ -59,11 +74,90 @@ export function CheckoutPage() {
         throw new Error('Checkout URL not returned');
       }
     } catch (err) {
-      console.error('Payment error:', err);
+      console.error('MercadoPago payment error:', err);
+      const errorMessage = err instanceof Error ? err.message : 'Unknown error';
       setError(
-        'Erro ao processar pagamento. Por favor, tente novamente ou entre em contato com o suporte.'
+        'Erro ao processar pagamento via MercadoPago. Por favor, tente novamente ou use a opcao Kiwify.'
       );
-      setLoading(false);
+
+      // Track checkout failed event
+      trackCheckoutFailed({
+        provider: 'mercadopago',
+        product_id: MERCADOPAGO_PRODUCT.id,
+        product_name: MERCADOPAGO_PRODUCT.title,
+        price: MERCADOPAGO_PRODUCT.unit_price,
+        currency: MERCADOPAGO_PRODUCT.currency,
+        user_id: user?.id,
+        email: user?.email,
+        error_message: errorMessage,
+      });
+
+      setLoading(null);
+    }
+  };
+
+  const handleKiwifyPayment = async () => {
+    setError(null);
+    setLoading('kiwify');
+
+    // Track checkout initiated event
+    trackCheckoutInitiated({
+      provider: 'kiwify',
+      product_id: KIWIFY_PRODUCT.id,
+      product_name: KIWIFY_PRODUCT.title,
+      price: KIWIFY_PRODUCT.unit_price,
+      currency: KIWIFY_PRODUCT.currency,
+      user_id: user?.id,
+      email: user?.email,
+    });
+
+    try {
+      const response = await fetch(KIWIFY_API_ENDPOINTS.createPreference, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: user?.id,
+          email: user?.email,
+          metadata: {
+            source: 'checkout_page',
+          },
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create Kiwify checkout');
+      }
+
+      const data = await response.json();
+
+      // Redirect to Kiwify checkout
+      if (data.checkoutUrl) {
+        window.location.href = data.checkoutUrl;
+      } else {
+        throw new Error('Checkout URL not returned');
+      }
+    } catch (err) {
+      console.error('Kiwify payment error:', err);
+      const errorMessage = err instanceof Error ? err.message : 'Unknown error';
+      setError(
+        'Erro ao processar pagamento via Kiwify. Por favor, tente novamente ou use a opcao MercadoPago.'
+      );
+
+      // Track checkout failed event
+      trackCheckoutFailed({
+        provider: 'kiwify',
+        product_id: KIWIFY_PRODUCT.id,
+        product_name: KIWIFY_PRODUCT.title,
+        price: KIWIFY_PRODUCT.unit_price,
+        currency: KIWIFY_PRODUCT.currency,
+        user_id: user?.id,
+        email: user?.email,
+        error_message: errorMessage,
+      });
+
+      setLoading(null);
     }
   };
 
@@ -189,19 +283,28 @@ export function CheckoutPage() {
                 </div>
               )}
 
-              {/* Pay Button */}
+              {/* Payment Options Divider */}
+              <div className="mt-6 flex items-center gap-4">
+                <div className="flex-1 h-px" style={{ backgroundColor: 'rgba(211, 158, 23, 0.2)' }} />
+                <span className="text-xs font-medium" style={{ color: COLORS.textSecondary }}>
+                  Escolha sua forma de pagamento
+                </span>
+                <div className="flex-1 h-px" style={{ backgroundColor: 'rgba(211, 158, 23, 0.2)' }} />
+              </div>
+
+              {/* MercadoPago Button */}
               <button
-                onClick={handlePayment}
-                disabled={loading}
-                className="w-full mt-6 py-4 px-6 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2"
+                onClick={handleMercadoPagoPayment}
+                disabled={loading !== null}
+                className="w-full mt-4 py-4 px-6 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2"
                 style={{
-                  backgroundColor: loading ? 'rgba(211, 158, 23, 0.5)' : COLORS.gold,
+                  backgroundColor: loading === 'mercadopago' ? 'rgba(211, 158, 23, 0.5)' : COLORS.gold,
                   color: '#12110d',
-                  cursor: loading ? 'not-allowed' : 'pointer',
-                  opacity: loading ? 0.7 : 1,
+                  cursor: loading !== null ? 'not-allowed' : 'pointer',
+                  opacity: loading !== null && loading !== 'mercadopago' ? 0.5 : 1,
                 }}
                 onMouseEnter={(e) => {
-                  if (!loading) {
+                  if (loading === null) {
                     e.currentTarget.style.backgroundColor = COLORS.goldLight;
                   }
                 }}
@@ -209,7 +312,7 @@ export function CheckoutPage() {
                   e.currentTarget.style.backgroundColor = COLORS.gold;
                 }}
               >
-                {loading ? (
+                {loading === 'mercadopago' ? (
                   <>
                     <div
                       className="animate-spin rounded-full h-5 w-5 border-2"
@@ -222,7 +325,61 @@ export function CheckoutPage() {
                   </>
                 ) : (
                   <>
-                    PAGAR AGORA
+                    PAGAR COM MERCADOPAGO
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </>
+                )}
+              </button>
+
+              {/* Kiwify Button */}
+              <button
+                onClick={handleKiwifyPayment}
+                disabled={loading !== null}
+                className="w-full mt-3 py-4 px-6 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2 border-2"
+                style={{
+                  backgroundColor: loading === 'kiwify' ? 'rgba(34, 197, 94, 0.1)' : 'transparent',
+                  borderColor: loading === 'kiwify' ? COLORS.green : 'rgba(34, 197, 94, 0.5)',
+                  color: loading === 'kiwify' ? COLORS.green : '#22c55e',
+                  cursor: loading !== null ? 'not-allowed' : 'pointer',
+                  opacity: loading !== null && loading !== 'kiwify' ? 0.5 : 1,
+                }}
+                onMouseEnter={(e) => {
+                  if (loading === null) {
+                    e.currentTarget.style.backgroundColor = 'rgba(34, 197, 94, 0.1)';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (loading !== 'kiwify') {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                  }
+                }}
+              >
+                {loading === 'kiwify' ? (
+                  <>
+                    <div
+                      className="animate-spin rounded-full h-5 w-5 border-2"
+                      style={{
+                        borderColor: COLORS.green,
+                        borderTopColor: 'transparent',
+                      }}
+                    />
+                    Processando...
+                  </>
+                ) : (
+                  <>
+                    PAGAR COM KIWIFY
                     <svg
                       width="20"
                       height="20"
@@ -259,7 +416,7 @@ export function CheckoutPage() {
                     />
                   </svg>
                   <span className="text-xs" style={{ color: COLORS.textSecondary }}>
-                    Pagamento 100% seguro via MercadoPago
+                    Pagamento 100% seguro via MercadoPago ou Kiwify
                   </span>
                 </div>
                 <div className="flex items-center justify-center gap-2">
@@ -279,7 +436,7 @@ export function CheckoutPage() {
                     />
                   </svg>
                   <span className="text-xs" style={{ color: COLORS.textSecondary }}>
-                    Acesso liberado imediatamente após confirmação
+                    Acesso liberado imediatamente apos confirmacao
                   </span>
                 </div>
               </div>
