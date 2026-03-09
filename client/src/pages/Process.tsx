@@ -4,7 +4,8 @@ import { useCurrentPhase } from "@/hooks/useCurrentPhase";
 import { Container } from "@/components/ui/container";
 import { Progress } from "@/components/ui/progress";
 import { SpecialAdvisoryNavCta } from "@/components/SpecialAdvisoryNavCta";
-import { CheckCircle2, Circle, Clock, ArrowRight, ExternalLink, FileText, Scale, Video, Search } from "lucide-react";
+import { SiteHeader } from "@/components/SiteHeader";
+import { CheckCircle2, Circle, Clock, ArrowRight, FileText, Scale, Video, Search } from "lucide-react";
 import { TOTAL_ITEMS } from "@/data/steps";
 
 const PHASE_ICONS = {
@@ -17,23 +18,23 @@ const PHASE_ICONS = {
 
 const QUICK_LINKS = [
   {
-    href: "https://www.tjsp.jus.br/peticionamentojec",
-    title: "Peticionamento JEC",
-    description: "Protocolar ação no e-SAJ",
+    href: "/modelos",
+    title: "Modelos de Protocolo",
+    description: "Use os modelos prontos para peticionar",
     icon: Scale,
     color: "#22c55e",
   },
   {
-    href: "https://www.tjsp.jus.br/balcaovirtual",
-    title: "Balcão Virtual",
-    description: "Atendimento por videoconferência",
+    href: "/downloads",
+    title: "Roteiros e Downloads",
+    description: "Baixe os arquivos de apoio do processo",
     icon: Video,
     color: "#60a5fa",
   },
   {
-    href: "https://esaj.tjsp.jus.br/cpopg/open.do",
-    title: "Consulta Processual",
-    description: "Acompanhe seu processo",
+    href: "/suporte",
+    title: "Central de Suporte",
+    description: "Orientações para cada etapa do fluxo",
     icon: Search,
     color: "#d39e17",
   },
@@ -65,41 +66,21 @@ export default function Process() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#12110d" }}>
-      {/* Header */}
-      <header
-        className="sticky top-0 z-50 backdrop-blur-[6px] border-b"
-        style={{
-          backgroundColor: "rgba(18, 17, 13, 0.9)",
-          borderColor: "rgba(211, 158, 23, 0.2)",
-        }}
-      >
-        <Container as="div" maxWidth="xl" className="flex items-center justify-between py-4">
-          <a href="/guia" className="flex items-center gap-3">
-            <div className="w-8 h-8 flex items-center justify-center">
-              <svg width="27" height="29" viewBox="0 0 27 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M13.5 0L26.5 8V21L13.5 29L0.5 21V8L13.5 0Z" fill="#d39e17" />
-                <path d="M13.5 6L20 10V19L13.5 23L7 19V10L13.5 6Z" fill="#12110d" />
-              </svg>
-            </div>
-            <h2 className="text-xl font-bold hidden sm:block" style={{ color: "#f1f5f9" }}>
-              Limpa Nome <span style={{ color: "#d39e17" }}>Expresso</span>
-            </h2>
-          </a>
-          <nav className="hidden md:flex items-center gap-6">
-            <a href="/guia" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Guia</a>
-            <a href="/processo" className="text-sm font-medium transition-colors" style={{ color: "#d39e17" }}>Meu Processo</a>
-            <a href="/documentos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Documentos</a>
-            <a href="/modelos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Modelos</a>
-            <a href="/downloads" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Downloads</a>
-            <a href="/suporte" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Suporte</a>
-            <a href="/noticias" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Noticias</a>
-            <SpecialAdvisoryNavCta />
-          </nav>
-          <div className="md:hidden">
-            <SpecialAdvisoryNavCta shortLabel />
-          </div>
-        </Container>
-      </header>
+      <SiteHeader
+        logoHref="/guia"
+        navItems={[
+          { href: "/guia", label: "Guia" },
+          { href: "/processo", label: "Meu Processo", active: true },
+          { href: "/documentos", label: "Documentos" },
+          { href: "/modelos", label: "Modelos" },
+          { href: "/downloads", label: "Downloads" },
+          { href: "/suporte", label: "Suporte" },
+          { href: "/noticias", label: "Noticias" },
+        ]}
+        desktopNavTrailing={<SpecialAdvisoryNavCta />}
+        mobileTopActions={<SpecialAdvisoryNavCta shortLabel />}
+        mobileDrawerContent={<SpecialAdvisoryNavCta />}
+      />
 
       {/* Main Content */}
       <Container as="main" maxWidth="lg" className="py-8 flex-1 space-y-6">
@@ -371,8 +352,6 @@ export default function Process() {
                   <a
                     key={link.href}
                     href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="flex items-center gap-3 p-3 rounded-xl border transition-colors"
                     style={{
                       backgroundColor: "rgba(255, 255, 255, 0.03)",
@@ -393,7 +372,7 @@ export default function Process() {
                         {link.description}
                       </p>
                     </div>
-                    <ExternalLink size={16} style={{ color: link.color }} />
+                    <ArrowRight size={16} style={{ color: link.color }} />
                   </a>
                 );
               })}

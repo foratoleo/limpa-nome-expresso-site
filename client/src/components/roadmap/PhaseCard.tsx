@@ -23,7 +23,7 @@ const PHASE_DESCRIPTIONS: Record<number, { description: string; tasks: string }>
     tasks: "Baixar modelo, preencher campos, anexar docs"
   },
   3: {
-    description: "Protocolar a acao no sistema e-SAJ do Tribunal de Justica de Sao Paulo.",
+    description: "Protocolar a acao no sistema sistema judicial do Tribunal de Justica de Sao Paulo.",
     tasks: "Cadastro, partes, anexos, liminar"
   },
   4: {

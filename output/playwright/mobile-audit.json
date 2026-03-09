@@ -1,0 +1,1766 @@
+[
+  {
+    "route": "/",
+    "tag": "public",
+    "title": "Limpa Nome Expresso - Guia Jurídico para Limpeza de Nome",
+    "viewport": 390,
+    "bodyScrollWidth": 441,
+    "docScrollWidth": 441,
+    "offenders": [
+      {
+        "tag": "HTML",
+        "text": "import { injectIntoGlobalHook } from \"/@react-refresh\"; injectIntoGlobalHook(win",
+        "className": "dark",
+        "overRight": 0,
+        "innerOverflow": 51,
+        "width": 390,
+        "right": 390
+      },
+      {
+        "tag": "BODY",
+        "text": "window.__MANUS_HOST_DEV__ = true; (function(){\"use strict\";var Mr={exports:{}},K",
+        "className": "",
+        "overRight": 0,
+        "innerOverflow": 51,
+        "width": 390,
+        "right": 390
+      },
+      {
+        "tag": "DIV",
+        "text": "CPF BlindadoBenefíciosComo FuncionaBase LegalFAQNoticiasEntrarCrie sua contaGuia",
+        "className": "",
+        "overRight": 0,
+        "innerOverflow": 51,
+        "width": 390,
+        "right": 390
+      },
+      {
+        "tag": "DIV",
+        "text": "CPF BlindadoBenefíciosComo FuncionaBase LegalFAQNoticiasEntrarCrie sua contaGuia",
+        "className": "min-h-screen flex flex-col",
+        "overRight": 0,
+        "innerOverflow": 51,
+        "width": 390,
+        "right": 390
+      },
+      {
+        "tag": "MAIN",
+        "text": "Guia Jurídico 2026Sem Advogadotribunal - sistema judicialLimpe seu nome em até 1",
+        "className": "flex-1",
+        "overRight": 0,
+        "innerOverflow": 51,
+        "width": 390,
+        "right": 390
+      },
+      {
+        "tag": "SECTION",
+        "text": "Guia Jurídico 2026Sem Advogadotribunal - sistema judicialLimpe seu nome em até 1",
+        "className": "px-4 py-8 md:px-10 md:py-8 lg:pt-10 bg-[#12110d]",
+        "overRight": 0,
+        "innerOverflow": 51,
+        "width": 390,
+        "right": 390
+      },
+      {
+        "tag": "DIV",
+        "text": "Guia Jurídico 2026Sem Advogadotribunal - sistema judicialLimpe seu nome em até 1",
+        "className": "max-w-[1200px] mx-auto",
+        "overRight": -16,
+        "innerOverflow": 67,
+        "width": 358,
+        "right": 374
+      },
+      {
+        "tag": "H1",
+        "text": "Limpe seu nome em até 15 dias sem pagar ad|",
+        "className": "text-3xl md:text-4xl lg:text-5xl font-bold text-[#f1f5f9] leading-tight mb-5 mt-2",
+        "overRight": -16,
+        "innerOverflow": 67,
+        "width": 358,
+        "right": 374
+      },
+      {
+        "tag": "SPAN",
+        "text": "sem pagar ad|",
+        "className": "",
+        "overRight": 52,
+        "innerOverflow": 0,
+        "width": 425,
+        "right": 441
+      },
+      {
+        "tag": "DIV",
+        "text": "",
+        "className": "go3489369143 go1754112896 tsqd-open-btn-container",
+        "overRight": 39,
+        "innerOverflow": 8,
+        "width": 48,
+        "right": 429
+      },
+      {
+        "tag": "DIV",
+        "text": "",
+        "className": "",
+        "overRight": 47,
+        "innerOverflow": 0,
+        "width": 64,
+        "right": 437
+      },
+      {
+        "tag": "svg",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 47,
+        "innerOverflow": 0,
+        "width": 64,
+        "right": 437
+      },
+      {
+        "tag": "circle",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 47,
+        "innerOverflow": 0,
+        "width": 64,
+        "right": 437
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 14,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 404
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 14,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 404
+      }
+    ],
+    "screenshot": "output/playwright/public-_.png",
+    "error": null
+  },
+  {
+    "route": "/noticias",
+    "tag": "public",
+    "title": "Noticias e Direitos do Consumidor | CPF Blindado",
+    "viewport": 390,
+    "bodyScrollWidth": 390,
+    "docScrollWidth": 390,
+    "offenders": [
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__toolbar___wNsdK",
+        "overRight": -20,
+        "innerOverflow": 33,
+        "width": 297,
+        "right": 370
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__toolbarContainer___dIhma  styles-module__collapsed___Rydsn   ",
+        "overRight": -20,
+        "innerOverflow": 33,
+        "width": 44,
+        "right": 370
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__buttonWrapper___rBcdv ",
+        "overRight": -77,
+        "innerOverflow": 46,
+        "width": 14,
+        "right": 313
+      },
+      {
+        "tag": "DIV",
+        "text": ".eye-open, .eye-closed { transition: opacity 0.2s ease; } Hide markersH",
+        "className": "styles-module__buttonWrapper___rBcdv",
+        "overRight": -61,
+        "innerOverflow": 35,
+        "width": 14,
+        "right": 329
+      },
+      {
+        "tag": "DIV",
+        "text": ".copy-icon, .check-icon { transition: opacity 0.2s ease, transform 0.2s ease; } ",
+        "className": "styles-module__buttonWrapper___rBcdv",
+        "overRight": -45,
+        "innerOverflow": 40,
+        "width": 14,
+        "right": 345
+      },
+      {
+        "tag": "DIV",
+        "text": "/agentationv2.2.1Output DetailStandardReact ComponentsMarker ColourClear on copy",
+        "className": "styles-module__settingsPanel___OxX3Y styles-module__dark___ILIQf styles-module__exit___fyOJ0",
+        "overRight": -31,
+        "innerOverflow": 248,
+        "width": 236,
+        "right": 359
+      },
+      {
+        "tag": "DIV",
+        "text": "/agentationv2.2.1Output DetailStandardReact ComponentsMarker ColourClear on copy",
+        "className": "styles-module__settingsPanelContainer___Xksv8 ",
+        "overRight": -31,
+        "innerOverflow": 248,
+        "width": 236,
+        "right": 359
+      },
+      {
+        "tag": "DIV",
+        "text": "Manage MCP & WebhooksMCP ConnectionMCP connection allows agents to receive and a",
+        "className": "styles-module__settingsPage___6YfHH styles-module__automationsPage___uvCq6 ",
+        "overRight": 205,
+        "innerOverflow": 0,
+        "width": 236,
+        "right": 594
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Manage MCP & Webhooks",
+        "className": "styles-module__settingsBackButton___bIe2j ",
+        "overRight": 190,
+        "innerOverflow": 0,
+        "width": 205,
+        "right": 579
+      }
+    ],
+    "screenshot": "output/playwright/public-_noticias.png",
+    "error": null
+  },
+  {
+    "route": "/noticias/negativacao-indevida-indenizacao",
+    "tag": "public",
+    "title": "Negativação Indevida: Quando Você Tem Direito a Indenização | CPF Blindado",
+    "viewport": 390,
+    "bodyScrollWidth": 390,
+    "docScrollWidth": 390,
+    "offenders": [
+      {
+        "tag": "LI",
+        "text": "Negativação Indevida: Quando Você Tem Direito a Indenização",
+        "className": "truncate max-w-xs sm:max-w-md lg:max-w-xl",
+        "overRight": -54,
+        "innerOverflow": 81,
+        "width": 320,
+        "right": 336
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__toolbar___wNsdK",
+        "overRight": -20,
+        "innerOverflow": 33,
+        "width": 297,
+        "right": 370
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__toolbarContainer___dIhma  styles-module__collapsed___Rydsn   ",
+        "overRight": -20,
+        "innerOverflow": 33,
+        "width": 44,
+        "right": 370
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__buttonWrapper___rBcdv ",
+        "overRight": -77,
+        "innerOverflow": 46,
+        "width": 14,
+        "right": 313
+      },
+      {
+        "tag": "DIV",
+        "text": ".eye-open, .eye-closed { transition: opacity 0.2s ease; } Hide markersH",
+        "className": "styles-module__buttonWrapper___rBcdv",
+        "overRight": -61,
+        "innerOverflow": 35,
+        "width": 14,
+        "right": 329
+      },
+      {
+        "tag": "DIV",
+        "text": ".copy-icon, .check-icon { transition: opacity 0.2s ease, transform 0.2s ease; } ",
+        "className": "styles-module__buttonWrapper___rBcdv",
+        "overRight": -45,
+        "innerOverflow": 40,
+        "width": 14,
+        "right": 345
+      },
+      {
+        "tag": "DIV",
+        "text": "/agentationv2.2.1Output DetailStandardReact ComponentsMarker ColourClear on copy",
+        "className": "styles-module__settingsPanel___OxX3Y styles-module__dark___ILIQf styles-module__exit___fyOJ0",
+        "overRight": -31,
+        "innerOverflow": 248,
+        "width": 236,
+        "right": 359
+      },
+      {
+        "tag": "DIV",
+        "text": "/agentationv2.2.1Output DetailStandardReact ComponentsMarker ColourClear on copy",
+        "className": "styles-module__settingsPanelContainer___Xksv8 ",
+        "overRight": -31,
+        "innerOverflow": 248,
+        "width": 236,
+        "right": 359
+      },
+      {
+        "tag": "DIV",
+        "text": "Manage MCP & WebhooksMCP ConnectionMCP connection allows agents to receive and a",
+        "className": "styles-module__settingsPage___6YfHH styles-module__automationsPage___uvCq6 ",
+        "overRight": 205,
+        "innerOverflow": 0,
+        "width": 236,
+        "right": 594
+      }
+    ],
+    "screenshot": "output/playwright/public-_noticias_negativacao-indevida-indenizacao.png",
+    "error": null
+  },
+  {
+    "route": "/bem-vindo",
+    "tag": "private",
+    "title": "Limpa Nome Expresso - Guia Jurídico para Limpeza de Nome",
+    "viewport": 390,
+    "bodyScrollWidth": 390,
+    "docScrollWidth": 390,
+    "offenders": [
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__toolbar___wNsdK",
+        "overRight": -20,
+        "innerOverflow": 33,
+        "width": 297,
+        "right": 370
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__toolbarContainer___dIhma  styles-module__collapsed___Rydsn   ",
+        "overRight": -20,
+        "innerOverflow": 33,
+        "width": 44,
+        "right": 370
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__buttonWrapper___rBcdv ",
+        "overRight": -77,
+        "innerOverflow": 46,
+        "width": 14,
+        "right": 313
+      },
+      {
+        "tag": "DIV",
+        "text": ".eye-open, .eye-closed { transition: opacity 0.2s ease; } Hide markersH",
+        "className": "styles-module__buttonWrapper___rBcdv",
+        "overRight": -61,
+        "innerOverflow": 35,
+        "width": 14,
+        "right": 329
+      },
+      {
+        "tag": "DIV",
+        "text": ".copy-icon, .check-icon { transition: opacity 0.2s ease, transform 0.2s ease; } ",
+        "className": "styles-module__buttonWrapper___rBcdv",
+        "overRight": -45,
+        "innerOverflow": 40,
+        "width": 14,
+        "right": 345
+      },
+      {
+        "tag": "DIV",
+        "text": "/agentationv2.2.1Output DetailStandardReact ComponentsMarker ColourClear on copy",
+        "className": "styles-module__settingsPanel___OxX3Y styles-module__dark___ILIQf styles-module__exit___fyOJ0",
+        "overRight": -31,
+        "innerOverflow": 248,
+        "width": 236,
+        "right": 359
+      },
+      {
+        "tag": "DIV",
+        "text": "/agentationv2.2.1Output DetailStandardReact ComponentsMarker ColourClear on copy",
+        "className": "styles-module__settingsPanelContainer___Xksv8 ",
+        "overRight": -31,
+        "innerOverflow": 248,
+        "width": 236,
+        "right": 359
+      },
+      {
+        "tag": "DIV",
+        "text": "Manage MCP & WebhooksMCP ConnectionMCP connection allows agents to receive and a",
+        "className": "styles-module__settingsPage___6YfHH styles-module__automationsPage___uvCq6 ",
+        "overRight": 205,
+        "innerOverflow": 0,
+        "width": 236,
+        "right": 594
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Manage MCP & Webhooks",
+        "className": "styles-module__settingsBackButton___bIe2j ",
+        "overRight": 190,
+        "innerOverflow": 0,
+        "width": 205,
+        "right": 579
+      }
+    ],
+    "screenshot": "output/playwright/private-_bem-vindo.png",
+    "error": null
+  },
+  {
+    "route": "/guia",
+    "tag": "private",
+    "title": "Limpa Nome Expresso - Guia Jurídico para Limpeza de Nome",
+    "viewport": 390,
+    "bodyScrollWidth": 390,
+    "docScrollWidth": 390,
+    "offenders": [
+      {
+        "tag": "DIV",
+        "text": "1Documentos2Peticao3Protocolo4Balcao Virtual5AcompanharBLINDAGEMCONCLUIDA",
+        "className": "w-full overflow-x-auto pb-4",
+        "overRight": -41,
+        "innerOverflow": 492,
+        "width": 308,
+        "right": 349
+      },
+      {
+        "tag": "DIV",
+        "text": "1Documentos2Peticao3Protocolo4Balcao Virtual5AcompanharBLINDAGEMCONCLUIDA",
+        "className": "min-w-[800px] px-4",
+        "overRight": 451,
+        "innerOverflow": 0,
+        "width": 800,
+        "right": 841
+      },
+      {
+        "tag": "svg",
+        "text": "1Documentos2Peticao3Protocolo4Balcao Virtual5AcompanharBLINDAGEMCONCLUIDA",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 435,
+        "innerOverflow": 0,
+        "width": 768,
+        "right": 825
+      },
+      {
+        "tag": "path",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 397,
+        "innerOverflow": 0,
+        "width": 691,
+        "right": 787
+      },
+      {
+        "tag": "path",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 397,
+        "innerOverflow": 0,
+        "width": 691,
+        "right": 787
+      },
+      {
+        "tag": "g",
+        "text": "3Protocolo",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 37,
+        "innerOverflow": 0,
+        "width": 47,
+        "right": 426
+      },
+      {
+        "tag": "circle",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 32,
+        "innerOverflow": 0,
+        "width": 38,
+        "right": 422
+      },
+      {
+        "tag": "text",
+        "text": "3",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 18,
+        "innerOverflow": 0,
+        "width": 9,
+        "right": 407
+      },
+      {
+        "tag": "text",
+        "text": "Protocolo",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 37,
+        "innerOverflow": 0,
+        "width": 47,
+        "right": 426
+      },
+      {
+        "tag": "g",
+        "text": "4Balcao Virtual",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 201,
+        "innerOverflow": 0,
+        "width": 69,
+        "right": 591
+      },
+      {
+        "tag": "circle",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 186,
+        "innerOverflow": 0,
+        "width": 38,
+        "right": 575
+      },
+      {
+        "tag": "text",
+        "text": "4",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 171,
+        "innerOverflow": 0,
+        "width": 9,
+        "right": 561
+      },
+      {
+        "tag": "text",
+        "text": "Balcao Virtual",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 201,
+        "innerOverflow": 0,
+        "width": 69,
+        "right": 591
+      },
+      {
+        "tag": "g",
+        "text": "5Acompanhar",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 352,
+        "innerOverflow": 0,
+        "width": 63,
+        "right": 741
+      },
+      {
+        "tag": "circle",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 339,
+        "innerOverflow": 0,
+        "width": 38,
+        "right": 729
+      }
+    ],
+    "screenshot": "output/playwright/private-_guia.png",
+    "error": null
+  },
+  {
+    "route": "/documentos",
+    "tag": "private",
+    "title": "Limpa Nome Expresso - Guia Jurídico para Limpeza de Nome",
+    "viewport": 390,
+    "bodyScrollWidth": 390,
+    "docScrollWidth": 390,
+    "offenders": [
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__toolbar___wNsdK",
+        "overRight": -20,
+        "innerOverflow": 33,
+        "width": 297,
+        "right": 370
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__toolbarContainer___dIhma  styles-module__collapsed___Rydsn   ",
+        "overRight": -20,
+        "innerOverflow": 33,
+        "width": 44,
+        "right": 370
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__buttonWrapper___rBcdv ",
+        "overRight": -77,
+        "innerOverflow": 46,
+        "width": 14,
+        "right": 313
+      },
+      {
+        "tag": "DIV",
+        "text": ".eye-open, .eye-closed { transition: opacity 0.2s ease; } Hide markersH",
+        "className": "styles-module__buttonWrapper___rBcdv",
+        "overRight": -61,
+        "innerOverflow": 35,
+        "width": 14,
+        "right": 329
+      },
+      {
+        "tag": "DIV",
+        "text": ".copy-icon, .check-icon { transition: opacity 0.2s ease, transform 0.2s ease; } ",
+        "className": "styles-module__buttonWrapper___rBcdv",
+        "overRight": -45,
+        "innerOverflow": 40,
+        "width": 14,
+        "right": 345
+      },
+      {
+        "tag": "DIV",
+        "text": "/agentationv2.2.1Output DetailStandardReact ComponentsMarker ColourClear on copy",
+        "className": "styles-module__settingsPanel___OxX3Y styles-module__dark___ILIQf styles-module__exit___fyOJ0",
+        "overRight": -31,
+        "innerOverflow": 248,
+        "width": 236,
+        "right": 359
+      },
+      {
+        "tag": "DIV",
+        "text": "/agentationv2.2.1Output DetailStandardReact ComponentsMarker ColourClear on copy",
+        "className": "styles-module__settingsPanelContainer___Xksv8 ",
+        "overRight": -31,
+        "innerOverflow": 248,
+        "width": 236,
+        "right": 359
+      },
+      {
+        "tag": "DIV",
+        "text": "Manage MCP & WebhooksMCP ConnectionMCP connection allows agents to receive and a",
+        "className": "styles-module__settingsPage___6YfHH styles-module__automationsPage___uvCq6 ",
+        "overRight": 205,
+        "innerOverflow": 0,
+        "width": 236,
+        "right": 594
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Manage MCP & Webhooks",
+        "className": "styles-module__settingsBackButton___bIe2j ",
+        "overRight": 190,
+        "innerOverflow": 0,
+        "width": 205,
+        "right": 579
+      }
+    ],
+    "screenshot": "output/playwright/private-_documentos.png",
+    "error": null
+  },
+  {
+    "route": "/modelos",
+    "tag": "private",
+    "title": "Limpa Nome Expresso - Guia Jurídico para Limpeza de Nome",
+    "viewport": 390,
+    "bodyScrollWidth": 390,
+    "docScrollWidth": 390,
+    "offenders": [
+      {
+        "tag": "DIV",
+        "text": "TodosGuia CompletoPasso 1 - DocumentosPasso 2 - PetiçãoPasso 4 - Balcão Virtual",
+        "className": "flex flex-row overflow-x-auto gap-2 pb-2 lg:hidden",
+        "overRight": -33,
+        "innerOverflow": 372,
+        "width": 324,
+        "right": 357
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Passo 1 - Documentos",
+        "className": "h-9 shrink-0 px-3 rounded-full text-sm font-medium transition-all border flex items-center gap-1.5",
+        "overRight": 11,
+        "innerOverflow": 0,
+        "width": 165,
+        "right": 401
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Passo 2 - Petição",
+        "className": "h-9 shrink-0 px-3 rounded-full text-sm font-medium transition-all border flex items-center gap-1.5",
+        "overRight": 154,
+        "innerOverflow": 0,
+        "width": 134,
+        "right": 543
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Passo 4 - Balcão Virtual",
+        "className": "h-9 shrink-0 px-3 rounded-full text-sm font-medium transition-all border flex items-center gap-1.5",
+        "overRight": 339,
+        "innerOverflow": 0,
+        "width": 177,
+        "right": 729
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__toolbar___wNsdK",
+        "overRight": -20,
+        "innerOverflow": 33,
+        "width": 297,
+        "right": 370
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__toolbarContainer___dIhma  styles-module__collapsed___Rydsn   ",
+        "overRight": -20,
+        "innerOverflow": 33,
+        "width": 44,
+        "right": 370
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__buttonWrapper___rBcdv ",
+        "overRight": -77,
+        "innerOverflow": 46,
+        "width": 14,
+        "right": 313
+      },
+      {
+        "tag": "DIV",
+        "text": ".eye-open, .eye-closed { transition: opacity 0.2s ease; } Hide markersH",
+        "className": "styles-module__buttonWrapper___rBcdv",
+        "overRight": -61,
+        "innerOverflow": 35,
+        "width": 14,
+        "right": 329
+      },
+      {
+        "tag": "DIV",
+        "text": ".copy-icon, .check-icon { transition: opacity 0.2s ease, transform 0.2s ease; } ",
+        "className": "styles-module__buttonWrapper___rBcdv",
+        "overRight": -45,
+        "innerOverflow": 40,
+        "width": 14,
+        "right": 345
+      }
+    ],
+    "screenshot": "output/playwright/private-_modelos.png",
+    "error": null
+  },
+  {
+    "route": "/suporte",
+    "tag": "private",
+    "title": "Limpa Nome Expresso - Guia Jurídico para Limpeza de Nome",
+    "viewport": 390,
+    "bodyScrollWidth": 390,
+    "docScrollWidth": 390,
+    "offenders": [
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__toolbar___wNsdK",
+        "overRight": -20,
+        "innerOverflow": 33,
+        "width": 297,
+        "right": 370
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__toolbarContainer___dIhma  styles-module__collapsed___Rydsn   ",
+        "overRight": -20,
+        "innerOverflow": 33,
+        "width": 44,
+        "right": 370
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__buttonWrapper___rBcdv ",
+        "overRight": -77,
+        "innerOverflow": 46,
+        "width": 14,
+        "right": 313
+      },
+      {
+        "tag": "DIV",
+        "text": ".eye-open, .eye-closed { transition: opacity 0.2s ease; } Hide markersH",
+        "className": "styles-module__buttonWrapper___rBcdv",
+        "overRight": -61,
+        "innerOverflow": 35,
+        "width": 14,
+        "right": 329
+      },
+      {
+        "tag": "DIV",
+        "text": ".copy-icon, .check-icon { transition: opacity 0.2s ease, transform 0.2s ease; } ",
+        "className": "styles-module__buttonWrapper___rBcdv",
+        "overRight": -45,
+        "innerOverflow": 40,
+        "width": 14,
+        "right": 345
+      },
+      {
+        "tag": "DIV",
+        "text": "/agentationv2.2.1Output DetailStandardReact ComponentsMarker ColourClear on copy",
+        "className": "styles-module__settingsPanel___OxX3Y styles-module__dark___ILIQf styles-module__exit___fyOJ0",
+        "overRight": -31,
+        "innerOverflow": 248,
+        "width": 236,
+        "right": 359
+      },
+      {
+        "tag": "DIV",
+        "text": "/agentationv2.2.1Output DetailStandardReact ComponentsMarker ColourClear on copy",
+        "className": "styles-module__settingsPanelContainer___Xksv8 ",
+        "overRight": -31,
+        "innerOverflow": 248,
+        "width": 236,
+        "right": 359
+      },
+      {
+        "tag": "DIV",
+        "text": "Manage MCP & WebhooksMCP ConnectionMCP connection allows agents to receive and a",
+        "className": "styles-module__settingsPage___6YfHH styles-module__automationsPage___uvCq6 ",
+        "overRight": 205,
+        "innerOverflow": 0,
+        "width": 236,
+        "right": 594
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Manage MCP & Webhooks",
+        "className": "styles-module__settingsBackButton___bIe2j ",
+        "overRight": 190,
+        "innerOverflow": 0,
+        "width": 205,
+        "right": 579
+      }
+    ],
+    "screenshot": "output/playwright/private-_suporte.png",
+    "error": null
+  },
+  {
+    "route": "/downloads",
+    "tag": "private",
+    "title": "Limpa Nome Expresso - Guia Jurídico para Limpeza de Nome",
+    "viewport": 390,
+    "bodyScrollWidth": 390,
+    "docScrollWidth": 390,
+    "offenders": [
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__toolbar___wNsdK",
+        "overRight": -20,
+        "innerOverflow": 33,
+        "width": 297,
+        "right": 370
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__toolbarContainer___dIhma  styles-module__collapsed___Rydsn   ",
+        "overRight": -20,
+        "innerOverflow": 33,
+        "width": 44,
+        "right": 370
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__buttonWrapper___rBcdv ",
+        "overRight": -77,
+        "innerOverflow": 46,
+        "width": 14,
+        "right": 313
+      },
+      {
+        "tag": "DIV",
+        "text": ".eye-open, .eye-closed { transition: opacity 0.2s ease; } Hide markersH",
+        "className": "styles-module__buttonWrapper___rBcdv",
+        "overRight": -61,
+        "innerOverflow": 35,
+        "width": 14,
+        "right": 329
+      },
+      {
+        "tag": "DIV",
+        "text": ".copy-icon, .check-icon { transition: opacity 0.2s ease, transform 0.2s ease; } ",
+        "className": "styles-module__buttonWrapper___rBcdv",
+        "overRight": -45,
+        "innerOverflow": 40,
+        "width": 14,
+        "right": 345
+      },
+      {
+        "tag": "DIV",
+        "text": "/agentationv2.2.1Output DetailStandardReact ComponentsMarker ColourClear on copy",
+        "className": "styles-module__settingsPanel___OxX3Y styles-module__dark___ILIQf styles-module__exit___fyOJ0",
+        "overRight": -31,
+        "innerOverflow": 248,
+        "width": 236,
+        "right": 359
+      },
+      {
+        "tag": "DIV",
+        "text": "/agentationv2.2.1Output DetailStandardReact ComponentsMarker ColourClear on copy",
+        "className": "styles-module__settingsPanelContainer___Xksv8 ",
+        "overRight": -31,
+        "innerOverflow": 248,
+        "width": 236,
+        "right": 359
+      },
+      {
+        "tag": "DIV",
+        "text": "Manage MCP & WebhooksMCP ConnectionMCP connection allows agents to receive and a",
+        "className": "styles-module__settingsPage___6YfHH styles-module__automationsPage___uvCq6 ",
+        "overRight": 205,
+        "innerOverflow": 0,
+        "width": 236,
+        "right": 594
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Manage MCP & Webhooks",
+        "className": "styles-module__settingsBackButton___bIe2j ",
+        "overRight": 190,
+        "innerOverflow": 0,
+        "width": 205,
+        "right": 579
+      }
+    ],
+    "screenshot": "output/playwright/private-_downloads.png",
+    "error": null
+  },
+  {
+    "route": "/processo",
+    "tag": "private",
+    "title": "Limpa Nome Expresso - Guia Jurídico para Limpeza de Nome",
+    "viewport": 390,
+    "bodyScrollWidth": 390,
+    "docScrollWidth": 390,
+    "offenders": [
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__toolbar___wNsdK",
+        "overRight": -20,
+        "innerOverflow": 33,
+        "width": 297,
+        "right": 370
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__toolbarContainer___dIhma  styles-module__collapsed___Rydsn   ",
+        "overRight": -20,
+        "innerOverflow": 33,
+        "width": 44,
+        "right": 370
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__buttonWrapper___rBcdv ",
+        "overRight": -77,
+        "innerOverflow": 46,
+        "width": 14,
+        "right": 313
+      },
+      {
+        "tag": "DIV",
+        "text": ".eye-open, .eye-closed { transition: opacity 0.2s ease; } Hide markersH",
+        "className": "styles-module__buttonWrapper___rBcdv",
+        "overRight": -61,
+        "innerOverflow": 35,
+        "width": 14,
+        "right": 329
+      },
+      {
+        "tag": "DIV",
+        "text": ".copy-icon, .check-icon { transition: opacity 0.2s ease, transform 0.2s ease; } ",
+        "className": "styles-module__buttonWrapper___rBcdv",
+        "overRight": -45,
+        "innerOverflow": 40,
+        "width": 14,
+        "right": 345
+      },
+      {
+        "tag": "DIV",
+        "text": "/agentationv2.2.1Output DetailStandardReact ComponentsMarker ColourClear on copy",
+        "className": "styles-module__settingsPanel___OxX3Y styles-module__dark___ILIQf styles-module__exit___fyOJ0",
+        "overRight": -31,
+        "innerOverflow": 248,
+        "width": 236,
+        "right": 359
+      },
+      {
+        "tag": "DIV",
+        "text": "/agentationv2.2.1Output DetailStandardReact ComponentsMarker ColourClear on copy",
+        "className": "styles-module__settingsPanelContainer___Xksv8 ",
+        "overRight": -31,
+        "innerOverflow": 248,
+        "width": 236,
+        "right": 359
+      },
+      {
+        "tag": "DIV",
+        "text": "Manage MCP & WebhooksMCP ConnectionMCP connection allows agents to receive and a",
+        "className": "styles-module__settingsPage___6YfHH styles-module__automationsPage___uvCq6 ",
+        "overRight": 205,
+        "innerOverflow": 0,
+        "width": 236,
+        "right": 594
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Manage MCP & Webhooks",
+        "className": "styles-module__settingsBackButton___bIe2j ",
+        "overRight": 190,
+        "innerOverflow": 0,
+        "width": 205,
+        "right": 579
+      }
+    ],
+    "screenshot": "output/playwright/private-_processo.png",
+    "error": null
+  },
+  {
+    "route": "/assessoria-especializada",
+    "tag": "private",
+    "title": "Limpa Nome Expresso - Guia Jurídico para Limpeza de Nome",
+    "viewport": 390,
+    "bodyScrollWidth": 390,
+    "docScrollWidth": 390,
+    "offenders": [
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__toolbar___wNsdK",
+        "overRight": -20,
+        "innerOverflow": 33,
+        "width": 297,
+        "right": 370
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__toolbarContainer___dIhma  styles-module__collapsed___Rydsn   ",
+        "overRight": -20,
+        "innerOverflow": 33,
+        "width": 44,
+        "right": 370
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__buttonWrapper___rBcdv ",
+        "overRight": -77,
+        "innerOverflow": 46,
+        "width": 14,
+        "right": 313
+      },
+      {
+        "tag": "DIV",
+        "text": ".eye-open, .eye-closed { transition: opacity 0.2s ease; } Hide markersH",
+        "className": "styles-module__buttonWrapper___rBcdv",
+        "overRight": -61,
+        "innerOverflow": 35,
+        "width": 14,
+        "right": 329
+      },
+      {
+        "tag": "DIV",
+        "text": ".copy-icon, .check-icon { transition: opacity 0.2s ease, transform 0.2s ease; } ",
+        "className": "styles-module__buttonWrapper___rBcdv",
+        "overRight": -45,
+        "innerOverflow": 40,
+        "width": 14,
+        "right": 345
+      },
+      {
+        "tag": "DIV",
+        "text": "/agentationv2.2.1Output DetailStandardReact ComponentsMarker ColourClear on copy",
+        "className": "styles-module__settingsPanel___OxX3Y styles-module__dark___ILIQf styles-module__exit___fyOJ0",
+        "overRight": -31,
+        "innerOverflow": 248,
+        "width": 236,
+        "right": 359
+      },
+      {
+        "tag": "DIV",
+        "text": "/agentationv2.2.1Output DetailStandardReact ComponentsMarker ColourClear on copy",
+        "className": "styles-module__settingsPanelContainer___Xksv8 ",
+        "overRight": -31,
+        "innerOverflow": 248,
+        "width": 236,
+        "right": 359
+      },
+      {
+        "tag": "DIV",
+        "text": "Manage MCP & WebhooksMCP ConnectionMCP connection allows agents to receive and a",
+        "className": "styles-module__settingsPage___6YfHH styles-module__automationsPage___uvCq6 ",
+        "overRight": 205,
+        "innerOverflow": 0,
+        "width": 236,
+        "right": 594
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Manage MCP & Webhooks",
+        "className": "styles-module__settingsBackButton___bIe2j ",
+        "overRight": 190,
+        "innerOverflow": 0,
+        "width": 205,
+        "right": 579
+      }
+    ],
+    "screenshot": "output/playwright/private-_assessoria-especializada.png",
+    "error": null
+  },
+  {
+    "route": "/dashboard",
+    "tag": "private",
+    "title": "Limpa Nome Expresso - Guia Jurídico para Limpeza de Nome",
+    "viewport": 390,
+    "bodyScrollWidth": 390,
+    "docScrollWidth": 390,
+    "offenders": [
+      {
+        "tag": "NAV",
+        "text": "DashboardDocumentosTarefasAnotacoesProcessos",
+        "className": "flex md:flex-col gap-1 overflow-x-auto md:overflow-visible pb-2 md:pb-0",
+        "overRight": -25,
+        "innerOverflow": 39,
+        "width": 340,
+        "right": 365
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Dashboard",
+        "className": "flex items-center gap-3 px-4 py-3 rounded-xl transition-all whitespace-nowrap bg-[#d39e17] text-[#12110d] font-semibold",
+        "overRight": -298,
+        "innerOverflow": 44,
+        "width": 67,
+        "right": 92
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Documentos",
+        "className": "flex items-center gap-3 px-4 py-3 rounded-xl transition-all whitespace-nowrap text-[#94a3b8] hover:bg-[rgba(211,158,23,0",
+        "overRight": -224,
+        "innerOverflow": 50,
+        "width": 70,
+        "right": 166
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Anotacoes",
+        "className": "flex items-center gap-3 px-4 py-3 rounded-xl transition-all whitespace-nowrap text-[#94a3b8] hover:bg-[rgba(211,158,23,0",
+        "overRight": -93,
+        "innerOverflow": 40,
+        "width": 65,
+        "right": 296
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Processos",
+        "className": "flex items-center gap-3 px-4 py-3 rounded-xl transition-all whitespace-nowrap text-[#94a3b8] hover:bg-[rgba(211,158,23,0",
+        "overRight": -25,
+        "innerOverflow": 38,
+        "width": 65,
+        "right": 365
+      },
+      {
+        "tag": "SPAN",
+        "text": "Processos",
+        "className": "",
+        "overRight": 14,
+        "innerOverflow": 0,
+        "width": 75,
+        "right": 404
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "g",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "ellipse",
+        "text": "",
+        "className": "[object SVGAnimatedString]",
+        "overRight": 9,
+        "innerOverflow": 0,
+        "width": 43,
+        "right": 399
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__toolbar___wNsdK",
+        "overRight": -20,
+        "innerOverflow": 33,
+        "width": 297,
+        "right": 370
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__toolbarContainer___dIhma  styles-module__collapsed___Rydsn   ",
+        "overRight": -20,
+        "innerOverflow": 33,
+        "width": 44,
+        "right": 370
+      },
+      {
+        "tag": "DIV",
+        "text": ".pause-bar, .play-triangle { transition: opacity 0.15s ease; } Pause animationsP",
+        "className": "styles-module__buttonWrapper___rBcdv ",
+        "overRight": -77,
+        "innerOverflow": 46,
+        "width": 14,
+        "right": 313
+      }
+    ],
+    "screenshot": "output/playwright/private-_dashboard.png",
+    "error": null
+  }
+]

@@ -1,13 +1,13 @@
 # MODELO DE PETIÇÃO INICIAL — JUIZADO ESPECIAL CÍVEL (SÃO PAULO)
 ## Ação Declaratória c/c Obrigação de Fazer e Tutela de Urgência
-### Sistema de Protocolo: e-SAJ TJSP — https://esaj.tjsp.jus.br
+### Sistema de Protocolo: sistema judicial tribunal — 
 
 ---
 
 > **INSTRUÇÕES DE PREENCHIMENTO**
 > Substitua todos os campos marcados com `[PREENCHER: ...]` pelos seus dados reais.
-> Salve o documento preenchido em PDF antes de anexar ao sistema e-SAJ.
-> Competência: **Juizado Especial Cível** | Classe: **436 — Procedimento do Juizado Especial Cível** | Assunto Principal: **Serasa ou SCPC**
+> Salve o documento preenchido em PDF antes de anexar ao sistema sistema judicial.
+> Competência: **Juizado Especial Cível** | Classe: **436 — Procedimento do Juizado Especial Cível** | Assunto Principal: **bureau de credito ou cadastro de protecao ao credito**
 
 ---
 
@@ -23,7 +23,7 @@ Em face de:
 
 **[PREENCHER: NOME COMPLETO DA EMPRESA QUE NEGATIVOU — ex: CLARO S.A.]**, pessoa jurídica de direito privado, inscrita no CNPJ sob o nº [PREENCHER: 00.000.000/0001-00], com sede em [PREENCHER: endereço da empresa], doravante denominada **REQUERIDA 1**; e
 
-**SERASA S.A.** (ou **SPC BRASIL** / **BOA VISTA SCPC** — riscre o que não se aplicar), pessoa jurídica de direito privado, inscrita no CNPJ sob o nº 00.204.698/0001-46, com sede na Alameda dos Quinimuras, nº 187, Planalto Paulista, São Paulo/SP, CEP 04068-900, doravante denominada **REQUERIDA 2**,
+**bureau de credito S.A.** (ou **servico de protecao ao credito** / **cadastro de protecao ao credito** — riscre o que não se aplicar), pessoa jurídica de direito privado, inscrita no CNPJ sob o nº 00.204.698/0001-46, com sede na Alameda dos Quinimuras, nº 187, Planalto Paulista, São Paulo/SP, CEP 04068-900, doravante denominada **REQUERIDA 2**,
 
 pelos fatos e fundamentos jurídicos a seguir expostos:
 
@@ -31,7 +31,7 @@ pelos fatos e fundamentos jurídicos a seguir expostos:
 
 ## I — DOS FATOS
 
-O(A) Requerente foi surpreendido(a) com a inclusão indevida de seu nome nos cadastros de inadimplentes mantidos pela Requerida 2 (Serasa/SPC/Boa Vista), referente a um suposto débito com a Requerida 1 no valor de **R$ [PREENCHER: valor do débito]**, com data de vencimento em **[PREENCHER: data de vencimento]**.
+O(A) Requerente foi surpreendido(a) com a inclusão indevida de seu nome nos cadastros de inadimplentes mantidos pela Requerida 2 (bureau de credito/servico de protecao ao credito/cadastro de protecao ao credito), referente a um suposto débito com a Requerida 1 no valor de **R$ [PREENCHER: valor do débito]**, com data de vencimento em **[PREENCHER: data de vencimento]**.
 
 Ocorre que o(a) Requerente **NÃO RECEBEU QUALQUER NOTIFICAÇÃO PRÉVIA E ESCRITA** acerca da referida inscrição, conforme determina expressamente o **Artigo 43, § 2º do Código de Defesa do Consumidor** e a **Súmula 359 do Superior Tribunal de Justiça**. Comprova-se tal fato pelos documentos digitais anexos: prints da caixa de entrada e da pasta de spam do e-mail [PREENCHER: seu@email.com], bem como do histórico de SMS do telefone [PREENCHER: (11) 9xxxx-xxxx], nos quais não consta qualquer comunicação da Requerida 1 ou da Requerida 2 anterior à negativação.
 
@@ -49,7 +49,7 @@ A **Súmula 359 do STJ** é categórica:
 
 > *"Cabe ao órgão mantenedor do Cadastro de Proteção ao Crédito a notificação do devedor antes de proceder à inscrição."*
 
-A jurisprudência do TJSP em 2026 tem reiteradamente reconhecido a irregularidade da inscrição sem a devida notificação prévia, determinando a exclusão imediata do nome do consumidor, independentemente da existência da dívida, com fundamento no princípio da proteção integral do consumidor.
+A jurisprudência do tribunal em 2026 tem reiteradamente reconhecido a irregularidade da inscrição sem a devida notificação prévia, determinando a exclusão imediata do nome do consumidor, independentemente da existência da dívida, com fundamento no princípio da proteção integral do consumidor.
 
 ---
 
@@ -63,7 +63,7 @@ Presentes os requisitos do **Artigo 300 do Código de Processo Civil**:
 
 Diante da urgência e do perigo de dano irreparável, requer-se a concessão **inaudita altera parte** (sem ouvir a parte contrária) da Tutela de Urgência, determinando:
 
-a) A **imediata exclusão** do nome do(a) Requerente dos cadastros de inadimplentes mantidos pela Requerida 2 (Serasa/SPC/Boa Vista), referente ao débito objeto desta ação;
+a) A **imediata exclusão** do nome do(a) Requerente dos cadastros de inadimplentes mantidos pela Requerida 2 (bureau de credito/servico de protecao ao credito/cadastro de protecao ao credito), referente ao débito objeto desta ação;
 
 b) Que a exclusão seja mantida **até o trânsito em julgado da presente ação**;
 
@@ -110,7 +110,7 @@ CPF: [PREENCHER: 000.000.000-00]
 | 1 | RG (frente e verso) | ✅ Sim |
 | 2 | CPF | ✅ Sim |
 | 3 | Comprovante de Residência (últimos 3 meses) | ✅ Sim |
-| 4 | Relatório de negativação do Serasa/SPC/Boa Vista | ✅ Sim |
+| 4 | Relatório de negativação do bureau de credito/servico de protecao ao credito/cadastro de protecao ao credito | ✅ Sim |
 | 5 | Print da caixa de entrada do e-mail (prova negativa) | ✅ Sim |
 | 6 | Print da pasta de spam do e-mail (prova negativa) | ✅ Sim |
 | 7 | Print do histórico de SMS (prova negativa) | ✅ Sim |
@@ -119,4 +119,4 @@ CPF: [PREENCHER: 000.000.000-00]
 
 ---
 
-*Este modelo foi elaborado com base no Art. 43, § 2º do CDC, Súmula 359 e 385 do STJ, Art. 300 do CPC e Art. 9º da Lei nº 9.099/95. Válido para protocolo no sistema e-SAJ do TJSP (tjsp.jus.br/peticionamentojec). Fevereiro de 2026.*
+*Este modelo foi elaborado com base no Art. 43, § 2º do CDC, Súmula 359 e 385 do STJ, Art. 300 do CPC e Art. 9º da Lei nº 9.099/95. Válido para protocolo no sistema sistema judicial do tribunal (tjsp.jus.br/peticionamentojec). Fevereiro de 2026.*

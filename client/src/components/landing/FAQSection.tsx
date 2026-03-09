@@ -35,7 +35,7 @@ const faqItems: FAQItem[] = [
     id: "item-4",
     question: "Quais documentos preciso?",
     answer:
-      "RG, CPF, comprovante de residência, relatório do Serasa/SPC, prints de e-mail/SMS.",
+      "RG, CPF, comprovante de residência, relatório de crédito atualizado e prints de e-mail/SMS.",
   },
   {
     id: "item-5",
@@ -47,7 +47,7 @@ const faqItems: FAQItem[] = [
     id: "item-6",
     question: "O que é o Balcão Virtual?",
     answer:
-      "Canal de videoconferência do TJSP para acelerar processos e falar com escreventes.",
+      "Canal de videoconferência do tribunal para acelerar processos e falar com escreventes.",
   },
 ];
 

@@ -21,7 +21,7 @@ test.describe("Homepage Accessibility", () => {
 
     // Check for basic accessibility requirements
     // Page should have a title
-    await expect(page).toHaveTitle(/Limpa Nome/i);
+    await expect(page).toHaveTitle(/CPF Blindado/i);
 
     // Page should have a main landmark
     const main = page.locator("main");
@@ -46,7 +46,7 @@ test.describe("Homepage Accessibility", () => {
 
     // H1 should contain main title
     const h1 = page.locator("h1");
-    await expect(h1).toContainText("Limpa Nome");
+    await expect(h1).toContainText("CPF");
   });
 
   test("should be fully navigable via keyboard", async ({ page }) => {

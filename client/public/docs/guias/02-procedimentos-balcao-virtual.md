@@ -4,21 +4,21 @@
 
 ## Overview
 
-Este documento apresenta um guia detalhado sobre os procedimentos práticos para utilização do Balcão Virtual do Tribunal de Justiça de São Paulo (TJSP) no contexto de limpeza de nome e negociação de dívidas. O Balcão Virtual é uma plataforma digital desenvolvida pelo TJSP que permite atendimento remoto via videoconferência, funcionando como um balcão físico virtual.
+Este documento apresenta um guia detalhado sobre os procedimentos práticos para utilização do Balcão Virtual do Tribunal de Justiça de São Paulo (tribunal) no contexto de limpeza de nome e negociação de dívidas. O Balcão Virtual é uma plataforma digital desenvolvida pelo tribunal que permite atendimento remoto via videoconferência, funcionando como um balcão físico virtual.
 
-Este guia é especialmente relevante para o projeto Limpa Nome Expresso, pois fornece informações fundamentais sobre como os usuários podem utilizar os serviços virtuais do TJSP para obter orientações processuais, informações sobre processos de negativação, e participar de sessões de conciliação para acordos de dívidas.
+Este guia é especialmente relevante para o projeto CPF Blindado, pois fornece informações fundamentais sobre como os usuários podem utilizar os serviços virtuais do tribunal para obter orientações processuais, informações sobre processos de negativação, e participar de sessões de conciliação para acordos de dívidas.
 
-É importante distinguir que o Balcão Virtual TJSP não é a mesma coisa que o sistema e-SAJ de peticionamento eletrônico. O Balcão Virtual é focado em atendimento ao vivo para orientações e informações, enquanto o e-SAJ é utilizado para protocolar ações judiciais.
+É importante distinguir que o Balcão Virtual tribunal não é a mesma coisa que o sistema sistema judicial de peticionamento eletrônico. O Balcão Virtual é focado em atendimento ao vivo para orientações e informações, enquanto o sistema judicial é utilizado para protocolar ações judiciais.
 
-## O que é o Balcão Virtual TJSP
+## O que é o Balcão Virtual tribunal
 
-O Balcão Virtual do TJSP é um serviço de atendimento remoto que permite videoconferência com unidades judiciais, oferecendo orientações processuais sem a necessidade de comparecimento presencial. O sistema foi implementado com base na Resolução CNJ nº 372/2021 e na Lei 11.419/2006, que dispõe sobre o uso de meios eletrônicos na tramitação de processos judiciais.
+O Balcão Virtual do tribunal é um serviço de atendimento remoto que permite videoconferência com unidades judiciais, oferecendo orientações processuais sem a necessidade de comparecimento presencial. O sistema foi implementado com base na Resolução CNJ nº 372/2021 e na Lei 11.419/2006, que dispõe sobre o uso de meios eletrônicos na tramitação de processos judiciais.
 
 ### Principais Características
 
 - **Atendimento por videoconferência**: Utiliza a plataforma Microsoft Teams (não é necessário download, acesso via navegador)
 - **Agendamento prévio**: A maioria dos serviços exige agendamento anterior
-- **Horário de funcionamento**: Segunda a sexta-feira, das 9h às 17h (exceto feriados do TJSP)
+- **Horário de funcionamento**: Segunda a sexta-feira, das 9h às 17h (exceto feriados do tribunal)
 - **Acesso gratuito**: Não há custos para utilizar o serviço
 - **Atendimento por servidores treinados**: Servidores do próprio tribunal prestam as orientações
 
@@ -40,13 +40,13 @@ O Balcão Virtual possui algumas limitações que devem ser consideradas:
 - **Apenas informações sobre processos em andamento**: O sistema não fornece orientações para casos que ainda não foram judicializados
 - **Não substitui advogado**: As orientações são genéricas e não substituem a assistência jurídica profissional
 - **Não realiza conciliações diretamente**: Para sessões de conciliação, é necessário verificar disponibilidade específica
-- **Não protocola ações**: Para ajuizar ações, deve-se utilizar o sistema e-SAJ ou eproc
+- **Não protocola ações**: Para ajuizar ações, deve-se utilizar o sistema sistema judicial ou sistema judicial
 
 ## Acesso e Registro no Sistema
 
 ### Requisitos Técnicos
 
-Para utilizar o Balcão Virtual TJSP, são necessários:
+Para utilizar o Balcão Virtual tribunal, são necessários:
 
 - Conexão estável com a internet
 - Computador, tablet ou smartphone com câmera e microfone funcionais
@@ -62,7 +62,7 @@ O acesso ao Balcão Virtual exige cadastro prévio, com procedimentos diferentes
 
 Advogados devem utilizar suas credenciais da OAB (Ordem dos Advogados do Brasil) para acesso ao sistema. O processo inclui:
 
-1. Acessar o portal do Balcão Virtual através do site do TJSP
+1. Acessar o portal do Balcão Virtual através do site do tribunal
 2. Selecionar a opção de acesso para advogados
 3. Inserir número da OAB e senha cadastrada
 4. Validar a identificação através do sistema
@@ -80,12 +80,12 @@ Cidadãos sem representação advocatícia podem criar seu próprio cadastro:
    - Endereço completo
    - Telefone para contato
    - E-mail válido
-4. Validar os dados através do sistema de verificação do TJSP
+4. Validar os dados através do sistema de verificação do tribunal
 5. Criar senha de acesso
 
 ### Verificação de Duas Etapas
 
-A partir de 24/03/2025, o acesso ao portal e-SAJ (que integra alguns serviços do Balcão Virtual) passou a exigir código de verificação enviado para os e-mails cadastrados no sistema. Esta medida de segurança deve ser considerada ao acessar os serviços.
+A partir de 24/03/2025, o acesso ao portal sistema judicial (que integra alguns serviços do Balcão Virtual) passou a exigir código de verificação enviado para os e-mails cadastrados no sistema. Esta medida de segurança deve ser considerada ao acessar os serviços.
 
 ## Procedimento Passo a Passo para Utilização do Balcão Virtual
 
@@ -103,7 +103,7 @@ Antes de agendar ou acessar o Balcão Virtual, prepare-se adequadamente:
   - Extratos de débito
   - Comprovantes de pagamento já realizados
   - Notificações recebidas
-  - Certidões de órgãos de proteção ao crédito (Serasa, SPC, etc.)
+  - Certidões de órgãos de proteção ao crédito (bureau de credito, servico de protecao ao credito, etc.)
 - Número do processo (se já houver ação judicial em andamento)
 - Dados completos da parte contrária (credor ou devedor)
 
@@ -270,7 +270,7 @@ A conciliação judicial é um método alternativo de resolução de conflitos n
 | **Mediação** | Processo mais longo, focado em relacionamento | Mediador facilita diálogo | Partes decidem |
 | **Arbitragem** | Mais formal, similar a processo | Árbitro analisa provas | Árbitro decide (obrigatório) |
 
-### Procedimento de Conciliação no TJSP
+### Procedimento de Conciliação no tribunal
 
 Embora o Balcão Virtual possa fornecer informações sobre conciliação, as sessões de conciliação propriamente ditas geralmente ocorrem através de agendamento específico nos Centros Judiciários de Conciliação (Cejuscs).
 
@@ -281,7 +281,7 @@ Embora o Balcão Virtual possa fornecer informações sobre conciliação, as se
    - Verifique se já existe audiência de conciliação designada no processo
 
 2. **Protocolo de Pedido**
-   - Alguns casos permitem pedido de conciliação através do sistema e-SAJ
+   - Alguns casos permitem pedido de conciliação através do sistema sistema judicial
    - Outros requerem petição específica ao juízo competente
    - O Balcão Virtual pode orientar sobre o procedimento adequado
 
@@ -356,7 +356,7 @@ e se há possibilidade de nova tentativa de conciliação no futuro."
 - **Extratos Atualizados**: Mostrando o valor atual da dívida
 - **Histórico de Pagamentos**: Comprovantes de pagamentos já realizados
 - **Notificações**: Cartas de cobrança, notificações extrajudiciais, intimações
-- **Certidões de Proteção ao Crédito**: Atualizadas, de Serasa, SPC, Boa Vista SCPC, Quod
+- **Certidões de Proteção ao Crédito**: Atualizadas, de bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito, cadastro de protecao ao credito
 
 ### Documentos Processuais (se aplicável)
 
@@ -410,7 +410,7 @@ Para negociação de dívidas, podem ser necessários:
 
 Quando o Balcão Virtual não for adequado ao caso, existem outras opções:
 
-### e-SAJ TJSP (Peticionamento Eletrônico)
+### sistema judicial tribunal (Peticionamento Eletrônico)
 
 Utilizado para protocolar ações judiciais:
 
@@ -421,25 +421,25 @@ Utilizado para protocolar ações judiciais:
 5. Preencha os dados e anexe os documentos
 6. Envie a petição eletronicamente
 
-### eproc (Novo Sistema do TJSP)
+### sistema judicial (Novo Sistema do tribunal)
 
-O TJSP está em transição para o sistema eproc:
+O tribunal está em transição para o sistema sistema judicial:
 
-- Verifique se a competência da ação está disponível no eproc antes de protocolar
-- Consulte o cronograma de migração no site do TJSP
-- Alguns tipos de ação já estão sendo ajuizados diretamente no eproc
+- Verifique se a competência da ação está disponível no sistema judicial antes de protocolar
+- Consulte o cronograma de migração no site do tribunal
+- Alguns tipos de ação já estão sendo ajuizados diretamente no sistema judicial
 
 ### Atendimento Presencial
 
 Para casos que exigem atendimento presencial:
 
-- Consulte os endereços e horários no site do TJSP
+- Consulte os endereços e horários no site do tribunal
 - Verifique se é necessário agendamento prévio
 - Leve toda a documentação original e cópias
 
 ### Outros Canais de Atendimento
 
-- **WhatsApp TJSP**: Disponível para algumas consultas e orientações
+- **WhatsApp tribunal**: Disponível para algumas consultas e orientações
 - **Telefone de Atendimento**: Consulte os números disponíveis no site
 - **Ouvidoria**: Para reclamações sobre serviços prestados
 - **Defensoria Pública**: Para assistência jurídica gratuita a quem não pode pagar advogado
@@ -486,10 +486,10 @@ Para casos que exigem atendimento presencial:
 Antes de buscar a limpeza do nome:
 
 1. **Consulte todos os órgãos de proteção ao crédito**:
-   - Serasa: serasa.com.br
-   - SPC Brasil: spcbrasil.org.br
-   - Boa Vista SCPC: boavistaservicos.com.br
-   - Quod: quod.com.br
+   - bureau de credito: bureau de credito.com.br
+   - servico de protecao ao credito: servico de protecao ao creditobrasil.org.br
+   - cadastro de protecao ao credito: boavistaservicos.com.br
+   - cadastro de protecao ao credito: cadastro de protecao ao credito.com.br
 
 2. **Anote todas as dívidas**:
    - Valor original
@@ -499,7 +499,7 @@ Antes de buscar a limpeza do nome:
    - Número do contrato (se houver)
 
 3. **Verifique se há ações judiciais**:
-   - Consulte processos em seu nome no site do TJSP
+   - Consulte processos em seu nome no site do tribunal
    - Verifique se existe execução judicial em andamento
 
 ### Estratégias de Negociação
@@ -571,16 +571,16 @@ Para dívidas de pequeno valor (até 20 salários mínimos):
 
 ### Plataformas Oficiais
 
-- **TJSP - Site Oficial**: www.tjsp.jus.br
-- **e-SAJ TJSP**: esaj.tjsp.jus.br
-- **Balcão Virtual TJSP**: www.tjsp.jus.br/BalcaoVirtual
-- **TJSP Moodle (Tutoriais)**: www.tjsp.jus.br/moodle/livre/
+- **tribunal - Site Oficial**: www.tjsp.jus.br
+- **sistema judicial tribunal**: esaj.tjsp.jus.br
+- **Balcão Virtual tribunal**: www.tjsp.jus.br/BalcaoVirtual
+- **tribunal Moodle (Tutoriais)**: www.tjsp.jus.br/moodle/livre/
 
 ### Serviços de Consulta de Dívidas
 
-- **Serasa Limpa Nome**: serasa.com.br/limpanome
-- **Serasa Consumidor**: serasa.com.br/consumidor
-- **SPC Brasil**: spcbrasil.org.br
+- **plataforma de negociacao de dividas**: bureau de credito.com.br/limpanome
+- **bureau de credito Consumidor**: bureau de credito.com.br/consumidor
+- **servico de protecao ao credito**: servico de protecao ao creditobrasil.org.br
 - **Gov.br - Regularize**: gov.br/regularize
 
 ### Assistência Jurídica
@@ -592,7 +592,7 @@ Para dívidas de pequeno valor (até 20 salários mínimos):
 
 ## Key Takeaways
 
-1. **O Balcão Virtual TJSP é uma ferramenta de orientação, não de resolução direta de conflitos**: Ele serve para tirar dúvidas e obter informações sobre processos, mas não substitui o ajuizamento de ações ou a participação em sessões de conciliação formal.
+1. **O Balcão Virtual tribunal é uma ferramenta de orientação, não de resolução direta de conflitos**: Ele serve para tirar dúvidas e obter informações sobre processos, mas não substitui o ajuizamento de ações ou a participação em sessões de conciliação formal.
 
 2. **Preparação é essencial**: Tenha todos os documentos organizados, suas perguntas preparadas e uma proposta realista de negociação antes de acessar o serviço.
 
@@ -606,7 +606,7 @@ Para dívidas de pequeno valor (até 20 salários mínimos):
 
 7. **Após quitação, acompanhe a baixa**: O credor tem 5 dias úteis para comunicar a baixa aos órgãos de proteção ao crédito. Se isso não ocorrer, tome providências.
 
-8. **Considere alternativas extrajudiciais**: Plataformas como Serasa Limpa Nome oferecem negociação direta com descontos significativos, sem necessidade de processo judicial.
+8. **Considere alternativas extrajudiciais**: Plataformas como plataforma de negociacao de dividas oferecem negociação direta com descontos significativos, sem necessidade de processo judicial.
 
 9. **Conheça seus direitos**: O Código de Defesa do Consumidor protege contra cobranças abusivas e exige notificação prévia antes da negativação.
 
@@ -614,15 +614,15 @@ Para dívidas de pequeno valor (até 20 salários mínimos):
 
 ## Sources
 
-- [Tribunal de Justiça de São Paulo - Site Oficial](https://www.tjsp.jus.br) - Portal oficial do TJSP com informações sobre serviços, unidades e procedimentos
-- [e-SAJ TJSP](https://esaj.tjsp.jus.br) - Portal de serviços eletrônicos do TJSP, incluindo consultas processuais e peticionamento eletrônico
-- [Modelo Inicial - Balcão Virtual TJSP](https://modeloinicial.com.br/materia/balcao-virtual-tjsp) - Guia completo sobre o funcionamento do Balcão Virtual, incluindo acesso, cadastro e serviços disponíveis
-- [Jurídico AI - Balcão Virtual TJSP: O que é e como funciona](https://juridico.ai/noticias/balcao-tj-sp-o-que-e-e-como-funciona/) - Análise detalhada do Balcão Virtual, seus serviços e procedimentos de acesso
-- [APAMAGIS - Conheça o Balcão Virtual TJSP](https://apamagis.org.br/conheca-o-balcao-virtual-tjsp-atendimento-on-line-de-unidades-judiciais/) - Informações oficiais sobre o projeto de atendimento virtual do TJSP
-- [TJSP Moodle - Plataforma de Educação a Distância](https://www.tjsp.jus.br/moodle/livre/) - Tutoriais e cursos sobre o uso do Balcão Virtual e outros serviços do TJSP
-- [Resolução CNJ nº 372/2021](https://www.cnj.jus.br/sistema-correicao/ resolucao-372/) - Base legal para o atendimento virtual no Judiciário brasileiro
-- [Lei 11.419/2006](http://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11419.htm) - Lei que dispõe sobre o uso de meios eletrônicos na tramitação de processos judiciais
-- [Serasa Limpa Nome](https://www.serasa.com.br/limpanome) - Plataforma oficial de negociação de dívidas da Serasa
-- [Serasa Consumidor](https://www.serasa.com.br/consumidor) - Portal de consulta de dívidas e orientações ao consumidor
-- [SPC Brasil](https://www.spcbrasil.org.br) - Serviço de Proteção ao Crédito com consultas e orientações
-- [Gov.br - Regularize](https://www.gov.br/regularize) - Portal oficial do governo para negociação de dívidas federais
+- Tribunal de Justiça de São Paulo - Site Oficial - Portal oficial do tribunal com informações sobre serviços, unidades e procedimentos
+- sistema judicial tribunal - Portal de serviços eletrônicos do tribunal, incluindo consultas processuais e peticionamento eletrônico
+- Modelo Inicial - Balcão Virtual tribunal - Guia completo sobre o funcionamento do Balcão Virtual, incluindo acesso, cadastro e serviços disponíveis
+- Jurídico AI - Balcão Virtual tribunal: O que é e como funciona - Análise detalhada do Balcão Virtual, seus serviços e procedimentos de acesso
+- APAMAGIS - Conheça o Balcão Virtual tribunal - Informações oficiais sobre o projeto de atendimento virtual do tribunal
+- tribunal Moodle - Plataforma de Educação a Distância - Tutoriais e cursos sobre o uso do Balcão Virtual e outros serviços do tribunal
+- Resolução CNJ nº 372/2021 - Base legal para o atendimento virtual no Judiciário brasileiro
+- Lei 11.419/2006 - Lei que dispõe sobre o uso de meios eletrônicos na tramitação de processos judiciais
+- plataforma de negociacao de dividas - Plataforma oficial de negociação de dívidas da bureau de credito
+- bureau de credito Consumidor - Portal de consulta de dívidas e orientações ao consumidor
+- servico de protecao ao credito - Serviço de Proteção ao Crédito com consultas e orientações
+- Gov.br - Regularize - Portal oficial do governo para negociação de dívidas federais

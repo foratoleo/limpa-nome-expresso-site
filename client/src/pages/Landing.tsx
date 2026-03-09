@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
-import { SearchIcon } from "@/utils/icons";
 import { Container } from "@/components/ui/container";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { useAuth } from "@/contexts/AuthContext";
 import { usePaymentStatus } from "@/contexts/PaymentContext";
+import { SiteHeader } from "@/components/SiteHeader";
+import { LANDING_NAV_LINKS } from "@/components/layout/site-nav";
 import {
   HeroSection,
   PainPointsSection,
@@ -50,93 +51,126 @@ export default function Landing() {
         fontFamily: "'Public Sans', sans-serif",
       }}
     >
-      {/* Header - Sticky */}
-      <header
-        className="sticky top-0 z-50 backdrop-blur-[6px] border-b"
-        style={{
-          backgroundColor: "rgba(18, 17, 13, 0.5)",
-          borderColor: "rgba(211, 158, 23, 0.2)",
-        }}
-      >
-        <Container as="div" maxWidth="xl" className="flex items-center justify-between py-4">
-          {/* Logo & Nav */}
-          <div className="flex items-center gap-4 md:gap-8">
-            <a href="/" className="flex items-center gap-2 md:gap-3">
-              <div className="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center shrink-0">
-                <svg width="27" height="29" viewBox="0 0 27 29" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                  <path d="M13.5 0L26.5 8V21L13.5 29L0.5 21V8L13.5 0Z" fill="#d39e17"/>
-                  <path d="M13.5 6L20 10V19L13.5 23L7 19V10L13.5 6Z" fill="#12110d"/>
-                </svg>
-              </div>
-              <h2 className="text-lg md:text-xl font-bold whitespace-nowrap" style={{ color: "#f1f5f9", letterSpacing: "-0.3px" }}>
-                Limpa Nome <span style={{ color: "#d39e17" }}>Expresso</span>
-              </h2>
+      <SiteHeader
+        logoHref="/"
+        navItems={LANDING_NAV_LINKS.map((item) => ({ ...item }))}
+        hideLogoTextOnMobile={false}
+        desktopRightContent={
+          user ? (
+            <div className="flex items-center gap-2 sm:gap-4">
+              <a
+                href="/guia"
+                className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-all sm:px-5 sm:py-2.5"
+                style={{
+                  backgroundColor: "#d39e17",
+                  color: "#12110d",
+                }}
+              >
+                Acessar Guia
+              </a>
+              <button
+                onClick={signOut}
+                className="hidden text-sm font-medium transition-colors hover:text-[#d39e17] sm:inline-flex"
+                style={{ color: "#cbd5e1" }}
+              >
+                Sair
+              </button>
+            </div>
+          ) : (
+            <div className="flex items-center gap-2 sm:gap-4">
+              <button
+                onClick={() => setAuthModalTab("login")}
+                className="text-sm font-medium transition-colors hover:text-[#d39e17]"
+                style={{ color: "#cbd5e1" }}
+              >
+                Entrar
+              </button>
+              <button
+                onClick={() => setAuthModalTab("register")}
+                className="hidden items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all sm:inline-flex"
+                style={{
+                  backgroundColor: "#d39e17",
+                  color: "#12110d",
+                }}
+              >
+                Crie sua conta
+              </button>
+            </div>
+          )
+        }
+        mobileTopActions={
+          user ? (
+            <a
+              href="/guia"
+              className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold transition-all"
+              style={{ backgroundColor: "#d39e17", color: "#12110d" }}
+            >
+              Guia
             </a>
-            <nav className="hidden md:flex items-center gap-6">
-              <a href="#beneficios" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>
-                Benefícios
+          ) : (
+            <button
+              onClick={() => setAuthModalTab("login")}
+              className="text-sm font-medium transition-colors hover:text-[#d39e17]"
+              style={{ color: "#cbd5e1" }}
+            >
+              Entrar
+            </button>
+          )
+        }
+        mobileDrawerContent={(closeMenu) =>
+          user ? (
+            <div className="grid gap-2">
+              <a
+                href="/guia"
+                onClick={closeMenu}
+                className="inline-flex items-center justify-center rounded-xl px-4 py-3 text-sm font-semibold"
+                style={{ backgroundColor: "#d39e17", color: "#12110d" }}
+              >
+                Acessar Guia
               </a>
-              <a href="#como-funciona" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>
-                Como Funciona
-              </a>
-              <a href="#base-legal" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>
-                Base Legal
-              </a>
-              <a href="#faq" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>
-                FAQ
-              </a>
-              <a href="/noticias" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>
-                Noticias
-              </a>
-            </nav>
-          </div>
-
-          {/* Actions */}
-          <div className="flex items-center gap-4">
-            {user ? (
-              <>
-                <a
-                  href="/guia"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-all"
-                  style={{
-                    backgroundColor: "#d39e17",
-                    color: "#12110d",
-                  }}
-                >
-                  Acessar Guia
-                </a>
-                <button
-                  onClick={signOut}
-                  className="text-sm font-medium hover:text-[#d39e17] transition-colors"
-                  style={{ color: "#cbd5e1" }}
-                >
-                  Sair
-                </button>
-              </>
-            ) : (
-              <>
-                <button
-                  onClick={() => setAuthModalTab("login")}
-                  className="text-sm font-medium hover:text-[#d39e17] transition-colors"
-                  style={{ color: "#cbd5e1" }}
-                >
-                  Entrar
-                </button>
-                <button
-                  onClick={() => setAuthModalTab("register")}
-                  className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-all"
-                  style={{
-                    backgroundColor: "#d39e17",
-                    color: "#12110d",
-                  }}
-                >
-                  Crie sua conta
-                </button>
-              </>
-            )}
-          </div>
-        </Container>
-      </header>
+              <button
+                onClick={async () => {
+                  closeMenu();
+                  await signOut();
+                }}
+                className="rounded-xl border px-4 py-3 text-sm font-medium"
+                style={{
+                  borderColor: "rgba(239, 68, 68, 0.35)",
+                  color: "#ef4444",
+                }}
+              >
+                Sair
+              </button>
+            </div>
+          ) : (
+            <div className="grid gap-2">
+              <button
+                onClick={() => {
+                  closeMenu();
+                  setAuthModalTab("login");
+                }}
+                className="rounded-xl border px-4 py-3 text-sm font-medium"
+                style={{
+                  borderColor: "rgba(211, 158, 23, 0.2)",
+                  color: "#f1f5f9",
+                }}
+              >
+                Entrar
+              </button>
+              <button
+                onClick={() => {
+                  closeMenu();
+                  setAuthModalTab("register");
+                }}
+                className="rounded-xl px-4 py-3 text-sm font-semibold"
+                style={{ backgroundColor: "#d39e17", color: "#12110d" }}
+              >
+                Criar conta
+              </button>
+            </div>
+          )
+        }
+      />
 
       {/* Auth Modal */}
       <AuthModal
@@ -175,7 +209,7 @@ export default function Landing() {
                 <path d="M9 4L13 6.5V11.5L9 14L5 11.5V6.5L9 4Z" fill="#12110d"/>
               </svg>
               <span className="text-sm" style={{ color: "#64748b" }}>
-                2026 Limpa Nome Expresso. Sistema de Apoio Jurídico Automático.
+                2026 CPF Blindado. Sistema de Apoio Jurídico Automático.
               </span>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8">

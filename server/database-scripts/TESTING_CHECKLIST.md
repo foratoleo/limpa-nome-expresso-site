@@ -1,6 +1,6 @@
 # Testing Checklist - Payment Integration (MercadoPago)
 
-**Project:** Limpa Nome Expresso
+**Project:** CPF Blindado
 **Integration:** MercadoPago Payment System
 **Documentation Version:** 1.0
 **Last Updated:** 2026-03-02
@@ -467,7 +467,7 @@ Verify complete checkout flow from product selection to payment confirmation.
 - Loading state displays during preference creation
 - User is redirected to MercadoPago checkout page (sandbox)
 - Checkout page shows correct product details:
-  - Title: "Limpa Nome Expresso - Acesso Premium 12 Meses"
+  - Title: "CPF Blindado - Acesso Premium 12 Meses"
   - Price: R$ 149,90
   - Currency: BRL
 

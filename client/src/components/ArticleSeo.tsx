@@ -17,7 +17,7 @@ export function ArticleSeo({
   type,
   publishedDate,
 }: ArticleSeoProps) {
-  const fullTitle = `${title} | Limpa Nome Expresso`;
+  const fullTitle = `${title} | CPF Blindado`;
 
   return (
     <Helmet>
@@ -30,7 +30,7 @@ export function ArticleSeo({
       <meta property="og:description" content={description} />
       <meta property="og:type" content={type} />
       <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:site_name" content="Limpa Nome Expresso" />
+      <meta property="og:site_name" content="CPF Blindado" />
 
       {/* Canonical */}
       <link rel="canonical" href={canonicalUrl} />

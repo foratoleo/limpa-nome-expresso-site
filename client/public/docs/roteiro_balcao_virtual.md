@@ -1,4 +1,4 @@
-# ROTEIRO DE ATENDIMENTO — BALCÃO VIRTUAL TJSP
+# ROTEIRO DE ATENDIMENTO — BALCÃO VIRTUAL tribunal
 ## Para Despacho Urgente de Liminar — Limpeza de Nome
 ### Acesso: tjsp.jus.br/balcaovirtual | Horário: Seg–Sex, 9h–17h
 
@@ -13,7 +13,7 @@
 
 ## ANTES DE LIGAR — CHECKLIST DE PREPARAÇÃO
 
-- [ ] Processo já protocolado no e-SAJ (tjsp.jus.br/peticionamentojec)
+- [ ] Processo já protocolado no sistema judicial (tjsp.jus.br/peticionamentojec)
 - [ ] Número do processo anotado: `[PREENCHER: 0000000-00.2026.8.26.0000]`
 - [ ] Vara/Unidade onde o processo foi distribuído: `[PREENCHER: ex: 1ª Vara do JEC do Foro Regional de Pinheiros]`
 - [ ] Data do protocolo: `[PREENCHER: dd/mm/2026]`
@@ -25,7 +25,7 @@
 
 ## PASSO A PASSO DO ACESSO
 
-1. Acesse: **https://www.tjsp.jus.br/balcaovirtual**
+1. Acesse: **
 2. Selecione: **1ª Instância — Juizados Especiais**
 3. No campo "Foro", digite o nome do foro onde seu processo está: `[PREENCHER: ex: Pinheiros]`
 4. Selecione a unidade correta na lista
@@ -37,7 +37,7 @@
 
 Quando o servidor atender, diga:
 
-> *"Bom dia/boa tarde. Meu nome é **[PREENCHER: SEU NOME]**, CPF **[PREENCHER: 000.000.000-00]**. Eu protocolei uma ação no dia **[PREENCHER: data]**, número de processo **[PREENCHER: número]**, com pedido de tutela de urgência para exclusão do meu nome do Serasa/SPC. Gostaria de solicitar, por gentileza, que o processo fosse encaminhado para conclusão e análise da liminar pelo(a) juiz(a) com a máxima brevidade possível."*
+> *"Bom dia/boa tarde. Meu nome é **[PREENCHER: SEU NOME]**, CPF **[PREENCHER: 000.000.000-00]**. Eu protocolei uma ação no dia **[PREENCHER: data]**, número de processo **[PREENCHER: número]**, com pedido de tutela de urgência para exclusão do meu nome do bureau de credito/servico de protecao ao credito. Gostaria de solicitar, por gentileza, que o processo fosse encaminhado para conclusão e análise da liminar pelo(a) juiz(a) com a máxima brevidade possível."*
 
 ---
 
@@ -75,9 +75,9 @@ Se o servidor perguntar o motivo da urgência, diga:
 
 ## O QUE FAZER APÓS O ATENDIMENTO
 
-1. **Monitore o processo diariamente** no e-SAJ: https://esaj.tjsp.jus.br/cpopg/open.do
+1. **Monitore o processo diariamente** no sistema judicial: 
 2. **Prazo esperado para a decisão:** 2 a 10 dias úteis após o encaminhamento
-3. **Se a liminar for concedida:** o Serasa/SPC terá **5 dias úteis** para excluir seu nome após a intimação
+3. **Se a liminar for concedida:** o bureau de credito/servico de protecao ao credito terá **5 dias úteis** para excluir seu nome após a intimação
 4. **Se não houver movimentação em 5 dias úteis:** acesse o Balcão Virtual novamente e informe que já fez contato anteriormente, citando a data e o nome do servidor
 
 ---
@@ -86,12 +86,12 @@ Se o servidor perguntar o motivo da urgência, diga:
 
 | Serviço | Link / Contato |
 |:---|:---|
-| Balcão Virtual TJSP | https://www.tjsp.jus.br/balcaovirtual |
-| Peticionamento JEC (e-SAJ) | https://www.tjsp.jus.br/peticionamentojec |
-| Consulta processual (e-SAJ) | https://esaj.tjsp.jus.br/cpopg/open.do |
-| Suporte técnico TJSP (WhatsApp) | +55 11 96575-9558 |
-| Verificar comarca por CEP (Capital) | https://www.tjsp.jus.br/PeticionamentoJEC |
+| Balcão Virtual tribunal |  |
+| Peticionamento JEC (sistema judicial) |  |
+| Consulta processual (sistema judicial) |  |
+| Suporte técnico tribunal (WhatsApp) | +55 11 96575-9558 |
+| Verificar comarca por CEP (Capital) |  |
 
 ---
 
-*Roteiro elaborado com base nas diretrizes do TJSP para atendimento no Balcão Virtual (Resolução CNJ nº 372/21) e no procedimento do Juizado Especial Cível (Lei nº 9.099/95). Fevereiro de 2026.*
+*Roteiro elaborado com base nas diretrizes do tribunal para atendimento no Balcão Virtual (Resolução CNJ nº 372/21) e no procedimento do Juizado Especial Cível (Lei nº 9.099/95). Fevereiro de 2026.*

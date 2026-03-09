@@ -39,7 +39,7 @@ export default async function handler(req, res) {
 
     // Get product slug from environment or use default
     // This is the unique identifier for the product in Kiwify dashboard
-    const productSlug = process.env.KIWIFY_PRODUCT_SLUG || 'cpf-blindado-premium';
+    const productSlug = process.env.KIWIFY_PRODUCT_SLUG || 'lpYUQ3n';
 
     // Construct the Kiwify checkout URL
     // Kiwify uses URL parameters for pre-filling customer data

@@ -32,26 +32,26 @@ export const GUIDES_CATEGORIES: GuideCategoryInfo[] = [
       {
         id: 'procedimentos-jec-esaj',
         slug: '02-procedimentos-jec-esaj',
-        title: 'Procedimentos no JEC e-SAJ',
-        description: 'Guia completo para peticionamento eletrônico no TJSP via e-SAJ',
+        title: 'Procedimentos no JEC sistema judicial',
+        description: 'Guia completo para peticionamento eletrônico no tribunal via sistema judicial',
         category: 'procedimentos',
         order: 1,
         contentFile: '/docs/guias/02-procedimentos-jec-esaj.md',
         estimatedReadTime: 15,
         lastUpdated: '2026-03-03',
-        tags: ['JEC', 'e-SAJ', 'TJSP', 'Peticionamento']
+        tags: ['JEC', 'sistema judicial', 'tribunal', 'Peticionamento']
       },
       {
         id: 'procedimentos-balcao-virtual',
         slug: '02-procedimentos-balcao-virtual',
         title: 'Procedimentos no Balcão Virtual',
-        description: 'Funcionamento do Balcão Virtual TJSP e atendimento por videoconferência',
+        description: 'Funcionamento do Balcão Virtual e atendimento por videoconferência',
         category: 'procedimentos',
         order: 2,
         contentFile: '/docs/guias/02-procedimentos-balcao-virtual.md',
         estimatedReadTime: 15,
         lastUpdated: '2026-03-03',
-        tags: ['Balcão Virtual', 'Videoconferência', 'TJSP']
+        tags: ['Balcão Virtual', 'Videoconferência', 'tribunal']
       }
     ]
   },
@@ -122,14 +122,14 @@ export const GUIDES_CATEGORIES: GuideCategoryInfo[] = [
       {
         id: 'jurisprudencia-tjsp-casos',
         slug: '04-jurisprudencia-tjsp-casos',
-        title: 'Jurisprudência TJSP e Casos Práticos',
+        title: 'Jurisprudência tribunal e Casos Práticos',
         description: 'Casos práticos, valores de indenização e estratégias de conciliação',
         category: 'jurisprudencia',
         order: 2,
         contentFile: '/docs/guias/04-jurisprudencia-tjsp-casos.md',
         estimatedReadTime: 12,
         lastUpdated: '2026-03-03',
-        tags: ['TJSP', 'Casos Práticos', 'Indenização']
+        tags: ['tribunal', 'Casos Práticos', 'Indenização']
       }
     ]
   },
@@ -156,13 +156,13 @@ export const GUIDES_CATEGORIES: GuideCategoryInfo[] = [
         id: 'expansao-sul-pr-sc-rs',
         slug: '05-expansao-sul-pr-sc-rs',
         title: 'Expansão Sul (PR, SC, RS)',
-        description: 'Sistemas e-SAJ, Eproc e PJe para Paraná, Santa Catarina e Rio Grande do Sul',
+        description: 'Sistemas sistema judicial, Eproc e PJe para Paraná, Santa Catarina e Rio Grande do Sul',
         category: 'expansao-regional',
         order: 2,
         contentFile: '/docs/guias/05-expansao-sul-pr-sc-rs.md',
         estimatedReadTime: 20,
         lastUpdated: '2026-03-03',
-        tags: ['Sul', 'PR', 'SC', 'RS', 'e-SAJ', 'Eproc', 'PJe']
+        tags: ['Sul', 'PR', 'SC', 'RS', 'sistema judicial', 'Eproc', 'PJe']
       },
       {
         id: 'expansao-co-ne-n',

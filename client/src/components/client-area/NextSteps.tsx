@@ -4,7 +4,7 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 const STEPS = [
   { number: 1, title: "Reunir Documentos", description: "RG, CPF, comprovantes" },
   { number: 2, title: "Preparar Peticao", description: "Use nossos modelos pre-preenchidos" },
-  { number: 3, title: "Protocolar no e-SAJ", description: "Sistema do TJSP" },
+  { number: 3, title: "Protocolar no sistema judicial", description: "Sistema do tribunal" },
   { number: 4, title: "Agendar Balcão Virtual", description: "Atendimento por video" },
   { number: 5, title: "Acompanhar Processo", description: "Aguarde a decisao" },
 ];
@@ -73,7 +73,7 @@ export function NextSteps() {
         Proximo Passo
       </h3>
 
-      <div className="flex items-center gap-4">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
         <div
           className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg"
           style={{
@@ -93,7 +93,7 @@ export function NextSteps() {
         </div>
         <a
           href="/"
-          className="flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-colors"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-xl px-4 py-2 font-medium transition-colors sm:w-auto"
           style={{
             backgroundColor: "#d39e17",
             color: "#12110d",

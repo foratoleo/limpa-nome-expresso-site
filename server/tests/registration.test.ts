@@ -290,7 +290,7 @@ describe('Registration - Supabase Integration', () => {
     expect(emailService.sendCustomEmail).toHaveBeenCalledWith(
       expect.objectContaining({
         to: testEmail,
-        subject: 'Confirme seu e-mail - Limpa Nome Expresso',
+        subject: 'Confirme seu e-mail - CPF Blindado',
       })
     );
 
@@ -395,7 +395,7 @@ describe('Registration - Email Service Integration', () => {
     expect(emailService.sendCustomEmail).toHaveBeenCalledWith(
       expect.objectContaining({
         to: testEmail,
-        subject: 'Confirme seu e-mail - Limpa Nome Expresso',
+        subject: 'Confirme seu e-mail - CPF Blindado',
         html: expect.stringContaining('Confirme seu e-mail'),
         text: expect.stringContaining('Confirme seu e-mail'),
       })

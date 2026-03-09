@@ -53,7 +53,7 @@ const benefits: BenefitCardProps[] = [
   {
     id: "acompanhamento",
     title: "Acompanhamento do processo",
-    description: "Monitoramento no e-SAJ",
+    description: "Monitoramento no sistema judicial",
   },
   {
     id: "base-legal",
@@ -70,7 +70,7 @@ export function BenefitsSection() {
           className="text-2xl md:text-3xl font-bold text-center mb-12"
           style={{ color: "#f1f5f9" }}
         >
-          Como o Limpa Nome Expresso resolve
+          Como o CPF Blindado resolve
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

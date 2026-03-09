@@ -1,14 +1,14 @@
-# Procedimentos Práticos no JEC e-SAJ - Guia Completo para Peticionamento Eletrônico TJSP
+# Procedimentos Práticos no JEC sistema judicial - Guia Completo para Peticionamento Eletrônico tribunal
 
 > Research Date: 2025-03-04
-> Angle: Procedimentos Práticos no JEC e-SAJ
+> Angle: Procedimentos Práticos no JEC sistema judicial
 > Depth: detailed
 
 ## Overview
 
-Este guia fornece um roteiro completo e detalhado para o ajuizamento de ações de limpeza de nome através do sistema eletrônico do Juizado Especial Cível (JEC) do Tribunal de Justiça de São Paulo (TJSP), com foco especial na plataforma e-SAJ. O conteúdo abrange desde os requisitos técnicos básicos até o protocolo final da petição inicial, incluindo documentos necessários, erros comuns e prazos processuais.
+Este guia fornece um roteiro completo e detalhado para o ajuizamento de ações de limpeza de nome através do sistema eletrônico do Juizado Especial Cível (JEC) do Tribunal de Justiça de São Paulo (tribunal), com foco especial na plataforma sistema judicial. O conteúdo abrange desde os requisitos técnicos básicos até o protocolo final da petição inicial, incluindo documentos necessários, erros comuns e prazos processuais.
 
-Este documento é especialmente relevante para o projeto Limpa Nome Expresso, pois fortalece a base legal e procedimental com informações atualizadas sobre o sistema de peticionamento eletrônico paulista. O leitor aprenderá como navegar pelos sistemas e-SAJ e Balcão Virtual, compreenderá os requisitos de acesso digital, e terá acesso a checklists práticos para evitar erros comuns que podem prejudicar o andamento da ação.
+Este documento é especialmente relevante para o projeto CPF Blindado, pois fortalece a base legal e procedimental com informações atualizadas sobre o sistema de peticionamento eletrônico paulista. O leitor aprenderá como navegar pelos sistemas sistema judicial e Balcão Virtual, compreenderá os requisitos de acesso digital, e terá acesso a checklists práticos para evitar erros comuns que podem prejudicar o andamento da ação.
 
 ## Fundamentos Legais e Contexto do Sistema
 
@@ -25,47 +25,47 @@ Este limite é especialmente relevante para ações de limpeza de nome, onde o v
 
 ### Base Legal do Processo Eletrônico
 
-O peticionamento eletrônico no TJSP fundamenta-se em três principais normas:
+O peticionamento eletrônico no tribunal fundamenta-se em três principais normas:
 
 1. **Lei 11.419/2006**: Lei do Processo Eletrônico, que autoriza a prática de atos processuais por meio eletrônico
 2. **Resolução CNJ nº 372/2021**: Instituiu o Balcão Virtual como ferramenta obrigatória para todos os tribunais
-3. **Provimento CSM nº 2.642/2021**: Implementou o Balcão Virtual no TJSP
+3. **Provimento CSM nº 2.642/2021**: Implementou o Balcão Virtual no tribunal
 
 Essas normas garantem validade jurídica plena aos atos praticados via sistema eletrônico, desde que observados os requisitos técnicos de autenticação e segurança.
 
-## Sistemas do TJSP: e-SAJ, Balcão Virtual e eproc
+## Sistemas do tribunal: sistema judicial, Balcão Virtual e sistema judicial
 
 ### Diferença Entre os Sistemas
 
-O TJSP opera múltiplos sistemas para atendimento e peticionamento eletrônico, cada um com finalidades específicas:
+O tribunal opera múltiplos sistemas para atendimento e peticionamento eletrônico, cada um com finalidades específicas:
 
-**e-SAJ (Sistema de Automação da Justiça)**:
+**sistema judicial (Sistema de Automação da Justiça)**:
 - Plataforma principal para peticionamento eletrônico
 - Permite protocolo de petições iniciais e intermediárias
 - Acesso mediante certificado digital ou login/senha
 - Disponível 24 horas para protocolo de petições
 - Integração completa com processos eletrônicos
 
-**Balcão Virtual TJSP**:
+**Balcão Virtual tribunal**:
 - Serviço de atendimento por videoconferência
 - Funciona em horário forense (12h30 às 19h, dias úteis)
 - Não permite protocolo de petições
 - Indicado para consultas, dúvidas e orientações
 - Acesso gratuito, sem necessidade de certificado digital
 
-**eproc (Novo Sistema)**:
+**sistema judicial (Novo Sistema)**:
 - Sistema de processo judicial eletrônico em implementação
-- TJSP em fase de transição do e-SAJ para eproc
+- tribunal em fase de transição do sistema judicial para sistema judicial
 - Alguns órgãos judiciários já migram para o novo sistema
 - Verificar competência disponível antes de protocolar
 
-> **Nota Importante**: O TJSP está em transição entre sistemas. Antes de protocolar, verifique se a competência do JEC desejado está disponível no e-SAJ ou se já foi migrada para o eproc. Processos já protocolados serão gradualmente migrados para o novo sistema.
+> **Nota Importante**: O tribunal está em transição entre sistemas. Antes de protocolar, verifique se a competência do JEC desejado está disponível no sistema judicial ou se já foi migrada para o sistema judicial. Processos já protocolados serão gradualmente migrados para o novo sistema.
 
 ## Requisitos Técnicos para Acesso
 
 ### Certificado Digital: Tipos e Especificações
 
-O certificado digital é essencial para o peticionamento eletrônico no TJSP, funcionando como identidade eletrônica e garantindo a autoria e integridade das petições.
+O certificado digital é essencial para o peticionamento eletrônico no tribunal, funcionando como identidade eletrônica e garantindo a autoria e integridade das petições.
 
 **Certificado Tipo A1**:
 - Formato de arquivo digital (PFX)
@@ -108,7 +108,7 @@ O certificado digital é essencial para o peticionamento eletrônico no TJSP, fu
 - Plugin ou extensão para assinatura digital (quando necessário)
 
 **Configuração de Navegadores**:
-- Adicionar sites do TJSP aos "sites confiáveis"
+- Adicionar sites do tribunal aos "sites confiáveis"
 - Habilitar controles ActiveX (Internet Explorer/Edge modo IE)
 - Limpar cache e cookies regularmente
 - Verificar se data/hora do sistema estão corretas
@@ -116,9 +116,9 @@ O certificado digital é essencial para o peticionamento eletrônico no TJSP, fu
 
 ## Procedimento Passo a Passo: Acesso e Cadastro
 
-### Passo 1: Acesso ao Portal e-SAJ
+### Passo 1: Acesso ao Portal sistema judicial
 
-1. Acessar o endereço: https://esaj.tjsp.jus.br
+1. Acessar o endereço: 
 2. Localizar o banner de "Peticionamento Eletrônico"
 3. Escolher o tipo de peticionamento:
    - Peticionamento Eletrônico Inicial (para novas ações)
@@ -169,7 +169,7 @@ Para primeiro acesso sem certificado digital:
 - Comprovação de quitação com anuidades
 - Validação automática com sistema da OAB-SP
 
-## Protocolo de Petição Inicial no JEC via e-SAJ
+## Protocolo de Petição Inicial no JEC via sistema judicial
 
 ### Preparação Prévia: Documentação Necessária
 
@@ -180,10 +180,10 @@ Para primeiro acesso sem certificado digital:
 
 **Documentos Específicos para Ação de Limpeza de Nome**:
 - Certidão de negativação dos órgãos de proteção ao crédito:
-  - Serasa Consumidor
-  - SPC Brasil
-  - Boa Vista Serviços
-  - Quod (anteriormente CCF)
+  - bureau de credito Consumidor
+  - servico de protecao ao credito
+  - cadastro de protecao ao credito Serviços
+  - cadastro de protecao ao credito (anteriormente CCF)
 - Comprovantes de pagamento (se dívida já quitada):
   - Recibos
   - Extratos bancários
@@ -288,7 +288,7 @@ a) Tutela Antecipada (Liminar):
 ```
 Requer a concessão de tutela de urgência para determinar à ré que proceda,
 no prazo de 48 horas, a exclusão do nome do autor dos cadastros de
-inadimplentes (Serasa, SPC, Boa Vista, Quod), sob pena de multa diária.
+inadimplentes (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito, cadastro de protecao ao credito), sob pena de multa diária.
 ```
 
 b) Mérito:
@@ -323,14 +323,14 @@ O Balcão Virtual é indicado para:
 - Consulta sobre prazos e intimações
 
 **NÃO é indicado para**:
-- Protocolo de petições (deve ser feito via e-SAJ)
+- Protocolo de petições (deve ser feito via sistema judicial)
 - Consulta a processos em segredo de justiça sem habilitação prévia
 - Orientação jurídica (servidores não podem dar consultas)
 - Realização de atos que dependem de petição formal
 
 ### Acesso e Uso do Balcão Virtual
 
-1. Acessar o site do TJSP
+1. Acessar o site do tribunal
 2. Localizar o banner "Balcão Virtual"
 3. Selecionar a comarca/unidade desejada
 4. Aguardar na sala virtual (ordem de chegada)
@@ -421,7 +421,7 @@ Soluções:
 
 **Telefone**: 0800-797-9818
 **E-mail**: suporte.saj@tjsp.jus.br
-**Horário**: Consultar no portal do TJSP
+**Horário**: Consultar no portal do tribunal
 
 **Quando acionar a Ouvidoria**:
 - Após esgotar tentativas com suporte técnico
@@ -647,18 +647,18 @@ Apesar da possibilidade de atuar sem advogado (jus postulandi), é recomendável
 - Projetos de assistência jurídica gratuita de OAB
 
 **Plataformas de Informação**:
-- Portal do TJSP: www.tjsp.jus.br
-- e-SAJ: esaj.tjsp.jus.br
-- Plataforma de Educação a Distância do TJSP: www.tjsp.jus.br/moodle/livre
+- Portal do tribunal: www.tjsp.jus.br
+- sistema judicial: esaj.tjsp.jus.br
+- Plataforma de Educação a Distância do tribunal: www.tjsp.jus.br/moodle/livre
 - OAB-SP: www.oabsp.org.br
 
 ## Principais Fontes Consultadas
 
-- [Balcão Virtual TJSP - Modelo Inicial](https://modeloinicial.com.br/materia/balcao-virtual-tjsp) - Informações completas sobre funcionamento, requisitos e serviços do Balcão Virtual
-- [e-SAJ TJSP - Portal Oficial](https://esaj.tjsp.jus.br) - Portal principal de peticionamento eletrônico do TJSP
-- [TJSP - Plataforma de Educação a Distância](https://www.tjsp.jus.br/moodle/livre/) - Tutoriais oficiais sobre sistema SAJ e processamento eletrônico
-- [Limpar o Nome Rapidamente com Liminar Judicial - SolucioneAqui](https://www.solucioneaqui.app/blog/limpar-nome-rapidamente-liminar-judicial-guia-completo) - Guia sobre liminares e procedimentos para limpeza de nome
-- [Procon.SP - Orientações sobre Juizado Especial](https://www.procon.sp.gov.br/) - Informações oficiais sobre direitos do consumidor e acesso ao Juizado Especial
+- Balcão Virtual tribunal - Modelo Inicial - Informações completas sobre funcionamento, requisitos e serviços do Balcão Virtual
+- sistema judicial tribunal - Portal Oficial - Portal principal de peticionamento eletrônico do tribunal
+- tribunal - Plataforma de Educação a Distância - Tutoriais oficiais sobre sistema SAJ e processamento eletrônico
+- Limpar o Nome Rapidamente com Liminar Judicial - SolucioneAqui - Guia sobre liminares e procedimentos para limpeza de nome
+- Procon.SP - Orientações sobre Juizado Especial - Informações oficiais sobre direitos do consumidor e acesso ao Juizado Especial
 
 ## Principais Normas Jurídicas
 
@@ -666,14 +666,14 @@ Apesar da possibilidade de atuar sem advogado (jus postulandi), é recomendável
 - Lei 11.419/2006 - Processo Eletrônico
 - Lei 8.078/1990 - Código de Defesa do Consumidor
 - Resolução CNJ nº 372/2021 - Balcão Virtual
-- Provimento CSM nº 2.642/2021 - Implementação do Balcão Virtual no TJSP
+- Provimento CSM nº 2.642/2021 - Implementação do Balcão Virtual no tribunal
 - Código de Processo Civil - Artigos 98 a 102 (Gratuidade da Justiça)
 - Súmula 359 STJ - Comunicação prévia obrigatória
 - Súmula 548 STJ - Remoção em 5 dias após pagamento
 
 ## Anexo: Glossário de Termos
 
-- **e-SAJ**: Sistema de Automação da Justiça, plataforma de peticionamento eletrônico do TJSP
+- **sistema judicial**: Sistema de Automação da Justiça, plataforma de peticionamento eletrônico do tribunal
 - **JEC**: Juizado Especial Cível, órgão do judiciário especializado em causas de menor complexidade
 - **Jus Postulandi**: Direito de postular em juízo sem representação por advogado, aplicável no JEC
 - **Certificado Digital ICP-Brasil**: Identidade eletrônica emitida por autoridade certificadora brasileira

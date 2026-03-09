@@ -4,12 +4,12 @@ title: 73 Milhoes de Brasileiros com Nome Sujo: Quantos Sao Vitimas de Negativac
 category: estatisticas
 publishedDate: 2026-03-07
 estimatedReadTime: 5
-keywords: quantos brasileiros estao negativados, numero de negativados Brasil 2025, inadimplencia Brasil estatistica, nome sujo brasil quantos, Serasa SPC negativados 2025
+keywords: quantos brasileiros estao negativados, numero de negativados Brasil 2025, inadimplencia Brasil estatistica, nome sujo brasil quantos, bureau de credito servico de protecao ao credito negativados 2025
 -->
 
 # 73 Milhões de Brasileiros com Nome Sujo: Quantos São Vítimas de Negativação Indevida?
 
-O Brasil encerrou 2025 com um recorde histórico e preocupante: **73,49 milhões de consumidores com o nome negativado**, de acordo com dados da CNDL (Confederação Nacional de Dirigentes Lojistas) e do SPC Brasil. Esse número representa 44% da população adulta do país — quase metade dos brasileiros em idade de trabalhar e consumir estava impedida de acessar crédito, financiamento ou até mesmo serviços básicos que exigem análise de crédito.
+O Brasil encerrou 2025 com um recorde histórico e preocupante: **73,49 milhões de consumidores com o nome negativado**, de acordo com dados da CNDL (Confederação Nacional de Dirigentes Lojistas) e do servico de protecao ao credito. Esse número representa 44% da população adulta do país — quase metade dos brasileiros em idade de trabalhar e consumir estava impedida de acessar crédito, financiamento ou até mesmo serviços básicos que exigem análise de crédito.
 
 Por trás desse número expressivo, há uma realidade que os dados brutos não revelam imediatamente: uma parcela significativa dessas negativações é irregular, indevida ou contestável juridicamente.
 
@@ -17,7 +17,7 @@ Por trás desse número expressivo, há uma realidade que os dados brutos não r
 
 O crescimento da inadimplência em 2025 foi de **10,17% em relação ao ano anterior**, quando o país contabilizava cerca de 66,7 milhões de negativados. O salto em um único ano reflete uma combinação de fatores: pressão inflacionária persistente, elevação do custo do crédito, desemprego estrutural em determinados setores e aumento do endividamento das famílias.
 
-O perfil dos consumidores negativados em 2025, segundo o levantamento da CNDL/SPC Brasil, apresenta características relevantes:
+O perfil dos consumidores negativados em 2025, segundo o levantamento da CNDL/servico de protecao ao credito, apresenta características relevantes:
 
 - **Valor médio de dívida por consumidor negativado:** R$ 4.689
 - **Número médio de credores por inadimplente:** 2,18
@@ -44,7 +44,7 @@ Uma negativação **indevida** ocorre quando qualquer um desses elementos está 
 
 Não existe uma estatística oficial consolidada sobre quantas das 73 milhões de negativações são indevidas. Os órgãos de proteção ao crédito não fazem essa distinção em seus relatórios — eles apenas registram a existência da restrição.
 
-O que os dados do Poder Judiciário indicam é revelador: as ações por negativação indevida estão entre as mais frequentes nos Juizados Especiais Cíveis de todo o país. Os processos envolvendo Serasa, SPC, empresas de telecomunicações e instituições financeiras por inscrições irregulares figuram consistentemente no ranking das demandas mais comuns nos juizados.
+O que os dados do Poder Judiciário indicam é revelador: as ações por negativação indevida estão entre as mais frequentes nos Juizados Especiais Cíveis de todo o país. Os processos envolvendo bureau de credito, servico de protecao ao credito, empresas de telecomunicações e instituições financeiras por inscrições irregulares figuram consistentemente no ranking das demandas mais comuns nos juizados.
 
 Especialistas em direito do consumidor estimam que entre 15% e 25% das negativações têm algum vício jurídico que poderia ser contestado — seja pela ausência de notificação, pela prescrição da dívida, pela inexistência do contrato ou por outros motivos. Aplicado ao universo de 73 milhões de negativados, isso representa entre **10 e 18 milhões de brasileiros** que possivelmente têm direito a contestar sua restrição de crédito.
 
@@ -54,11 +54,11 @@ A negativação vai muito além do impedimento de obter crédito. O consumidor n
 
 **Acesso a crédito e serviços financeiros:** financiamentos, cartões de crédito, empréstimos e consórcios são negados automaticamente por sistemas de análise de crédito que consultam os cadastros de inadimplentes.
 
-**Moradia:** proprietários de imóveis frequentemente realizam consultas ao SPC/Serasa antes de alugar. Um nome negativado pode inviabilizar a locação de um apartamento mesmo quando o interessado tem renda comprovada.
+**Moradia:** proprietários de imóveis frequentemente realizam consultas ao servico de protecao ao credito/bureau de credito antes de alugar. Um nome negativado pode inviabilizar a locação de um apartamento mesmo quando o interessado tem renda comprovada.
 
 **Emprego:** em determinados setores — especialmente financeiro, comercial e de gestão — empresas incluem a consulta ao cadastro de inadimplentes no processo seletivo. Uma negativação indevida pode custar uma oportunidade de emprego ao consumidor.
 
-**Score de crédito:** a negativação derruba automaticamente a pontuação nos sistemas de score (como o Serasa Score), criando um ciclo de exclusão financeira que persiste mesmo após a retirada da restrição.
+**Score de crédito:** a negativação derruba automaticamente a pontuação nos sistemas de score (como o bureau de credito Score), criando um ciclo de exclusão financeira que persiste mesmo após a retirada da restrição.
 
 ## As Ações nos Juizados Especiais Crescem Junto com a Inadimplência
 

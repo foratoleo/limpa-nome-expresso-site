@@ -81,7 +81,7 @@ export function GuidePage({ guideId, slug }: GuidePageProps) {
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#12110d", fontFamily: "'Public Sans', sans-serif" }}>
       <Helmet>
-        <title>{guide.title} - Limpa Nome Expresso</title>
+        <title>{guide.title} - CPF Blindado</title>
         <meta name="description" content={guide.description} />
       </Helmet>
 

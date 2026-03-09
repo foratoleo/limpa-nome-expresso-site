@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "task_name": "branding-cpf-blindado",
+  "tasks": [
+    {
+      "id": "T0",
+      "description": "Create branch refactor/branding-cpf-blindado",
+      "status": "pending",
+      "agent": null,
+      "plan_ref": null,
+      "subtasks": []
+    }
+  ]
+}

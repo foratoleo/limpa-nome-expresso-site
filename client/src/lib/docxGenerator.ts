@@ -41,7 +41,7 @@ export const DOCUMENT_TEMPLATES: DocumentTemplate[] = [
   {
     id: "peticao-inicial",
     title: "Petição Inicial Pre-Preenchida",
-    description: "Modelo completo para o JEC de São Paulo - sistema e-SAJ TJSP",
+    description: "Modelo completo para o JEC de São Paulo - sistema sistema judicial tribunal",
     step: 2,
     stepTitle: "Preparação da Petição",
     filename: "peticao_inicial_jec_sp.docx",
@@ -64,7 +64,7 @@ export const DOCUMENT_TEMPLATES: DocumentTemplate[] = [
     description: "Todos os 5 passos detalhados em um único documento",
     step: 0,
     stepTitle: "Guia Completo",
-    filename: "guia_completo_limpa_nome.docx",
+    filename: "guia_completo_cpf_blindado.docx",
     icon: "BookIcon",
     color: "#22c55e",
   },
@@ -197,7 +197,7 @@ function createHorizontalLine(): Paragraph {
 // Generate Checklist Document Content (shared array)
 function getChecklistContent(): Paragraph[] {
   return [
-    createTitle("CHECKLIST COMPLETO — LIMPA NOME EXPRESSO"),
+    createTitle("CHECKLIST COMPLETO — CPF BLINDADO"),
     createParagraph("Documentos e Ações para Limpeza de Nome no JEC de São Paulo (2026)", { bold: true }),
     createHorizontalLine(),
 
@@ -210,13 +210,13 @@ function getChecklistContent(): Paragraph[] {
     createCheckboxItem("Comprovante de residência dos últimos 3 meses em seu nome"),
 
     createHeading2("Prova da Negativação"),
-    createCheckboxItem("Relatório completo do Serasa (acesse: serasa.com.br — gratuito)"),
-    createCheckboxItem("Relatório do SPC Brasil (acesse: spcbrasil.org.br — gratuito)"),
-    createCheckboxItem("Relatório do Boa Vista SCPC (acesse: consumidorpositivo.com.br — gratuito)"),
+    createCheckboxItem("Relatório completo do cadastro de credito (acesse: plataforma oficial do cadastro — gratuito)"),
+    createCheckboxItem("Relatório do servico de protecao ao credito (acesse: plataforma oficial do cadastro — gratuito)"),
+    createCheckboxItem("Relatório do cadastro de credito (acesse: plataforma oficial do cadastro — gratuito)"),
     createCheckboxItem("O documento deve mostrar: nome da empresa credora, valor da dívida e data de inclusão"),
 
     createHeading2("Prova Negativa Digital (CRUCIAL em 2026)"),
-    createCheckboxItem('Print da caixa de entrada do e-mail — com busca por "Serasa", "SPC", "notificação"'),
+    createCheckboxItem('Print da caixa de entrada do e-mail — com busca por "cadastro de credito", "servico de protecao ao credito", "notificação"'),
     createCheckboxItem("Print da pasta spam/lixo eletrônico do e-mail — mesma busca"),
     createCheckboxItem("Print do histórico de SMS do celular — mostrando ausência de mensagens"),
     createCheckboxItem("Dica: os prints devem mostrar a barra de busca com os termos pesquisados"),
@@ -236,22 +236,22 @@ function getChecklistContent(): Paragraph[] {
     createCheckboxItem("Salvar em PDF (máx. 30 MB por arquivo, 300 KB por página)"),
 
     // PASSO 3
-    createHeading1("PASSO 3 — PROTOCOLO NO e-SAJ (TJSP)"),
-    createParagraph("Link: https://www.tjsp.jus.br/peticionamentojec", { bold: true }),
-    createCheckboxItem("Acessar o sistema e-SAJ com certificado digital"),
+    createHeading1("PASSO 3 — PROTOCOLO NO SISTEMA JUDICIAL"),
+    createParagraph("Link: portal oficial do tribunal", { bold: true }),
+    createCheckboxItem("Acessar o sistema judicial com certificado digital"),
     createCheckboxItem("Iniciar novo processo"),
     createCheckboxItem("Preencher os campos obrigatórios:"),
     createParagraph("Competência: Juizado Especial Cível", { indent: true }),
     createParagraph("Classe: 436 — Procedimento do Juizado Especial Cível", { indent: true }),
-    createParagraph("Assunto Principal: Serasa ou SCPC", { indent: true }),
-    createCheckboxItem("Cadastrar as partes: Autor (seus dados), Réu 1 (empresa credora), Réu 2 (Serasa S.A.)"),
+    createParagraph("Assunto Principal: restricao de credito indevida", { indent: true }),
+    createCheckboxItem("Cadastrar as partes: Autor (seus dados), Réu 1 (empresa credora), Réu 2 (entidade mantenedora do cadastro)"),
     createCheckboxItem('Marcar a opção "Pedido Liminar / Tutela Antecipada"'),
     createCheckboxItem("Anexar a petição em PDF e cada documento em PDF separado"),
     createCheckboxItem("Finalizar e anotar o número do processo gerado"),
 
     // PASSO 4
     createHeading1("PASSO 4 — BALCÃO VIRTUAL"),
-    createParagraph("Link: https://www.tjsp.jus.br/balcaovirtual | Horário: Seg–Sex, 9h–17h", { bold: true }),
+    createParagraph("Link: portal oficial do tribunal | Horário: Seg–Sex, 9h–17h", { bold: true }),
     createCheckboxItem("Baixar o roteiro: roteiro_balcao_virtual.docx"),
     createCheckboxItem("Preencher o roteiro com seus dados antes de ligar"),
     createCheckboxItem("Acessar o Balcão Virtual imediatamente após o protocolo"),
@@ -262,10 +262,10 @@ function getChecklistContent(): Paragraph[] {
 
     // PASSO 5
     createHeading1("PASSO 5 — ACOMPANHAMENTO"),
-    createParagraph("Consulta processual: https://esaj.tjsp.jus.br/cpopg/open.do", { bold: true }),
+    createParagraph("Consulta processual: portal oficial do tribunal", { bold: true }),
     createCheckboxItem("Monitorar o processo diariamente"),
     createCheckboxItem("Se liminar concedida: aguardar 5 dias úteis para a exclusão"),
-    createCheckboxItem("Verificar o nome no Serasa/SPC após o prazo"),
+    createCheckboxItem("Verificar o nome no cadastro de credito após o prazo"),
     createCheckboxItem("Se não cumprido: peticionar informando o descumprimento"),
 
     createHorizontalLine(),
@@ -280,7 +280,7 @@ function getChecklistContent(): Paragraph[] {
     createParagraph("Resolução CNJ nº 372/21: Institui o Balcão Virtual nos tribunais", { indent: true }),
 
     createHorizontalLine(),
-    createParagraph("Checklist elaborado para o Juizado Especial Cível de São Paulo (TJSP), sistema e-SAJ. Fevereiro de 2026.", { italic: true }),
+    createParagraph("Checklist elaborado para o Juizado Especial Cível. Fevereiro de 2026.", { italic: true }),
   ];
 }
 
@@ -306,10 +306,10 @@ function generatePetitionDocument(): Document {
           createTitle("MODELO DE PETIÇÃO INICIAL"),
           createHeading2("Juizado Especial Cível (São Paulo)"),
           createParagraph("Ação Declaratória c/c Obrigação de Fazer e Tutela de Urgência", { bold: true }),
-          createParagraph("Sistema de Protocolo: e-SAJ TJSP — https://esaj.tjsp.jus.br"),
+          createParagraph("Sistema de Protocolo: portal oficial do tribunal"),
           createHorizontalLine(),
 
-          createBlockQuote("INSTRUÇÕES DE PREENCHIMENTO: Substitua todos os campos marcados com [PREENCHER: ...] pelos seus dados reais. Salve o documento preenchido em PDF antes de anexar ao sistema e-SAJ."),
+          createBlockQuote("INSTRUÇÕES DE PREENCHIMENTO: Substitua todos os campos marcados com [PREENCHER: ...] pelos seus dados reais. Salve o documento preenchido em PDF antes de anexar ao sistema judicial."),
 
           createHorizontalLine(),
 
@@ -325,7 +325,7 @@ function generatePetitionDocument(): Document {
 
           createParagraph("[PREENCHER: NOME COMPLETO DA EMPRESA QUE NEGATIVOU], pessoa jurídica de direito privado, inscrita no CNPJ sob o nº [PREENCHER: 00.000.000/0001-00], com sede em [PREENCHER: endereço da empresa], doravante denominada REQUERIDA 1; e"),
 
-          createParagraph("SERASA S.A. (ou SPC BRASIL / BOA VISTA SCPC), pessoa jurídica de direito privado, inscrita no CNPJ sob o nº 00.204.698/0001-46, com sede na Alameda dos Quinimuras, nº 187, Planalto Paulista, São Paulo/SP, CEP 04068-900, doravante denominada REQUERIDA 2."),
+          createParagraph("entidade mantenedora do cadastro de crédito, pessoa jurídica de direito privado, inscrita no CNPJ sob o nº [PREENCHER: CNPJ], com sede em [PREENCHER: endereço], doravante denominada REQUERIDA 2."),
 
           createParagraph("pelos fatos e fundamentos jurídicos a seguir expostos:"),
 
@@ -333,7 +333,7 @@ function generatePetitionDocument(): Document {
 
           createHeading1("I — DOS FATOS"),
 
-          createParagraph("O(A) Requerente foi surpreendido(a) com a inclusão indevida de seu nome nos cadastros de inadimplentes mantidos pela Requerida 2 (Serasa/SPC/Boa Vista), referente a um suposto débito com a Requerida 1 no valor de R$ [PREENCHER: valor do débito], com data de vencimento em [PREENCHER: data de vencimento]."),
+          createParagraph("O(A) Requerente foi surpreendido(a) com a inclusão indevida de seu nome nos cadastros de inadimplentes mantidos pela Requerida 2 (cadastro de credito), referente a um suposto débito com a Requerida 1 no valor de R$ [PREENCHER: valor do débito], com data de vencimento em [PREENCHER: data de vencimento]."),
 
           createParagraph("Ocorre que o(a) Requerente NÃO RECEBEU QUALQUER NOTIFICAÇÃO PRÉVIA E ESCRITA acerca da referida inscrição, conforme determina expressamente o Artigo 43, § 2º do Código de Defesa do Consumidor e a Súmula 359 do Superior Tribunal de Justiça."),
 
@@ -397,7 +397,7 @@ function generatePetitionDocument(): Document {
           createParagraph("1. RG (frente e verso) — Obrigatório"),
           createParagraph("2. CPF — Obrigatório"),
           createParagraph("3. Comprovante de Residência — Obrigatório"),
-          createParagraph("4. Relatório de negativação do Serasa/SPC/Boa Vista — Obrigatório"),
+          createParagraph("4. Relatório de negativação do cadastro de credito — Obrigatório"),
           createParagraph("5. Print da caixa de entrada do e-mail (prova negativa) — Obrigatório"),
           createParagraph("6. Print da pasta de spam do e-mail (prova negativa) — Obrigatório"),
           createParagraph("7. Print do histórico de SMS (prova negativa) — Obrigatório"),
@@ -405,7 +405,7 @@ function generatePetitionDocument(): Document {
           createParagraph("9. Qualquer documento relacionado à dívida — Se disponível"),
 
           createHorizontalLine(),
-          createParagraph("Modelo elaborado com base no Art. 43, § 2º do CDC, Súmulas 359 e 385 do STJ. Válido para protocolo no sistema e-SAJ do TJSP. Fevereiro de 2026.", { italic: true }),
+          createParagraph("Modelo elaborado com base no Art. 43, § 2º do CDC, Súmulas 359 e 385 do STJ. Válido para protocolo no sistema judicial eletrônico. Fevereiro de 2026.", { italic: true }),
         ],
       },
     ],
@@ -419,9 +419,9 @@ function generateBalcaoDocument(): Document {
       {
         properties: {},
         children: [
-          createTitle("ROTEIRO DE ATENDIMENTO — BALCÃO VIRTUAL TJSP"),
+          createTitle("ROTEIRO DE ATENDIMENTO — BALCÃO VIRTUAL"),
           createHeading2("Para Despacho Urgente de Liminar — Limpeza de Nome"),
-          createParagraph("Acesso: tjsp.jus.br/balcaovirtual | Horário: Seg–Sex, 9h–17h"),
+          createParagraph("Acesso: portal oficial do tribunal | Horário: Seg–Sex, 9h–17h"),
           createHorizontalLine(),
 
           createBlockQuote("COMO USAR ESTE ROTEIRO: Tenha este documento aberto durante o atendimento por videoconferência. Preencha os campos [...] com seus dados antes de iniciar a chamada."),
@@ -430,7 +430,7 @@ function generateBalcaoDocument(): Document {
 
           createHeading1("ANTES DE LIGAR — CHECKLIST DE PREPARAÇÃO"),
 
-          createCheckboxItem("Processo já protocolado no e-SAJ"),
+          createCheckboxItem("Processo já protocolado no sistema judicial"),
           createCheckboxItem("Número do processo anotado: [PREENCHER: 0000000-00.2026.8.26.0000]"),
           createCheckboxItem("Vara/Unidade: [PREENCHER: ex: 1ª Vara do JEC do Foro Regional de Pinheiros]"),
           createCheckboxItem("Data do protocolo: [PREENCHER: dd/mm/2026]"),
@@ -442,7 +442,7 @@ function generateBalcaoDocument(): Document {
 
           createHeading1("PASSO A PASSO DO ACESSO"),
 
-          createParagraph("1. Acesse: https://www.tjsp.jus.br/balcaovirtual"),
+          createParagraph("1. Acesse: portal oficial do tribunal"),
           createParagraph("2. Selecione: 1ª Instância — Juizados Especiais"),
           createParagraph("3. No campo Foro, digite o nome do foro: [PREENCHER: ex: Pinheiros]"),
           createParagraph("4. Selecione a unidade correta na lista"),
@@ -454,7 +454,7 @@ function generateBalcaoDocument(): Document {
 
           createParagraph("Quando o servidor atender, diga:", { bold: true }),
 
-          createBlockQuote('"Bom dia/boa tarde. Meu nome é [PREENCHER: SEU NOME], CPF [PREENCHER: 000.000.000-00]. Eu protocolei uma ação no dia [PREENCHER: data], número de processo [PREENCHER: número], com pedido de tutela de urgência para exclusão do meu nome do Serasa/SPC. Gostaria de solicitar que o processo fosse encaminhado para análise da liminar pelo(a) juiz(a) com a máxima brevidade possível."'),
+          createBlockQuote('"Bom dia/boa tarde. Meu nome é [PREENCHER: SEU NOME], CPF [PREENCHER: 000.000.000-00]. Eu protocolei uma ação no dia [PREENCHER: data], número de processo [PREENCHER: número], com pedido de tutela de urgência para exclusão do meu nome do cadastro de credito. Gostaria de solicitar que o processo fosse encaminhado para análise da liminar pelo(a) juiz(a) com a máxima brevidade possível."'),
 
           createHorizontalLine(),
 
@@ -490,21 +490,21 @@ function generateBalcaoDocument(): Document {
 
           createHeading1("O QUE FAZER APÓS O ATENDIMENTO"),
 
-          createParagraph("1. Monitore o processo diariamente no e-SAJ: https://esaj.tjsp.jus.br/cpopg/open.do"),
+          createParagraph("1. Monitore o processo diariamente no sistema judicial: portal oficial do tribunal"),
           createParagraph("2. Prazo esperado para a decisão: 2 a 10 dias úteis após o encaminhamento"),
-          createParagraph("3. Se liminar concedida: o Serasa/SPC terá 5 dias úteis para excluir seu nome"),
+          createParagraph("3. Se liminar concedida: o cadastro de credito terá 5 dias úteis para excluir seu nome"),
           createParagraph("4. Se não houver movimentação em 5 dias: acesse o Balcão Virtual novamente"),
 
           createHorizontalLine(),
 
           createHeading1("INFORMAÇÕES ÚTEIS"),
 
-          createParagraph("Balcão Virtual TJSP: https://www.tjsp.jus.br/balcaovirtual", { indent: true }),
-          createParagraph("Peticionamento JEC: https://www.tjsp.jus.br/peticionamentojec", { indent: true }),
-          createParagraph("Consulta processual: https://esaj.tjsp.jus.br/cpopg/open.do", { indent: true }),
+          createParagraph("Balcão Virtual: portal oficial do tribunal", { indent: true }),
+          createParagraph("Peticionamento JEC: portal oficial do tribunal", { indent: true }),
+          createParagraph("Consulta processual: portal oficial do tribunal", { indent: true }),
 
           createHorizontalLine(),
-          createParagraph("Roteiro elaborado com base nas diretrizes do TJSP (Resolução CNJ nº 372/21). Fevereiro de 2026.", { italic: true }),
+          createParagraph("Roteiro elaborado com base nas diretrizes do CNJ (Resolução nº 372/21). Fevereiro de 2026.", { italic: true }),
         ],
       },
     ],
@@ -521,9 +521,9 @@ function generateCompleteGuideDocument(): Document {
       {
         properties: {},
         children: [
-          createTitle("GUIA COMPLETO — LIMPA NOME EXPRESSO"),
+          createTitle("GUIA COMPLETO — CPF BLINDADO"),
           createHeading2("Sistema de Apoio Jurídico Automático"),
-          createParagraph("Todos os 5 passos detalhados para limpeza de nome no JEC de São Paulo (TJSP - e-SAJ)"),
+          createParagraph("Todos os 5 passos detalhados para limpeza de nome no JEC"),
           createHorizontalLine(),
 
           // Include all content from checklist
@@ -540,7 +540,7 @@ function generateCompleteGuideDocument(): Document {
           createParagraph("Veja o arquivo separado: roteiro_balcao_virtual.docx para o roteiro completo.", { italic: true }),
 
           createHorizontalLine(),
-          createParagraph("Guia elaborado para o Juizado Especial Cível de São Paulo (TJSP), sistema e-SAJ. Fevereiro de 2026.", { italic: true }),
+          createParagraph("Guia elaborado para o Juizado Especial Cível. Fevereiro de 2026.", { italic: true }),
         ],
       },
     ],
@@ -567,7 +567,7 @@ export async function generateAndDownloadDocx(templateId: string): Promise<void>
       break;
     case "guia-completo":
       doc = generateCompleteGuideDocument();
-      filename = "guia_completo_limpa_nome.docx";
+      filename = "guia_completo_cpf_blindado.docx";
       break;
     default:
       throw new Error(`Unknown template: ${templateId}`);

@@ -2,14 +2,14 @@
 
 > Data da Pesquisa: 2025-01-04
 > Tipo: Pesquisa Detalhada
-> Objetivo: Fortalecer base legal do projeto Limpa Nome Expresso
+> Objetivo: Fortalecer base legal do projeto CPF Blindado
 > Nível de Conhecimento: Intermediário
 
 ## Visão Geral
 
 Este documento apresenta um guia jurídico completo para procedimentos de limpeza de nome nos estados da região Sul do Brasil: Paraná (PR), Santa Catarina (SC) e Rio Grande do Sul (RS). O conteúdo aborda os sistemas judiciais específicos de cada estado, procedimentos práticos para ações no Juizado Especial Cível, modelos documentais aplicáveis, e jurisprudência relevante.
 
-A escolha dos Juizados Especiais Cíveis para ações de limpeza de nome é estratégica, pois oferecem procedimentos mais céleres, simplificados e geralmente isentos de custas processuais, com competência para causas de até 40 salários mínimos. Esta pesquisa foca nas particularidades regionais dos tribunais da região Sul, que utilizam diferentes sistemas de processo digital (e-SAJ, Eproc e PJe), cada um com suas próprias interfaces e fluxos de trabalho.
+A escolha dos Juizados Especiais Cíveis para ações de limpeza de nome é estratégica, pois oferecem procedimentos mais céleres, simplificados e geralmente isentos de custas processuais, com competência para causas de até 40 salários mínimos. Esta pesquisa foca nas particularidades regionais dos tribunais da região Sul, que utilizam diferentes sistemas de processo digital (sistema judicial, Eproc e PJe), cada um com suas próprias interfaces e fluxos de trabalho.
 
 ## Base Legal Nacional
 
@@ -72,29 +72,29 @@ Esta súmula é fundamental: se o consumidor já possui outros registros legíti
 
 ## Sistemas Judiciais por Estado
 
-### Paraná (TJPR) - Sistema e-SAJ
+### Paraná (TJPR) - Sistema sistema judicial
 
-O Tribunal de Justiça do Paraná utiliza o sistema **e-SAJ** para gestão de processos judiciais eletrônicos.
+O Tribunal de Justiça do Paraná utiliza o sistema **sistema judicial** para gestão de processos judiciais eletrônicos.
 
-**Características do e-SAJ:**
+**Características do sistema judicial:**
 - Sistema de processo judicial eletrônico
 - Integração com certificação digital
 - Petição eletrônica para todas as instâncias
 - Consulta processual por número, nome das partes ou OAB
 
 **Acesso ao Sistema:**
-- Site oficial: https://www.tjpr.jus.br
+- Site oficial: 
 - Requer certificado digital ou cadastro prévio com usuário/senha
 - Autenticação com código de verificação enviado por e-mail (a partir de 2024-2025)
 
 **Juizados Especiais no TJPR:**
-- Utilizam o sistema e-SAJ
+- Utilizam o sistema sistema judicial
 - Processamento de causas cíveis de menor complexidade
 - Conciliação e audiências presenciais e online
 
 **Informações de Contato:**
-- Site: https://www.tjpr.jus.br
-- Sistema: https://esaj.tjpr.jus.br
+- Site: 
+- Sistema: 
 
 ### Santa Catarina (TJSC) - Sistema Eproc
 
@@ -108,7 +108,7 @@ O Tribunal de Justiça de Santa Catarina utiliza o sistema **Eproc** para gestã
 - Processos digitais desde 2000
 
 **Estrutura do TJSC:**
-- Site oficial: https://www.tjsc.jus.br
+- Site oficial: 
 - 113 comarcas no estado
 - Portais PJSC integrados: Eproc, Conciliação e Mediação, Jurisprudência
 
@@ -151,8 +151,8 @@ O Tribunal de Justiça do Rio Grande do Sul utiliza o sistema **PJe** (Processo 
 - **PJeIA 2.0**: Ferramenta de IA integrada ao PJe para análise de documentos
 
 **Acesso ao Sistema:**
-- Site oficial: https://www.tjrs.jus.br
-- PJe: https://pje.tjrs.jus.br
+- Site oficial: 
+- PJe: 
 
 ## Tipos de Ações para Limpeza de Nome
 
@@ -182,7 +182,7 @@ I - DOS FATOS
 
 1. O autor mantém [ou manteve] relação de consumo com a ré [descrever relação: contrato, compra, serviço].
 2. [Descrever a situação que gerou a negativação ou detalhar por que é indevida].
-3. A ré promoveu a inscrição do nome do autor nos órgãos de proteção ao crédito [Serasa, SPC, etc.] em [data].
+3. A ré promoveu a inscrição do nome do autor nos órgãos de proteção ao crédito [bureau de credito, servico de protecao ao credito, etc.] em [data].
 4. A negativação é indevida porque [apresentar fundamentos: dívida inexistente, já paga, prescrita, sem aviso prévio, etc.].
 5. O autor só tomou conhecimento da negativação em [data], quando [descrever como descobriu].
 
@@ -310,7 +310,7 @@ Ação focada na obrigação da empresa de realizar ou deixar de realizar algum 
 
 ### Documentos que Comprovam a Negativação
 
-- **Certidões dos órgãos de proteção ao crédito** (Serasa, SPC, Boa Vista SCPC)
+- **Certidões dos órgãos de proteção ao crédito** (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito)
 - **Prints de consulta online** (data e horário visíveis)
 - **Notificações** recebidas sobre a negativação
 - **Laudo de protesto** (se aplicável)
@@ -327,9 +327,9 @@ Ação focada na obrigação da empresa de realizar ou deixar de realizar algum 
 
 ### Procedimentos no Paraná (TJPR)
 
-**1. Acesso ao Sistema e-SAJ**
+**1. Acesso ao Sistema sistema judicial**
 
-- Acessar: https://esaj.tjpr.jus.br
+- Acessar: 
 - Realizar login com certificado digital ou usuário/senha
 - Verificar código de autenticação enviado por e-mail
 
@@ -363,7 +363,7 @@ Ação focada na obrigação da empresa de realizar ou deixar de realizar algum 
 
 **6. Particularidades do TJPR**
 
-- Uso predominante do sistema e-SAJ
+- Uso predominante do sistema sistema judicial
 - Conciliação como etapa obrigatória
 - Possibilidade de audiências online
 - Turmas Recursais para julgamento de recursos
@@ -372,8 +372,8 @@ Ação focada na obrigação da empresa de realizar ou deixar de realizar algum 
 
 **1. Acesso ao Sistema Eproc**
 
-- Acessar: https://www.tjsc.jus.br
-- Navegar para "Portais PJSC" > "eproc - Processo Judicial"
+- Acessar: 
+- Navegar para "Portais PJSC" > "sistema judicial - Processo Judicial"
 - Realizar login com certificado digital ou cadastro prévio
 - Selecionar o tribunal e comarca
 
@@ -418,7 +418,7 @@ Ação focada na obrigação da empresa de realizar ou deixar de realizar algum 
 
 **1. Acesso ao Sistema PJe**
 
-- Acessar: https://pje.tjrs.jus.br ou https://www.tjrs.jus.br
+- Acessar:  ou 
 - Login com certificado digital ICP-Brasil (preferencial)
 - Alternativa: cadastro com GOV.BR
 - Verificar código de autenticação (quando aplicável)
@@ -472,7 +472,7 @@ REFERÊNCIA: Negativação indevida - [Seu nome completo] - [Seu CPF]
 
 Prezados,
 
-Venho por meio desta solicitar a **exclusão imediata** de meu nome dos cadastros de proteção ao crédito (Serasa, SPC, Boa Vista SCPC), em virtude da **negativação indevida** relacionada à suposta dívida no valor de R$ [valor], referente a [descrever contrato/fatura].
+Venho por meio desta solicitar a **exclusão imediata** de meu nome dos cadastros de proteção ao crédito (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito), em virtude da **negativação indevida** relacionada à suposta dívida no valor de R$ [valor], referente a [descrever contrato/fatura].
 
 **DOS FATOS**
 
@@ -627,9 +627,9 @@ Testemunhas:
 
 ```
 1. Consultar nome nos órgãos de proteção ao crédito
-   ├── Serasa Experian
-   ├── SPC Brasil
-   └── Boa Vista SCPC
+   ├── bureau de credito
+   ├── servico de protecao ao credito
+   └── cadastro de protecao ao credito
 
 2. Reunir documentação
    ├── Documentos pessoais
@@ -653,7 +653,7 @@ Testemunhas:
 
 ```
 1. Protocolo da petição inicial
-   ├── Escolha do sistema (e-SAJ, Eproc, PJe)
+   ├── Escolha do sistema (sistema judicial, Eproc, PJe)
    ├── Seleção do Juizado competente
    ├── Anexo de documentos
    └── Pagamento de custas (se aplicável)
@@ -691,9 +691,9 @@ Testemunhas:
 
 ## Comparativo dos Sistemas
 
-| Característica | TJPR - e-SAJ | TJSC - Eproc | TJRS - PJe |
+| Característica | TJPR - sistema judicial | TJSC - Eproc | TJRS - PJe |
 |----------------|--------------|--------------|-----------|
-| Sistema | e-SAJ | Eproc | PJe |
+| Sistema | sistema judicial | Eproc | PJe |
 | Origem | Desenvolvimento próprio | Desenvolvimento próprio | CNJ - Nacional |
 | Certificado Digital | Obrigatório ou cadastro | Obrigatório ou cadastro | Obrigatório ou GOV.BR |
 | Petição Eletrônica | Sim | Sim | Sim |
@@ -706,22 +706,22 @@ Testemunhas:
 | Número de Comarcas | ~400 | 113 | ~300 |
 | Migrado para Nuvem | Parcial | Não | Sim (AWS, 2024) |
 
-## Diferenças em Relação ao TJSP
+## Diferenças em Relação ao tribunal
 
-O Estado de São Paulo (TJSP) é frequentemente tomado como referência em procedimentos de limpeza de nome. As principais diferenças para os estados da região Sul são:
+O Estado de São Paulo (tribunal) é frequentemente tomado como referência em procedimentos de limpeza de nome. As principais diferenças para os estados da região Sul são:
 
 ### Sistema Processual
 
-| Aspecto | TJSP | TJPR/TJSC/TJRS |
+| Aspecto | tribunal | TJPR/TJSC/TJRS |
 |---------|------|----------------|
-| Sistema | e-SAJ TJSP | e-SAJ, Eproc ou PJe |
-| Balcão Virtual | Balcão Virtual TJSP | Balcão Virtual (parcial) |
+| Sistema | sistema judicial tribunal | sistema judicial, Eproc ou PJe |
+| Balcão Virtual | Balcão Virtual tribunal | Balcão Virtual (parcial) |
 | Petição | Modelo padronizado disponível | Petição personalizada |
 | Conciliação | Antes da audiência | Na audiência |
 
 ### Procedimentos
 
-**TJSP:**
+**tribunal:**
 - Modelo de petição pré-preenchido no Balcão Virtual
 - Conciliação prévia antes da distribuição
 - Alta taxa de acordos na fase administrativa
@@ -733,12 +733,12 @@ O Estado de São Paulo (TJSP) é frequentemente tomado como referência em proce
 
 ### Prazos e Custas
 
-- **TJSP**: Custas mais elevadas, isenção mais restrita
+- **tribunal**: Custas mais elevadas, isenção mais restrita
 - **Estados Sul**: Custas menores em Juizados, isenção ampla
 
 ### Jurisprudência
 
-- **TJSP**: Mais consolidada, precedentes específicos sobre liminares
+- **tribunal**: Mais consolidada, precedentes específicos sobre liminares
 - **Estados Sul**: Em desenvolvimento, mas segue STJ e STF
 
 ## Recomendações Práticas
@@ -847,9 +847,9 @@ O Estado de São Paulo (TJSP) é frequentemente tomado como referência em proce
 
 ### Tribunais
 
-- **TJPR**: https://www.tjpr.jus.br - Portal oficial com informações sobre e-SAJ, Juizados Especiais e consulta processual
-- **TJSC**: https://www.tjsc.jus.br - Portal oficial com acesso ao sistema Eproc, Balcão Virtual e serviços ao cidadão
-- **TJRS**: https://www.tjrs.jus.br - Portal oficial com acesso ao sistema PJe e informações sobre processo digital
+- **TJPR**:  - Portal oficial com informações sobre sistema judicial, Juizados Especiais e consulta processual
+- **TJSC**:  - Portal oficial com acesso ao sistema Eproc, Balcão Virtual e serviços ao cidadão
+- **TJRS**:  - Portal oficial com acesso ao sistema PJe e informações sobre processo digital
 
 ### Legislação
 
@@ -868,7 +868,7 @@ O Estado de São Paulo (TJSP) é frequentemente tomado como referência em proce
 
 ### Guias e Tutoriais
 
-- **Serasa Experian**: "Pequenas Causas Online" - Tutorial completo para acionar o Juizado Especial
+- **bureau de credito**: "Pequenas Causas Online" - Tutorial completo para acionar o Juizado Especial
 - **ADVBOX**: Modelos de petições para ações de negativação indevida
 - **Jurídico AI**: "Negativação Indevida: Guia Completo para Advogados"
 - **SolucioneAqui**: "Limpar o Nome Rapidamente com Liminar Judicial"
@@ -921,7 +921,7 @@ O Estado de São Paulo (TJSP) é frequentemente tomado como referência em proce
 
 ## Considerações Finais
 
-Os procedimentos de limpeza de nome nos estados da região Sul (Paraná, Santa Catarina e Rio Grande do Sul) seguem a mesma base legal nacional, mas apresentam particularidades nos sistemas de processo judicial utilizados (e-SAJ, Eproc e PJe). A compreensão dessas diferenças é fundamental para o sucesso da ação.
+Os procedimentos de limpeza de nome nos estados da região Sul (Paraná, Santa Catarina e Rio Grande do Sul) seguem a mesma base legal nacional, mas apresentam particularidades nos sistemas de processo judicial utilizados (sistema judicial, Eproc e PJe). A compreensão dessas diferenças é fundamental para o sucesso da ação.
 
 A escolha do Juizado Especial Cível é apropriada para causas de até 40 salários mínimos, oferecendo procedimento mais célere e geralmente isento de custas. A utilização de medidas liminares é estratégica para exclusão rápida do nome dos órgãos de proteção ao crédito, especialmente quando há urgência comprovada.
 
@@ -929,21 +929,21 @@ A jurisprudência do STJ, especialmente a Súmula 385, orienta a análise de cad
 
 Recomenda-se sempre tentar resolução administrativa antes de propor ação judicial, documentando todas as tentativas. A fundamentação legal sólida, com base no CDC e na jurisprudência, aumenta significativamente as chances de sucesso.
 
-Para o projeto Limpa Nome Expresso, é essencial adaptar os procedimentos e modelos documentais para cada estado, considerando as particularidades dos sistemas e as práticas locais dos Juizados Especiais Cíveis.
+Para o projeto CPF Blindado, é essencial adaptar os procedimentos e modelos documentais para cada estado, considerando as particularidades dos sistemas e as práticas locais dos Juizados Especiais Cíveis.
 
 ## Fontes
 
-- [Tribunal de Justiça de Santa Catarina - Site Oficial](https://www.tjsc.jus.br) - Portal oficial com acesso ao sistema Eproc, Balcão Virtual e serviços ao cidadão
-- [Tribunal de Justiça do Paraná - Site Oficial](https://www.tjpr.jus.br) - Portal oficial com informações sobre o sistema e-SAJ e Juizados Especiais
-- [Tribunal de Justiça do Rio Grande do Sul - Site Oficial](https://www.tjrs.jus.br) - Portal oficial com acesso ao sistema PJe
-- [Serasa Experian - Pequenas Causas Online](https://www.serasaexperian.com.br/conteudos/pequenas-causas-online-2/) - Tutorial completo para acionar o Juizado Especial Cível
-- [ADVBOX - Modelo de Ação de Negativação Indevida](https://advbox.com.br/blog/modelos/acao-de-negativacao-indevida/) - Modelo completo de petição inicial para Juizado Especial Cível
-- [SolucioneAqui - Liminar Judicial para Limpeza de Nome](https://www.solucioneaqui.app/blog/limpar-nome-rapidamente-liminar-judicial-guia-completo) - Guia completo sobre liminares para exclusão de nome
-- [Projuris - Negativação Indevida: O Que É e Como Evitar](https://projuris.com.br/blog/negativacao-indevida-o-que-e-como-evitar/) - Análise detalhada do CDC e artigos aplicáveis
-- [Jurídico AI - Negativação Indevida: Guia Completo para Advogados](https://juridico.ai/blog/negativacao-indevida-guia-completo-para-advogados/) - Orientações práticas para profissionais
-- [Modelo Inicial - Cobrança de Dívidas de Forma Indevida](https://modeloinicial.com.br/blog/peticao-inicial-cobranca-divida-indevida/) - Discussão sobre dano moral presumido
-- [Petições Online - Jurisprudência sobre Negativação Indevida](https://www.peticoesonline.com.br/jurisprudencia/negativacao-indevida) - Súmulas e precedentes do STJ
-- [Garrastazu Advogados - Negativação Indevida: Seus Direitos](https://garrastazu.adv.br/negativacao-indevida-seus-direitos/) - Análise dos artigos 6º, 14 e 43 do CDC
-- [TJSC - Certidões Judiciais](https://www.tjsc.jus.br/web/judicial/certidoes) - Informações sobre o sistema Eproc e emissão de certidões
-- [Lei 9.099/95 - Juizados Especiais Cíveis](http://www.planalto.gov.br/ccivil_03/leis/l9099.htm) - Legislação federal que rege os Juizados Especiais em todo território nacional
-- [Código de Defesa do Consumidor](http://www.planalto.gov.br/ccivil_03/leis/l8078.htm) - Lei 8.078/90 com arts. 6º, 14, 42, 43 aplicáveis a limpeza de nome
+- Tribunal de Justiça de Santa Catarina - Site Oficial - Portal oficial com acesso ao sistema Eproc, Balcão Virtual e serviços ao cidadão
+- Tribunal de Justiça do Paraná - Site Oficial - Portal oficial com informações sobre o sistema sistema judicial e Juizados Especiais
+- Tribunal de Justiça do Rio Grande do Sul - Site Oficial - Portal oficial com acesso ao sistema PJe
+- bureau de credito - Pequenas Causas Online - Tutorial completo para acionar o Juizado Especial Cível
+- ADVBOX - Modelo de Ação de Negativação Indevida - Modelo completo de petição inicial para Juizado Especial Cível
+- SolucioneAqui - Liminar Judicial para Limpeza de Nome - Guia completo sobre liminares para exclusão de nome
+- Projuris - Negativação Indevida: O Que É e Como Evitar - Análise detalhada do CDC e artigos aplicáveis
+- Jurídico AI - Negativação Indevida: Guia Completo para Advogados - Orientações práticas para profissionais
+- Modelo Inicial - Cobrança de Dívidas de Forma Indevida - Discussão sobre dano moral presumido
+- Petições Online - Jurisprudência sobre Negativação Indevida - Súmulas e precedentes do STJ
+- Garrastazu Advogados - Negativação Indevida: Seus Direitos - Análise dos artigos 6º, 14 e 43 do CDC
+- TJSC - Certidões Judiciais - Informações sobre o sistema Eproc e emissão de certidões
+- Lei 9.099/95 - Juizados Especiais Cíveis - Legislação federal que rege os Juizados Especiais em todo território nacional
+- Código de Defesa do Consumidor - Lei 8.078/90 com arts. 6º, 14, 42, 43 aplicáveis a limpeza de nome

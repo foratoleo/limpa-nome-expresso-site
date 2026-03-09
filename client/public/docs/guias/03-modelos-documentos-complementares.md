@@ -6,7 +6,7 @@
 
 ## Overview
 
-Este documento fornece um guia completo sobre os documentos complementares, provas e modelos necessários para processos de limpeza de nome. O foco é apresentar templates práticos, checklists de verificação e estratégias de organização documental para fortalecer a base legal do projeto Limpa Nome Expresso.
+Este documento fornece um guia completo sobre os documentos complementares, provas e modelos necessários para processos de limpeza de nome. O foco é apresentar templates práticos, checklists de verificação e estratégias de organização documental para fortalecer a base legal do projeto CPF Blindado.
 
 A importância dos documentos complementares nos processos de limpeza de nome não pode ser subestimada. Segundo o Código de Defesa do Consumidor (Art. 43, § 2º), a negativação do consumidor em cadastros de proteção ao crédito depende de comunicação prévia por escrito. A ausência ou inadequação dessa notificação é uma das causas mais comuns de negativações indevidas, e a prova documental adequada é fundamental para reverter essa situação.
 
@@ -133,7 +133,7 @@ DISPOSIÇÕES GERAIS
 1. O declarado(a) encontra-se inteiramente quite com o declarante, não existindo qualquer débito pendente.
 2. Esta declaração constitui prova plena da quitação, podendo ser utilizada para todos os fins de direito.
 3. O declarante se compromete a baixar qualquer protesto ou restrição cadastral oriunda desta dívida, no prazo de até 5 (cinco) dias úteis.
-4. O declarante compromete-se a comunicar a baixa aos órgãos de proteção ao crédito (Serasa, SPC, Boa Vista, Quod).
+4. O declarante compromete-se a comunicar a baixa aos órgãos de proteção ao crédito (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito, cadastro de protecao ao credito).
 5. Esta declaração é firmada em duas vias de igual teor, na presença de duas testemunhas.
 
 LOCAL E DATA
@@ -181,7 +181,7 @@ Conforme o Art. 43, § 2º do CDC, a negativação depende de comunicação pré
    - Pode ser apresentada como prova testemunhal
 
 2. **Certidões dos Órgãos de Proteção ao Crédito**
-   - Serasa, SPC, Boa Vista, Quod
+   - bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito, cadastro de protecao ao credito
    - Atestam a data de inclusão da negativação
    - Comprovam quando a informação foi adicionada ao cadastro
 
@@ -333,7 +333,7 @@ Endereço profissional: __________________________________________________
 
 PODERES CONFERIDOS
 
-O outorgante nomeia e constitui seu bastante procurador o Dr(a). ________________________________, a quem confere os poderes especiais para representá-lo perante os órgãos de proteção ao crédito (Serasa, SPC, Boa Vista, Quod), perante empresas credoras, perante o PROCON e perante o Juízo _______ da Comarca de ____________, para o fim específico de promover a exclusão de seu nome dos cadastros de inadimplentes, bem como para promover as medidas judiciais e extrajudiciais cabíveis, em especial:
+O outorgante nomeia e constitui seu bastante procurador o Dr(a). ________________________________, a quem confere os poderes especiais para representá-lo perante os órgãos de proteção ao crédito (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito, cadastro de protecao ao credito), perante empresas credoras, perante o PROCON e perante o Juízo _______ da Comarca de ____________, para o fim específico de promover a exclusão de seu nome dos cadastros de inadimplentes, bem como para promover as medidas judiciais e extrajudiciais cabíveis, em especial:
 
 I - Requerer administrativamente a exclusão de negativações indevidas;
 II - Promover ação de indenização por danos morais, se cabível;
@@ -381,7 +381,7 @@ REFERÊNCIA: Negativação indevida junto a cadastros de proteção ao crédito
 
 Prezados Senhores,
 
-Venho por meio desta NOTIFICAR que meu nome foi inscrito indevidamente nos cadastros de proteção ao crédito (Serasa, SPC, Boa Vista ou Quod) pela empresa acima qualificada, conforme detalhamento a seguir:
+Venho por meio desta NOTIFICAR que meu nome foi inscrito indevidamente nos cadastros de proteção ao crédito (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito ou cadastro de protecao ao credito) pela empresa acima qualificada, conforme detalhamento a seguir:
 
 1. DÍVIDA OBJETO DA NEGATIVAÇÃO:
    - Valor alegado: R$ ____________________
@@ -466,7 +466,7 @@ ASSUNTO: Exigência de baixa de registro nos órgãos de proteção ao crédito
 
 Prezados Senhores,
 
-Venho por meio desta EXIGIR a imediata baixa do registro de meu nome nos cadastros de proteção ao crédito (Serasa, SPC, Boa Vista, Quod), em virtude do pagamento integral da dívida abaixo especificada:
+Venho por meio desta EXIGIR a imediata baixa do registro de meu nome nos cadastros de proteção ao crédito (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito, cadastro de protecao ao credito), em virtude do pagamento integral da dívida abaixo especificada:
 
 DADOS DA DÍVIDA QUITADA:
 - Contrato/NF: ____________________
@@ -556,7 +556,7 @@ II. DOCUMENTOS RELACIONADOS À DÍVIDA
 [ ] Prints de e-mails e mensagens
 
 III. DOCUMENTOS PARA CONTESTAÇÃO
-[ ] Certidão de negativação (Serasa, SPC, Boa Vista ou Quod)
+[ ] Certidão de negativação (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito ou cadastro de protecao ao credito)
 [ ] Comprovante de consulta ao cadastro (print do site ou app)
 [ ] Declaração de ausência de notificação prévia
 [ ] Boletim de Ocorrência (se caso de fraude/roubo)
@@ -608,7 +608,7 @@ Modelo de organização de documentos físicos para processo de limpeza de nome:
 │   └── 02.5 - Correspondências com credor
 │
 ├── 📁 03 - CONTESTAÇÃO ADMINISTRATIVA
-│   ├── 03.1 - Certidão de negativação (Serasa/SPC)
+│   ├── 03.1 - Certidão de negativação (bureau de credito/servico de protecao ao credito)
 │   ├── 03.2 - Declaração de ausência de notificação
 │   ├── 03.3 - Protocolo de contestação administrativa
 │   ├── 03.4 - Resposta do órgão de proteção ao crédito
@@ -657,10 +657,10 @@ Modelo de organização de arquivos digitais:
 │   └── 📄 CERTIDAO_QUITACAO.pdf
 │
 ├── 📁 03_CONTESTACAO_ADMINISTRATIVA/
-│   ├── 📄 CERTIDAO_NEGATIVACAO_SERASA.pdf
+│   ├── 📄 CERTIDAO_NEGATIVACAO_bureau de credito.pdf
 │   ├── 📄 DECLARACAO_AUSENCIA_NOTIFICACAO.pdf
 │   ├── 📄 PROTOCOLO_CONTESTACAO.pdf
-│   └── 📄 RESPOSTA_SERASA.pdf
+│   └── 📄 RESPOSTA_bureau de credito.pdf
 │
 ├── 📁 04_ACAO_JUDICIAL/
 │   ├── 📄 PROCURACAO.pdf
@@ -684,7 +684,7 @@ Modelo de organização de arquivos digitais:
 **Convenção de Nomenclatura de Arquivos:**
 
 - Usar formato: `AAAA-MM-DD_DESCRICAO.pdf`
-- Exemplo: `2026-03-03_COMPROVANTE_PAGAMENTO_SERASA.pdf`
+- Exemplo: `2026-03-03_COMPROVANTE_PAGAMENTO_bureau de credito.pdf`
 - Evitar espaços e caracteres especiais
 - Usar underline (_) no lugar de espaços
 - Manter nomes descritivos e organizados
@@ -711,7 +711,7 @@ DATA: ____/____/______
 | 06 | Fatura Vencida | 12/2025 | Original | Pasta 02 | |
 | 07 | Comprovante Pagamento | 02/2026 | Original | Pasta 02 | TED |
 | 08 | Certidão Quitação | 02/2026 | Original | Pasta 02 | |
-| 09 | Certidão Negativação Serasa | 03/2026 | Digital | Pasta 03 | Print |
+| 09 | Certidão Negativação bureau de credito | 03/2026 | Digital | Pasta 03 | Print |
 | 10 | Declaração Ausência Notificação | 03/2026 | Original | Pasta 03 | |
 | 11 | Protocolo Contestação | 03/2026 | Digital | Pasta 03 | |
 | 12 | Carta Notificação | 03/2026 | Original | Pasta 06 | AR |
@@ -741,7 +741,7 @@ ASSINATURA DO RESPONSÁVEL
 **Certificado Digital:**
 
 - Aceito para autenticação de documentos digitais
-- Necessário para peticionamento eletrônico (e-Proc, e-SAJ)
+- Necessário para peticionamento eletrônico (sistema judicial, sistema judicial)
 - Pode substituir assinaturas físicas em muitos casos
 - Validade de 1 a 3 anos, conforme tipo
 
@@ -874,19 +874,19 @@ Nome completo
 
 ## Sources
 
-- [VLV Advogados - Negativação indevida no Serasa](https://vlvadvogados.com/negativacao-indevida-no-serasa/) - Guia completo sobre direitos do consumidor e como contestar negativações indevidas
-- [VLV Advogados - Limpar o nome no Serasa depois de pagar](https://vlvadvogados.com/limpar-o-nome-no-serasa-depois-de-pagar/) - Explica o prazo de 5 dias para baixa após pagamento
-- [Hugo Brinco Advocacia - SPC e SERASA como pedir reparação por erro](https://hugobrincoadvocacia.com.br/glossario/spc-e-serasa-como-pedir-reparacao-por-erro/) - Detalha o processo de contestação e prazos legais
-- [STJ - Notificação de inscrição em cadastro de inadimplentes](https://www.stj.jus.br/sites/portalp/Paginas/Comunicacao/Noticias/2023/02062023-Notificacao-de-inscricao-em-cadastro-de-inadimplentes-nao-pode-ser-feita--exclusivamente--por-e-mail-ou-por-SMS-.aspx) - Jurisprudência sobre notificação prévia por escrito
-- [Jusbrasil - Modelos de Ação de Negativação Indevida](https://www.jusbrasil.com.br/modelos-pecas/busca?q=pedido+de+exclus%C3%A3o+do+nome+do+serasa+e+spc) - Modelos de petições e documentos jurídicos
-- [ADVBOX - Modelo de Ação de Negativação Indevida](https://advbox.com.br/blog/modelos/acao-de-negativacao-indevida/) - Template completo com fundamento legal no CDC e Constituição
-- [ADVLABS - Petição Inicial Indenizatória Negativação Indevida](https://advlabs.com.br/modelo/modelo-peticao-inicial-indenizatoria-negativacao-indevida/) - Modelo detalhado de petição inicial
-- [Consumidor.gov.br](https://www.consumidor.gov.br) - Plataforma oficial para reclamações e resolução de conflitos de consumo
-- [Marco Tulio Gripa - Nome negativado indevidamente](https://marcotuliogripa.com.br/artigos/nome-negativado-indevidamente-passo-a-passo-para-regularizar-sua-situacao/) - Guia prático passo a passo
-- [Modelo Inicial - Artigo 43 CDC](https://modeloinicial.com.br/lei/CDC/codigo-defesa-consumidor/art-43) - Análise detalhada do dispositivo legal sobre cadastros de proteção ao crédito
-- [Serasa Experian](https://www.serasaexperian.com.br) - Site oficial para consultas e contestações
-- [SPC Brasil](https://www.spcbrasil.org.br) - Site oficial para consultas e contestações
-- [PROCON](https://www.procon.sp.gov.br) - Informações sobre direitos do consumidor e procedimentos de reclamação
+- VLV Advogados - Negativação indevida no bureau de credito - Guia completo sobre direitos do consumidor e como contestar negativações indevidas
+- VLV Advogados - Limpar o nome no bureau de credito depois de pagar - Explica o prazo de 5 dias para baixa após pagamento
+- Hugo Brinco Advocacia - servico de protecao ao credito e bureau de credito como pedir reparação por erro - Detalha o processo de contestação e prazos legais
+- STJ - Notificação de inscrição em cadastro de inadimplentes - Jurisprudência sobre notificação prévia por escrito
+- Jusbrasil - Modelos de Ação de Negativação Indevida - Modelos de petições e documentos jurídicos
+- ADVBOX - Modelo de Ação de Negativação Indevida - Template completo com fundamento legal no CDC e Constituição
+- ADVLABS - Petição Inicial Indenizatória Negativação Indevida - Modelo detalhado de petição inicial
+- Consumidor.gov.br - Plataforma oficial para reclamações e resolução de conflitos de consumo
+- Marco Tulio Gripa - Nome negativado indevidamente - Guia prático passo a passo
+- Modelo Inicial - Artigo 43 CDC - Análise detalhada do dispositivo legal sobre cadastros de proteção ao crédito
+- bureau de credito - Site oficial para consultas e contestações
+- servico de protecao ao credito - Site oficial para consultas e contestações
+- PROCON - Informações sobre direitos do consumidor e procedimentos de reclamação
 
 ---
 

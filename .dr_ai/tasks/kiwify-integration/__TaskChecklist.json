@@ -1,0 +1,160 @@
+{
+  "version": "1.0",
+  "task_name": "kiwify-integration",
+  "tasks": [
+    {
+      "id": "T0",
+      "description": "Create branch feat/kiwify-integration",
+      "status": "completed",
+      "agent": null,
+      "plan_ref": null,
+      "subtasks": []
+    },
+    {
+      "id": "T1",
+      "description": "Setup core infrastructure and API client",
+      "status": "completed",
+      "agent": "nodejs-implementation",
+      "plan_ref": "1",
+      "subtasks": [
+        {
+          "id": "T1.1",
+          "description": "Create kiwify-config.ts with product constants",
+          "status": "completed"
+        },
+        {
+          "id": "T1.2",
+          "description": "Create kiwify.ts API client with OAuth",
+          "status": "completed"
+        },
+        {
+          "id": "T1.3",
+          "description": "Define TypeScript interfaces for API data",
+          "status": "completed"
+        },
+        {
+          "id": "T1.4",
+          "description": "Update .env.example with Kiwify variables",
+          "status": "completed"
+        },
+        {
+          "id": "T1.5",
+          "description": "Add unit tests for token caching logic",
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "id": "T2",
+      "description": "Implement webhook handler and payment processing",
+      "status": "completed",
+      "agent": "nodejs-implementation",
+      "plan_ref": "2",
+      "subtasks": [
+        {
+          "id": "T2.1",
+          "description": "Create webhook endpoint with token verification",
+          "status": "completed"
+        },
+        {
+          "id": "T2.2",
+          "description": "Implement compra_aprovada handler",
+          "status": "completed"
+        },
+        {
+          "id": "T2.3",
+          "description": "Implement refund and chargeback handlers",
+          "status": "completed"
+        },
+        {
+          "id": "T2.4",
+          "description": "Add idempotency check using sale ID",
+          "status": "completed"
+        },
+        {
+          "id": "T2.5",
+          "description": "Integrate email notification service",
+          "status": "completed"
+        },
+        {
+          "id": "T2.6",
+          "description": "Add comprehensive logging",
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "id": "T3",
+      "description": "Integrate frontend checkout flow",
+      "status": "completed",
+      "agent": "react-specialist",
+      "plan_ref": "3",
+      "subtasks": [
+        {
+          "id": "T3.1",
+          "description": "Create Netlify function for checkout URL",
+          "status": "completed"
+        },
+        {
+          "id": "T3.2",
+          "description": "Add Kiwify checkout button to Landing",
+          "status": "completed"
+        },
+        {
+          "id": "T3.3",
+          "description": "Update PaymentSuccess for Kiwify redirects",
+          "status": "completed"
+        },
+        {
+          "id": "T3.4",
+          "description": "Create frontend configuration file",
+          "status": "completed"
+        },
+        {
+          "id": "T3.5",
+          "description": "Add analytics tracking for checkout events",
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "id": "T4",
+      "description": "Create tests and documentation",
+      "status": "completed",
+      "agent": "nodejs-integration-test-architect",
+      "plan_ref": "4",
+      "subtasks": [
+        {
+          "id": "T4.1",
+          "description": "Create unit tests for OAuth token management",
+          "status": "completed"
+        },
+        {
+          "id": "T4.2",
+          "description": "Create unit tests for webhook handler",
+          "status": "completed"
+        },
+        {
+          "id": "T4.3",
+          "description": "Create integration tests for purchase flow",
+          "status": "completed"
+        },
+        {
+          "id": "T4.4",
+          "description": "Write docs/integrations/kiwify.md",
+          "status": "completed"
+        },
+        {
+          "id": "T4.5",
+          "description": "Update README.md with integration info",
+          "status": "completed"
+        },
+        {
+          "id": "T4.6",
+          "description": "Create Kiwify dashboard configuration guide",
+          "status": "completed"
+        }
+      ]
+    }
+  ]
+}

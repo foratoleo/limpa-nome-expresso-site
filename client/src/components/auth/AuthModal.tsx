@@ -115,10 +115,10 @@ export function AuthModal({
 
           {/* Tabs */}
           {tab !== "forgot" && (
-            <div className="flex gap-2 mb-6 rounded-xl overflow-hidden" style={{ backgroundColor: "rgba(255, 255, 255, 0.05)" }}>
+            <div className="mb-6 grid gap-2 rounded-xl p-1 sm:grid-cols-3" style={{ backgroundColor: "rgba(255, 255, 255, 0.05)" }}>
               <button
                 onClick={() => setTab("login")}
-                className="flex-1 py-2.5 text-sm font-medium transition-colors rounded-lg"
+                className="rounded-lg px-3 py-2.5 text-sm font-medium transition-colors"
                 style={{
                   backgroundColor: tab === "login" ? "#d39e17" : "transparent",
                   color: tab === "login" ? "#12110d" : "#94a3b8",
@@ -128,7 +128,7 @@ export function AuthModal({
               </button>
               <button
                 onClick={() => setTab("magic")}
-                className="flex-1 py-2.5 text-sm font-medium transition-colors rounded-lg"
+                className="rounded-lg px-3 py-2.5 text-sm font-medium transition-colors"
                 style={{
                   backgroundColor: tab === "magic" ? "#d39e17" : "transparent",
                   color: tab === "magic" ? "#12110d" : "#94a3b8",
@@ -138,7 +138,7 @@ export function AuthModal({
               </button>
               <button
                 onClick={() => setTab("register")}
-                className="flex-1 py-2.5 text-sm font-medium transition-colors rounded-lg"
+                className="rounded-lg px-3 py-2.5 text-sm font-medium transition-colors"
                 style={{
                   backgroundColor: tab === "register" ? "#d39e17" : "transparent",
                   color: tab === "register" ? "#12110d" : "#94a3b8",
@@ -188,7 +188,7 @@ export function AuthModal({
                   {[
                     "Modelos de petição inicial e recursos atualizados",
                     "Checklist de provas (e-mail, spam, SMS e protocolos)",
-                    "Roteiro de protocolo no e-SAJ e acompanhamento no TJSP",
+                    "Roteiro de protocolo no sistema judicial e acompanhamento no tribunal",
                     "Suporte com resposta em até 48 horas úteis",
                   ].map((item) => (
                     <div key={item} className="flex items-start gap-3">

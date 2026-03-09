@@ -8,7 +8,7 @@
 
 Este documento apresenta um guia jurídico completo para procedimentos de limpeza de nome nos estados das regiões Centro-Oeste, Nordeste e Norte do Brasil. A pesquisa abrange os sistemas judiciários estaduais, plataformas digitais disponíveis, Balcao Virtual, procedimentos dos Juizados Especiais, e particularidades regionais para ações de negativação indevida, cancelamento de protestos e reparação por danos morais.
 
-O conteúdo é destinado ao fortalecimento da base legal do projeto Limpa Nome Expresso, fornecendo informações atualizadas sobre competências, valores de alçada, sistemas eletrônicos, jurisprudência aplicável e modelos procedimentais para cada região. Os procedimentos descritos seguem a Lei 9.099/95 (Juizados Especiais), o Código de Defesa do Consumidor (Lei 8.078/90), e as súmulas do STJ pertinentes à matéria.
+O conteúdo é destinado ao fortalecimento da base legal do projeto CPF Blindado, fornecendo informações atualizadas sobre competências, valores de alçada, sistemas eletrônicos, jurisprudência aplicável e modelos procedimentais para cada região. Os procedimentos descritos seguem a Lei 9.099/95 (Juizados Especiais), o Código de Defesa do Consumidor (Lei 8.078/90), e as súmulas do STJ pertinentes à matéria.
 
 ## Marco Legal Nacional
 
@@ -53,7 +53,7 @@ O TJDFT possui Juizados Especiais Cíveis com competência para julgar ações d
 
 **Sistemas Eletrônicos Disponíveis**
 
-- **e-SAJ**: Sistema processual eletrônico utilizado para consulta e acompanhamento processual
+- **sistema judicial**: Sistema processual eletrônico utilizado para consulta e acompanhamento processual
 - **Balcão Virtual TJDFT**: Atendimento remoto por videoconferência, regulamentado pela Resolução CNJ nº 372/2021
 - **Juizado Virtual**: Plataforma para atos processuais digitais
 
@@ -61,7 +61,7 @@ O TJDFT possui Juizados Especiais Cíveis com competência para julgar ações d
 
 Ações de limpeza de nome no TJDFT seguem o rito sumaríssimo da Lei 9.099/95. O tribunal possui jurisprudência consolidada sobre:
 
-- Registros em banco de dados do "Serasa Limpa Nome" configuram negativação no cadastro de inadimplentes
+- Registros em banco de dados do "plataforma de negociacao de dividas" configuram negativação no cadastro de inadimplentes
 - Aplicação dos artigos 14 e 43, §§ 1º, 4º e 5º do CDC
 - Artigos 189, 205 e 206 do Código Civil
 
@@ -111,7 +111,7 @@ O TJMT possui Juizados Especiais Cíveis em Cuiabá, Várzea Grande, Rondonópol
 
 **Sistemas Eletrônicos Disponíveis**
 
-- **Sistema e-SAJ**: Plataforma processual eletrônica
+- **Sistema sistema judicial**: Plataforma processual eletrônica
 - **Atendimento Virtual**: Disponível em algumas comarcas
 - **Consulta Processual**: Acesso público e para advogados
 
@@ -393,7 +393,7 @@ Ações de limpeza de nome seguem o rito sumaríssimo, com considerações espec
 **Tribunal de Justiça de Roraima (TJRR)**
 
 - Site oficial: www.tjrr.jus.br
-- Juizados Especiais em Boa Vista e comarcas do interior
+- Juizados Especiais em cadastro de protecao ao credito e comarcas do interior
 - Sistema digital limitado
 
 **Tribunal de Justiça do Amapá (TJAP)**
@@ -414,7 +414,7 @@ Ações de limpeza de nome seguem o rito sumaríssimo, com considerações espec
 
 **1. Ação de Negativação Indevida**
 
-Utilizada quando o nome do consumidor foi inscrito indevidamente em cadastros de proteção ao crédito (Serasa, SPC, Boa Vista).
+Utilizada quando o nome do consumidor foi inscrito indevidamente em cadastros de proteção ao crédito (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito).
 
 Hipóteses de negativação indevida:
 - Ausência de notificação prévia (violando art. 43, §2º do CDC)
@@ -461,7 +461,7 @@ Documentos essenciais:
 - Documento de identificação (RG, CNH)
 - CPF e comprovante de residência
 - Comprovantes de pagamento (se houver)
-- Extratos/Serasa/SPC atuais
+- Extratos/bureau de credito/servico de protecao ao credito atuais
 - Notificações recebidas ou prova de ausência
 - Boletim de ocorrência (em caso de fraude)
 - Provas documentais adicionais
@@ -593,7 +593,7 @@ Dá-se à causa o valor de R$ [valor total dos pedidos].
 - Documento de identificação oficial
 - CPF do autor
 - Comprovante de residência
-- Extratos de proteção ao crédito (Serasa, SPC, Boa Vista)
+- Extratos de proteção ao crédito (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito)
 - Comprovantes de pagamento (se aplicável)
 - Notificações recebidas do credor
 - Boletim de ocorrência (se houver fraude)
@@ -619,7 +619,7 @@ Dá-se à causa o valor de R$ [valor total dos pedidos].
 ### Jurisprudência dos Tribunais Regionais
 
 **TJDFT**
-O registro em banco de dados do "Serasa Limpa Nome" configura negativação no cadastro de inadimplentes, aplicando-se os artigos 14 e 43 do CDC e artigos 189, 205 e 206 do Código Civil.
+O registro em banco de dados do "plataforma de negociacao de dividas" configura negativação no cadastro de inadimplentes, aplicando-se os artigos 14 e 43 do CDC e artigos 189, 205 e 206 do Código Civil.
 
 **TJBA**
 As Turmas Recursais do TJBA possuem jurisprudência consolidada sobre ações de negativação indevida baseadas no Código de Defesa do Consumidor.
@@ -776,46 +776,46 @@ A Resolução estabelece o Balcão Virtual como ferramenta de atendimento remoto
 
 ### Tribunais Regionais - Centro-Oeste
 
-- [TJDFT - Tribunal de Justiça do Distrito Federal e Territórios](https://www.tjdft.jus.br) - Informações sobre Juizados Especiais e jurisprudência sobre limpeza de nome
-- [TJGO - Tribunal de Justiça de Goiás](https://www.tjgo.jus.br) - Gabinete Virtual e Juizados Especiais Cíveis
-- [TJMT - Tribunal de Justiça de Mato Grosso](https://www.tjmt.jus.br) - Sistema e-SAJ e procedimentos dos Juizados
-- [TJMS - Tribunal de Justiça de Mato Grosso do Sul](https://www.tjms.jus.br) - Informações sobre Juizados Especiais e atendimento
+- TJDFT - Tribunal de Justiça do Distrito Federal e Territórios - Informações sobre Juizados Especiais e jurisprudência sobre limpeza de nome
+- TJGO - Tribunal de Justiça de Goiás - Gabinete Virtual e Juizados Especiais Cíveis
+- TJMT - Tribunal de Justiça de Mato Grosso - Sistema sistema judicial e procedimentos dos Juizados
+- TJMS - Tribunal de Justiça de Mato Grosso do Sul - Informações sobre Juizados Especiais e atendimento
 
 ### Tribunais Regionais - Nordeste
 
-- [TJBA - Tribunal de Justiça da Bahia](https://www.tjba.jus.br) - Turmas Recursais e jurisprudência sobre negativação indevida
-- [TJPE - Tribunal de Justiça de Pernambuco](https://www.tjpe.jus.br) - Juizado Especial Eletrônico e Balcão Virtual
-- [TJCE - Tribunal de Justiça do Ceará](https://www.tjce.jus.br) - Juizado Virtual e Processo Judicial Eletrônico
-- [TJAL - Tribunal de Justiça de Alagoas](https://www.tjal.jus.br) - Informações sobre Juizados Especiais
-- [TJPB - Tribunal de Justiça da Paraíba](https://www.tjpb.jus.br) - Sistema de Juizados Especiais
-- [TJPI - Tribunal de Justiça do Piauí](https://www.tjpi.jus.br) - Procedimentos dos Juizados Especiais
-- [TJRN - Tribunal de Justiça do Rio Grande do Norte](https://www.tjrn.jus.br) - Informações processuais
-- [TJSE - Tribunal de Justiça de Sergipe](https://www.tjse.jus.br) - Juizados Especiais e atendimento
+- TJBA - Tribunal de Justiça da Bahia - Turmas Recursais e jurisprudência sobre negativação indevida
+- TJPE - Tribunal de Justiça de Pernambuco - Juizado Especial Eletrônico e Balcão Virtual
+- TJCE - Tribunal de Justiça do Ceará - Juizado Virtual e Processo Judicial Eletrônico
+- TJAL - Tribunal de Justiça de Alagoas - Informações sobre Juizados Especiais
+- TJPB - Tribunal de Justiça da Paraíba - Sistema de Juizados Especiais
+- TJPI - Tribunal de Justiça do Piauí - Procedimentos dos Juizados Especiais
+- TJRN - Tribunal de Justiça do Rio Grande do Norte - Informações processuais
+- TJSE - Tribunal de Justiça de Sergipe - Juizados Especiais e atendimento
 
 ### Tribunais Regionais - Norte
 
-- [TJAM - Tribunal de Justiça do Amazonas](https://www.tjam.jus.br) - Diário da Justiça Eletrônico e consulta processual
-- [TJPA - Tribunal de Justiça do Pará](https://www.tjpa.jus.br) - Sistema processual e Juizados Especiais
-- [TJAC - Tribunal de Justiça do Acre](https://www.tjac.jus.br) - Diário da Justiça e procedimentos
-- [TJRO - Tribunal de Justiça de Rondônia](https://www.tjro.jus.br) - Informações sobre Juizados Especiais
-- [TJRR - Tribunal de Justiça de Roraima](https://www.tjrr.jus.br) - Sistema de Juizados Especiais
-- [TJAP - Tribunal de Justiça do Amapá](https://www.tjap.jus.br) - Juizados Especiais e atendimento
-- [TJTO - Tribunal de Justiça do Tocantins](https://www.tjto.jus.br) - Sistema de small claims e Juizados
+- TJAM - Tribunal de Justiça do Amazonas - Diário da Justiça Eletrônico e consulta processual
+- TJPA - Tribunal de Justiça do Pará - Sistema processual e Juizados Especiais
+- TJAC - Tribunal de Justiça do Acre - Diário da Justiça e procedimentos
+- TJRO - Tribunal de Justiça de Rondônia - Informações sobre Juizados Especiais
+- TJRR - Tribunal de Justiça de Roraima - Sistema de Juizados Especiais
+- TJAP - Tribunal de Justiça do Amapá - Juizados Especiais e atendimento
+- TJTO - Tribunal de Justiça do Tocantins - Sistema de small claims e Juizados
 
 ### Legislação e Jurisprudência
 
-- [Lei 9.099/1995 - Juizados Especiais](http://www.planalto.gov.br/ccivil_03/leis/l9099.htm) - Legislação federal dos Juizados Especiais Cíveis e Criminais
-- [Lei 8.078/1990 - Código de Defesa do Consumidor](http://www.planalto.gov.br/ccivil_03/leis/l8078.htm) - Legislação federal de defesa do consumidor
-- [STJ - Superior Tribunal de Justiça](https://www.stj.jus.br) - Súmulas 359, 385, 548 e 323 sobre negativação indevida
-- [CNJ - Conselho Nacional de Justiça](https://www.cnj.jus.br) - Resolução nº 372/2021 sobre Balcão Virtual
+- Lei 9.099/1995 - Juizados Especiais - Legislação federal dos Juizados Especiais Cíveis e Criminais
+- Lei 8.078/1990 - Código de Defesa do Consumidor - Legislação federal de defesa do consumidor
+- STJ - Superior Tribunal de Justiça - Súmulas 359, 385, 548 e 323 sobre negativação indevida
+- CNJ - Conselho Nacional de Justiça - Resolução nº 372/2021 sobre Balcão Virtual
 
 ### Recursos de Apoio
 
-- [ADVBOX - Modelo de ação de negativação indevida](https://advbox.com.br/blog/modelos/acao-de-negativacao-indevida/) - Modelo de petição para ações de limpeza de nome
-- [Projuris - Negativação indevida: o que é e como evitar](https://www.projuris.com.br/blog/negativacao-indevida/) - Guia completo sobre negativação indevida
-- [Acordo Certo - Danos morais por negativação indevida](https://www.acordocerto.com.br/blog/danos-morais-por-negativacao-indevida/) - Informações sobre dano moral e jurisprudência
-- [Solução Aqui - Limpar o Nome Rapidamente com Liminar Judicial](https://www.solucioneaqui.app/blog/limpar-nome-rapidamente-liminar-judicial-guia-completo) - Guia sobre liminares para limpeza de nome
-- [Serasa Experian - Ações de pequenas causas online](https://www.serasaexperian.com.br) - Informações sobre Juizado Especial Cível e limpeza de nome
+- ADVBOX - Modelo de ação de negativação indevida - Modelo de petição para ações de limpeza de nome
+- Projuris - Negativação indevida: o que é e como evitar - Guia completo sobre negativação indevida
+- Acordo Certo - Danos morais por negativação indevida - Informações sobre dano moral e jurisprudência
+- Solução Aqui - Limpar o Nome Rapidamente com Liminar Judicial - Guia sobre liminares para limpeza de nome
+- bureau de credito - Ações de pequenas causas online - Informações sobre Juizado Especial Cível e limpeza de nome
 
 ## Key Takeaways
 

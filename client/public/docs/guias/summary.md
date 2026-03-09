@@ -2,12 +2,12 @@
 
 > Date: 2026-03-03
 > Type: Deep Research
-> Goal: Fortalecer base legal do projeto Limpa Nome Expresso
+> Goal: Fortalecer base legal do projeto CPF Blindado
 > Knowledge Level: Intermediário
 
 ## Executive Summary
 
-Esta pesquisa consolidou guias jurídicos completos para limpeza de nome em cadastros de proteção ao crédito (Serasa, SPC, Boa Vista), abordando desde a base legal atualizada até procedimentos práticos específicos para cada estado brasileiro. O conteúdo é especialmente relevante para o projeto Limpa Nome Expresso, fornecendo fundamentação jurídica sólida, modelos de documentos adaptáveis, e procedimentos detalhados para ajuizamento de ações no Juizado Especial Cível (JEC).
+Esta pesquisa consolidou guias jurídicos completos para limpeza de nome em cadastros de proteção ao crédito (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito), abordando desde a base legal atualizada até procedimentos práticos específicos para cada estado brasileiro. O conteúdo é especialmente relevante para o projeto CPF Blindado, fornecendo fundamentação jurídica sólida, modelos de documentos adaptáveis, e procedimentos detalhados para ajuizamento de ações no Juizado Especial Cível (JEC).
 
 A base legal brasileira é robusta e favorável aos consumidores, com o Código de Defesa do Consumidor (CDC) estabelecendo direitos claros sobre notificação prévia, correção de dados e prazos máximos de permanência em cadastros negativos. O Superior Tribunal de Justiça (STJ) consolidou entendimentos através de súmulas vinculantes, especialmente as Súmulas 359, 385, 548 e 323, que definem obrigações precisas para credores e órgãos mantenedores de cadastros.
 
@@ -15,7 +15,7 @@ A jurisprudência recente (2024-2025) demonstra tendência de maior rigor com cr
 
 O procedimento prático para limpeza de nome segue fluxo bem definido: verificação prévia nos órgãos de proteção ao crédito, tentativa de resolução administrativa (contestação junto aos órgãos mantenedores, PROCON), e apenas posteriormente ajuizamento de ação judicial. O Juizado Especial Cível permite que consumidores ajuízem ações pessoalmente até 20 salários mínimos sem advogado (jus postulandi), com procedimentos simplificados e isenção de custas.
 
-Cada estado brasileiro possui seu sistema eletrônico de peticionamento (PJe, Projudi, e-SAJ, eproc, e-JEC), com particularidades que devem ser observadas. A pesquisa cobriu todos os 26 estados e o Distrito Federal, com guias específicos para sistemas em implementação, requisitos de certificação digital, e procedimentos adaptados a cada realidade local.
+Cada estado brasileiro possui seu sistema eletrônico de peticionamento (PJe, Projudi, sistema judicial, sistema judicial, e-JEC), com particularidades que devem ser observadas. A pesquisa cobriu todos os 26 estados e o Distrito Federal, com guias específicos para sistemas em implementação, requisitos de certificação digital, e procedimentos adaptados a cada realidade local.
 
 Os modelos de documentos fornecidos incluem petições iniciais para diferentes cenários (dívida já paga, ausência de notificação prévia, múltiplas negativações), recursos (recurso inominado, embargos de declaração), cumprimento de sentença, e documentos complementares (declarações de quitação, procurações, cartas de notificação extrajudicial). Todos os modelos são adaptáveis e seguem as formalidades processuais do CPC/2015 e da Lei 9.099/1995.
 
@@ -36,7 +36,7 @@ O arcabouço jurídico brasileiro para limpeza de nome é completo e favorável 
 
 O fluxo para limpeza de nome segue etapas bem definidas com prazos específicos:
 
-1. **Verificação prévia**: Consulta gratuita em Serasa, SPC, Boa Vista e Quod para identificar todas as negativações
+1. **Verificação prévia**: Consulta gratuita em bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito e cadastro de protecao ao credito para identificar todas as negativações
 2. **Documentação**: Comprovantes de pagamento (se dívida já quitada), documentos pessoais, certidões de negativação, comprovantes de tentativas de resolução
 3. **Contestação administrativa**: Preenchimento de formulário nos sites dos órgãos mantenedores, com prazo de resposta de 5 dias úteis
 4. **PROCON**: Se contestação administrativa for recusada, buscar o PROCON para mediação
@@ -50,17 +50,17 @@ Cada estado possui sistema próprio de peticionamento eletrônico, com requisito
 
 | Região | Estados | Sistema Principal | Certificado Digital |
 |--------|---------|-------------------|---------------------|
-| Sudeste | SP | e-SAJ / eproc (transição) | Obrigatório |
+| Sudeste | SP | sistema judicial / sistema judicial (transição) | Obrigatório |
 | Sudeste | MG | Projudi | Obrigatório |
 | Sudeste | RJ, ES | PJe | Obrigatório |
-| Sul | PR, SC | e-SAJ / Eproc | Obrigatório |
+| Sul | PR, SC | sistema judicial / Eproc | Obrigatório |
 | Sul | RS | PJe | Obrigatório |
 | Centro-Oeste | GO, MT, MS | Projudi | Obrigatório |
 | Centro-Oeste | DF | PJe | Obrigatório |
 | Nordeste | BA, PE, RN, PB, AL, SE, PI, MA, CE | Projudi | Obrigatório |
 | Norte | RO, AC, RR, AP, AM, PA, TO | PJe | Obrigatório |
 
-O TJSP está em transição do e-SAJ para o novo sistema eproc, o que exige verificação prévia da competência disponível antes do protocolo. O Balcão Virtual TJSP oferece atendimento por videoconferência para orientações, mas não substitui o peticionamento eletrônico.
+O tribunal está em transição do sistema judicial para o novo sistema sistema judicial, o que exige verificação prévia da competência disponível antes do protocolo. O Balcão Virtual tribunal oferece atendimento por videoconferência para orientações, mas não substitui o peticionamento eletrônico.
 
 ### Modelos de Documentos Adaptáveis
 
@@ -78,9 +78,9 @@ Todos os modelos incluem cláusulas específicas como tutela antecipada (exclus�
 A jurisprudência brasileira em 2024-2025 demonstra:
 
 - **Tendência de flexibilização da Súmula 385/STJ**, especialmente no AgInt no AREsp 2.609.010/PE (2024), reconhecendo indenização mesmo com negativação prévia quando há elementos de má-fé ou danos adicionais comprovados
-- **Valores de indenização** tipicamente entre R$ 3.000 e R$ 10.000 para casos simples, até R$ 15.000 para circunstâncias agravantes, e R$ 50.000 em casos excepcionais (TJSP, réus médicos, recusa sistemática)
-- **Reconhecimento de que "Serasa Limpa Nome"** não constitui cadastro restritivo de crédito, mas sim plataforma de negociação de dívidas prescritas (TJDFT 2024)
-- **Distinção entre SCR e cadastros de proteção**: O Sistema de Informações de Créditos do Banco Central não equivale a SPC/Serasa e não gera dano moral por si só (TJSP 2024)
+- **Valores de indenização** tipicamente entre R$ 3.000 e R$ 10.000 para casos simples, até R$ 15.000 para circunstâncias agravantes, e R$ 50.000 em casos excepcionais (tribunal, réus médicos, recusa sistemática)
+- **Reconhecimento de que "plataforma de negociacao de dividas"** não constitui cadastro restritivo de crédito, mas sim plataforma de negociação de dívidas prescritas (TJDFT 2024)
+- **Distinção entre SCR e cadastros de proteção**: O Sistema de Informações de Créditos do Banco Central não equivale a servico de protecao ao credito/bureau de credito e não gera dano moral por si só (tribunal 2024)
 - **Aplicação crescente da LGPD** aos cadastros de inadimplentes, com direito à correção em 15 dias (art. 18, § 4º) e direito ao esquecimento após 5 anos
 - **Aceitação ampla de meios digitais** para negociação de dívidas e assinaturas eletrônicas, com validade jurídica plena
 
@@ -90,7 +90,7 @@ A jurisprudência brasileira em 2024-2025 demonstra:
 
 **Fase 1 - Verificação e Documentação**
 
-1. Consulte todos os órgãos de proteção ao crédito (Serasa, SPC, Boa Vista, Quod)
+1. Consulte todos os órgãos de proteção ao crédito (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito, cadastro de protecao ao credito)
 2. Anote todas as dívidas: valor, credor, data da negativação, número do contrato
 3. Reúna documentos: RG, CPF, comprovante de residência, comprovantes de pagamento (se aplicável)
 4. Verifique se há ações judiciais em seu nome no site do tribunal de seu estado
@@ -98,7 +98,7 @@ A jurisprudência brasileira em 2024-2025 demonstra:
 **Fase 2 - Resolução Extrajudicial**
 
 1. Entre em contato com o credor por telefone ou e-mail
-2. Se a dívida é legítima, negocie desconto e parcelamento (plataformas como Serasa Limpa Nome oferecem descontos significativos)
+2. Se a dívida é legítima, negocie desconto e parcelamento (plataformas como plataforma de negociacao de dividas oferecem descontos significativos)
 3. Após quitação, exija baixa em 5 dias úteis e solicite comprovante por escrito
 4. Se a dívida é indevida, conteste administrativamente nos sites dos órgãos mantenedores
 5. Se recusado, procure o PROCON
@@ -130,7 +130,7 @@ A jurisprudência brasileira em 2024-2025 demonstra:
 4. **Cumprimento de sentença**: Acompanhar baixa nos cadastros e expedir ofício se necessário
 5. **Recursos**: Interpor recurso inominado em 10 dias para Turma Recursal quando houver error in procedendo ou valor irrisório
 
-### Para o Projeto Limpa Nome Expresso
+### Para o Projeto CPF Blindado
 
 **Conteúdo do Site**
 
@@ -161,7 +161,7 @@ A jurisprudência brasileira em 2024-2025 demonstra:
 
 ### Para Expansão Nacional
 
-1. **Adaptar conteúdo para cada realidade estadual** com particularidades dos sistemas locais (PJe vs Projudi vs e-SAJ)
+1. **Adaptar conteúdo para cada realidade estadual** com particularidades dos sistemas locais (PJe vs Projudi vs sistema judicial)
 2. **Parcerias com Defensorias Públicas** de cada estado para fornecer assistência jurídica gratuita a usuários carentes
 3. **Mapeamento de competências** por comarca para orientar usuários sobre qual juizado é competente
 4. **Tradução jurídica** de termos técnicos para linguagem acessível sem perder precisão
@@ -169,7 +169,7 @@ A jurisprudência brasileira em 2024-2025 demonstra:
 
 ## Suggested Next Steps
 
-1. **`/dr:implement`** - Implementar seção de base legal no site Limpa Nome Expresso com os conteúdos sobre Art. 43 CDC, súmulas do STJ, e jurisprudência selecionada
+1. **`/dr:implement`** - Implementar seção de base legal no site CPF Blindado com os conteúdos sobre Art. 43 CDC, súmulas do STJ, e jurisprudência selecionada
 2. **`/dr:doc:readme`** - Atualizar README do projeto incluindo referências aos guias jurídicos como base legal do serviço
 3. **`/dr:new:page`** - Criar página de "Seus Direitos" com explicação acessível dos direitos do consumidor em casos de negativação indevida
 4. **`/dr:new:script`** - Desenvolver script para consulta automatizada de prazos de prescrição com base na data do vencimento
@@ -181,61 +181,61 @@ A jurisprudência brasileira em 2024-2025 demonstra:
 | Report | Focus |
 |--------|-------|
 | [Base Legal e Fundamentos Jurídicos](./01-base-legal.md) | Legislação completa (CDC, Lei 9.099/95, Lei 14.181/2021), súmulas do STJ (359, 385, 548, 323), jurisprudência 2024-2025, dano moral in re ipsa, prazos legais e prescrição |
-| [Procedimentos Práticos no JEC e-SAJ](./02-procedimentos-jec-esaj.md) | Guia completo para peticionamento eletrônico no TJSP via e-SAJ, jus postulandi no JEC, requisitos técnicos de certificado digital, passo a passo para protocolo, erros comuns e soluções |
-| [Procedimentos no Balcão Virtual](./02-procedimentos-balcao-virtual.md) | Funcionamento do Balcão Virtual TJSP, atendimento por videoconferência, diferença para e-SAJ, roteiros de fala para negociação, procedimentos de conciliação judicial |
+| [Procedimentos Práticos no JEC sistema judicial](./02-procedimentos-jec-esaj.md) | Guia completo para peticionamento eletrônico no tribunal via sistema judicial, jus postulandi no JEC, requisitos técnicos de certificado digital, passo a passo para protocolo, erros comuns e soluções |
+| [Procedimentos no Balcão Virtual](./02-procedimentos-balcao-virtual.md) | Funcionamento do Balcão Virtual tribunal, atendimento por videoconferência, diferença para sistema judicial, roteiros de fala para negociação, procedimentos de conciliação judicial |
 | [Modelos de Petições Iniciais](./03-modelos-peticoes-iniciais.md) | Três modelos completos de petições para (1) dívida já paga, (2) ausência de notificação prévia, (3) múltiplas negativações, com estrutura, fundamentação e valores de indenização |
 | [Modelos de Documentos Complementares](./03-modelos-documentos-complementares.md) | Declaração de quitação, declaração de hipossuficiência, procuração, cartas de notificação, checklist de documentos, organização de pastas físicas e digitais |
 | [Modelos de Recursos e Sentenças](./03-modelos-recursos-sentencas.md) | Recurso inominado no JEC, embargos de declaração, cumprimento de sentença, modelo de ofício para órgãos de proteção ao crédito, demonstrativo de crédito atualizado |
 | [Jurisprudência STJ e Tribunais Superiores](./04-jurisprudencia-stj-tribunais.md) | Análise completa das súmulas do STJ, precedentes sobre danos morais (REsp 1.059.663/MS), valores de indenização, decisões recentes sobre LGPD e plataformas digitais, tendências 2024-2025 |
-| [Jurisprudência TJSP e Casos Práticos](./04-jurisprudencia-tjsp-casos.md) | Casos práticos do TJSP, taxas de acordo (60-70%), estratégias de conciliação, valores praticados, análises de sentenças selecionadas, recomendações práticas |
+| [Jurisprudência tribunal e Casos Práticos](./04-jurisprudencia-tjsp-casos.md) | Casos práticos do tribunal, taxas de acordo (60-70%), estratégias de conciliação, valores praticados, análises de sentenças selecionadas, recomendações práticas |
 | [Expansão Sudeste (MG, RJ, ES)](./05-expansao-sudeste-mg-rj-es.md) | Sistemas eletrônicos: Projudi (MG), PJe (RJ, ES), procedimentos específicos, jurisprudência regional, guias passo a passo por estado |
-| [Expansão Sul (PR, SC, RS)](./05-expansao-sul-pr-sc-rs.md) | Sistemas eletrônicos: e-SAJ (PR), Eproc (SC), PJe (RS), particularidades regionais, tribunais locais, modelos adaptados |
+| [Expansão Sul (PR, SC, RS)](./05-expansao-sul-pr-sc-rs.md) | Sistemas eletrônicos: sistema judicial (PR), Eproc (SC), PJe (RS), particularidades regionais, tribunais locais, modelos adaptados |
 | [Expansão Centro-Oeste, Nordeste e Norte](./05-expansao-co-ne-n.md) | Cobertura de 15 estados (GO, MT, MS, DF, BA, PE, RN, PB, AL, SE, PI, MA, CE, RO, AC, RR, AP, AM, PA, TO), sistemas PJe e Projudi, especificidades por estado |
 
 ## All Sources
 
 ### Legislação Oficial
 
-- [Lei nº 8.078/1990 - Código de Defesa do Consumidor](https://www.planalto.gov.br/ccivil_03/leis/l8078.htm) - Legislação principal que protege consumidores e regulamenta cadastros de proteção ao crédito
-- [Lei nº 9.099/1995 - Juizados Especiais Cíveis e Criminais](https://www.planalto.gov.br/ccivil_03/leis/l9099.htm) - Permite que consumidores busquem limpeza de nome sem advogado para causas até 20 salários mínimos
-- [Lei nº 14.181/2021 - Lei do Superendividamento](https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14181.htm) - Altera o CDC para incluir proteção ao consumidor superendividado
-- [Código Civil - Lei nº 10.406/2002](https://www.planalto.gov.br/ccivil_03/leis/2002/l10406.htm) - Artigo 206, § 5º, I estabelece prazo de prescrição de 5 anos para dívidas
+- Lei nº 8.078/1990 - Código de Defesa do Consumidor - Legislação principal que protege consumidores e regulamenta cadastros de proteção ao crédito
+- Lei nº 9.099/1995 - Juizados Especiais Cíveis e Criminais - Permite que consumidores busquem limpeza de nome sem advogado para causas até 20 salários mínimos
+- Lei nº 14.181/2021 - Lei do Superendividamento - Altera o CDC para incluir proteção ao consumidor superendividado
+- Código Civil - Lei nº 10.406/2002 - Artigo 206, § 5º, I estabelece prazo de prescrição de 5 anos para dívidas
 
 ### Jurisprudência e Súmulas do STJ
 
-- [Súmula 323/STJ - Prazo máximo de 5 anos em cadastros](https://www.stj.jus.br/publicacoes/sumulas) - Estabelece que registros podem permanecer por até 5 anos independentemente da prescrição da execução
-- [Súmula 385/STJ - Dano moral e registros preexistentes](https://www.stj.jus.br/publicacoes/sumulas) - Não cabe dano moral quando há registro legítimo preexistente, salvo direito ao cancelamento
-- [Súmula 548/STJ - Exclusão em 5 dias após pagamento](https://www.stj.jus.br/publicacoes/sumulas) - Credor deve excluir registro em 5 dias úteis após pagamento integral da dívida
-- [Súmula 359/STJ - Notificação prévia obrigatória](https://www.stj.jus.br/publicacoes/sumulas) - Órgão mantenedor deve notificar devedor antes da inscrição
-- [Súmula 404/STJ - Dispensa do AR na notificação](https://www.stj.jus.br/publicacoes/sumulas) - Não é necessário aviso de recebimento na carta de comunicação ao consumidor
-- [Tema Repetitivo 59/STJ - Notificação prévia CDC](https://www.stj.jus.br/publicacoes/temas-repetitivos) - Consolidou entendimento sobre necessidade de comprovação do recebimento da notificação
-- [Tema Repetitivo 735/STJ - Exclusão após pagamento](https://www.stj.jus.br/publicacoes/temas-repetitivos) - Reforça Súmula 548 sobre exclusão em 5 dias úteis
-- [REsp 1.059.663/MS - Dano moral in re ipsa](https://www.stj.jus.br/) - Precedente sobre dano moral presumido em negativação indevida
-- [AgInt no AREsp 2.609.010/PE (2024)](https://www.stj.jus.br/) - Decisão recente sobre flexibilização da Súmula 385
+- Súmula 323/STJ - Prazo máximo de 5 anos em cadastros - Estabelece que registros podem permanecer por até 5 anos independentemente da prescrição da execução
+- Súmula 385/STJ - Dano moral e registros preexistentes - Não cabe dano moral quando há registro legítimo preexistente, salvo direito ao cancelamento
+- Súmula 548/STJ - Exclusão em 5 dias após pagamento - Credor deve excluir registro em 5 dias úteis após pagamento integral da dívida
+- Súmula 359/STJ - Notificação prévia obrigatória - Órgão mantenedor deve notificar devedor antes da inscrição
+- Súmula 404/STJ - Dispensa do AR na notificação - Não é necessário aviso de recebimento na carta de comunicação ao consumidor
+- Tema Repetitivo 59/STJ - Notificação prévia CDC - Consolidou entendimento sobre necessidade de comprovação do recebimento da notificação
+- Tema Repetitivo 735/STJ - Exclusão após pagamento - Reforça Súmula 548 sobre exclusão em 5 dias úteis
+- REsp 1.059.663/MS - Dano moral in re ipsa - Precedente sobre dano moral presumido em negativação indevida
+- AgInt no AREsp 2.609.010/PE (2024) - Decisão recente sobre flexibilização da Súmula 385
 
 ### Guias e Artigos Jurídicos
 
-- [ADVBOX - Modelo de Ação de Negativação Indevida](https://advbox.com.br/blog/modelos/acao-de-negativacao-indevida/) - Modelo completo de petição com análise dos tipos de negativação indevida
-- [Petições Online - Ação de Negativação Indevida Dano Moral](https://www.peticoesonline.com.br/peticao-negativacao-indevida-dano-moral) - Modelo de petição inicial com tutela antecipada para JEC
-- [Jusbrasil - Modelo Ação de Danos Morais por Negativação Indevida](https://www.jusbrasil.com.br/modelos-pecas/modelo-acao-de-danos-morais-por-negativacao-indevida/1237026858) - Modelo detalhado com jurisprudência atualizada
-- [Serasa Experian - Ações de Pequenas Causas Online](https://www.serasaexperian.com.br/conteudos/pequenas-causas-online-2/) - Guia completo sobre ajuizamento de ações no JEC
-- [Modelo Inicial - Artigo 43 CDC](https://modeloinicial.com.br/lei/CDC/codigo-defesa-consumidor/art-43) - Explicação detalhada do Art. 43 do CDC
-- [Jurídico AI - Negativação Indevida Guia para Advogados](https://juridico.ai/direito-civil/negativacao-indevida-guia-advogados/) - Guia prático com competência, réus possíveis e caracterização
-- [SolucioneAqui - Guia Completo: Limpar Nome com Liminar Judicial](https://www.solucioneaqui.app/blog/limpar-nome-rapidamente-liminar-judicial-guia-completo) - Guia sobre uso de liminares para limpeza rápida
+- ADVBOX - Modelo de Ação de Negativação Indevida - Modelo completo de petição com análise dos tipos de negativação indevida
+- Petições Online - Ação de Negativação Indevida Dano Moral - Modelo de petição inicial com tutela antecipada para JEC
+- Jusbrasil - Modelo Ação de Danos Morais por Negativação Indevida - Modelo detalhado com jurisprudência atualizada
+- bureau de credito - Ações de Pequenas Causas Online - Guia completo sobre ajuizamento de ações no JEC
+- Modelo Inicial - Artigo 43 CDC - Explicação detalhada do Art. 43 do CDC
+- Jurídico AI - Negativação Indevida Guia para Advogados - Guia prático com competência, réus possíveis e caracterização
+- SolucioneAqui - Guia Completo: Limpar Nome com Liminar Judicial - Guia sobre uso de liminares para limpeza rápida
 
 ### Tribunais de Justiça
 
-- [Tribunal de Justiça de São Paulo - Site Oficial](https://www.tjsp.jus.br) - Portal oficial do TJSP com informações sobre serviços e procedimentos
-- [e-SAJ TJSP](https://esaj.tjsp.jus.br) - Portal de serviços eletrônicos do TJSP, incluindo consultas processuais e peticionamento
-- [TJDFT - Jurisprudência em Temas: Cadastro de Inadimplentes](https://www.tjdft.jus.br/consultas/jurisprudencia/jurisprudencia-em-temas/dano-moral-no-tjdft/cadastro-de-inadimplentes) - Decisões sobre manutenção indevida de inscrição
+- Tribunal de Justiça de São Paulo - Site Oficial - Portal oficial do tribunal com informações sobre serviços e procedimentos
+- sistema judicial tribunal - Portal de serviços eletrônicos do tribunal, incluindo consultas processuais e peticionamento
+- TJDFT - Jurisprudência em Temas: Cadastro de Inadimplentes - Decisões sobre manutenção indevida de inscrição
 
 ### Órgãos de Proteção ao Crédito
 
-- [Serasa - Central de Atendimento](https://www.serasa.com.br) - Consulta gratuita de CPF, contestação de registros, informações sobre limpeza de nome
-- [SPC Brasil - Serviços de Proteção ao Crédito](https://www.spcbrasil.org.br) - Consulta de cadastro negativo, orientações sobre direitos do consumidor
-- [Boa Vista - Serviços de Proteção ao Crédito](https://www.boavistaservicos.com.br) - SCPC, consulta de CPF, informações sobre registros
+- bureau de credito - Central de Atendimento - Consulta gratuita de CPF, contestação de registros, informações sobre limpeza de nome
+- servico de protecao ao credito - Serviços de Proteção ao Crédito - Consulta de cadastro negativo, orientações sobre direitos do consumidor
+- cadastro de protecao ao credito - Serviços de Proteção ao Crédito - cadastro de protecao ao credito, consulta de CPF, informações sobre registros
 
 ### Proteção ao Consumidor
 
-- [PROCON Nacional - Disque Consumidor](https://www.gov.br/procon) - Canal oficial de denúncias e orientações sobre direitos do consumidor
-- [Consumidor.gov.br](https://www.consumidor.gov.br) - Plataforma oficial para reclamações e resolução de conflitos de consumo
+- PROCON Nacional - Disque Consumidor - Canal oficial de denúncias e orientações sobre direitos do consumidor
+- Consumidor.gov.br - Plataforma oficial para reclamações e resolução de conflitos de consumo

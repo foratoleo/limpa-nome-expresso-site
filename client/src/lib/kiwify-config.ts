@@ -43,7 +43,7 @@ export const KIWIFY_CHECKOUT_CONFIG = {
   /**
    * Default product slug (can be overridden via environment)
    */
-  productSlug: 'cpf-blindado-premium',
+  productSlug: 'lpYUQ3n',
 
   /**
    * Redirect URLs after payment

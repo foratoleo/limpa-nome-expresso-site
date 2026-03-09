@@ -42,7 +42,7 @@ const STEPS: Step[] = [
   },
   {
     id: 3,
-    title: "Protocolo no e-SAJ",
+    title: "Protocolo no sistema judicial",
     description: "Protocolamos seu processo eletronicamente no sistema do tribunal.",
     icon: ArrowRightIcon,
   },

@@ -10,6 +10,8 @@ import {
 import { UserProfile } from "@/components/UserProfile";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { SpecialAdvisoryNavCta } from "@/components/SpecialAdvisoryNavCta";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 import { SearchIcon, BookWithBookmarkIcon, LinkExternalIcon, VideoIcon } from "@/utils/icons";
 import { WarningBanner } from "@/components/WarningBanner";
 
@@ -37,7 +39,7 @@ const faqItems = [
     id: "item-4",
     question: "Quais documentos preciso reunir?",
     answer:
-      "RG, CPF, comprovante de residência, relatório do Serasa/SPC/Boa Vista, prints da caixa de entrada de e-mail, prints da pasta spam, prints do histórico de SMS, e prova do dano atual (negativa de crédito, etc.).",
+      "RG, CPF, comprovante de residência, relatório de restrições do CPF, prints da caixa de entrada de e-mail, prints da pasta spam, prints do histórico de SMS, e prova do dano atual (negativa de crédito, etc.).",
   },
   {
     id: "item-5",
@@ -49,19 +51,19 @@ const faqItems = [
     id: "item-6",
     question: "O que é o Balcão Virtual?",
     answer:
-      "O Balcão Virtual é um canal de videoconferência do TJSP que permite falar com escreventes para acelerar processos. Funciona de segunda a sexta, das 9h às 17h, através do site tjsp.jus.br/balcaovirtual.",
+      "O Balcão Virtual é um canal de videoconferência do tribunal que permite falar com escreventes para acelerar processos. Funciona de segunda a sexta, das 9h às 17h, no portal oficial do tribunal.",
   },
   {
     id: "item-7",
-    question: "Como acesso o sistema e-SAJ?",
+    question: "Como acesso o sistema sistema judicial?",
     answer:
-      "Acesse tjsp.jus.br/peticionamentojec. Você precisará de um certificado digital (e-CPF) para peticionar online. Se não tiver, pode protocolar presencialmente no fórum da sua comarca.",
+      "Acesse o portal de peticionamento eletrônico da sua comarca. Você precisará de um certificado digital (e-CPF) para peticionar online. Se não tiver, pode protocolar presencialmente no fórum da sua comarca.",
   },
   {
     id: "item-8",
     question: "O sistema funciona para outros estados?",
     answer:
-      "Este guia é específico para o estado de São Paulo (TJSP - sistema e-SAJ). Cada estado possui seu próprio sistema de peticionamento. A base legal (CDC, Súmula 359 STJ) é válida em todo o Brasil.",
+      "Este guia é específico para o estado de São Paulo (tribunal - sistema sistema judicial). Cada estado possui seu próprio sistema de peticionamento. A base legal (CDC, Súmula 359 STJ) é válida em todo o Brasil.",
   },
   {
     id: "item-9",
@@ -121,44 +123,25 @@ export default function Support() {
       className="min-h-screen flex flex-col"
       style={{ backgroundColor: "#12110d", fontFamily: "'Public Sans', sans-serif" }}
     >
-      {/* Header */}
-      <header
-        className="sticky top-0 z-50 backdrop-blur-[6px] border-b"
-        style={{
-          backgroundColor: "rgba(18, 17, 13, 0.5)",
-          borderColor: "rgba(211, 158, 23, 0.2)",
-        }}
-      >
-        <Container as="div" maxWidth="xl" className="flex items-center justify-between py-4">
-          <div className="flex items-center gap-4 md:gap-8">
-            <a href="/guia" className="flex items-center gap-2 md:gap-3">
-              <div className="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center shrink-0">
-                <svg width="27" height="29" viewBox="0 0 27 29" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                  <path d="M13.5 0L26.5 8V21L13.5 29L0.5 21V8L13.5 0Z" fill="#d39e17"/>
-                  <path d="M13.5 6L20 10V19L13.5 23L7 19V10L13.5 6Z" fill="#12110d"/>
-                </svg>
-              </div>
-              <h2 className="text-lg md:text-xl font-bold whitespace-nowrap hidden sm:block" style={{ color: "#f1f5f9", letterSpacing: "-0.3px" }}>
-                Limpa Nome <span style={{ color: "#d39e17" }}>Expresso</span>
-              </h2>
-            </a>
-            <nav className="hidden md:flex items-center gap-6">
-              <a href="/guia" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Meus Processos</a>
-              <a href="/documentos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Documentos</a>
-              <a href="/modelos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Modelos</a>
-              <a href="/suporte" className="text-sm font-medium transition-colors" style={{ color: "#d39e17" }}>Suporte</a>
-              <a href="/noticias" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Noticias</a>
-              <SpecialAdvisoryNavCta />
-            </nav>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="md:hidden">
-              <SpecialAdvisoryNavCta shortLabel />
-            </div>
+      <SiteHeader
+        logoHref="/guia"
+        navItems={[
+          { href: "/guia", label: "Meus Processos" },
+          { href: "/documentos", label: "Documentos" },
+          { href: "/modelos", label: "Modelos" },
+          { href: "/suporte", label: "Suporte", active: true },
+          { href: "/noticias", label: "Noticias" },
+        ]}
+        desktopNavTrailing={<SpecialAdvisoryNavCta />}
+        desktopRightContent={<UserProfile onOpenAuth={() => setIsAuthModalOpen(true)} />}
+        mobileTopActions={
+          <>
+            <SpecialAdvisoryNavCta shortLabel />
             <UserProfile onOpenAuth={() => setIsAuthModalOpen(true)} />
-          </div>
-        </Container>
-      </header>
+          </>
+        }
+        mobileDrawerContent={<SpecialAdvisoryNavCta />}
+      />
 
       {/* Auth Modal */}
       <AuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
@@ -191,7 +174,7 @@ export default function Support() {
             >
               <div className="flex gap-3 mb-4">
                 <span style={{ color: "#60a5fa" }} className="flex-shrink-0 mt-0.5"><VideoIcon size="medium" label="" /></span>
-                <h4 className="font-bold text-lg" style={{ color: "#f1f5f9" }}>JEC (e-SAJ) vs. Balcão Virtual: Qual a diferença?</h4>
+                <h4 className="font-bold text-lg" style={{ color: "#f1f5f9" }}>JEC (sistema judicial) vs. Balcão Virtual: Qual a diferença?</h4>
               </div>
               <div className="grid md:grid-cols-2 gap-4 text-sm mb-4">
                 <div
@@ -201,9 +184,9 @@ export default function Support() {
                     borderColor: "rgba(34, 197, 94, 0.2)"
                   }}
                 >
-                  <div className="font-semibold mb-1" style={{ color: "#22c55e" }}>Juizado Especial Cível - e-SAJ</div>
+                  <div className="font-semibold mb-1" style={{ color: "#22c55e" }}>Juizado Especial Cível - sistema judicial</div>
                   <p style={{ color: "#94a3b8" }} className="leading-relaxed">
-                    Onde você <strong style={{ color: "#e8e4d8" }}>protocola a ação</strong>. É o tribunal. Sem ele, não há processo. Acesse em <strong style={{ color: "#60a5fa" }}>tjsp.jus.br/peticionamentojec</strong>
+                    Onde você <strong style={{ color: "#e8e4d8" }}>protocola a ação</strong>. É o tribunal. Sem ele, não há processo. Acesse em <strong style={{ color: "#60a5fa" }}>portal de peticionamento do tribunal</strong>
                   </p>
                 </div>
                 <div
@@ -213,7 +196,7 @@ export default function Support() {
                     borderColor: "rgba(96, 165, 250, 0.2)"
                   }}
                 >
-                  <div className="font-semibold mb-1" style={{ color: "#60a5fa" }}>Balcão Virtual TJSP</div>
+                  <div className="font-semibold mb-1" style={{ color: "#60a5fa" }}>Balcão Virtual</div>
                   <p style={{ color: "#94a3b8" }} className="leading-relaxed">
                     Onde você <strong style={{ color: "#e8e4d8" }}>acelera o processo</strong>. Canal de videoconferência do mesmo TJ. Use <em>depois</em> de protocolar para pedir urgência ao escrevente.
                   </p>
@@ -227,7 +210,7 @@ export default function Support() {
                 }}
               >
                 <p className="text-xs leading-relaxed" style={{ color: "#64748b" }}>
-                  <strong style={{ color: "#94a3b8" }}>Nota sobre o e-Proc:</strong> O TJSP iniciou a migração do e-SAJ para o e-Proc em outubro de 2025. O peticionamento do JEC para o cidadão sem advogado ainda utiliza o sistema <strong style={{ color: "#e8e4d8" }}>e-SAJ</strong> (tjsp.jus.br/peticionamentojec). O e-Proc é voltado principalmente para advogados e servidores. Verifique sempre o link oficial antes de protocolar.
+                  <strong style={{ color: "#94a3b8" }}>Nota sobre o e-Proc:</strong> O tribunal iniciou a migração do sistema judicial para o e-Proc em outubro de 2025. O peticionamento do JEC para o cidadão sem advogado ainda utiliza o sistema <strong style={{ color: "#e8e4d8" }}>sistema judicial</strong> (portal de peticionamento do tribunal). O e-Proc é voltado principalmente para advogados e servidores. Verifique sempre o link oficial antes de protocolar.
                 </p>
               </div>
             </div>
@@ -501,11 +484,11 @@ export default function Support() {
                 <p className="text-sm" style={{ color: "#94a3b8" }}>
                   E-mail:{" "}
                   <a
-                    href="mailto:limpanome@f2w2.com.br"
+                    href="mailto:suporte@cpfblindado.com"
                     className="font-medium hover:underline"
                     style={{ color: "#22c55e" }}
                   >
-                    limpanome@f2w2.com.br
+                    suporte@cpfblindado.com
                   </a>
                 </p>
               </div>
@@ -515,25 +498,7 @@ export default function Support() {
       </main>
 
       {/* Footer */}
-      <footer
-        className="border-t py-8 mt-auto"
-        style={{
-          backgroundColor: "rgba(18, 17, 13, 0.8)",
-          borderColor: "rgba(211, 158, 23, 0.1)",
-        }}
-      >
-        <Container as="div" maxWidth="xl">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-            <span className="text-sm" style={{ color: "#64748b" }}>
-              2026 Limpa Nome Expresso. Sistema de Apoio Jurídico Automático.
-            </span>
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-              <a href="#termos" className="text-sm hover:text-[#d39e17] transition-colors" style={{ color: "#64748b" }}>Termos de Uso</a>
-              <a href="#privacidade" className="text-sm hover:text-[#d39e17] transition-colors" style={{ color: "#64748b" }}>Privacidade</a>
-            </div>
-          </div>
-        </Container>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

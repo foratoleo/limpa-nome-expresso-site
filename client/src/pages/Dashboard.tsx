@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
-import { useLocation } from "wouter";
 import { Container } from "@/components/ui/container";
 import { ClientSidebar, ProgressDashboard, NextSteps, MissingItems } from "@/components/client-area";
 import { DocumentsList } from "@/components/documents";
@@ -8,6 +7,7 @@ import { NotesList } from "@/components/notes";
 import { TodoList } from "@/components/todos";
 import { ProcessList } from "@/components/processes";
 import { LogOut, ExternalLink } from "lucide-react";
+import { SiteHeader } from "@/components/layout/SiteHeader";
 
 export default function Dashboard() {
   const { user, loading: authLoading, signOut } = useAuth();
@@ -58,50 +58,41 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#12110d" }}>
-      {/* Header */}
-      <header
-        className="sticky top-0 z-50 backdrop-blur-[6px] border-b"
-        style={{
-          backgroundColor: "rgba(18, 17, 13, 0.9)",
-          borderColor: "rgba(211, 158, 23, 0.2)",
-        }}
-      >
-        <Container as="div" maxWidth="xl" className="flex items-center justify-between py-4">
-          <a href="/guia" className="flex items-center gap-3">
-            <div className="w-8 h-8 flex items-center justify-center">
-              <svg width="27" height="29" viewBox="0 0 27 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M13.5 0L26.5 8V21L13.5 29L0.5 21V8L13.5 0Z" fill="#d39e17" />
-                <path d="M13.5 6L20 10V19L13.5 23L7 19V10L13.5 6Z" fill="#12110d" />
-              </svg>
-            </div>
-            <h2 className="text-xl font-bold hidden sm:block" style={{ color: "#f1f5f9" }}>
-              Limpa Nome <span style={{ color: "#d39e17" }}>Expresso</span>
-            </h2>
-          </a>
-
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-3">
+      <SiteHeader
+        links={[
+          { href: "/dashboard", label: "Painel" },
+          { href: "/guia", label: "Guia" },
+          { href: "/documentos", label: "Documentos" },
+          { href: "/modelos", label: "Modelos" },
+          { href: "/processo", label: "Meu Processo" },
+          { href: "/suporte", label: "Suporte" },
+        ]}
+        activeHref="/dashboard"
+        logoHref="/guia"
+        rightContent={
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <div
-                className="w-8 h-8 rounded-full border flex items-center justify-center text-sm font-bold"
+                className="flex h-8 w-8 items-center justify-center rounded-full border text-sm font-bold"
                 style={{ borderColor: "rgba(211, 158, 23, 0.5)", color: "#d39e17" }}
               >
                 {initials}
               </div>
-              <span className="text-sm hidden sm:block" style={{ color: "#e8e4d8" }}>
+              <span className="hidden text-sm sm:block" style={{ color: "#e8e4d8" }}>
                 {displayName}
               </span>
             </div>
             <button
-              onClick={signOut}
-              className="p-2 rounded-lg hover:bg-[rgba(239,68,68,0.1)] transition-colors"
+              onClick={() => void signOut()}
+              className="rounded-lg p-2 transition-colors hover:bg-[rgba(239,68,68,0.1)]"
               style={{ color: "#94a3b8" }}
               title="Sair"
             >
               <LogOut size={20} />
             </button>
           </div>
-        </Container>
-      </header>
+        }
+      />
 
       {/* Main Content */}
       <Container as="main" maxWidth="xl" className="py-6 flex-1">
@@ -121,7 +112,7 @@ export default function Dashboard() {
 
           {/* Mobile Tabs */}
           <div
-            className="md:hidden rounded-xl border p-2 mb-4 overflow-x-auto"
+            className="mb-4 rounded-xl border p-3 md:hidden"
             style={{
               backgroundColor: "rgba(22, 40, 71, 0.95)",
               borderColor: "rgba(211, 158, 23, 0.2)",
@@ -143,27 +134,27 @@ export default function Dashboard() {
 function QuickActions() {
   const actions = [
     {
-      href: "https://www.tjsp.jus.br/peticionamentojec",
-      title: "Peticionamento JEC",
-      description: "Acesse o sistema e-SAJ do TJSP",
+      href: "/modelos",
+      title: "Modelos de Protocolo",
+      description: "Use os modelos prontos da plataforma",
       color: "#22c55e",
     },
     {
-      href: "https://www.tjsp.jus.br/balcaovirtual",
-      title: "Balcao Virtual",
-      description: "Atendimento por videoconferencia",
+      href: "/downloads",
+      title: "Roteiros e Downloads",
+      description: "Arquivos de apoio para cada etapa",
       color: "#60a5fa",
     },
     {
-      href: "https://esaj.tjsp.jus.br/cpopg/open.do",
-      title: "Consulta Processual",
-      description: "Acompanhe seu processo",
+      href: "/processo",
+      title: "Meu Processo",
+      description: "Acompanhe seu progresso na plataforma",
       color: "#d39e17",
     },
     {
-      href: "https://www.serasa.com.br",
-      title: "Consultar Serasa",
-      description: "Verifique sua situacao cadastral",
+      href: "/suporte",
+      title: "Central de Suporte",
+      description: "Tire dúvidas sobre o fluxo completo",
       color: "#a855f7",
     },
   ];
@@ -178,8 +169,6 @@ function QuickActions() {
           <a
             key={action.href}
             href={action.href}
-            target="_blank"
-            rel="noopener noreferrer"
             className="rounded-xl border p-4 transition-colors group"
             style={{
               backgroundColor: "rgba(22, 40, 71, 0.95)",

@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import { useLocation } from 'wouter';
 import { AlertTriangle, RefreshCw } from 'lucide-react';
 import { Container } from '@/components/ui/container';
+import { trackCheckoutFailed, getPaymentSourceFromUrl, ANALYTICS_CONFIG } from '@/lib/analytics';
 
 const COLORS = {
   background: '#12110d',
@@ -15,6 +17,19 @@ const COLORS = {
 
 export default function PaymentFailed() {
   const [, setLocation] = useLocation();
+
+  // Track failed checkout on page load
+  useEffect(() => {
+    const provider = getPaymentSourceFromUrl() || 'mercadopago';
+    trackCheckoutFailed({
+      provider,
+      product_id: ANALYTICS_CONFIG.productId,
+      product_name: ANALYTICS_CONFIG.productName,
+      price: ANALYTICS_CONFIG.price,
+      currency: ANALYTICS_CONFIG.currency,
+      error_message: 'Payment failed or cancelled by user',
+    });
+  }, []);
 
   return (
     <div
@@ -106,7 +121,7 @@ export default function PaymentFailed() {
             </button>
 
             <button
-              onClick={() => window.location.href = 'https://wa.me/5511999999999'}
+              onClick={() => window.location.href = '/suporte'}
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all"
               style={{
                 backgroundColor: 'transparent',
@@ -131,19 +146,19 @@ export default function PaymentFailed() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-3 text-sm">
               <a
-                href="mailto:suporte@limpanome.com"
+                href="mailto:suporte@cpfblindado.com"
                 className="hover:underline"
                 style={{ color: COLORS.gold }}
               >
-                suporte@limpanome.com
+                suporte@cpfblindado.com
               </a>
               <span style={{ color: COLORS.textSecondary }}>•</span>
               <a
-                href="https://wa.me/5511999999999"
+                href="/suporte"
                 className="hover:underline"
                 style={{ color: COLORS.gold }}
               >
-                WhatsApp
+                Central de Suporte
               </a>
             </div>
           </div>

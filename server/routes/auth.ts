@@ -263,7 +263,7 @@ authRouter.post("/register", validateRegistrationRequest, async (req: Request & 
         </head>
         <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
           <h1 style="color: #d39e17;">Confirme seu e-mail</h1>
-          <p>Obrigado por criar sua conta no Limpa Nome Expresso!</p>
+          <p>Obrigado por criar sua conta no CPF Blindado!</p>
           <p>Clique no botão abaixo para confirmar seu e-mail:</p>
           <div style="text-align: center; margin: 30px 0;">
             <a href="{{ .ConfirmationURL }}" style="background-color: #d39e17; color: #12110d; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block; font-weight: bold;">
@@ -290,7 +290,7 @@ authRouter.post("/register", validateRegistrationRequest, async (req: Request & 
         console.log('[AUTH REGISTER] Calling emailService.sendCustomEmail');
         await emailService.sendCustomEmail({
           to: email,
-          subject: "Confirme seu e-mail - Limpa Nome Expresso",
+          subject: "Confirme seu e-mail - CPF Blindado",
           html: emailHtml,
           text: `Confirme seu e-mail clicando no link: ${linkData.properties.action_link}`,
         });
@@ -439,7 +439,7 @@ authRouter.post("/resend-confirmation", async (req, res) => {
     if (process.env.EMAILIT_API_KEY) {
       await emailService.sendCustomEmail({
         to: email,
-        subject: "Confirme seu e-mail - Limpa Nome Expresso",
+        subject: "Confirme seu e-mail - CPF Blindado",
         html: emailHtml,
       });
     }

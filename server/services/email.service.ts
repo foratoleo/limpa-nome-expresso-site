@@ -110,7 +110,7 @@ export class EmailService {
             Nova Mensagem de Contato
           </h1>
           <p style="margin-bottom: 15px;">
-            <strong>Limpa Nome Expresso</strong> - Formulario de Contato
+            <strong>CPF Blindado</strong> - Formulario de Contato
           </p>
         </div>
 
@@ -153,14 +153,14 @@ export class EmailService {
         </div>
 
         <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 12px;">
-          <p>Esta mensagem foi enviada atraves do formulario de contato do site Limpa Nome Expresso.</p>
+          <p>Esta mensagem foi enviada atraves do formulario de contato do site CPF Blindado.</p>
         </div>
       </body>
       </html>
     `.trim();
 
     const text = `
-Nova Mensagem de Contato - Limpa Nome Expresso
+Nova Mensagem de Contato - CPF Blindado
 
 Nome: ${data.name}
 Email: ${data.email}
@@ -170,7 +170,7 @@ Mensagem:
 ${data.message}
 
 ---
-Esta mensagem foi enviada atraves do formulario de contato do site Limpa Nome Expresso.
+Esta mensagem foi enviada atraves do formulario de contato do site CPF Blindado.
     `.trim();
 
     try {
@@ -178,7 +178,7 @@ Esta mensagem foi enviada atraves do formulario de contato do site Limpa Nome Ex
         from: this.defaultFrom,
         to: toEmail,
         reply_to: { email: data.email, name: data.name },
-        subject: `[Limpa Nome Expresso] ${subjectLabel} - ${data.name}`,
+        subject: `[CPF Blindado] ${subjectLabel} - ${data.name}`,
         html,
         text,
         tags: ['contact-form', data.subject],
@@ -209,17 +209,17 @@ Esta mensagem foi enviada atraves do formulario de contato do site Limpa Nome Ex
       <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bem-vindo ao Limpa Nome Expresso</title>
+        <title>Bem-vindo ao CPF Blindado</title>
       </head>
       <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
         <div style="background-color: #2563eb; color: white; border-radius: 8px; padding: 30px; text-align: center; margin-bottom: 20px;">
-          <h1 style="margin: 0; font-size: 28px;">Bem-vindo ao Limpa Nome Expresso!</h1>
+          <h1 style="margin: 0; font-size: 28px;">Bem-vindo ao CPF Blindado!</h1>
         </div>
 
         <div style="background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px;">
           <p style="font-size: 18px;">Ola, <strong>${this.escapeHtml(data.name)}</strong>!</p>
 
-          <p>Obrigado por se cadastrar no Limpa Nome Expresso. Estamos aqui para ajudar voce a resolver seus problemas com restricoes financeiras.</p>
+          <p>Obrigado por se cadastrar no CPF Blindado. Estamos aqui para ajudar voce a resolver seus problemas com restricoes financeiras.</p>
 
           <div style="background-color: #f0f9ff; border-left: 4px solid #2563eb; padding: 15px; margin: 20px 0;">
             <p style="margin: 0;"><strong>Proximos passos:</strong></p>
@@ -246,12 +246,12 @@ Esta mensagem foi enviada atraves do formulario de contato do site Limpa Nome Ex
 
           <p style="margin-top: 30px;">
             Atenciosamente,<br>
-            <strong>Equipe Limpa Nome Expresso</strong>
+            <strong>Equipe CPF Blindado</strong>
           </p>
         </div>
 
         <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 12px; text-align: center;">
-          <p>Limpa Nome Expresso - Sua solucao para limpar o nome</p>
+          <p>CPF Blindado - Sua solucao para limpar o nome</p>
         </div>
       </body>
       </html>
@@ -260,7 +260,7 @@ Esta mensagem foi enviada atraves do formulario de contato do site Limpa Nome Ex
     return this.client.send({
       from: this.defaultFrom,
       to: data.email,
-      subject: 'Bem-vindo ao Limpa Nome Expresso!',
+      subject: 'Bem-vindo ao CPF Blindado!',
       html,
       tags: ['welcome', 'onboarding'],
     });
@@ -280,7 +280,7 @@ Esta mensagem foi enviada atraves do formulario de contato do site Limpa Nome Ex
       <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Redefinir Senha - Limpa Nome Expresso</title>
+        <title>Redefinir Senha - CPF Blindado</title>
       </head>
       <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
         <div style="background-color: #f8f9fa; border-radius: 8px; padding: 20px; margin-bottom: 20px;">
@@ -308,12 +308,12 @@ Esta mensagem foi enviada atraves do formulario de contato do site Limpa Nome Ex
 
           <p style="margin-top: 30px;">
             Atenciosamente,<br>
-            <strong>Equipe Limpa Nome Expresso</strong>
+            <strong>Equipe CPF Blindado</strong>
           </p>
         </div>
 
         <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 12px; text-align: center;">
-          <p>Limpa Nome Expresso - Sua solucao para limpar o nome</p>
+          <p>CPF Blindado - Sua solucao para limpar o nome</p>
         </div>
       </body>
       </html>
@@ -322,7 +322,7 @@ Esta mensagem foi enviada atraves do formulario de contato do site Limpa Nome Ex
     return this.client.send({
       from: this.defaultFrom,
       to: data.email,
-      subject: 'Redefinir Senha - Limpa Nome Expresso',
+      subject: 'Redefinir Senha - CPF Blindado',
       html,
       tags: ['password-reset', 'security'],
       metadata: {

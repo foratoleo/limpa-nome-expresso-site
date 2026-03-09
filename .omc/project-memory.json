@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1772722830318,
-  "projectRoot": "/Users/forato-dr/Desktop/projects/limpa-nome-expresso-site",
+  "lastScanned": 1773077456928,
+  "projectRoot": "/Users/forato/conductor/workspaces/limpa-nome-expresso-site/beirut",
   "techStack": {
     "languages": [
       {
@@ -108,7 +108,7 @@
       "path": "api",
       "purpose": "API routes",
       "fileCount": 3,
-      "lastAccessed": 1772722830204,
+      "lastAccessed": 1773077456893,
       "keyFiles": [
         "create-preference.js",
         "mercadopago-webhook.js",
@@ -119,34 +119,26 @@
       "path": "client",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1772722830205,
+      "lastAccessed": 1773077456894,
       "keyFiles": [
         "index.html"
-      ]
-    },
-    "dist": {
-      "path": "dist",
-      "purpose": "Distribution/build output",
-      "fileCount": 1,
-      "lastAccessed": 1772722830285,
-      "keyFiles": [
-        "start.js"
       ]
     },
     "docs": {
       "path": "docs",
       "purpose": "Documentation",
-      "fileCount": 1,
-      "lastAccessed": 1772722830286,
+      "fileCount": 2,
+      "lastAccessed": 1773077456902,
       "keyFiles": [
-        "emailit-integration.md"
+        "emailit-integration.md",
+        "supabase-operations-runbook.md"
       ]
     },
     "e2e": {
       "path": "e2e",
       "purpose": null,
       "fileCount": 4,
-      "lastAccessed": 1772722830287,
+      "lastAccessed": 1773077456902,
       "keyFiles": [
         "accessibility.spec.ts",
         "admin-panel-search.spec.ts",
@@ -158,14 +150,14 @@
       "path": "netlify",
       "purpose": null,
       "fileCount": 0,
-      "lastAccessed": 1772722830288,
+      "lastAccessed": 1773077456903,
       "keyFiles": []
     },
     "out": {
       "path": "out",
       "purpose": "Build output",
       "fileCount": 1,
-      "lastAccessed": 1772722830289,
+      "lastAccessed": 1773077456903,
       "keyFiles": [
         "ln01.mp4"
       ]
@@ -174,7 +166,7 @@
       "path": "patches",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1772722830290,
+      "lastAccessed": 1773077456903,
       "keyFiles": [
         "wouter@3.7.1.patch"
       ]
@@ -183,7 +175,7 @@
       "path": "scripts",
       "purpose": "Build/utility scripts",
       "fileCount": 2,
-      "lastAccessed": 1772722830291,
+      "lastAccessed": 1773077456903,
       "keyFiles": [
         "execute-migrations.ts",
         "run-migrations.cjs"
@@ -193,7 +185,7 @@
       "path": "server",
       "purpose": null,
       "fileCount": 5,
-      "lastAccessed": 1772722830292,
+      "lastAccessed": 1773077456904,
       "keyFiles": [
         "debug-env.ts",
         "index.ts",
@@ -206,7 +198,7 @@
       "path": "shared",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1772722830293,
+      "lastAccessed": 1773077456904,
       "keyFiles": [
         "const.ts"
       ]
@@ -214,34 +206,15 @@
     "supabase": {
       "path": "supabase",
       "purpose": null,
-      "fileCount": 1,
-      "lastAccessed": 1772722830294,
-      "keyFiles": []
-    },
-    "tmp": {
-      "path": "tmp",
-      "purpose": null,
-      "fileCount": 4,
-      "lastAccessed": 1772722830295,
-      "keyFiles": [
-        "apply-manual-access-migration.js",
-        "apply-migrations.js",
-        "create-table-direct.ts",
-        "verify-table.ts"
-      ]
-    },
-    "api/dist": {
-      "path": "api/dist",
-      "purpose": "Distribution/build output",
       "fileCount": 0,
-      "lastAccessed": 1772722830295,
+      "lastAccessed": 1773077456904,
       "keyFiles": []
     },
     "client/public": {
       "path": "client/public",
       "purpose": "Public files",
-      "fileCount": 5,
-      "lastAccessed": 1772722830296,
+      "fileCount": 6,
+      "lastAccessed": 1773077456907,
       "keyFiles": [
         "background-music.mp3",
         "favicon.svg",
@@ -252,29 +225,18 @@
       "path": "client/src",
       "purpose": "Source code",
       "fileCount": 4,
-      "lastAccessed": 1772722830298,
+      "lastAccessed": 1773077456909,
       "keyFiles": [
         "App.tsx",
         "const.ts",
         "index.css"
       ]
     },
-    "dist/public": {
-      "path": "dist/public",
-      "purpose": "Public files",
-      "fileCount": 6,
-      "lastAccessed": 1772722830299,
-      "keyFiles": [
-        "background-music.mp3",
-        "favicon.svg",
-        "index.html"
-      ]
-    },
     "server/lib": {
       "path": "server/lib",
       "purpose": "Library code",
       "fileCount": 5,
-      "lastAccessed": 1772722830308,
+      "lastAccessed": 1773077456910,
       "keyFiles": [
         "audit-logger.ts",
         "emailit.ts",
@@ -285,7 +247,7 @@
       "path": "server/middleware",
       "purpose": "Middleware",
       "fileCount": 3,
-      "lastAccessed": 1772722830308,
+      "lastAccessed": 1773077456910,
       "keyFiles": [
         "admin-auth.ts",
         "stripe-webhook.ts",
@@ -296,7 +258,7 @@
       "path": "server/routes",
       "purpose": "Route handlers",
       "fileCount": 7,
-      "lastAccessed": 1772722830309,
+      "lastAccessed": 1773077456911,
       "keyFiles": [
         "admin-access.ts",
         "admin-users.ts",
@@ -307,7 +269,7 @@
       "path": "server/services",
       "purpose": "Business logic services",
       "fileCount": 1,
-      "lastAccessed": 1772722830309,
+      "lastAccessed": 1773077456911,
       "keyFiles": [
         "email.service.ts"
       ]
@@ -316,7 +278,7 @@
       "path": "supabase/migrations",
       "purpose": "Database migrations",
       "fileCount": 19,
-      "lastAccessed": 1772722830310,
+      "lastAccessed": 1773077456914,
       "keyFiles": [
         "001_initial_schema.sql",
         "002_checklist_documents.sql",
@@ -326,273 +288,303 @@
   },
   "hotPaths": [
     {
+      "path": "server/routes/kiwify.ts",
+      "accessCount": 38,
+      "lastAccessed": 1773091599862,
+      "type": "file"
+    },
+    {
       "path": "",
-      "accessCount": 31,
-      "lastAccessed": 1772745248481,
+      "accessCount": 36,
+      "lastAccessed": 1773091607440,
       "type": "directory"
     },
     {
-      "path": "client/src",
-      "accessCount": 15,
-      "lastAccessed": 1772727581980,
-      "type": "directory"
-    },
-    {
-      "path": "client/src/App.tsx",
-      "accessCount": 11,
-      "lastAccessed": 1772726741293,
+      "path": ".dr_ai/tasks/kiwify-integration/__TaskChecklist.json",
+      "accessCount": 30,
+      "lastAccessed": 1773091954273,
       "type": "file"
     },
     {
-      "path": "client/src/components/auth/ProtectedRoute.tsx",
-      "accessCount": 9,
-      "lastAccessed": 1772726746229,
+      "path": ".dr_ai/tasks/kiwify-integration/__TaskPlan.md",
+      "accessCount": 27,
+      "lastAccessed": 1773091303966,
       "type": "file"
     },
     {
-      "path": "client/src/pages/AuthCallback.tsx",
-      "accessCount": 7,
-      "lastAccessed": 1772726741734,
+      "path": "server/lib/kiwify-config.ts",
+      "accessCount": 25,
+      "lastAccessed": 1773092507813,
       "type": "file"
     },
     {
-      "path": "client/src/pages/Landing.tsx",
-      "accessCount": 7,
-      "lastAccessed": 1772726741850,
+      "path": ".dr_ai/tasks/kiwify-integration/context_session.md",
+      "accessCount": 18,
+      "lastAccessed": 1773091675807,
       "type": "file"
     },
     {
-      "path": "client/src/contexts/AuthContext.tsx",
-      "accessCount": 7,
-      "lastAccessed": 1772726741895,
-      "type": "file"
-    },
-    {
-      "path": "client/src/hooks/useSubscription.ts",
-      "accessCount": 6,
-      "lastAccessed": 1772726741914,
-      "type": "file"
-    },
-    {
-      "path": "netlify.toml",
-      "accessCount": 6,
-      "lastAccessed": 1772727631656,
-      "type": "file"
-    },
-    {
-      "path": "client/src/pages/Welcome.tsx",
-      "accessCount": 5,
-      "lastAccessed": 1772726749963,
-      "type": "file"
-    },
-    {
-      "path": "client/src/lib/supabase.ts",
-      "accessCount": 5,
-      "lastAccessed": 1772726759954,
-      "type": "file"
-    },
-    {
-      "path": "client",
-      "accessCount": 5,
-      "lastAccessed": 1772727575699,
-      "type": "directory"
-    },
-    {
-      "path": ".env.production.example",
-      "accessCount": 4,
-      "lastAccessed": 1772725873918,
-      "type": "file"
-    },
-    {
-      "path": "client/src/pages/WelcomeHome.tsx",
-      "accessCount": 4,
-      "lastAccessed": 1772726741744,
-      "type": "file"
-    },
-    {
-      "path": "client/src/hooks/useAccessStatus.ts",
-      "accessCount": 4,
-      "lastAccessed": 1772726746266,
-      "type": "file"
-    },
-    {
-      "path": ".env.production",
-      "accessCount": 4,
-      "lastAccessed": 1772726751078,
-      "type": "file"
-    },
-    {
-      "path": "client/src/lib/debugAuth.ts",
-      "accessCount": 3,
-      "lastAccessed": 1772725879015,
-      "type": "file"
-    },
-    {
-      "path": "client/src/contexts/PaymentContext.tsx",
-      "accessCount": 3,
-      "lastAccessed": 1772726390916,
-      "type": "file"
-    },
-    {
-      "path": "client/src/components/auth/LoginForm.tsx",
-      "accessCount": 3,
-      "lastAccessed": 1772726455150,
-      "type": "file"
-    },
-    {
-      "path": "client/src/components/ui/container.tsx",
-      "accessCount": 3,
-      "lastAccessed": 1772726746202,
-      "type": "file"
-    },
-    {
-      "path": "vite.config.ts",
-      "accessCount": 3,
-      "lastAccessed": 1772727728555,
-      "type": "file"
-    },
-    {
-      "path": "render.yaml",
-      "accessCount": 2,
-      "lastAccessed": 1772725747144,
-      "type": "file"
-    },
-    {
-      "path": "client/src/pages/Dashboard.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1772726439661,
-      "type": "file"
-    },
-    {
-      "path": "client/src/pages/Home.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1772726449292,
-      "type": "file"
-    },
-    {
-      "path": "package.json",
-      "accessCount": 2,
-      "lastAccessed": 1772726729327,
+      "path": "client/src/pages/PaymentSuccess.tsx",
+      "accessCount": 17,
+      "lastAccessed": 1773091508992,
       "type": "file"
     },
     {
       "path": ".env.example",
-      "accessCount": 2,
-      "lastAccessed": 1772726754852,
+      "accessCount": 17,
+      "lastAccessed": 1773093489578,
       "type": "file"
     },
     {
-      "path": ".env.local",
-      "accessCount": 1,
-      "lastAccessed": 1772722902996,
+      "path": "server/lib/kiwify.ts",
+      "accessCount": 16,
+      "lastAccessed": 1773091366169,
       "type": "file"
     },
     {
-      "path": "server/lib/supabase-server.ts",
-      "accessCount": 1,
-      "lastAccessed": 1772722935537,
+      "path": "server/index.ts",
+      "accessCount": 13,
+      "lastAccessed": 1773091325120,
       "type": "file"
     },
     {
-      "path": "test-auth-flow.md",
-      "accessCount": 1,
-      "lastAccessed": 1772723537527,
+      "path": "server/lib/mercadopago-config.ts",
+      "accessCount": 9,
+      "lastAccessed": 1773090971239,
       "type": "file"
     },
     {
-      "path": "client/src/components/auth/RegisterForm.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1772723928249,
-      "type": "file"
+      "path": "client/src",
+      "accessCount": 8,
+      "lastAccessed": 1773091232173,
+      "type": "directory"
     },
     {
-      "path": "server/routes/auth.ts",
-      "accessCount": 1,
-      "lastAccessed": 1772724093731,
-      "type": "file"
+      "path": "server",
+      "accessCount": 7,
+      "lastAccessed": 1773091040092,
+      "type": "directory"
     },
     {
       "path": "server/services/email.service.ts",
-      "accessCount": 1,
-      "lastAccessed": 1772724105796,
+      "accessCount": 7,
+      "lastAccessed": 1773091322916,
       "type": "file"
     },
     {
-      "path": "server/lib/emailit.ts",
-      "accessCount": 1,
-      "lastAccessed": 1772724125152,
+      "path": "server/lib/kiwify-types.ts",
+      "accessCount": 7,
+      "lastAccessed": 1773091324993,
       "type": "file"
     },
     {
-      "path": "api/payments/status.js",
+      "path": "api/create-preference-kiwify.js",
+      "accessCount": 7,
+      "lastAccessed": 1773093537049,
+      "type": "file"
+    },
+    {
+      "path": "server/tests/kiwify-token.test.ts",
+      "accessCount": 6,
+      "lastAccessed": 1773091381048,
+      "type": "file"
+    },
+    {
+      "path": "server/lib/mercadopago.ts",
+      "accessCount": 5,
+      "lastAccessed": 1773090974575,
+      "type": "file"
+    },
+    {
+      "path": "package.json",
+      "accessCount": 5,
+      "lastAccessed": 1773091360126,
+      "type": "file"
+    },
+    {
+      "path": ".dr_ai/tasks/brand-update-cpf-blindado/__TaskChecklist.json",
+      "accessCount": 4,
+      "lastAccessed": 1773085011471,
+      "type": "file"
+    },
+    {
+      "path": ".dr_ai/settings.json",
+      "accessCount": 4,
+      "lastAccessed": 1773090446619,
+      "type": "file"
+    },
+    {
+      "path": "server/routes/mercadopago.ts",
+      "accessCount": 4,
+      "lastAccessed": 1773091047275,
+      "type": "file"
+    },
+    {
+      "path": "server/lib",
+      "accessCount": 4,
+      "lastAccessed": 1773091151015,
+      "type": "directory"
+    },
+    {
+      "path": "server/database-scripts/00_create_payments_fixed.sql",
+      "accessCount": 4,
+      "lastAccessed": 1773091286235,
+      "type": "file"
+    },
+    {
+      "path": "server/database-scripts/003_add_kiwify_schema.sql",
+      "accessCount": 4,
+      "lastAccessed": 1773091334975,
+      "type": "file"
+    },
+    {
+      "path": ".dr_ai/tasks/brand-update-cpf-blindado/__TaskPlan.md",
+      "accessCount": 3,
+      "lastAccessed": 1773085001317,
+      "type": "file"
+    },
+    {
+      "path": "server/routes/stripe.ts",
+      "accessCount": 3,
+      "lastAccessed": 1773090946115,
+      "type": "file"
+    },
+    {
+      "path": "client/src/pages/Landing.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1773091182399,
+      "type": "file"
+    },
+    {
+      "path": "server/tests/registration.test.ts",
+      "accessCount": 3,
+      "lastAccessed": 1773091605944,
+      "type": "file"
+    },
+    {
+      "path": "vitest.config.ts",
+      "accessCount": 3,
+      "lastAccessed": 1773091613149,
+      "type": "file"
+    },
+    {
+      "path": "docs/dns-config-hostgator.md",
+      "accessCount": 2,
+      "lastAccessed": 1773081969023,
+      "type": "file"
+    },
+    {
+      "path": "server/database-scripts/001_add_mercadopago_schema.sql",
+      "accessCount": 2,
+      "lastAccessed": 1773090990894,
+      "type": "file"
+    },
+    {
+      "path": "client/index.html",
+      "accessCount": 2,
+      "lastAccessed": 1773091189060,
+      "type": "file"
+    },
+    {
+      "path": "api/create-preference.js",
+      "accessCount": 2,
+      "lastAccessed": 1773091216951,
+      "type": "file"
+    },
+    {
+      "path": ".env.production",
       "accessCount": 1,
-      "lastAccessed": 1772725742383,
+      "lastAccessed": 1773077549712,
+      "type": "file"
+    },
+    {
+      "path": ".env.netlify",
+      "accessCount": 1,
+      "lastAccessed": 1773077890109,
+      "type": "file"
+    },
+    {
+      "path": ".dr_ai/research/domain-names/summary.md",
+      "accessCount": 1,
+      "lastAccessed": 1773078174518,
+      "type": "file"
+    },
+    {
+      "path": "client/src/components/landing/HeroSection.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1773084771407,
+      "type": "file"
+    },
+    {
+      "path": "client/src/components/landing/BenefitsSection.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1773084771429,
       "type": "file"
     },
     {
       "path": "netlify/functions/api.ts",
       "accessCount": 1,
-      "lastAccessed": 1772725754597,
+      "lastAccessed": 1773084778014,
       "type": "file"
     },
     {
-      "path": "client/src/pages",
+      "path": ".dr_ai/tasks/brand-update-cpf-blindado/context_session.md",
       "accessCount": 1,
-      "lastAccessed": 1772726446636,
+      "lastAccessed": 1773084850828,
+      "type": "file"
+    },
+    {
+      "path": ".dr_ai/tasks/tasks.json",
+      "accessCount": 1,
+      "lastAccessed": 1773090959101,
+      "type": "file"
+    },
+    {
+      "path": "server/lib/audit-logger.ts",
+      "accessCount": 1,
+      "lastAccessed": 1773090964571,
+      "type": "file"
+    },
+    {
+      "path": "server/lib/emailit.ts",
+      "accessCount": 1,
+      "lastAccessed": 1773090973287,
+      "type": "file"
+    },
+    {
+      "path": "server/database-scripts/00_create_payments_table.sql",
+      "accessCount": 1,
+      "lastAccessed": 1773090978954,
+      "type": "file"
+    },
+    {
+      "path": "server/database-scripts/002_create_user_access.sql",
+      "accessCount": 1,
+      "lastAccessed": 1773090990904,
+      "type": "file"
+    },
+    {
+      "path": "server/routes",
+      "accessCount": 1,
+      "lastAccessed": 1773091071626,
       "type": "directory"
     },
     {
-      "path": "client/src/components/auth",
+      "path": "tsconfig.node.json",
       "accessCount": 1,
-      "lastAccessed": 1772726452820,
-      "type": "directory"
-    },
-    {
-      "path": "client/src/components/auth/AuthModal.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1772726455154,
+      "lastAccessed": 1773091087937,
       "type": "file"
     },
     {
       "path": "tsconfig.json",
       "accessCount": 1,
-      "lastAccessed": 1772726741270,
+      "lastAccessed": 1773091087949,
       "type": "file"
     },
     {
-      "path": "client/src/pages/PaymentSuccess.tsx",
+      "path": "server/lib/kiwify-logger.ts",
       "accessCount": 1,
-      "lastAccessed": 1772726749975,
-      "type": "file"
-    },
-    {
-      "path": "client/src/components/ui/chart.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1772726750783,
-      "type": "file"
-    },
-    {
-      "path": "supabase/migrations/007_create_user_access_table.sql",
-      "accessCount": 1,
-      "lastAccessed": 1772726768979,
-      "type": "file"
-    },
-    {
-      "path": "supabase/migrations/009_verify_rls_policies.sql",
-      "accessCount": 1,
-      "lastAccessed": 1772726768991,
-      "type": "file"
-    },
-    {
-      "path": "client/public/__manus__/debug-collector.js",
-      "accessCount": 1,
-      "lastAccessed": 1772727565894,
-      "type": "file"
-    },
-    {
-      "path": "client/index.html",
-      "accessCount": 1,
-      "lastAccessed": 1772727581409,
+      "lastAccessed": 1773091136718,
       "type": "file"
     }
   ],

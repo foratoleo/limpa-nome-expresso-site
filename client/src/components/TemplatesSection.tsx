@@ -25,7 +25,7 @@ const STEP_COLORS: Record<number, string> = {
   0: "#22c55e", // Guia completo
   1: "#d39e17", // Reunião de Documentos
   2: "#60a5fa", // Preparação da Petição
-  3: "#22c55e", // Protocolo no e-SAJ
+  3: "#22c55e", // Protocolo no sistema judicial
   4: "#d39e17", // Balcão Virtual
   5: "#22c55e", // Acompanhamento
 };

@@ -7,7 +7,7 @@
 
 Esta pesquisa analisa a jurisprudência do Superior Tribunal de Justiça (STJ) e tribunais superiores brasileiros sobre limpeza de nome, negativação indevida e cadastros de inadimplentes. O foco é em decisões recentes (2024-2025), súmulas vinculantes, precedentes consolidados e interpretações autoritativas das leis de proteção ao consumidor.
 
-A jurisprudência do STJ é fundamental para o projeto Limpa Nome Expresso pois estabelece os parâmetros legais que devem ser seguidos por órgãos de proteção ao crédito (Serasa, SPC), credores e consumidores. O entendimento consolidado dos tribunais superiores serve como base para ações judiciais, negociações extrajudiciais e orientação aos usuários do serviço.
+A jurisprudência do STJ é fundamental para o projeto CPF Blindado pois estabelece os parâmetros legais que devem ser seguidos por órgãos de proteção ao crédito (bureau de credito, servico de protecao ao credito), credores e consumidores. O entendimento consolidado dos tribunais superiores serve como base para ações judiciais, negociações extrajudiciais e orientação aos usuários do serviço.
 
 Este documento está organizado em seções que abordam: (1) Súmulas do STJ sobre negativação e cadastros de inadimplentes, (2) Precedentes sobre danos morais e responsabilidade civil, (3) Jurisprudência sobre prescrição e prazos, (4) Decisões recentes sobre temas emergentes (LGPD, plataformas digitais), e (5) Tendências e evolução da jurisprudência.
 
@@ -115,7 +115,7 @@ O **REsp 1.059.663/MS**, relatado pela Ministra Nancy Andrighi (DJe 17/12/2008),
 
 Este entendimento foi amplamente adotado por tribunais estaduais e persiste como orientação dominante em 2024-2025:
 
-- **TJSP**: Mantém o entendimento de dano moral in re ipsa em casos de negativação indevida
+- **tribunal**: Mantém o entendimento de dano moral in re ipsa em casos de negativação indevida
 - **TJRJ**: Aplica a doutrina independentemente de provas adicionais
 - **TJMG**: Confirma a presunção do dano moral em negativações indevidas
 
@@ -134,7 +134,7 @@ O STJ não fixa valores tabelados, mas estabelece critérios de razoabilidade e 
 **Decisões Referenciais:**
 
 1. **AgInt no AREsp 1501927/GO (2019)**: Confirmou R$ 8.000 como valor razoável
-2. **TJSP - Apelação Cível (2024)**: Fixou R$ 50.000 em caso com circunstâncias específicas (réus médicos, recusa sistemática)
+2. **tribunal - Apelação Cível (2024)**: Fixou R$ 50.000 em caso com circunstâncias específicas (réus médicos, recusa sistemática)
 3. **TJDFT (2024)**: Valores entre R$ 3.000 e R$ 10.000 dependendo do caso
 
 **Critérios para Fixação:**
@@ -152,24 +152,24 @@ Os tribunais consideram os seguintes elementos:
 
 ### Casos Especiais e Tendências
 
-#### 1. Serasa Limpa Nome - Não é Cadastro Restrictivo
+#### 1. plataforma de negociacao de dividas - Não é Cadastro Restrictivo
 
 **Decisão do TJDFT (2024):**
 
-O Tribunal de Justiça do Distrito Federal estabeleceu que a plataforma "Serasa Limpa Nome" **não constitui cadastro restritivo de crédito**, mas sim meio de negociação de dívidas prescritas.
+O Tribunal de Justiça do Distrito Federal estabeleceu que a plataforma "plataforma de negociacao de dividas" **não constitui cadastro restritivo de crédito**, mas sim meio de negociação de dívidas prescritas.
 
 **Implicações Práticas:**
 
-- A inclusão no Serasa Limpa Nome não gera dano moral
+- A inclusão no plataforma de negociacao de dividas não gera dano moral
 - Não configura negativação para fins de proteção ao crédito
 - É meio legítimo de negociação de dívidas antigas
-- Diferente do Serasa Limpa Nome vs. Serasa Experian (cadastro negativo)
+- Diferente do plataforma de negociacao de dividas vs. bureau de credito (cadastro negativo)
 
-#### 2. SCR vs. SPC/Serasa - Distinção Importante
+#### 2. SCR vs. servico de protecao ao credito/bureau de credito - Distinção Importante
 
-**Decisão do TJSP (Janeiro 2024):**
+**Decisão do tribunal (Janeiro 2024):**
 
-O Tribunal de Justiça de São Paulo determinou que o **SCR (Sistema de Informações de Créditos do Banco Central)** não possui função restritiva e não equivale a cadastros de proteção ao crédito como SPC e Serasa.
+O Tribunal de Justiça de São Paulo determinou que o **SCR (Sistema de Informações de Créditos do Banco Central)** não possui função restritiva e não equivale a cadastros de proteção ao crédito como servico de protecao ao credito e bureau de credito.
 
 **Características do SCR:**
 - Sistema meramente administrativo
@@ -179,7 +179,7 @@ O Tribunal de Justiça de São Paulo determinou que o **SCR (Sistema de Informa�
 
 **Implicações:**
 - Registro no SCR não gera dano moral por si só
-- Diferente da inclusão em SPC/Serasa
+- Diferente da inclusão em servico de protecao ao credito/bureau de credito
 - Usado para análise de risco bancário interno
 
 ## Jurisprudência sobre Prescrição e Prazos
@@ -288,14 +288,14 @@ A Lei Geral de Proteção de Dados (LGPD - Lei 13.709/2018) introduziu novos par
 **Decisões Relevantes:**
 
 - **STJ - REsp 1.848.602/SP (2023)**: Reconheceu que dados pessoais em cadastros de inadimplentes são dados pessoais sensíveis para fins de LGPD
-- **TJSP (2024)**: Aplicou multa diária por descumprimento de ordem judicial de eliminação de dados
+- **tribunal (2024)**: Aplicou multa diária por descumprimento de ordem judicial de eliminação de dados
 - **TJDFT (2024)**: Condenou empresa por não atender pedido de correção de dados no prazo legal
 
 ### Plataformas Digitais e Negociação Online
 
 **Contexto:**
 
-O surgimento de plataformas digitais de negociação de dívidas (como Serasa Limpa Nome, Noverde, etc.) criou novas questões jurídicas.
+O surgimento de plataformas digitais de negociação de dívidas (como plataforma de negociacao de dividas, Noverde, etc.) criou novas questões jurídicas.
 
 **Entendimento dos Tribunais (2024-2025):**
 
@@ -316,8 +316,8 @@ O surgimento de plataformas digitais de negociação de dívidas (como Serasa Li
 
 **Casos Práticos:**
 
-- **TJDFT (2024)**: Determinou que acordo fechado via Serasa Limpa Nome gera obrigação de baixa em 5 dias úteis
-- **TJSP (2025)**: Reconheceu validade de quitação feita através de aplicativo de negociação
+- **TJDFT (2024)**: Determinou que acordo fechado via plataforma de negociacao de dividas gera obrigação de baixa em 5 dias úteis
+- **tribunal (2025)**: Reconheceu validade de quitação feita através de aplicativo de negociação
 - **TJRJ (2024)**: Condenou plataforma por não atualizar cadastros após acordo online
 
 ## Tendências e Evolução da Jurisprudência
@@ -438,7 +438,7 @@ O surgimento de plataformas digitais de negociação de dívidas (como Serasa Li
 | Tribunal | Caso | Valor | Circunstâncias |
 |----------|------|-------|----------------|
 | STJ | AgInt no AREsp 1501927/GO | R$ 8.000 | Valor considerado razoável |
-| TJSP | Apelação Cível 2024 | R$ 50.000 | Réus médicos, recusa sistemática |
+| tribunal | Apelação Cível 2024 | R$ 50.000 | Réus médicos, recusa sistemática |
 | TJDFT | Apelação 2024 | R$ 10.000 | Negativação de dívida paga |
 | TJMG | Apelação 2024 | R$ 5.000 | Caso padrão, sem agravantes |
 | TJRJ | Apelação 2025 | R$ 12.000 | Manutenção por 2 anos após pagamento |
@@ -491,7 +491,7 @@ O surgimento de plataformas digitais de negociação de dívidas (como Serasa Li
 
 **Tendência:** A posição majoritária permanece dominante
 
-## Impactos Práticos para o Projeto Limpa Nome Expresso
+## Impactos Práticos para o Projeto CPF Blindado
 
 ### Base Legal para o Serviço
 
@@ -554,19 +554,19 @@ O surgimento de plataformas digitais de negociação de dívidas (como Serasa Li
 
 9. **Tendência de flexibilização da Súmula 385**, especialmente no AgInt no AREsp 2.609.010/PE (2024), reconhecendo danos adicionais mesmo com negativação prévia.
 
-10. **SCR não equivale a SPC/Serasa**: registro no Sistema de Informações de Créditos do Banco Central não constitui negativação pública.
+10. **SCR não equivale a servico de protecao ao credito/bureau de credito**: registro no Sistema de Informações de Créditos do Banco Central não constitui negativação pública.
 
 ## Sources
 
-- [Jusbrasil - Súmula 548 STJ](https://www.jusbrasil.com.br/topicos/1196447/suplema-548-stj) - Texto completo e aplicações da súmula sobre prazo de exclusão de cadastro
-- [STJ - Súmula 385](https://www.stj.jus.br/) - Súmula sobre exceção à indenização por dano moral com negativação prévia
-- [REsp 1.059.663/MS - STJ](https://www.stj.jus.br/) - Precedente sobre dano moral in re ipsa em negativação indevida
-- [REsp 1.139.030/RJ - STJ](https://www.stj.jus.br/) - Jurisprudência sobre prescrição quinquenal de taxas condominiais
-- [REsp 1.327.786/RS - STJ](https://www.stj.jus.br/) - Jurisprudência sobre prescrição de contratos bancários
-- [AgInt no AREsp 2.609.010/PE - STJ (2024)](https://www.stj.jus.br/) - Decisão recente sobre flexibilização da Súmula 385
-- [TJDFT - Manutenção indevida de inscrição](https://www.tjdft.jus.br/) - Jurisprudência sobre cadastro de inadimplentes
-- [ADVBOX - Modelo de ação de negativação indevida](https://advbox.com.br/blog/modelos/acao-de-negativacao-indevida/) - Modelos práticos e análise jurisprudencial
-- [Migalhas - Limpeza de nome em Serasa e SPC](https://www.migalhas.com.br/) - Análise jurídica sobre prazos de atualização e jurisprudência
-- [Conjur - SCR não é cadastro restritivo](https://www.conjur.com.br/) - Artigo sobre distinção entre SCR e cadastros de proteção ao crédito
-- [Barbieri Advogados - Registrato do Banco Central](https://www.barbieriadvogados.com/) - Guia completo sobre o sistema de consulta do Banco Central
-- [Direitos.org.br - Artigo 43 CDC](https://www.direitos.org.br/) - Análise do artigo 43 do CDC e aplicações práticas
+- Jusbrasil - Súmula 548 STJ - Texto completo e aplicações da súmula sobre prazo de exclusão de cadastro
+- STJ - Súmula 385 - Súmula sobre exceção à indenização por dano moral com negativação prévia
+- REsp 1.059.663/MS - STJ - Precedente sobre dano moral in re ipsa em negativação indevida
+- REsp 1.139.030/RJ - STJ - Jurisprudência sobre prescrição quinquenal de taxas condominiais
+- REsp 1.327.786/RS - STJ - Jurisprudência sobre prescrição de contratos bancários
+- AgInt no AREsp 2.609.010/PE - STJ (2024) - Decisão recente sobre flexibilização da Súmula 385
+- TJDFT - Manutenção indevida de inscrição - Jurisprudência sobre cadastro de inadimplentes
+- ADVBOX - Modelo de ação de negativação indevida - Modelos práticos e análise jurisprudencial
+- Migalhas - Limpeza de nome em bureau de credito e servico de protecao ao credito - Análise jurídica sobre prazos de atualização e jurisprudência
+- Conjur - SCR não é cadastro restritivo - Artigo sobre distinção entre SCR e cadastros de proteção ao crédito
+- Barbieri Advogados - Registrato do Banco Central - Guia completo sobre o sistema de consulta do Banco Central
+- Direitos.org.br - Artigo 43 CDC - Análise do artigo 43 do CDC e aplicações práticas

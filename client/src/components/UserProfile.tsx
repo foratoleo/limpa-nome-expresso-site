@@ -28,7 +28,7 @@ export function UserProfile({ onOpenAuth }: UserProfileProps) {
     return (
       <button
         onClick={onOpenAuth}
-        className="px-5 py-2 rounded-full text-sm font-bold transition-all hover:shadow-lg"
+        className="rounded-full px-3 py-2 text-xs font-bold transition-all hover:shadow-lg sm:px-5 sm:text-sm"
         style={{
           backgroundColor: "#d39e17",
           color: "#12110d",
@@ -73,7 +73,7 @@ export function UserProfile({ onOpenAuth }: UserProfileProps) {
 
       {isOpen && (
         <div
-          className="absolute right-0 mt-2 w-56 rounded-xl border shadow-xl overflow-hidden"
+          className="absolute right-0 mt-2 w-56 max-w-[calc(100vw-2rem)] overflow-hidden rounded-xl border shadow-xl"
           style={{
             backgroundColor: "rgba(22, 40, 71, 0.98)",
             borderColor: "rgba(211, 158, 23, 0.3)",
@@ -103,7 +103,7 @@ export function UserProfile({ onOpenAuth }: UserProfileProps) {
               Meu Painel
             </a>
             <a
-              href="#processos"
+              href="/guia"
               className="block px-4 py-2 text-sm transition-colors"
               style={{ color: "#e8e4d8" }}
               onMouseEnter={(e) => {
@@ -116,7 +116,7 @@ export function UserProfile({ onOpenAuth }: UserProfileProps) {
               Meus Processos
             </a>
             <a
-              href="#configuracoes"
+              href="/faturamento"
               className="block px-4 py-2 text-sm transition-colors"
               style={{ color: "#e8e4d8" }}
               onMouseEnter={(e) => {
@@ -126,7 +126,7 @@ export function UserProfile({ onOpenAuth }: UserProfileProps) {
                 e.currentTarget.style.backgroundColor = "transparent";
               }}
             >
-              Configurações
+              Faturamento
             </a>
           </div>
 

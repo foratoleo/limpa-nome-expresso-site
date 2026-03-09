@@ -46,7 +46,7 @@ export default function WelcomeHome() {
 
           {/* Welcome Message */}
           <h1 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: COLORS.textPrimary }}>
-            Bem-vindo ao Limpa Nome Expresso!
+            Bem-vindo ao CPF Blindado!
           </h1>
 
           <p className="text-lg mb-6" style={{ color: COLORS.textSecondary }}>

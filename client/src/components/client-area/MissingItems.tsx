@@ -5,7 +5,7 @@ const CHECKLIST_ITEMS: Record<string, { step: number; label: string }> = {
   rg_cpf: { step: 1, label: "RG e CPF" },
   comprovante_residencia: { step: 1, label: "Comprovante de residencia" },
   comprovante_renda: { step: 1, label: "Comprovante de renda" },
-  serasa_print: { step: 1, label: "Print do Serasa/SPC" },
+  relatorio_credito: { step: 1, label: "Print do cadastro de crédito" },
   protocolo_anterior: { step: 1, label: "Protocolo anterior (se houver)" },
   documentos_divida: { step: 1, label: "Documentos da divida" },
 };

@@ -4,66 +4,58 @@ import { Container } from "@/components/ui/container";
 import { UserProfile } from "@/components/UserProfile";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { SpecialAdvisoryNavCta } from "@/components/SpecialAdvisoryNavCta";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 import { DownloadsSection } from "@/components/DownloadsSection";
 
 export default function Downloads() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const searchField = (
+    <div className="flex items-center overflow-hidden rounded-full" style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}>
+      <div className="pl-4 flex items-center justify-center">
+        <SearchIcon size="small" label="" />
+      </div>
+      <input
+        type="text"
+        placeholder="Buscar downloads..."
+        className="w-full bg-transparent border-none px-3 py-2.5 text-sm outline-none"
+        style={{ color: "#f1f5f9" }}
+      />
+    </div>
+  );
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#12110d", fontFamily: "'Public Sans', sans-serif" }}>
-      {/* Header */}
-      <header
-        className="sticky top-0 z-50 backdrop-blur-[6px] border-b"
-        style={{
-          backgroundColor: "rgba(18, 17, 13, 0.5)",
-          borderColor: "rgba(211, 158, 23, 0.2)"
-        }}
-      >
-        <Container as="div" maxWidth="xl" className="flex items-center justify-between py-4">
-          {/* Logo & Nav */}
-          <div className="flex items-center gap-8">
-            <a href="/guia" className="flex items-center gap-3">
-              <div className="w-8 h-8 flex items-center justify-center">
-                <svg width="27" height="29" viewBox="0 0 27 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M13.5 0L26.5 8V21L13.5 29L0.5 21V8L13.5 0Z" fill="#d39e17"/>
-                  <path d="M13.5 6L20 10V19L13.5 23L7 19V10L13.5 6Z" fill="#12110d"/>
-                </svg>
-              </div>
-              <h2 className="text-xl font-bold" style={{ color: "#f1f5f9", letterSpacing: "-0.3px" }}>
-                Limpa Nome <span style={{ color: "#d39e17" }}>Expresso</span>
-              </h2>
-            </a>
-            <nav className="hidden md:flex items-center gap-6">
-              <a href="/processo" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Meu Processo</a>
-              <a href="/documentos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Documentos</a>
-              <a href="/modelos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Modelos</a>
-              <a href="/downloads" className="text-sm font-medium transition-colors" style={{ color: "#d39e17" }}>Downloads</a>
-              <a href="/suporte" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Suporte</a>
-              <a href="/noticias" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Noticias</a>
-              <SpecialAdvisoryNavCta />
-            </nav>
-          </div>
-
-          {/* Search & Actions */}
-          <div className="flex items-center gap-4">
-            <div className="hidden lg:flex items-center rounded-full overflow-hidden" style={{ backgroundColor: "rgba(255, 255, 255, 0.1)", maxWidth: 256 }}>
-              <div className="pl-4 flex items-center justify-center">
-                <SearchIcon size="small" label="" />
-              </div>
-              <input
-                type="text"
-                placeholder="Buscar downloads..."
-                className="bg-transparent border-none outline-none py-2.5 px-3 text-sm w-full"
-                style={{ color: "#f1f5f9" }}
-              />
-            </div>
-            <div className="md:hidden">
-              <SpecialAdvisoryNavCta shortLabel />
-            </div>
+      <SiteHeader
+        logoHref="/guia"
+        navItems={[
+          { href: "/processo", label: "Meu Processo" },
+          { href: "/documentos", label: "Documentos" },
+          { href: "/modelos", label: "Modelos" },
+          { href: "/downloads", label: "Downloads", active: true },
+          { href: "/suporte", label: "Suporte" },
+          { href: "/noticias", label: "Noticias" },
+        ]}
+        desktopNavTrailing={<SpecialAdvisoryNavCta />}
+        desktopRightContent={
+          <>
+            <div className="hidden w-[256px] lg:block">{searchField}</div>
             <UserProfile onOpenAuth={() => setIsAuthModalOpen(true)} />
+          </>
+        }
+        mobileTopActions={
+          <>
+            <SpecialAdvisoryNavCta shortLabel />
+            <UserProfile onOpenAuth={() => setIsAuthModalOpen(true)} />
+          </>
+        }
+        mobileDrawerContent={
+          <div className="space-y-4">
+            {searchField}
+            <SpecialAdvisoryNavCta />
           </div>
-        </Container>
-      </header>
+        }
+      />
 
       {/* Auth Modal */}
       <AuthModal
@@ -165,33 +157,7 @@ export default function Downloads() {
         </div>
       </Container>
 
-      {/* Footer */}
-      <footer
-        className="border-t mt-8"
-        style={{
-          backgroundColor: "rgba(18, 17, 13, 0.8)",
-          borderColor: "rgba(211, 158, 23, 0.1)"
-        }}
-      >
-        <Container as="div" maxWidth="xl" className="py-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 0L17.5 5V14L9 19L0.5 14V5L9 0Z" fill="#d39e17"/>
-                <path d="M9 4L13 6.5V11.5L9 14L5 11.5V6.5L9 4Z" fill="#12110d"/>
-              </svg>
-              <span className="text-sm" style={{ color: "#64748b" }}>
-                2026 Limpa Nome Expresso. Sistema de Apoio Jurídico Automático.
-              </span>
-            </div>
-            <div className="flex items-center gap-8">
-              <a href="#termos" className="text-sm hover:text-[#d39e17] transition-colors" style={{ color: "#64748b" }}>Termos de Uso</a>
-              <a href="#privacidade" className="text-sm hover:text-[#d39e17] transition-colors" style={{ color: "#64748b" }}>Privacidade</a>
-              <a href="#oab" className="text-sm hover:text-[#d39e17] transition-colors" style={{ color: "#64748b" }}>OAB Compliance</a>
-            </div>
-          </div>
-        </Container>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

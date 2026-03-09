@@ -8,6 +8,7 @@ import { handleWebhook } from "./middleware/stripe-webhook.js";
 import { contactRouter } from "./routes/contact.js";
 import { authRouter } from "./routes/auth.js";
 import { mercadopagoRouter } from "./routes/mercadopago.js";
+import { kiwifyRouter } from "./routes/kiwify.js";
 import { paymentsRouter } from "./routes/payments.js";
 import { adminAccessRouter } from "./routes/admin-access.js";
 import { adminUsersRouter } from "./routes/admin-users.js";
@@ -80,6 +81,9 @@ async function startServer() {
 
   // Mount MercadoPago API routes
   app.use("/api/mercadopago", mercadopagoRouter);
+
+  // Mount Kiwify API routes
+  app.use("/api/kiwify", kiwifyRouter);
 
   // Mount Contact API routes
   app.use("/api/contact", contactRouter);

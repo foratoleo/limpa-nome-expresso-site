@@ -64,9 +64,9 @@ export default async function handler(req, res) {
         },
         external_reference: userId || metadata?.userId,
         back_urls: {
-          success: `${process.env.VERCEL_URL || 'https://limpa-nome-expresso-site.vercel.app'}/checkout/sucesso`,
-          failure: `${process.env.VERCEL_URL || 'https://limpa-nome-expresso-site.vercel.app'}/checkout/falha`,
-          pending: `${process.env.VERCEL_URL || 'https://limpa-nome-expresso-site.vercel.app'}/checkout/pendente`,
+          success: `${process.env.VERCEL_URL || 'https://cpfblindado.com'}/checkout/sucesso`,
+          failure: `${process.env.VERCEL_URL || 'https://cpfblindado.com'}/checkout/falha`,
+          pending: `${process.env.VERCEL_URL || 'https://cpfblindado.com'}/checkout/pendente`,
         },
       }),
     });

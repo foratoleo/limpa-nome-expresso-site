@@ -225,7 +225,7 @@ A sentença proferida nos autos transitou em julgado em __/__/__, conforme certi
 ### DA OBRIGAÇÃO DE FAZER - EXCLUSÃO DO NOME
 
 A sentença condenou a requerida a:
-a) Excluir o nome do autor dos cadastros de proteção ao crédito (SPC, Serasa, SCPC);
+a) Excluir o nome do autor dos cadastros de proteção ao crédito (servico de protecao ao credito, bureau de credito, cadastro de protecao ao credito);
 b) Abster-se de realizar novas negativações referentes ao mesmo débito.
 
 Contudo, apesar de transitada em julgado, a requerida não cumpriu a obrigação de fazer até a presente data, conforme demonstram os documentos anexos (extratos atuais dos órgãos de proteção ao crédito).
@@ -244,7 +244,7 @@ Diante do exposto, requer:
 
 a) Seja intimada a requerida para cumprir voluntariamente a obrigação de fazer (exclusão do nome) no prazo de 15 dias;
 b) Seja intimada a requerida para pagar o valor de R$ ____ no prazo de 15 dias, sob pena de aplicação de multa de 10% (art. 523, §1º, CPC);
-c) Não sendo cumprida voluntariamente a obrigação, seja expedido ofício aos órgãos de proteção ao crédito (Serasa, SPC, SCPC) determinando a exclusão do nome do autor;
+c) Não sendo cumprida voluntariamente a obrigação, seja expedido ofício aos órgãos de proteção ao crédito (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito) determinando a exclusão do nome do autor;
 d) Seja expedido mandado de penhora e avaliação para garantia do pagamento da indenização;
 e) Seja a requerida condenada ao pagamento das custas processuais e honorários advocatícios de 10% sobre o valor executado;
 f) A procedência do presente cumprimento de sentença.
@@ -290,7 +290,7 @@ Quando o devedor não cumpre voluntariamente a obrigação de fazer, o juiz pode
 ```markdown
 OFÍCIO N° __/2026
 
-ILMO. SR. GERENTE DO SERASA S.A.
+ILMO. SR. GERENTE DO bureau de credito S.A.
 
 Assunto: Ordem Judicial para Exclusão de Registro Negativo
 
@@ -377,10 +377,10 @@ Após sentença favorável determinando a exclusão do nome, o advogado deve:
 - Verificar se a requerida solicitou a baixa aos órgãos de proteção ao crédito
 
 **b) Consultar os órgãos de proteção ao crédito**
-- Serasa: www.serasa.com.br ou telefone 3003-6300
-- SPC: Consulta pelo site ou CDL local
-- SCPC: www.scpcbrasil.org.br
-- Boa Vista: www.boavistaservicos.com.br
+- bureau de credito: www.bureau de credito.com.br ou telefone 3003-6300
+- servico de protecao ao credito: Consulta pelo site ou CDL local
+- cadastro de protecao ao credito: www.cadastro de protecao ao creditobrasil.org.br
+- cadastro de protecao ao credito: www.boavistaservicos.com.br
 
 **c) Obter certidão de baixa**
 - Solicitar certidão oficial de inexistência de registros negativos
@@ -395,7 +395,7 @@ REQUERIMENTO DE EXPEDIÇÃO DE OFÍCIO
 
 Excelentíssimo Senhor Doutor Juiz de Direito,
 
-_____, qualificado nos autos, vem respeitosamente à presença de Vossa Excelência requerer a expedição de ofício aos órgãos de proteção ao crédito (SERASA, SPC, SCPC) para determinação da exclusão do nome do requerente de seus cadastros negativos.
+_____, qualificado nos autos, vem respeitosamente à presença de Vossa Excelência requerer a expedição de ofício aos órgãos de proteção ao crédito (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito) para determinação da exclusão do nome do requerente de seus cadastros negativos.
 
 Conforme demonstram os documentos de fls. ____, embora transitada em julgado a sentença que condenou a requerida à exclusão do nome do autor dos cadastros de inadimplentes, até a presente data a obrigação não foi cumprida voluntariamente.
 
@@ -480,12 +480,12 @@ A jurisprudência brasileira adota critérios objetivos para fixação do quantu
 
 | Situação | Valor Médio | Valor Mínimo | Valor Máximo | Fonte |
 |----------|-------------|--------------|--------------|-------|
-| Negativação simples (dívida paga) | R$ 5.000,00 | R$ 2.000,00 | R$ 10.000,00 | [Jusbrasil](https://www.jusbrasil.com.br) |
-| Negativação com fraude | R$ 8.000,00 | R$ 5.000,00 | R$ 15.000,00 | [Jurídico AI](https://juridico.ai) |
-| Negativação por serviço não contratado | R$ 7.000,00 | R$ 3.000,00 | R$ 12.000,00 | [AdvBox](https://advbox.com.br) |
+| Negativação simples (dívida paga) | R$ 5.000,00 | R$ 2.000,00 | R$ 10.000,00 | Jusbrasil |
+| Negativação com fraude | R$ 8.000,00 | R$ 5.000,00 | R$ 15.000,00 | Jurídico AI |
+| Negativação por serviço não contratado | R$ 7.000,00 | R$ 3.000,00 | R$ 12.000,00 | AdvBox |
 | Múltiplas negativações | R$ 10.000,00 | R$ 5.000,00 | R$ 20.000,00 | Jurisprudência consolidada |
-| Negativação + cobrança abusiva | R$ 6.000,00 | R$ 3.000,00 | R$ 15.000,00 | [AdvLabs](https://advlabs.com.br) |
-| Negativação + protesto indevido | R$ 12.000,00 | R$ 8.000,00 | R$ 25.000,00 | Jurisprudência TJSP |
+| Negativação + cobrança abusiva | R$ 6.000,00 | R$ 3.000,00 | R$ 15.000,00 | AdvLabs |
+| Negativação + protesto indevido | R$ 12.000,00 | R$ 8.000,00 | R$ 25.000,00 | Jurisprudência tribunal |
 
 ### Súmula 385 do STJ
 
@@ -534,7 +534,7 @@ A Súmula 385 do Superior Tribunal de Justiça estabelece:
 
 > "Para a fixação do valor dos danos morais devem ser observados alguns parâmetros extraídos da jurisprudência, quais sejam: a extensão do dano ou gravidade da violação, a repercussão na esfera pessoal da vítima, o tempo de permanência da infração, a função preventiva da indenização ou o grau de reincidência do fornecedor e, por fim, o grau de culpa e a capacidade financeira do ofensor."
 
-**TJSP - Apelação 0015884-03.2012.8.26.0664 (2014)**
+**tribunal - Apelação 0015884-03.2012.8.26.0664 (2014)**
 
 > "INDENIZAÇÃO – DANOS MORAIS. Negativação de nome nos cadastros de inadimplentes. Ação declaratória anteriormente ajuizada. Procedência – Reconhecimento da utilização de encargos abusivos. Hipótese em que o autor tornou-se credor do Banco. Danos morais configurados em razão da falha na prestação dos serviços. Elevação do montante indenizatório para R$ 50.000,00."
 
@@ -550,21 +550,21 @@ A Súmula 385 do Superior Tribunal de Justiça estabelece:
 
 5. **A jurisprudência reconhece o dano moral in re ipsa em casos de negativação indevida**, dispensando prova específica do abalo sofrido. Os tribunais superiores consolidaram entendimento no sentido da responsabilidade objetiva do fornecedor.
 
-6. **Após sentença favorável, é essencial acompanhar a baixa do registro** junto aos órgãos de proteção ao crédito e obter certidão de exclusão como prova documental. Não cumprida voluntariamente a obrigação, o juiz pode expedir ofício diretamente ao Serasa, SPC e SCPC.
+6. **Após sentença favorável, é essencial acompanhar a baixa do registro** junto aos órgãos de proteção ao crédito e obter certidão de exclusão como prova documental. Não cumprida voluntariamente a obrigação, o juiz pode expedir ofício diretamente ao bureau de credito, servico de protecao ao credito e cadastro de protecao ao credito.
 
 ## Sources
 
-- [Modelo de ação de negativação indevida - AdvBox](https://advbox.com.br/blog/modelos/acao-de-negativacao-indevida/) - Modelo completo de petição inicial para ação de negativação indevida com tutela antecipada
-- [Modelo de petição inicial indenizatória - AdvLabs](https://advlabs.com.br/modelo/modelo-peticao-inicial-indenizatoria-negativacao-indevida/) - Modelo detalhado com fundamentação jurídica e estrutura para JEC
-- [Modelo ação danos morais negativação indevida - Jusbrasil](https://www.jusbrasil.com.br/modelos-pecas/modelo-acao-de-danos-morais-por-negativacao-indevida/1237026858) - Template completo com jurisprudência e doutrina
-- [Cumprimento de sentença: O que é, prazos e modelo - Aurum](https://www.aurum.com.br/blog/cumprimento-de-sentenca/) - Guia completo sobre cumprimento de sentença no CPC/2015
-- [Negativação Indevida: guia jurídico para advogados - Jurídico AI](https://juridico.ai/direito-civil/negativacao-indevida-guia-advogados/) - Compreensivo guia com estratégias processuais, jurisprudência atualizada e elementos probatórios
+- Modelo de ação de negativação indevida - AdvBox - Modelo completo de petição inicial para ação de negativação indevida com tutela antecipada
+- Modelo de petição inicial indenizatória - AdvLabs - Modelo detalhado com fundamentação jurídica e estrutura para JEC
+- Modelo ação danos morais negativação indevida - Jusbrasil - Template completo com jurisprudência e doutrina
+- Cumprimento de sentença: O que é, prazos e modelo - Aurum - Guia completo sobre cumprimento de sentença no CPC/2015
+- Negativação Indevida: guia jurídico para advogados - Jurídico AI - Compreensivo guia com estratégias processuais, jurisprudência atualizada e elementos probatórios
 
 ## Notas
 
 1. Os modelos apresentados devem ser adaptados ao caso concreto, considerando as particularidades de cada demanda e a jurisdição onde a ação tramita.
 
-2. O uso de emojis foi evitado em conformidade com as diretrizes para documentos jurídicos. Para aplicações voltadas ao consumidor final (site Limpa Nome Expresso), recomenda-se adaptar a linguagem para torná-la mais acessível.
+2. O uso de emojis foi evitado em conformidade com as diretrizes para documentos jurídicos. Para aplicações voltadas ao consumidor final (site CPF Blindado), recomenda-se adaptar a linguagem para torná-la mais acessível.
 
 3. Os valores de indenização mencionados são médias baseadas na jurisprudência e podem variar significativamente conforme o caso concreto e o tribunal.
 

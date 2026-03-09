@@ -118,9 +118,7 @@ export function ProcessCard({ process, onEdit }: ProcessCardProps) {
         </div>
         {process.process_number && (
           <a
-            href={`https://esaj.tjsp.jus.br/cpopg/search.do?conversationId=&dadosConsulta.localPesquisa.cdLocal=-1&cbPesquisa=NUMPROC&dadosConsulta.tipoNuProc=UNIFICADO&numeroDigitoAnoUnificado=${process.process_number.slice(0, 13)}&foroNumeroUnificado=${process.process_number.slice(-4)}&dadosConsulta.valorConsultaNuUnificado=${process.process_number}&dadosConsulta.valorConsulta=&uuidCaptcha=`}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/processo"
             className="flex items-center gap-1 text-xs hover:underline"
             style={{ color: "#60a5fa" }}
           >

@@ -46,7 +46,7 @@ async function testEmailItConnection() {
   try {
     const response = await emailService.sendCustomEmail({
       to: TEST_EMAIL,
-      subject: "✅ EmailIt Test - Limpa Nome Expresso",
+      subject: "✅ EmailIt Test - CPF Blindado",
       html: `
         <!DOCTYPE html>
         <html lang="pt-BR">
@@ -86,7 +86,7 @@ async function testEmailItConnection() {
 
           <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
           <p style="color: #666; font-size: 14px;">
-            Este é um email de teste automático do sistema <strong>Limpa Nome Expresso</strong>.
+            Este é um email de teste automático do sistema <strong>CPF Blindado</strong>.
           </p>
         </body>
         </html>

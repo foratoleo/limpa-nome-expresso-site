@@ -1,0 +1,158 @@
+{
+  "version": "1.0",
+  "task_name": "brand-update-cpf-blindado",
+  "tasks": [
+    {
+      "id": "T0",
+      "description": "Create branch refactor/brand-update-cpf-blindado",
+      "status": "pending",
+      "agent": null,
+      "plan_ref": null,
+      "subtasks": []
+    },
+    {
+      "id": "T1",
+      "description": "Update core HTML and SEO files",
+      "status": "pending",
+      "agent": "html-specialist",
+      "plan_ref": "1",
+      "subtasks": [
+        {
+          "id": "T1.1",
+          "description": "Update index.html title to CPF Blindado",
+          "status": "pending"
+        },
+        {
+          "id": "T1.2",
+          "description": "Update index.html meta description",
+          "status": "pending"
+        },
+        {
+          "id": "T1.3",
+          "description": "Update sitemap.xml URLs to new domain",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "T2",
+      "description": "Update landing page components",
+      "status": "pending",
+      "agent": "react-specialist",
+      "plan_ref": "2",
+      "subtasks": [
+        {
+          "id": "T2.1",
+          "description": "Update HeroSection.tsx brand references",
+          "status": "pending"
+        },
+        {
+          "id": "T2.2",
+          "description": "Update BenefitsSection.tsx heading text",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "T3",
+      "description": "Update email templates and service",
+      "status": "pending",
+      "agent": "html-email-specialist",
+      "plan_ref": "3",
+      "subtasks": [
+        {
+          "id": "T3.1",
+          "description": "Update confirm-signup.html template branding",
+          "status": "pending"
+        },
+        {
+          "id": "T3.2",
+          "description": "Update preview.html template branding",
+          "status": "pending"
+        },
+        {
+          "id": "T3.3",
+          "description": "Update email.service.ts subject lines and body",
+          "status": "pending"
+        },
+        {
+          "id": "T3.4",
+          "description": "Update email.service.ts footer signatures",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "T4",
+      "description": "Update server and API configuration",
+      "status": "pending",
+      "agent": "nodejs-implementation",
+      "plan_ref": "4",
+      "subtasks": [
+        {
+          "id": "T4.1",
+          "description": "Update api.ts contact email if needed",
+          "status": "pending"
+        },
+        {
+          "id": "T4.2",
+          "description": "Update .env.example documentation comments",
+          "status": "pending"
+        },
+        {
+          "id": "T4.3",
+          "description": "Update package.json project name",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "T5",
+      "description": "Update additional component files",
+      "status": "pending",
+      "agent": "react-typescript-specialist",
+      "plan_ref": "5",
+      "subtasks": [
+        {
+          "id": "T5.1",
+          "description": "Update ArticleSeo.tsx component",
+          "status": "pending"
+        },
+        {
+          "id": "T5.2",
+          "description": "Update page components with brand references",
+          "status": "pending"
+        },
+        {
+          "id": "T5.3",
+          "description": "Review remaining user-facing files",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "T6",
+      "description": "Documentation and final cleanup",
+      "status": "pending",
+      "agent": "markdown-specialist",
+      "plan_ref": "6",
+      "subtasks": [
+        {
+          "id": "T6.1",
+          "description": "Update README.md project description",
+          "status": "pending"
+        },
+        {
+          "id": "T6.2",
+          "description": "Review and update .env.production",
+          "status": "pending"
+        },
+        {
+          "id": "T6.3",
+          "description": "Update planning documentation",
+          "status": "pending"
+        }
+      ]
+    }
+  ]
+}

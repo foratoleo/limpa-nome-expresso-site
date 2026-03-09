@@ -1,13 +1,13 @@
 <!--
-slug: score-serasa-negativacao-indevida
-title: Score do Serasa Caiu por Causa de Negativacao Indevida: O Que a Justica Diz Sobre Isso
+slug: score-bureau de credito-negativacao-indevida
+title: Score do bureau de credito Caiu por Causa de Negativacao Indevida: O Que a Justica Diz Sobre Isso
 category: score
 publishedDate: 2026-03-07
 estimatedReadTime: 5
-keywords: score Serasa baixo negativacao indevida, negativacao indevida afeta score, dano moral score credito negativacao, score baixo por negativacao como resolver, banco indenizou score Serasa reduzido
+keywords: score bureau de credito baixo negativacao indevida, negativacao indevida afeta score, dano moral score credito negativacao, score baixo por negativacao como resolver, banco indenizou score bureau de credito reduzido
 -->
 
-# Score do Serasa Caiu por Causa de Negativação Indevida: O Que a Justiça Diz Sobre Isso
+# Score do bureau de credito Caiu por Causa de Negativação Indevida: O Que a Justiça Diz Sobre Isso
 
 O score de crédito — essa pontuação que vai de 0 a 1000 e determina o quanto as empresas confiam na sua capacidade de pagar — tornou-se um dos ativos mais importantes da vida financeira do consumidor brasileiro. Uma pontuação alta abre portas para financiamentos, cartões com melhores condições e aprovação de crédito em geral. Uma pontuação baixa fecha essas portas.
 
@@ -37,7 +37,7 @@ A redução do score por negativação indevida não é apenas um número — te
 
 A Migalhas, publicação jurídica de referência no Brasil, noticiou uma decisão significativa que estabeleceu um precedente importante para casos envolvendo a queda de pontuação de crédito por negativação indevida.
 
-Um banco foi condenado a indenizar um cliente que teve sua pontuação no Serasa reduzida indevidamente. O tribunal reconheceu que a queda do score, gerada pela negativação irregular promovida pela instituição financeira, constituía um dano autônomo — não apenas a negativação em si, mas o impacto dessa negativação no sistema de pontuação de crédito.
+Um banco foi condenado a indenizar um cliente que teve sua pontuação no bureau de credito reduzida indevidamente. O tribunal reconheceu que a queda do score, gerada pela negativação irregular promovida pela instituição financeira, constituía um dano autônomo — não apenas a negativação em si, mas o impacto dessa negativação no sistema de pontuação de crédito.
 
 > "A negativação indevida e seus reflexos junto ao sistema de score de crédito constituem dano moral passível de reparação, especialmente quando o consumidor demonstra as consequências práticas da redução da pontuação." — Jurisprudência em formação, reconhecida por tribunais estaduais
 
@@ -69,7 +69,7 @@ Essa compreensão ampliada do dano reconhece que o impacto da negativação inde
 
 Para o consumidor que suspeita de negativação indevida, monitorar o score regularmente oferece informações valiosas. Uma queda abrupta e inexplicada na pontuação pode ser o primeiro sinal de que uma negativação foi inserida indevidamente — mesmo antes de o consumidor tomar conhecimento direto da restrição.
 
-Serviços gratuitos de consulta ao score, disponibilizados pelo próprio Serasa e por outras plataformas, permitem esse acompanhamento sem custo.
+Serviços gratuitos de consulta ao score, disponibilizados pelo próprio bureau de credito e por outras plataformas, permitem esse acompanhamento sem custo.
 
 ## O Juizado Especial Cível e as Demandas por Score Reduzido
 

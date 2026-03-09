@@ -1,6 +1,6 @@
 export const MERCADOPAGO_PRODUCT = {
   id: 'limpa_nome_expresso_12_months',
-  title: 'Limpa Nome Expresso - Acesso Premium 12 Meses',
+  title: 'CPF Blindado - Acesso Premium 12 Meses',
   quantity: 1,
   unit_price: 149.90,
   currency_id: 'BRL',

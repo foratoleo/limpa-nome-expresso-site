@@ -13,7 +13,7 @@ Descobrir o nome negativado injustamente é uma das experiências mais frustrant
 
 ## O Que é Negativação Indevida e Por Que Ela Gera Dano Moral Automático
 
-Negativação indevida ocorre quando uma empresa inscreve o nome do consumidor em cadastros de inadimplentes (Serasa, SPC/CNDL, Boa Vista) sem que exista dívida legítima, exigível e vencida. Isso inclui cobranças por serviços não contratados, dívidas já quitadas, registros duplicados e débitos prescritos.
+Negativação indevida ocorre quando uma empresa inscreve o nome do consumidor em cadastros de inadimplentes (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito) sem que exista dívida legítima, exigível e vencida. Isso inclui cobranças por serviços não contratados, dívidas já quitadas, registros duplicados e débitos prescritos.
 
 O conceito jurídico central nessa discussão é o **dano moral in re ipsa** — expressão latina que significa "dano presumido pela própria coisa". Nos casos de negativação indevida, o consumidor não precisa demonstrar que sofreu abalo psicológico, perda de crédito ou outro prejuízo concreto. O simples fato de ter o nome inscrito irregularmente já configura o dano, e a indenização é devida.
 

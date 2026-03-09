@@ -4,9 +4,9 @@
 
 ## Overview
 
-Esta pesquisa apresenta a base legal completa e os fundamentos jurídicos para limpeza de nome em cadastros de proteção ao crédito (Serasa, SPC, Boa Vista SCPC) no Brasil. O conteúdo aborda o arcabouço jurídico atualizado com foco no Código de Defesa do Consumidor, súmulas do Superior Tribunal de Justiça (STJ), Lei dos Juizados Especiais, legislação sobre superendividamento e jurisprudência relevante de 2024-2025.
+Esta pesquisa apresenta a base legal completa e os fundamentos jurídicos para limpeza de nome em cadastros de proteção ao crédito (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito) no Brasil. O conteúdo aborda o arcabouço jurídico atualizado com foco no Código de Defesa do Consumidor, súmulas do Superior Tribunal de Justiça (STJ), Lei dos Juizados Especiais, legislação sobre superendividamento e jurisprudência relevante de 2024-2025.
 
-Este documento é essencial para fortalecer a base legal do projeto Limpa Nome Expresso, fornecendo fundamentação jurídica sólida para conteúdo do site e documentação interna. A pesquisa visa profissionais e consumidores com nível de conhecimento intermediário, oferecendo tanto a base teórica quanto orientações práticas para procedimentos de limpeza de nome.
+Este documento é essencial para fortalecer a base legal do projeto CPF Blindado, fornecendo fundamentação jurídica sólida para conteúdo do site e documentação interna. A pesquisa visa profissionais e consumidores com nível de conhecimento intermediário, oferecendo tanto a base teórica quanto orientações práticas para procedimentos de limpeza de nome.
 
 ## Código de Defesa do Consumidor (CDC) - Lei nº 8.078/1990
 
@@ -69,7 +69,7 @@ As súmulas do STJ representam jurisprudência consolidada e são obrigatórias 
 - O prazo conta a partir do primeiro dia útil subsequente à completa disponibilização do pagamento
 - Tema 735 do STJ (recurso repetitivo) consolida este entendimento
 - A falta de exclusão neste prazo gera direito à indenização por dano moral
-- Aplica-se a todos os cadastros de proteção ao crédito (Serasa, SPC, Boa Vista)
+- Aplica-se a todos os cadastros de proteção ao crédito (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito)
 
 **Na Prática:**
 - Após pagar uma dívida, o consumidor deve solicitar a baixa ao credor por escrito
@@ -100,7 +100,7 @@ As súmulas do STJ representam jurisprudência consolidada e são obrigatórias 
 
 **Entendimento:**
 - Se o consumidor já possui其他 dívidas legítimas registradas, não cabe dano moral por registro irregular adicional
-- A súmula se aplica a cadastros tradicionais (SPC, Serasa) e também ao SCR (Sistema de Informações de Crédito do Banco Central)
+- A súmula se aplica a cadastros tradicionais (servico de protecao ao credito, bureau de credito) e também ao SCR (Sistema de Informações de Crédito do Banco Central)
 - O direito ao cancelamento do registro irregular é mantido
 - Tema 922 do STJ reforça este entendimento
 
@@ -114,7 +114,7 @@ As súmulas do STJ representam jurisprudência consolidada e são obrigatórias 
 > "Cabe ao órgão mantenedor do Cadastro de Proteção ao Crédito a notificação do devedor antes de proceder à inscrição."
 
 **Implicações:**
-- A responsabilidade pela notificação é do órgão mantenedor do cadastro (SPC, Serasa, Boa Vista)
+- A responsabilidade pela notificação é do órgão mantenedor do cadastro (servico de protecao ao credito, bureau de credito, cadastro de protecao ao credito)
 - A notificação deve ser feita antes da inclusão do nome
 - A ausência de notificação configura negativação indevida
 - Deve ser comprovado o recebimento da notificação pelo consumidor
@@ -198,8 +198,8 @@ A Lei 14.181/2021 modificou o CDC para incluir proteção específica para consu
 - Consolidou entendimento sobre necessidade de comprovação do recebimento da notificação prévia
 - Discussão sobre validade de notificação por meios eletrônicos (Tema Repetitivo 1315/2025)
 
-**TJDFT - "Serasa Limpa Nome" (2024):**
-- Registro em "Serasa Limpa Nome" NÃO configura negativação quando:
+**TJDFT - "plataforma de negociacao de dividas" (2024):**
+- Registro em "plataforma de negociacao de dividas" NÃO configura negativação quando:
   - Acesso apenas por credor e devedor via login/senha
   - Não impacta no score de crédito
   - Não indica falsamente ao mercado que o consumidor é devedor
@@ -231,7 +231,7 @@ A Lei 14.181/2021 modificou o CDC para incluir proteção específica para consu
 ### Fluxo Administrativo
 
 **Passo 1 - Identificação da Negativação:**
-- Consulta gratuita em sites oficiais (Serasa, SPC Brasil)
+- Consulta gratuita em sites oficiais (bureau de credito, servico de protecao ao credito)
 - Verificação de restrições no CPF
 - Identificação do credor e da origem da dívida
 
@@ -434,9 +434,9 @@ Dado o aumento de fraudes com CPF no Brasil:
 4. Monitorar extratos bancários e registros de crédito
 
 **Contatos Oficiais:**
-- Serasa: 3003-6300 | WhatsApp: (11) 99575-2096 | Site: serasa.com.br
-- SPC Brasil: 3003-7172 | Site: spcbrasil.org.br
-- Boa Vista: 0800 727 2887 | Site: boavistaservicos.com.br
+- bureau de credito: 3003-6300 | WhatsApp: (11) 99575-2096 | Site: bureau de credito.com.br
+- servico de protecao ao credito: 3003-7172 | Site: servico de protecao ao creditobrasil.org.br
+- cadastro de protecao ao credito: 0800 727 2887 | Site: boavistaservicos.com.br
 - PROCON Nacional: 151 (disque consumidor)
 
 ## Key Takeaways
@@ -465,69 +465,69 @@ Dado o aumento de fraudes com CPF no Brasil:
 
 ### Legislação Oficial
 
-- [Lei nº 8.078/1990 - Código de Defesa do Consumidor](https://www.planalto.gov.br/ccivil_03/leis/l8078.htm) - Legislação principal que protege consumidores e regulamenta cadastros de proteção ao crédito, especialmente os artigos 42 e 43
-- [Lei nº 9.099/1995 - Juizados Especiais Cíveis e Criminais](https://www.planalto.gov.br/ccivil_03/leis/l9099.htm) - Permite que consumidores busquem direitos sem advogado para causas até 20 salários mínimos
-- [Lei nº 14.181/2021 - Lei do Superendividamento](https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14181.htm) - Altera o CDC para incluir proteção ao consumidor superendividado
-- [Código Civil - Lei nº 10.406/2002](https://www.planalto.gov.br/ccivil_03/leis/2002/l10406.htm) - Artigo 206, § 5º, I estabelece prazo de prescrição de 5 anos para dívidas
+- Lei nº 8.078/1990 - Código de Defesa do Consumidor - Legislação principal que protege consumidores e regulamenta cadastros de proteção ao crédito, especialmente os artigos 42 e 43
+- Lei nº 9.099/1995 - Juizados Especiais Cíveis e Criminais - Permite que consumidores busquem direitos sem advogado para causas até 20 salários mínimos
+- Lei nº 14.181/2021 - Lei do Superendividamento - Altera o CDC para incluir proteção ao consumidor superendividado
+- Código Civil - Lei nº 10.406/2002 - Artigo 206, § 5º, I estabelece prazo de prescrição de 5 anos para dívidas
 
 ### Jurisprudência e Súmulas do STJ
 
-- [Súmula 323/STJ - Prazo máximo de 5 anos em cadastros](https://www.stj.jus.br/publicacoes/sumulas) - Estabelece que registros podem permanecer por até 5 anos independentemente da prescrição da execução
-- [Súmula 385/STJ - Dano moral e registros preexistentes](https://www.stj.jus.br/publicacoes/sumulas) - Não cabe dano moral quando há registro legítimo preexistente, salvo direito ao cancelamento
-- [Súmula 548/STJ - Exclusão em 5 dias após pagamento](https://www.stj.jus.br/publicacoes/sumulas) - Credor deve excluir registro em 5 dias úteis após pagamento integral da dívida
-- [Súmula 359/STJ - Notificação prévia obrigatória](https://www.stj.jus.br/publicacoes/sumulas) - Órgão mantenedor deve notificar devedor antes da inscrição
-- [Súmula 404/STJ - Dispensa do AR na notificação](https://www.stj.jus.br/publicacoes/sumulas) - Não é necessário aviso de recebimento na carta de comunicação ao consumidor
-- [Tema Repetitivo 59/STJ - Notificação prévia CDC](https://www.stj.jus.br/publicacoes/temas-repetitivos) - Consolidou entendimento sobre necessidade de comprovação de recebimento da notificação
-- [Tema Repetitivo 735/STJ - Exclusão após pagamento](https://www.stj.jus.br/publicacoes/temas-repetitivos) - Reforça Súmula 548 sobre exclusão em 5 dias úteis
-- [Tema Repetitivo 922/STJ - Aplicação da Súmula 385 ao SCR](https://www.stj.jus.br/publicacoes/temas-repetitivos) - Estende súmula 385 ao Sistema de Informações de Crédito do Banco Central
-- [Tema Repetitivo 1315/STJ (2025) - Notificação eletrônica](https://www.stj.jus.br/publicacoes/temas-repetitivos) - Discussão sobre validade de notificação por meios eletrônicos
+- Súmula 323/STJ - Prazo máximo de 5 anos em cadastros - Estabelece que registros podem permanecer por até 5 anos independentemente da prescrição da execução
+- Súmula 385/STJ - Dano moral e registros preexistentes - Não cabe dano moral quando há registro legítimo preexistente, salvo direito ao cancelamento
+- Súmula 548/STJ - Exclusão em 5 dias após pagamento - Credor deve excluir registro em 5 dias úteis após pagamento integral da dívida
+- Súmula 359/STJ - Notificação prévia obrigatória - Órgão mantenedor deve notificar devedor antes da inscrição
+- Súmula 404/STJ - Dispensa do AR na notificação - Não é necessário aviso de recebimento na carta de comunicação ao consumidor
+- Tema Repetitivo 59/STJ - Notificação prévia CDC - Consolidou entendimento sobre necessidade de comprovação de recebimento da notificação
+- Tema Repetitivo 735/STJ - Exclusão após pagamento - Reforça Súmula 548 sobre exclusão em 5 dias úteis
+- Tema Repetitivo 922/STJ - Aplicação da Súmula 385 ao SCR - Estende súmula 385 ao Sistema de Informações de Crédito do Banco Central
+- Tema Repetitivo 1315/STJ (2025) - Notificação eletrônica - Discussão sobre validade de notificação por meios eletrônicos
 
 ### Tribunais de Justiça e Jurisprudência
 
-- [TJDFT - Jurisprudência em Temas: Cadastro de Inadimplentes](https://www.tjdft.jus.br/consultas/jurisprudencia/jurisprudencia-em-temas/dano-moral-no-tjdft/cadastro-de-inadimplentes) - Decisões sobre manutenção indevida de inscrição, jurisprudência local do Distrito Federal
-- [TJDFT - Decisão sobre "Serasa Limpa Nome" (2024)](https://www.tjdft.jus.br) - Esclarece que registro em "Serasa Limpa Nome" não configura negativação quando restrito a credor e devedor
-- [TJSP - Jurisprudência sobre Negativação Indevida](https://www.tjsp.jus.br) - Decisões e precedentes do Tribunal de Justiça de São Paulo
+- TJDFT - Jurisprudência em Temas: Cadastro de Inadimplentes - Decisões sobre manutenção indevida de inscrição, jurisprudência local do Distrito Federal
+- TJDFT - Decisão sobre "plataforma de negociacao de dividas" (2024) - Esclarece que registro em "plataforma de negociacao de dividas" não configura negativação quando restrito a credor e devedor
+- tribunal - Jurisprudência sobre Negativação Indevida - Decisões e precedentes do Tribunal de Justiça de São Paulo
 
 ### Guias e Artigos Jurídicos
 
-- [Projuris - Negativação Indevida: O que é e como evitar](https://www.projuris.com.br/blog/negativacao-indevida/) - Artigo completo sobre Artigo 43 §2º do CDC, Súmula 323 do STJ e requisitos de notificação prévia
-- [ADVBOX - Modelo de Ação de Negativação Indevida](https://advbox.com.br/blog/modelos/acao-de-negativacao-indevida/) - Modelo completo de petição para ações de negativação indevida com comentários
-- [SolucioneAqui - Guia Completo: Limpar Nome com Liminar Judicial](https://www.solucioneaqui.app/blog/limpar-nome-rapidamente-liminar-judicial-guia-completo) - Guia prático sobre uso de liminares para limpeza rápida de nome
-- [Barbieri Advogados - Artigo sobre Súmula 548/STJ](https://www.barbieriadvogados.com.br) - Análise detalhada da súmula 548 e aplicação prática no Registrato do Banco Central
-- [Migalhas - Jurisprudência sobre SCR e Cadastros de Proteção](https://www.migalhas.com.br) - Artigos sobre aplicação de súmulas a sistemas de proteção ao crédito
-- [Conjur - Análises sobre Negativação Indevida](https://www.conjur.com.br) - Artigos doutrinários e análises de jurisprudência sobre direitos do consumidor
-- [ModeloInicial.com.br - Direito do Consumidor](https://modeloinicial.com.br/materia/direito-consumidor-cobranca-dividas-forma-indevida) - Modelos de petições e orientações práticas
+- Projuris - Negativação Indevida: O que é e como evitar - Artigo completo sobre Artigo 43 §2º do CDC, Súmula 323 do STJ e requisitos de notificação prévia
+- ADVBOX - Modelo de Ação de Negativação Indevida - Modelo completo de petição para ações de negativação indevida com comentários
+- SolucioneAqui - Guia Completo: Limpar Nome com Liminar Judicial - Guia prático sobre uso de liminares para limpeza rápida de nome
+- Barbieri Advogados - Artigo sobre Súmula 548/STJ - Análise detalhada da súmula 548 e aplicação prática no Registrato do Banco Central
+- Migalhas - Jurisprudência sobre SCR e Cadastros de Proteção - Artigos sobre aplicação de súmulas a sistemas de proteção ao crédito
+- Conjur - Análises sobre Negativação Indevida - Artigos doutrinários e análises de jurisprudência sobre direitos do consumidor
+- ModeloInicial.com.br - Direito do Consumidor - Modelos de petições e orientações práticas
 
 ### Órgãos de Proteção ao Crédito
 
-- [Serasa - Central de Atendimento](https://www.serasa.com.br) - Consulta gratuita de CPF, contestação de registros, informações sobre limpeza de nome
-- [SPC Brasil - Serviços de Proteção ao Crédito](https://www.spcbrasil.org.br) - Consulta de cadastro negativo, orientações sobre direitos do consumidor
-- [Boa Vista - Serviços de Proteção ao Crédito](https://www.boavistaservicos.com.br) - SCPC, consulta de CPF, informações sobre registros
+- bureau de credito - Central de Atendimento - Consulta gratuita de CPF, contestação de registros, informações sobre limpeza de nome
+- servico de protecao ao credito - Serviços de Proteção ao Crédito - Consulta de cadastro negativo, orientações sobre direitos do consumidor
+- cadastro de protecao ao credito - Serviços de Proteção ao Crédito - cadastro de protecao ao credito, consulta de CPF, informações sobre registros
 
 ### PROCON e Defesa do Consumidor
 
-- [PROCON Nacional - Disque Consumidor](https://www.gov.br/procon) - Canal oficial de denúncias e orientações sobre direitos do consumidor
-- [PROCONs Estaduais - Lista de Contatos](https://www.gov.br) - Links para PROCONs de todos os estados brasileiros
+- PROCON Nacional - Disque Consumidor - Canal oficial de denúncias e orientações sobre direitos do consumidor
+- PROCONs Estaduais - Lista de Contatos - Links para PROCONs de todos os estados brasileiros
 
 ### Estatísticas e Dados de Mercado
 
-- [Serasa Experian - Indicadores de Inadimplência (2024-2025)](https://www.serasaexperian.com.br) - Dados atualizados sobre número de consumidores negativados no Brasil
-- [SCPC - Estatísticas de Mercado](https://www.boavistaservicos.com.br) - Informações sobre tendências de mercado de proteção ao crédito
+- bureau de credito - Indicadores de Inadimplência (2024-2025) - Dados atualizados sobre número de consumidores negativados no Brasil
+- cadastro de protecao ao credito - Estatísticas de Mercado - Informações sobre tendências de mercado de proteção ao crédito
 
 ### Modelos de Documentos e Petições
 
-- [Advogado do Rio de Janeiro - Modelo PDF: Negativação Indevida com Tutela Antecipada](https://www.advogadoriodejaneiro.com.br/wp-content/uploads/2024/03/modelo-peticao-negativacao-indevida-com-tutela-antecipada.pdf) - Modelo completo de petição com estrutura conforme NCPC, fundamentos para tutela antecipada (art. 300)
-- [Migalhas - Modelo de Petição Inicial: Negativação Indevida](https://www.migalhas.com.br/arquivos/2023/08/15/modelo-peticao-negativacao-indevida.pdf) - Modelo de petição inicial para ação de indenização por danos morais
-- [ModeloSimples.com.br - Petição com Tutela Antecipada](https://www.modelosimples.com.br/downloads/peticao-negativacao-indevida-tutela-antecipada.pdf) - Modelo editável em PDF com pedido de tutela de urgência
-- [Jusbrasil - Modelos de Peças: Negativação Indevida](https://www.jusbrasil.com.br/modelos-pecas/modelo-peticao-inicial-negativacao-indevida-tutela-urgencia) - Modelos de petições com acesso premium, estruturados conforme NCPC
+- Advogado do Rio de Janeiro - Modelo PDF: Negativação Indevida com Tutela Antecipada - Modelo completo de petição com estrutura conforme NCPC, fundamentos para tutela antecipada (art. 300)
+- Migalhas - Modelo de Petição Inicial: Negativação Indevida - Modelo de petição inicial para ação de indenização por danos morais
+- ModeloSimples.com.br - Petição com Tutela Antecipada - Modelo editável em PDF com pedido de tutela de urgência
+- Jusbrasil - Modelos de Peças: Negativação Indevida - Modelos de petições com acesso premium, estruturados conforme NCPC
 
 ### Proteção de Dados e Legislação Correlata
 
-- [LGPD - Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018)](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm) - Impacto no compartilhamento de dados entre empresas e direito à eliminação de dados
-- [Marco Civil da Internet (Lei nº 12.965/2014)](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2014/lei/l12965.htm) - Regulamenta uso da internet no Brasil, impacta notificações eletrônicas
-- [Registrato do Banco Central](https://www.bcb.gov.br/cidadania/registrato) - Sistema de informações do Banco Central para consulta centralizada de dívidas bancárias
+- LGPD - Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018) - Impacto no compartilhamento de dados entre empresas e direito à eliminação de dados
+- Marco Civil da Internet (Lei nº 12.965/2014) - Regulamenta uso da internet no Brasil, impacta notificações eletrônicas
+- Registrato do Banco Central - Sistema de informações do Banco Central para consulta centralizada de dívidas bancárias
 
 ### Recursos Educativos
 
-- [Serasa Experian - Pequenas Causas Online](https://www.serasaexperian.com.br/conteudos/pequenas-causas-online-2/) - Informações sobre como acessar Juizado Especial Cível online sem advogado
-- [Projuris - Artigos 70 a 76 do Novo CPC](https://www.projuris.com.br/novo-cpc/art-70-a-76-do-novo-cpc/) - Explicação sobre capacidade processual e representação no novo Código de Processo Civil
+- bureau de credito - Pequenas Causas Online - Informações sobre como acessar Juizado Especial Cível online sem advogado
+- Projuris - Artigos 70 a 76 do Novo CPC - Explicação sobre capacidade processual e representação no novo Código de Processo Civil

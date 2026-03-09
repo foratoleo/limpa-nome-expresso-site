@@ -11,7 +11,7 @@ interface ContactFormData {
 }
 
 // Email configuration
-const CONTACT_EMAIL = "limpanome@f2w2.com.br";
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "suporte@cpfblindado.com";
 
 contactRouter.post("/send", async (req, res) => {
   try {
@@ -40,7 +40,7 @@ contactRouter.post("/send", async (req, res) => {
       const emailContent = {
         to: CONTACT_EMAIL,
         from: email,
-        subject: `[Limpa Nome Expresso] ${subject} - ${name}`,
+        subject: `[CPF Blindado] ${subject} - ${name}`,
         body: `
 Nome: ${name}
 Email: ${email}

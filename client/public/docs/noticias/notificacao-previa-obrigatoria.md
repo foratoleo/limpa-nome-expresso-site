@@ -25,13 +25,13 @@ O Superior Tribunal de Justiça foi além da literalidade do CDC e consolidou o 
 
 > "Cabe ao órgão mantenedor do cadastro de proteção ao crédito a notificação do devedor antes de proceder à inscrição." — Súmula 359, STJ
 
-A súmula deixa claro dois pontos importantes: primeiro, a notificação é obrigatória e sua ausência pode tornar a negativação indevida. Segundo, a responsabilidade formal pela notificação recai sobre o **órgão mantenedor do cadastro** (Serasa, SPC/CNDL, Boa Vista), e não diretamente sobre o credor.
+A súmula deixa claro dois pontos importantes: primeiro, a notificação é obrigatória e sua ausência pode tornar a negativação indevida. Segundo, a responsabilidade formal pela notificação recai sobre o **órgão mantenedor do cadastro** (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito), e não diretamente sobre o credor.
 
 Isso não significa, porém, que o credor está isento de responsabilidade. Na prática, o credor é quem solicita a inscrição e fornece os dados ao órgão de proteção ao crédito. Se os dados estão errados ou se a negativação é indevida, a responsabilidade retorna ao credor.
 
 ## Quem É Responsável pela Notificação
 
-A Súmula 359 atribui ao órgão mantenedor do cadastro a responsabilidade formal de enviar a notificação. Na prática, Serasa e SPC contam com sistemas automatizados que enviam comunicações aos consumidores quando uma solicitação de inclusão é realizada.
+A Súmula 359 atribui ao órgão mantenedor do cadastro a responsabilidade formal de enviar a notificação. Na prática, bureau de credito e servico de protecao ao credito contam com sistemas automatizados que enviam comunicações aos consumidores quando uma solicitação de inclusão é realizada.
 
 O processo típico funciona assim:
 

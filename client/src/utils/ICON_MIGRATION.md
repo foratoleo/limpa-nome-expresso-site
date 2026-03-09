@@ -1,6 +1,6 @@
 # Icon System Migration Guide
 
-This document describes the icon mapping between `lucide-react` and `@atlaskit/icon` for the Limpa Nome Expresso project.
+This document describes the icon mapping between `lucide-react` and `@atlaskit/icon` for the CPF Blindado project.
 
 ## Overview
 

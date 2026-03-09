@@ -6,9 +6,9 @@
 
 ## Overview
 
-Este documento analisa os procedimentos jurídicos para limpeza de nome nos estados de Minas Gerais (MG), Rio de Janeiro (RJ) e Espírito Santo (ES), com foco em suas particularidades regionais, sistemas eletrônicos específicos e diferenças procedimentais em relação ao Tribunal de Justiça de São Paulo (TJSP).
+Este documento analisa os procedimentos jurídicos para limpeza de nome nos estados de Minas Gerais (MG), Rio de Janeiro (RJ) e Espírito Santo (ES), com foco em suas particularidades regionais, sistemas eletrônicos específicos e diferenças procedimentais em relação ao Tribunal de Justiça de São Paulo (tribunal).
 
-Os três estados analisados utilizam sistemas de processo eletrônico distintos e apresentam particularidades em seus Juizados Especiais Cíveis (JEC) que impactam diretamente a forma como ações de negativação indevida são propostas e processadas. Compreender essas diferenças é fundamental para a expansão eficiente do projeto Limpa Nome Expresso para além de São Paulo.
+Os três estados analisados utilizam sistemas de processo eletrônico distintos e apresentam particularidades em seus Juizados Especiais Cíveis (JEC) que impactam diretamente a forma como ações de negativação indevida são propostas e processadas. Compreender essas diferenças é fundamental para a expansão eficiente do projeto CPF Blindado para além de São Paulo.
 
 A pesquisa revelou que embora a base legal seja comum (Lei 9.099/95, Código de Defesa do Consumidor, Código de Processo Civil), cada tribunal possui suas próprias regras procedimentais, sistemas de peticionamento eletrônico e particularidades jurisprudenciais que devem ser consideradas.
 
@@ -111,7 +111,7 @@ O artigo 300 do Código de Processo Civil estabelece os requisitos para concess�
 
 Em casos de negativação indevida, os juízes geralmente concedem liminar para:
 
-- Remoção imediata do nome dos cadastros de inadimplentes (Serasa, SPC, SCPC)
+- Remoção imediata do nome dos cadastros de inadimplentes (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito)
 - Abstenção de novas inclusões durante o processo
 - Manutenção do status during o processo
 
@@ -715,7 +715,7 @@ em face de [nome do réu], pessoa jurídica de direito privado, inscrita no CNPJ
 
 2. Ocorreu que [descrever o que aconteceu: cobrança indevida, dívida já paga, dívida prescrita, etc.];
 
-3. Em data de [data], o autor teve seu nome incluído indevidamente nos cadastros de proteção ao crédito (Serasa, SPC, SCPC), conforme comprovantes anexos;
+3. Em data de [data], o autor teve seu nome incluído indevidamente nos cadastros de proteção ao crédito (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito), conforme comprovantes anexos;
 
 4. A inclusão é indevida porque [explicar os motivos: dívida já paga, inexistente, prescrita, serviço não realizado, etc.];
 
@@ -772,26 +772,26 @@ Dá-se à causa o valor de R$ [valor] para fins de alçada.
 1. **Documento de identificação do autor** (RG, CNH)
 2. **CPF**
 3. **Comprovante de residência**
-4. **Comprovantes da negativação** (print dos sites de Serasa, SPC, SCPC)
+4. **Comprovantes da negativação** (print dos sites de bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito)
 5. **Documentos que comprovam a indevidade** (comprovantes de pagamento, contratos, etc.)
 6. **Prova de tentativa de resolução extrajudicial** (e-mails, protocolos de contato)
 7. **Procuração** (se representado por advogado)
 8. **Documentos do réu** (CNPJ, endereço)
 
-## Diferenças em Relação ao TJSP
+## Diferenças em Relação ao tribunal
 
 ### Sistemas de Peticionamento
 
 | Estado | Sistema | Diferença Principal |
 |--------|---------|---------------------|
-| São Paulo (TJSP) | e-SAJ | Sistema próprio, maduro e estável |
+| São Paulo (tribunal) | sistema judicial | Sistema próprio, maduro e estável |
 | Minas Gerais (TJMG) | Projudi/PJe | Sistema próprio em migração para PJe |
 | Rio de Janeiro (TJRJ) | PJe | Sistema CNJ, mais recente |
 | Espírito Santo (TJES) | e-JEC | Sistema específico para Juizados |
 
 ### Balcão Virtual
 
-- **TJSP**: Balcão Virtual bem estruturado, integrado com e-SAJ
+- **tribunal**: Balcão Virtual bem estruturado, integrado com sistema judicial
 - **TJRJ**: Balcão Virtual TJRJ com aplicativo móvel próprio
 - **TJMG**: Acesso via Projudi/PJe
 - **TJES**: Acesso via e-JEC e portal do tribunal
@@ -800,7 +800,7 @@ Dá-se à causa o valor de R$ [valor] para fins de alçada.
 
 Embora a base legal seja comum, cada tribunal possui particularidades jurisprudenciais:
 
-- **TJSP**: Extensa jurisprudência, precedentes em todos os tipos de casos
+- **tribunal**: Extensa jurisprudência, precedentes em todos os tipos de casos
 - **TJRJ**: Súmula 89 própria sobre negativação indevida
 - **TJMG**: Jurisprudência consolidada sobre dano moral puro
 - **TJES**: Segue linha nacional, com menos precedentes específicos
@@ -890,7 +890,7 @@ Cada tribunal possui regras próprias sobre:
 
 ### Adaptação de Modelos e Procedimentos
 
-Para expansão do projeto Limpa Nome Expresso para MG, RJ e ES, é necessário:
+Para expansão do projeto CPF Blindado para MG, RJ e ES, é necessário:
 
 1. **Adaptar Modelos de Petições**
    - Endereçamento correto para cada estado
@@ -948,13 +948,13 @@ Considerando as particularidades de cada estado:
 
 ## Sources
 
-- [ADVBOX - Modelo de ação de negativação indevida](https://advbox.com.br/blog/modelos/acao-de-negativacao-indevida/) - Template completo para ação de negativação indevida em Juizado Especial Cível
-- [Petições Online - Ação de negativação indevida dano moral](https://www.peticoesonline.com.br/peticao-negativacao-indevida-dano-moral) - Modelo de petição com informações sobre jurisprudência
-- [TJDFT - Artigo 43 do CDC](https://www.tjdft.jus.br/institucional/imprensa/artigos/codigo-de-defesa-do-consumidor-artigo-43) - Informações sobre o artigo 43 do CDC e prazo de 5 anos
-- [Migalhas Legal - Publicações sobre CDC](https://www.migalhas.com.br/) - Artigos e publicações sobre direito do consumidor
-- [Projuris Blog - Negativação indevida](https://www.projuris.com.br/blog/) - Conteúdo sobre negativação indevida e jurisprudência
-- [Serasa Experian - Juizados Especiais](https://www.serasa.com.br/) - Informações sobre Juizados Especiais e valores de alçada
-- [Portal do TJMG](https://www.tjmg.jus.br/) - Site oficial do Tribunal de Justiça de Minas Gerais
-- [Portal do TJRJ](https://www.tjrj.jus.br/) - Site oficial do Tribunal de Justiça do Rio de Janeiro
-- [Portal do TJES](https://www.tjes.jus.br/) - Site oficial do Tribunal de Justiça do Espírito Santo
-- [CNJ - Processo Judicial Eletrônico](https://www.cnj.jus.br/sistema-processo-judicial-eletronico-pje/) - Informações sobre o sistema PJe
+- ADVBOX - Modelo de ação de negativação indevida - Template completo para ação de negativação indevida em Juizado Especial Cível
+- Petições Online - Ação de negativação indevida dano moral - Modelo de petição com informações sobre jurisprudência
+- TJDFT - Artigo 43 do CDC - Informações sobre o artigo 43 do CDC e prazo de 5 anos
+- Migalhas Legal - Publicações sobre CDC - Artigos e publicações sobre direito do consumidor
+- Projuris Blog - Negativação indevida - Conteúdo sobre negativação indevida e jurisprudência
+- bureau de credito - Juizados Especiais - Informações sobre Juizados Especiais e valores de alçada
+- Portal do TJMG - Site oficial do Tribunal de Justiça de Minas Gerais
+- Portal do TJRJ - Site oficial do Tribunal de Justiça do Rio de Janeiro
+- Portal do TJES - Site oficial do Tribunal de Justiça do Espírito Santo
+- CNJ - Processo Judicial Eletrônico - Informações sobre o sistema PJe

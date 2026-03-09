@@ -6,6 +6,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { createSingleItemPreference } from "@/lib/api/mercadopago";
 import { MERCADOPAGO_SPECIAL_ADVISORY_PRODUCT } from "@/lib/mercadopago-config";
 import { SpecialAdvisoryNavCta } from "@/components/SpecialAdvisoryNavCta";
+import { SiteHeader } from "@/components/SiteHeader";
 
 const PROCESS_STEPS = [
   {
@@ -81,45 +82,26 @@ export default function SpecialAdvisory() {
       className="min-h-screen flex flex-col"
       style={{ backgroundColor: "#12110d", fontFamily: "'Public Sans', sans-serif" }}
     >
-      <header
-        className="sticky top-0 z-50 backdrop-blur-[6px] border-b"
-        style={{
-          backgroundColor: "rgba(18, 17, 13, 0.5)",
-          borderColor: "rgba(211, 158, 23, 0.2)",
-        }}
-      >
-        <Container as="div" maxWidth="xl" className="flex items-center justify-between py-4">
-          <div className="flex items-center gap-8">
-            <a href="/guia" className="flex items-center gap-3">
-              <div className="w-8 h-8 flex items-center justify-center">
-                <svg width="27" height="29" viewBox="0 0 27 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M13.5 0L26.5 8V21L13.5 29L0.5 21V8L13.5 0Z" fill="#d39e17" />
-                  <path d="M13.5 6L20 10V19L13.5 23L7 19V10L13.5 6Z" fill="#12110d" />
-                </svg>
-              </div>
-              <h2 className="text-xl font-bold" style={{ color: "#f1f5f9", letterSpacing: "-0.3px" }}>
-                Limpa Nome <span style={{ color: "#d39e17" }}>Expresso</span>
-              </h2>
-            </a>
-            <nav className="hidden md:flex items-center gap-6">
-              <a href="/processo" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Meu Processo</a>
-              <a href="/documentos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Documentos</a>
-              <a href="/modelos" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Modelos</a>
-              <a href="/downloads" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Downloads</a>
-              <a href="/suporte" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Suporte</a>
-              <a href="/noticias" className="text-sm font-medium hover:text-[#d39e17] transition-colors" style={{ color: "#cbd5e1" }}>Noticias</a>
-              <SpecialAdvisoryNavCta active />
-            </nav>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <div className="md:hidden">
-              <SpecialAdvisoryNavCta shortLabel />
-            </div>
+      <SiteHeader
+        logoHref="/guia"
+        navItems={[
+          { href: "/processo", label: "Meu Processo" },
+          { href: "/documentos", label: "Documentos" },
+          { href: "/modelos", label: "Modelos" },
+          { href: "/downloads", label: "Downloads" },
+          { href: "/suporte", label: "Suporte" },
+          { href: "/noticias", label: "Noticias" },
+        ]}
+        desktopNavTrailing={<SpecialAdvisoryNavCta active />}
+        desktopRightContent={<UserProfile onOpenAuth={() => setIsAuthModalOpen(true)} />}
+        mobileTopActions={
+          <>
+            <SpecialAdvisoryNavCta active shortLabel />
             <UserProfile onOpenAuth={() => setIsAuthModalOpen(true)} />
-          </div>
-        </Container>
-      </header>
+          </>
+        }
+        mobileDrawerContent={<SpecialAdvisoryNavCta active />}
+      />
 
       <AuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
 
@@ -144,7 +126,7 @@ export default function SpecialAdvisory() {
               </h1>
               <p className="text-base md:text-lg max-w-3xl" style={{ color: "#cbd5e1" }}>
                 Esta modalidade é para quem quer resultado com mínimo esforço operacional. Você fornece as informações e
-                a equipe da Limpa Nome Expresso assume a execução completa da estratégia.
+                a equipe do CPF Blindado assume a execução completa da estratégia.
               </p>
               <a
                 href="#checkout-assessoria"

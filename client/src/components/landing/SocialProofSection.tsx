@@ -23,7 +23,7 @@ const stats: StatItem[] = [
 
 const trustBadges: TrustBadge[] = [
   { text: "Baseado no CDC - Art. 43, § 2º" },
-  { text: "Aprovado pelo TJSP" },
+  { text: "Aprovado pelo tribunal" },
   { text: "Sem advogado necessário" },
   { text: "Processo 100% online" },
 ];

@@ -4,7 +4,7 @@ import { WarningIcon } from "@/utils/icons";
 const painPoints = [
   {
     id: 1,
-    text: "Nome sujo no Serasa/SPC sem ter sido notificado",
+    text: "Restrição no CPF sem notificação prévia",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const painPoints = [
   },
   {
     id: 4,
-    text: "Cobranças abusivas de empresas de \"limpa nome\"",
+    text: "Cobranças abusivas e ameaças de cobrança",
   },
 ];
 

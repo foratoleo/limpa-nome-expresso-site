@@ -1,3 +1,5 @@
+import { useIsMobile } from "@/hooks/useMobile";
+
 interface PhaseTrailProps {
   currentPhase?: number;
 }
@@ -43,6 +45,74 @@ const phaseIcons: Record<string, React.ReactNode> = {
 };
 
 export function PhaseTrail({ currentPhase = 1 }: PhaseTrailProps) {
+  const isMobile = useIsMobile();
+
+  if (isMobile) {
+    return (
+      <div className="space-y-4">
+        <div
+          className="flex items-center justify-between rounded-2xl border px-4 py-3"
+          style={{
+            backgroundColor: "rgba(18, 17, 13, 0.45)",
+            borderColor: "rgba(211, 158, 23, 0.15)",
+          }}
+        >
+          <span className="text-sm font-medium" style={{ color: "#94a3b8" }}>
+            Etapa atual
+          </span>
+          <span className="text-sm font-semibold" style={{ color: "#d39e17" }}>
+            Fase {currentPhase} de {phases.length}
+          </span>
+        </div>
+
+        <div className="space-y-3">
+          {phases.map((phase) => {
+            const isActive = phase.number <= currentPhase;
+            const isCurrent = phase.number === currentPhase;
+
+            return (
+              <div
+                key={phase.number}
+                className="flex items-center gap-3 rounded-2xl border px-4 py-3"
+                style={{
+                  backgroundColor: isCurrent
+                    ? "rgba(211, 158, 23, 0.12)"
+                    : "rgba(18, 17, 13, 0.35)",
+                  borderColor: isCurrent
+                    ? "rgba(211, 158, 23, 0.45)"
+                    : "rgba(211, 158, 23, 0.15)",
+                }}
+              >
+                <div
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border text-sm font-bold"
+                  style={{
+                    backgroundColor: isActive ? phase.color : "rgba(22, 40, 71, 0.95)",
+                    borderColor: phase.color,
+                    color: isActive ? "#12110d" : "#64748b",
+                  }}
+                >
+                  {phase.number < currentPhase ? "✓" : phase.number}
+                </div>
+
+                <div className="min-w-0 flex-1">
+                  <p
+                    className="text-sm font-semibold"
+                    style={{ color: isActive ? "#f1f5f9" : "#94a3b8" }}
+                  >
+                    {phase.title}
+                  </p>
+                  <p className="text-xs" style={{ color: isCurrent ? "#d39e17" : "#64748b" }}>
+                    {isCurrent ? "Em andamento" : isActive ? "Concluida" : "Pendente"}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="w-full overflow-x-auto pb-4">
       <div className="min-w-[800px] px-4">

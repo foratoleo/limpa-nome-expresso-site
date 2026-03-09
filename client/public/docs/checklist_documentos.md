@@ -1,4 +1,4 @@
-# CHECKLIST COMPLETO — LIMPA NOME EXPRESSO
+# CHECKLIST COMPLETO — CPF BLINDADO
 ## Documentos e Ações para Limpeza de Nome no JEC de São Paulo (2026)
 
 ---
@@ -11,13 +11,13 @@
 - [ ] Comprovante de residência dos últimos 3 meses em seu nome (conta de água, luz, telefone ou correspondência dos Correios)
 
 ### Prova da Negativação
-- [ ] Relatório completo do Serasa (acesse: serasa.com.br — gratuito)
-- [ ] Relatório do SPC Brasil (acesse: spcbrasil.org.br — gratuito)
-- [ ] Relatório do Boa Vista SCPC (acesse: consumidorpositivo.com.br — gratuito)
+- [ ] Relatório completo do bureau de credito (acesse: bureau de credito.com.br — gratuito)
+- [ ] Relatório do servico de protecao ao credito (acesse: servico de protecao ao creditobrasil.org.br — gratuito)
+- [ ] Relatório do cadastro de protecao ao credito (acesse: consumidorpositivo.com.br — gratuito)
 - [ ] O documento deve mostrar: nome da empresa credora, valor da dívida e data de inclusão
 
 ### Prova Negativa Digital (CRUCIAL em 2026)
-- [ ] Print da **caixa de entrada** do e-mail — com busca por "Serasa", "SPC", "notificação", "comunicado" e o nome da empresa credora
+- [ ] Print da **caixa de entrada** do e-mail — com busca por "bureau de credito", "servico de protecao ao credito", "notificação", "comunicado" e o nome da empresa credora
 - [ ] Print da pasta **spam/lixo eletrônico** do e-mail — mesma busca
 - [ ] Print do **histórico de SMS** do celular — mostrando ausência de mensagens da empresa ou dos órgãos de proteção ao crédito
 - [ ] **Dica:** os prints devem mostrar a barra de busca com os termos pesquisados, comprovando que não há resultados
@@ -44,20 +44,20 @@
 
 ---
 
-## PASSO 3 — PROTOCOLO NO e-SAJ (TJSP)
+## PASSO 3 — PROTOCOLO NO sistema judicial (tribunal)
 
-**Link:** https://www.tjsp.jus.br/peticionamentojec
+**Link:** 
 
-- [ ] Acessar o sistema e-SAJ com certificado digital (ou comparecer presencialmente ao fórum)
+- [ ] Acessar o sistema sistema judicial com certificado digital (ou comparecer presencialmente ao fórum)
 - [ ] Iniciar novo processo
 - [ ] Preencher os campos obrigatórios:
   - **Competência:** Juizado Especial Cível
   - **Classe:** 436 — Procedimento do Juizado Especial Cível
-  - **Assunto Principal:** Serasa ou SCPC
+  - **Assunto Principal:** bureau de credito ou cadastro de protecao ao credito
 - [ ] Cadastrar as partes:
   - **Autor:** seus dados
   - **Réu 1:** nome e CNPJ da empresa credora
-  - **Réu 2:** Serasa S.A. — CNPJ 00.204.698/0001-46 (ou SPC/Boa Vista)
+  - **Réu 2:** bureau de credito S.A. — CNPJ 00.204.698/0001-46 (ou servico de protecao ao credito/cadastro de protecao ao credito)
 - [ ] Marcar a opção **"Pedido Liminar / Tutela Antecipada"**
 - [ ] Anexar a petição em PDF
 - [ ] Anexar cada documento em PDF separado e identificado
@@ -67,7 +67,7 @@
 
 ## PASSO 4 — BALCÃO VIRTUAL
 
-**Link:** https://www.tjsp.jus.br/balcaovirtual | Horário: Seg–Sex, 9h–17h
+**Link:**  | Horário: Seg–Sex, 9h–17h
 
 - [ ] Baixar o roteiro: **roteiro_balcao_virtual.md** (disponível neste site)
 - [ ] Preencher o roteiro com seus dados antes de ligar
@@ -81,11 +81,11 @@
 
 ## PASSO 5 — ACOMPANHAMENTO
 
-**Consulta processual:** https://esaj.tjsp.jus.br/cpopg/open.do
+**Consulta processual:** 
 
 - [ ] Monitorar o processo diariamente
 - [ ] Se liminar concedida: aguardar 5 dias úteis para a exclusão
-- [ ] Verificar o nome no Serasa/SPC após o prazo
+- [ ] Verificar o nome no bureau de credito/servico de protecao ao credito após o prazo
 - [ ] Se não cumprido: peticionar informando o descumprimento e solicitando a aplicação da multa diária
 
 ---
@@ -103,4 +103,4 @@
 
 ---
 
-*Checklist elaborado para o Juizado Especial Cível de São Paulo (TJSP), sistema e-SAJ. Fevereiro de 2026.*
+*Checklist elaborado para o Juizado Especial Cível de São Paulo (tribunal), sistema sistema judicial. Fevereiro de 2026.*

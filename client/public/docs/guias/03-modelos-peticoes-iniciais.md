@@ -5,7 +5,7 @@
 
 ## Overview
 
-Este documento apresenta modelos completos e atualizados de petições iniciais para ações de limpeza de nome, focando em negativações indevidas em órgãos de proteção ao crédito (Serasa, SPC, Boa Vista). Os modelos aqui apresentados consideram as particularidades do Juizado Especial Cível (JEC), a jurisprudência atual do STJ, e as melhores práticas para petições em 2024-2025.
+Este documento apresenta modelos completos e atualizados de petições iniciais para ações de limpeza de nome, focando em negativações indevidas em órgãos de proteção ao crédito (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito). Os modelos aqui apresentados consideram as particularidades do Juizado Especial Cível (JEC), a jurisprudência atual do STJ, e as melhores práticas para petições em 2024-2025.
 
 As petições iniciais para limpeza de nome são instrumentos jurídicos essenciais para proteger a honra, o crédito e a reputação do consumidor contra inscrições injustas em cadastros de inadimplentes. Este guia abrange desde modelos básicos para JEC até petições completas com tutela antecipada, incluindo os fundamentos legais do Art. 43 do CDC e variações para diferentes cenários.
 
@@ -84,7 +84,7 @@ de fato e direito que passa a aduzir.
 DOS FATOS
 
 1. Em [DATA], o AUTOR foi surpreendido com a informação de que seu nome
-estava negativado junto ao SERASA/SPC pela empresa RÉ, conforme extrato
+estava negativado junto ao bureau de credito/servico de protecao ao credito pela empresa RÉ, conforme extrato
 em anexo (doc. 01).
 
 2. A negativação refere-se a suposta dívida de [VALOR], oriunda de
@@ -194,7 +194,7 @@ Para casos em que o consumidor possui múltiplas negativações indevidas, a pet
 DOS FATOS
 
 1. O Autor tomou conhecimento em [DATA] que seu nome estava negativado
-junto aos órgãos de proteção ao crédito, conforme consulta ao Serasa
+junto aos órgãos de proteção ao crédito, conforme consulta ao bureau de credito
 (doc. 01).
 
 2. Foram identificadas as seguintes negativações indevidas:
@@ -297,7 +297,7 @@ a) A suspensão imediata de quaisquer cobranças realizadas pela Ré em
 face do Autor, referentes à dívida objeto desta ação;
 
 b) A exclusão do nome do Autor dos órgãos de proteção ao crédito
-(SERASA, SPC, BOA VISTA), no prazo máximo de 48 (quarenta e oito) horas,
+(bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito), no prazo máximo de 48 (quarenta e oito) horas,
 com cópia da decisão enviada a todos os birôs de crédito;
 
 c) A abstenção de realizar novas negativações ou protestos enquanto
@@ -368,7 +368,7 @@ Toda petição inicial deve ser acompanhada dos seguintes documentos:
 
 ### Documentos que Comprovam a Negativação
 
-1. Certidão negativa ou extrato do Serasa/SPC/Boa Vista atualizado
+1. Certidão negativa ou extrato do bureau de credito/servico de protecao ao credito/cadastro de protecao ao credito atualizado
 2. Prints dos sites de consulta ao CPF
 3. Certidões de protesto (se houver)
 
@@ -475,7 +475,7 @@ Cada estado brasileiro possui um sistema eletrônico para peticionamento no JEC:
 3. **Dano moral presumido:** A jurisprudência entende que a negativação indevida configura dano moral in re ipsa, dispensando prova específica do abalo.
 4. **Súmula 385 do STJ:** Se já existe negativação legítima anterior, nova inscrição indevida pode não gerar indenização por danos morais.
 5. **Valores de indenização:** Variam de R$ 3.000,00 a R$ 20.000,00 conforme as circunstâncias, com média de R$ 5.000,00 para casos simples.
-6. **Documentos essenciais:** Extrato do Serasa/SPC atualizado, comprovantes de pagamento (se houver), e documentos pessoais são obrigatórios.
+6. **Documentos essenciais:** Extrato do bureau de credito/servico de protecao ao credito atualizado, comprovantes de pagamento (se houver), e documentos pessoais são obrigatórios.
 7. **Prazo de 5 anos:** Negativações não podem permanecer por mais de 5 anos nos cadastros (Art. 43, § 4º do CDC).
 8. **Tutela antecipada:** Em casos urgentes, é possível pedir exclusão imediata do nome em 48 horas com multa diária.
 9. **Sistemas online:** Todos os estados possuem sistemas eletrônicos (PJe ou Projudi) para ajuizamento de ações no JEC.
@@ -483,9 +483,9 @@ Cada estado brasileiro possui um sistema eletrônico para peticionamento no JEC:
 
 ## Sources
 
-- [ADVBOX - Modelo de Ação de Negativação Indevida](https://advbox.com.br/blog/modelos/acao-de-negativacao-indevida/) - Modelo completo de petição com análise dos tipos de negativação indevida e jurisprudência
-- [Petições Online - Ação de Negativação Indevida Dano Moral](https://www.peticoesonline.com.br/peticao-negativacao-indevida-dano-moral) - Modelo de petição inicial com tutela antecipada para JEC
-- [Jusbrasil - Modelo Ação de Danos Morais por Negativação Indevida](https://www.jusbrasil.com.br/modelos-pecas/modelo-acao-de-danos-morais-por-negativacao-indevida/1237026858) - Modelo detalhado com jurisprudência atualizada
-- [Serasa Experian - Ações de Pequenas Causas Online](https://www.serasaexperian.com.br/conteudos/pequenas-causas-online-2/) - Guia completo sobre ajuizamento de ações no JEC, incluindo modelo básico de petição
-- [Modelo Inicial - Artigo 43 CDC](https://modeloinicial.com.br/lei/CDC/codigo-defesa-consumidor/art-43) - Explicação detalhada do Art. 43 do CDC e jurisprudência do STJ
-- [Jurídico AI - Negativação Indevida Guia para Advogados](https://juridico.ai/direito-civil/negativacao-indevida-guia-advogados/) - Guia prático com competência, réus possíveis e caracterização de danos morais
+- ADVBOX - Modelo de Ação de Negativação Indevida - Modelo completo de petição com análise dos tipos de negativação indevida e jurisprudência
+- Petições Online - Ação de Negativação Indevida Dano Moral - Modelo de petição inicial com tutela antecipada para JEC
+- Jusbrasil - Modelo Ação de Danos Morais por Negativação Indevida - Modelo detalhado com jurisprudência atualizada
+- bureau de credito - Ações de Pequenas Causas Online - Guia completo sobre ajuizamento de ações no JEC, incluindo modelo básico de petição
+- Modelo Inicial - Artigo 43 CDC - Explicação detalhada do Art. 43 do CDC e jurisprudência do STJ
+- Jurídico AI - Negativação Indevida Guia para Advogados - Guia prático com competência, réus possíveis e caracterização de danos morais

@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import { useIsMobile } from "@/hooks/useMobile";
+
 const COLORS = {
   background: "#12110d",
   navy: "#162847",
@@ -20,6 +22,7 @@ export function HeroSection() {
   const [phraseIndex, setPhraseIndex] = React.useState(0);
   const [typedPhrase, setTypedPhrase] = React.useState("");
   const [isDeleting, setIsDeleting] = React.useState(false);
+  const isMobile = useIsMobile();
 
   React.useEffect(() => {
     const currentPhrase = ROTATING_HEADLINE_PHRASES[phraseIndex];
@@ -109,7 +112,7 @@ export function HeroSection() {
                 borderRadius: "20px",
               }}
             >
-              TJSP - e-SAJ
+              tribunal - sistema judicial
             </span>
           </div>
 
@@ -119,9 +122,11 @@ export function HeroSection() {
             <span style={{ color: COLORS.gold }}>15 dias</span>{" "}
             <span
               style={{
-                display: "inline-block",
-                minWidth: `${maxPhraseLength}ch`,
+                display: isMobile ? "block" : "inline-block",
+                minWidth: isMobile ? undefined : `${maxPhraseLength}ch`,
                 color: COLORS.textPrimary,
+                marginTop: isMobile ? "0.15em" : undefined,
+                overflowWrap: "anywhere",
               }}
             >
               {typedPhrase}
@@ -149,9 +154,9 @@ export function HeroSection() {
                 }}
               >
                 Recupere seu nome com estratégia certa: mostramos como
-                contestar negativação indevida no SPC/Serasa usando base legal
-                e roteiro pronto. Tudo de forma simples, 100% online e sem
-                depender de empresas de "limpa nome".
+                contestar negativação indevida usando base legal e roteiro
+                pronto. Tudo de forma simples, 100% online e sem atalhos
+                arriscados.
               </p>
               <div
                 style={{

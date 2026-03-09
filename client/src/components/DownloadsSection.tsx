@@ -27,7 +27,7 @@ const DEFAULT_DOCS: DownloadDoc[] = [
   {
     icon: <span style={{ color: "#60a5fa" }}><ScalesIcon size="medium" label="" /></span>,
     title: "Petição Inicial Pré-Preenchida",
-    description: "Modelo completo para o JEC de São Paulo - sistema e-SAJ TJSP",
+    description: "Modelo completo para o JEC de São Paulo - sistema sistema judicial tribunal",
     file: "/docs/peticao_inicial_jec_sp.md",
     badge: "Passo 2",
     badgeColor: "#60a5fa",

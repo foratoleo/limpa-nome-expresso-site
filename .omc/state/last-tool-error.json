@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"ACCESS_TOKEN=\\\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdG9yZV9hcGlfaW50ZWdyYXRpb25faWQiOiIyMWYzYjdjNC0yNzM0LTQ0ZDUtOTkyMy03ZGUwODQ4NTU4YmIiLCJzdG9yZV9pZCI6IlFWZnZhVTdkaHdCQ2g1WCIsImludGVn...",
+  "error": "Exit code 5\njq: parse error: Invalid numeric literal at line 1, column 10\n\njq: parse error: Invalid numeric literal at line 1, column 10",
+  "timestamp": "2026-03-09T21:47:15.824Z",
+  "retry_count": 1
+}

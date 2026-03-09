@@ -24,18 +24,18 @@ export function ProcessList() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h3 className="font-semibold" style={{ color: "#f1f5f9" }}>
             Processos Juridicos
           </h3>
           <p className="text-sm" style={{ color: "#94a3b8" }}>
-            Acompanhe seus processos no TJSP
+            Acompanhe seus processos no sistema judicial
           </p>
         </div>
         <button
           onClick={() => setShowEditor(true)}
-          className="flex items-center gap-2 px-4 py-2 rounded-xl font-semibold transition-colors"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-xl px-4 py-2 font-semibold transition-colors sm:w-auto"
           style={{
             backgroundColor: "#d39e17",
             color: "#12110d",
@@ -99,7 +99,7 @@ export function ProcessList() {
         </div>
       )}
 
-      {/* External Link */}
+      {/* Internal Link */}
       <div
         className="rounded-xl border p-4"
         style={{
@@ -107,18 +107,13 @@ export function ProcessList() {
           borderColor: "rgba(96, 165, 250, 0.3)",
         }}
       >
-        <a
-          href="https://esaj.tjsp.jus.br/cpopg/open.do"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-between"
-        >
+        <a href="/processo" className="flex items-center justify-between">
           <div>
             <h4 className="font-medium" style={{ color: "#60a5fa" }}>
-              Consultar Processos no e-SAJ
+              Consultar Andamento do Processo
             </h4>
             <p className="text-sm" style={{ color: "#94a3b8" }}>
-              Acesse o sistema oficial do TJSP
+              Acompanhe o status direto na plataforma
             </p>
           </div>
           <span style={{ color: "#60a5fa" }}>→</span>

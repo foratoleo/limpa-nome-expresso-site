@@ -15,7 +15,7 @@ Você fez um esforço para quitar a dívida, pagou o que devia e aguardou o nome
 
 O artigo 43, §3º do Código de Defesa do Consumidor estabelece que o consumidor tem o direito de exigir a imediata correção das informações inexatas constantes nos cadastros de proteção ao crédito. A jurisprudência consolidou esse direito em um prazo específico:
 
-Após a realização do pagamento ou a celebração de acordo com quitação, a empresa credora tem **5 dias úteis** para solicitar ao órgão de proteção ao crédito (Serasa, SPC, Boa Vista) a exclusão da negativação. Esse prazo é amplamente reconhecido pelos tribunais brasileiros como o limite razoável para a baixa da restrição.
+Após a realização do pagamento ou a celebração de acordo com quitação, a empresa credora tem **5 dias úteis** para solicitar ao órgão de proteção ao crédito (bureau de credito, servico de protecao ao credito, cadastro de protecao ao credito) a exclusão da negativação. Esse prazo é amplamente reconhecido pelos tribunais brasileiros como o limite razoável para a baixa da restrição.
 
 Após o décimo dia útil do pagamento sem que a negativação tenha sido retirada, a situação se transforma juridicamente: o consumidor que quitou sua dívida e continua negativado não é mais um devedor — é uma vítima de manutenção indevida de restrição de crédito.
 
@@ -31,7 +31,7 @@ Mas no momento em que o pagamento é realizado e o prazo de 5 dias úteis transc
 
 A demora na baixa da negativação após o pagamento não é sempre intencional — mas também não é, na visão do Judiciário, uma desculpa aceitável.
 
-**Problemas sistêmicos:** muitas empresas, especialmente grandes credores como bancos e financeiras, operam com sistemas de cobrança e sistemas de crédito que não se comunicam em tempo real. O pagamento é registrado em um sistema, mas a solicitação de baixa ao SPC/Serasa é feita por outro processo, com delay.
+**Problemas sistêmicos:** muitas empresas, especialmente grandes credores como bancos e financeiras, operam com sistemas de cobrança e sistemas de crédito que não se comunicam em tempo real. O pagamento é registrado em um sistema, mas a solicitação de baixa ao servico de protecao ao credito/bureau de credito é feita por outro processo, com delay.
 
 **Terceirização:** quando a cobrança foi terceirizada para uma empresa de recuperação de crédito, pode haver demora na comunicação entre a cobradora e o credor original, atrasando a solicitação de baixa.
 

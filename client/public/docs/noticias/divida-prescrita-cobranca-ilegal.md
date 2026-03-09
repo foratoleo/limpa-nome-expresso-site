@@ -33,7 +33,7 @@ Essa decisão representa uma virada significativa na proteção do consumidor. A
 
 A prescrição da dívida não elimina automaticamente uma eventual negativação já existente. O que o ordenamento jurídico estabelece é um prazo máximo de permanência nos cadastros de inadimplentes: **5 anos a partir da data do fato gerador** (geralmente o vencimento do débito), conforme o artigo 43, §1º do CDC.
 
-Isso significa que, independentemente de a dívida estar prescrita ou não, o nome do consumidor deve ser retirado dos cadastros negativos após 5 anos do vencimento. A empresa é obrigada a promover essa exclusão, ou o próprio órgão mantenedor do cadastro (Serasa, SPC) deve fazê-la automaticamente.
+Isso significa que, independentemente de a dívida estar prescrita ou não, o nome do consumidor deve ser retirado dos cadastros negativos após 5 anos do vencimento. A empresa é obrigada a promover essa exclusão, ou o próprio órgão mantenedor do cadastro (bureau de credito, servico de protecao ao credito) deve fazê-la automaticamente.
 
 Se a empresa mantém a negativação após esse prazo, a situação se transforma: o que era uma negativação legítima vencida passa a ser uma **negativação indevida**, gerando direito a indenização por dano moral.
 
@@ -45,7 +45,7 @@ Os valores fixados pelos tribunais nesses casos costumam variar entre R$ 3.000 e
 
 ## A Atualização de 2024: Plataformas de Negociação e Dívidas Prescritas
 
-Em 2024, o STJ foi chamado a se pronunciar sobre uma situação específica: seria permitido incluir o nome do devedor em plataformas de negociação de dívidas (como o Serasa Limpa Nome) mesmo quando a dívida já estava prescrita?
+Em 2024, o STJ foi chamado a se pronunciar sobre uma situação específica: seria permitido incluir o nome do devedor em plataformas de negociação de dívidas (como o plataforma de negociacao de dividas) mesmo quando a dívida já estava prescrita?
 
 O tribunal entendeu que a inclusão do devedor nessas plataformas, sem cobrança ativa, poderia ser admitida em certas circunstâncias — mas com limitações importantes. A cobrança ativa, a pressão e a ameaça continuam proibidas. A linha entre "informação sobre débito" e "cobrança abusiva" é tênue, e o consumidor que se sentir coagido por essas plataformas pode buscar a tutela judicial.
 

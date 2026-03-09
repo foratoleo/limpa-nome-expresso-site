@@ -50,7 +50,7 @@ interface ContactFormPayload {
   message: string;
 }
 
-const CONTACT_EMAIL = 'limpanome@f2w2.com.br';
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'suporte@cpfblindado.com';
 
 function jsonResponse(
   headers: Record<string, string>,
@@ -118,7 +118,7 @@ function getSiteOrigin(event: NetlifyEvent): string {
     return `${proto}://${host}`.replace(/\/$/, '');
   }
 
-  return process.env.PUBLIC_SITE_URL || 'https://limpa-nome-expresso-site.netlify.app';
+  return process.env.PUBLIC_SITE_URL || 'https://cpfblindado.com';
 }
 
 function getErrorMessage(payload: unknown): string {
@@ -167,7 +167,7 @@ function buildConfirmationEmailHtml(email: string, actionLink: string): string {
     </head>
     <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 620px; margin: 0 auto; padding: 20px;">
       <h1 style="color: #d39e17; margin-bottom: 12px;">Confirme seu e-mail</h1>
-      <p style="margin: 0 0 12px;">Obrigado por criar sua conta no Limpa Nome Expresso.</p>
+      <p style="margin: 0 0 12px;">Obrigado por criar sua conta no CPF Blindado.</p>
       <p style="margin: 0 0 24px;">Para ativar seu acesso, confirme o e-mail <strong>${email}</strong>.</p>
       <div style="text-align: center; margin: 20px 0 28px;">
         <a href="${actionLink}" style="background: #d39e17; color: #12110d; padding: 12px 24px; text-decoration: none; border-radius: 8px; display: inline-block; font-weight: 700;">
@@ -211,7 +211,7 @@ function buildContactEmailHtml(payload: ContactFormPayload): string {
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Novo contato - Limpa Nome Expresso</title>
+      <title>Novo contato - CPF Blindado</title>
     </head>
     <body style="margin:0;padding:0;background:#f5f7fb;font-family:Arial,sans-serif;color:#111827;">
       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="padding:24px;">
@@ -221,7 +221,7 @@ function buildContactEmailHtml(payload: ContactFormPayload): string {
               <tr>
                 <td style="background:#12110d;padding:20px 24px;">
                   <h1 style="margin:0;font-size:20px;line-height:1.3;color:#f9fafb;">Nova mensagem de suporte</h1>
-                  <p style="margin:8px 0 0;color:#d1d5db;font-size:13px;">Limpa Nome Expresso</p>
+                  <p style="margin:8px 0 0;color:#d1d5db;font-size:13px;">CPF Blindado</p>
                 </td>
               </tr>
               <tr>
@@ -265,7 +265,7 @@ function buildContactEmailText(payload: ContactFormPayload): string {
   const submittedAt = new Date().toISOString();
 
   return `
-Novo contato - Limpa Nome Expresso
+Novo contato - CPF Blindado
 
 Nome: ${payload.name}
 Email: ${payload.email}
@@ -297,7 +297,7 @@ async function sendContactWithEmailIt(payload: ContactFormPayload): Promise<void
       from: emailItFrom,
       to: [CONTACT_EMAIL],
       reply_to: `${payload.name} <${payload.email}>`,
-      subject: `[Limpa Nome Expresso] ${subjectLabel} - ${payload.name}`,
+      subject: `[CPF Blindado] ${subjectLabel} - ${payload.name}`,
       html: buildContactEmailHtml(payload),
       text: buildContactEmailText(payload),
       tags: ['contact-form', 'support'],
@@ -425,7 +425,7 @@ async function sendWithEmailIt(email: string, actionLink: string): Promise<boole
     body: JSON.stringify({
       from: emailItFrom,
       to: [email],
-      subject: 'Confirme seu e-mail - Limpa Nome Expresso',
+      subject: 'Confirme seu e-mail - CPF Blindado',
       html: buildConfirmationEmailHtml(email, actionLink),
       text: `Confirme seu e-mail: ${actionLink}`,
       tags: ['auth', 'signup', 'confirmation'],
@@ -1434,7 +1434,7 @@ export const handler = async (event: any, context: any) => {
       body: JSON.stringify({
         status: 'ok',
         timestamp: new Date().toISOString(),
-        service: 'limpa-nome-expresso-site-api',
+        service: 'cpf-blindado-api',
       }),
     };
   }

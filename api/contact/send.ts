@@ -8,7 +8,7 @@ interface ContactFormData {
 }
 
 // Email configuration
-const CONTACT_EMAIL = "limpanome@f2w2.com.br";
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "suporte@cpfblindado.com";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Enable CORS
@@ -60,7 +60,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const emailContent = {
       to: CONTACT_EMAIL,
       from: email,
-      subject: `[Limpa Nome Expresso] ${subjectLabel} - ${name}`,
+      subject: `[CPF Blindado] ${subjectLabel} - ${name}`,
       body: `
 Nome: ${name}
 Email: ${email}
@@ -79,7 +79,7 @@ ${message}
     // const { Resend } = await import('resend');
     // const resend = new Resend(process.env.RESEND_API_KEY);
     // await resend.emails.send({
-    //   from: 'contato@limpanomeexpresso.com.br',
+    //   from: 'contato@cpfblindado.com',
     //   to: CONTACT_EMAIL,
     //   subject: emailContent.subject,
     //   text: emailContent.body,

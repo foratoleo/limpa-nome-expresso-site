@@ -101,7 +101,7 @@ export function ProcessEditor({ processId, onClose }: ProcessEditorProps) {
             }}
           />
           <p className="text-xs mt-1" style={{ color: "#64748b" }}>
-            Encontre o numero na consulta do e-SAJ
+            Encontre o numero na consulta do sistema judicial
           </p>
         </div>
 
