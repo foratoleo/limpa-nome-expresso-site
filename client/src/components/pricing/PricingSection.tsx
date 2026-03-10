@@ -1,3 +1,4 @@
+import { Lock, ShieldCheck, BadgeCheck, CreditCard, MessageCircle } from 'lucide-react';
 import { PricingCard } from './PricingCard';
 
 export function PricingSection() {
@@ -23,11 +24,25 @@ export function PricingSection() {
           <p className="text-sm" style={{ color: '#64748b' }}>
             Pagamento processado com segurança pelo Stripe. Cancele quando quiser, sem multas.
           </p>
-          <div className="flex items-center justify-center gap-4 mt-4">
-            <span className="text-xs" style={{ color: '#64748b' }}>
-              Garantia de 7 dias ou seu dinheiro de volta
+          <div className="flex flex-wrap items-center justify-center gap-4 mt-4">
+            <span className="flex items-center gap-1 text-xs" style={{ color: '#64748b' }}>
+              <Lock size={14} aria-hidden="true" />
+              SSL Seguro
             </span>
-            <span className="text-xs" style={{ color: '#64748b' }}>
+            <span className="flex items-center gap-1 text-xs" style={{ color: '#64748b' }}>
+              <ShieldCheck size={14} aria-hidden="true" />
+              LGPD
+            </span>
+            <span className="flex items-center gap-1 text-xs" style={{ color: '#64748b' }}>
+              <BadgeCheck size={14} aria-hidden="true" />
+              7 dias de garantia
+            </span>
+            <span className="flex items-center gap-1 text-xs" style={{ color: '#64748b' }}>
+              <CreditCard size={14} aria-hidden="true" />
+              Stripe
+            </span>
+            <span className="flex items-center gap-1 text-xs" style={{ color: '#64748b' }}>
+              <MessageCircle size={14} aria-hidden="true" />
               Suporte via WhatsApp
             </span>
           </div>

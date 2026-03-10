@@ -11,6 +11,7 @@ import {
   HowItWorksSection,
   SocialProofSection,
   LegalBasisSection,
+  TrustSealsSection,
   FAQSection,
   CTASection,
 } from "@/components/landing";
@@ -127,6 +128,7 @@ export default function Landing() {
         <SocialProofSection />
         <LegalBasisSection />
         <PricingSection />
+        <TrustSealsSection />
         <FAQSection />
         <CTASection onOpenAuth={() => setIsAuthModalOpen(true)} />
       </main>
