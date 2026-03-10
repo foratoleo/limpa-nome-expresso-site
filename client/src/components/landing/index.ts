@@ -6,3 +6,4 @@ export { SocialProofSection } from "./SocialProofSection";
 export { LegalBasisSection } from "./LegalBasisSection";
 export { FAQSection } from "./FAQSection";
 export { CTASection } from "./CTASection";
+export { TrustSealsSection } from "./TrustSealsSection";
